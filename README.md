@@ -18,7 +18,7 @@ Update Foreman with the new gems:
 
 # Configuration
 
-There is no configuration at this time.
+There is UI no configuration at this time.
 
 # Usage
 
@@ -33,10 +33,14 @@ any changes made.
 No OS associations are made by default when the templates are created, but on
 subsequent updates the existing associations will be preserved
 
+# Rake options
+
+* verbose => Print extra information during the run
+* repo => Sync templates from a different Git repo
+
 # TODO
 
 * Allow user to filter to a specific subset of templates
-* Make choice of git repo configurable
 * Make "Community" prefix configurable
 * Add a button to the UI with Deface to run the rake task
 
