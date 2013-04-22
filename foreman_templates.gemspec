@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
   s.summary = %q{Template-syncing engine for Foreman}
 
   s.add_dependency "rails", "~> 3.2.13"
+  s.add_dependency "open4"
 
 end
