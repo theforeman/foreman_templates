@@ -18,17 +18,9 @@ namespace :templates do
     dir     = Dir.mktmpdir
     command = "git clone #{repo} #{dir}"
 
-    begin
-      status = Open4::popen4("#{command}") do |pid, stdin, stdout, stderr|
-        puts "pid        : #{ pid }" if verbose
-        puts "stdout     : #{ stdout.read.strip }" if verbose
-        puts "stderr     : #{ stderr.read.strip }" if verbose
-      end
-    rescue Exception => e
-      e.message
-      e.backtrace
-    end
-
+    status = `command`
+    puts "#{status}" if verbose
+    
     TemplateKind.all.each do |kind|
       Dir["#{dir}/**/#{kind.name}.erb"].each do |template|
         os      = File.expand_path('../..',template).split('/').last.capitalize
