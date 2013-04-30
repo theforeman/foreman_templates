@@ -10,7 +10,7 @@ namespace :templates do
     #   * repo    => the git repo to sync from (full URL)
     #   * verbose => print extra stuff
 
-    verbose = true if ENV['verbose'] and ENV['verbose'] != 'false'
+    verbose = ( ENV['verbose'] and ENV['verbose'] != 'false' ) ? true : false
     repo   = ENV['repo'] if ENV['repo']
     repo ||= "https://github.com/theforeman/community-templates.git"
 
