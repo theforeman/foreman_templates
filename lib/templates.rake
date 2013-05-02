@@ -18,9 +18,9 @@ namespace :templates do
     dir     = Dir.mktmpdir
     command = "git clone #{repo} #{dir}"
 
-    status = `command`
+    status = `#{command}`
     puts "#{status}" if verbose
-    
+
     TemplateKind.all.each do |kind|
       Dir["#{dir}/**/#{kind.name}.erb"].each do |template|
         os      = File.expand_path('../..',template).split('/').last.capitalize
