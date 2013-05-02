@@ -30,18 +30,40 @@ This will create a set of templates named "Community ...." (or update them if th
 already exist). Audit history is preserved, but no comment is currently added for
 any changes made.
 
-No OS associations are made by default when the templates are created, but on
-subsequent updates the existing associations will be preserved
+The importer will attempt to figure out the OS and Release the template refers to. If
+this is a new template being created, and we can find a matching OS in Foreman, the
+template will be automatically associated with the OS
 
 # Rake options
 
-* verbose => Print extra information during the run
-* repo => Sync templates from a different Git repo
+* verbose => Print extra information during the run [false]
+* repo    => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
+* prefix  => The string all imported templates should begin with [Community]
+* dirname => The directory within the git tree containing the templates [/]
+* filter  => Import names matching this regex (case-insensitive; snippets are not filtered)
+
+# Examples
+
+Just import all the templates in from the default repo
+
+    rake templates:sync
+
+Import all templates from a custom repo, with a different prefix
+
+    rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" prefix="Greg"
+
+Import templates matching the name "Fedora"
+
+    rake templates:sync filter='fedora'
+
+Import templates from a subsection of a git repo:
+
+    rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" dirname='/subdir'
 
 # TODO
 
 * Allow user to filter to a specific subset of templates
-* Make "Community" prefix configurable
+* Add associations by template family
 * Add a button to the UI with Deface to run the rake task
 
 # Copyright
