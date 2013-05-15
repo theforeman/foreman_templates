@@ -9,6 +9,12 @@ Foreman instance
 Require the gem in Foreman, `bundler.d/Gemfile.local.rb`:
 
 ```yaml
+gem 'foreman_templates'
+```
+
+Or, for the very latest code:
+
+```yaml
 gem 'foreman_templates', :git => "https://github.com/GregSutcliffe/foreman_templates.git"
 ```
 
