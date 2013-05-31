@@ -9,19 +9,21 @@ namespace :templates do
     # Available options:
     #* verbose => Print extra information during the run [false]
     #* repo    => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
+    #* branch  => Branch in Git repo [default branch]
     #* prefix  => The string all imported templates should begin with [Community]
     #* dirname => The directory within the git tree containing the templates [/]
     #* filter  => Import names matching this regex (case-insensitive; snippets are not filtered)
 
     verbose = ( ENV['verbose'] and ENV['verbose'] != 'false' ) ? true : false
     repo    = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
+    branch  = ENV['branch'] ? "-b #{ENV['branch']}" : ""
     prefix  = ENV['prefix'] ? ENV['prefix'] : 'Community'
     dirname = ENV['dirname'] ? ENV['dirname'] : '/'
     filter  = ENV['filter'] ? ENV['filter'] : nil
 
     # Check out the community templates to a temp location
     dir     = Dir.mktmpdir
-    command = "git clone #{repo} #{dir}"
+    command = "git clone #{branch} #{repo} #{dir}"
 
     status = `#{command}`
     puts "#{status}" if verbose
