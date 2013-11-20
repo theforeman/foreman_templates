@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files            = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
-  s.homepage         = %q{http://github.com/GregSutcliffe/foreman_templates}
+  s.homepage         = %q{http://github.com/theforeman/foreman_templates}
   s.licenses         = ["GPL-3"]
   s.summary          = %q{Template-syncing engine for Foreman}
 
