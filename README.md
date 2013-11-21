@@ -9,6 +9,10 @@ of your choice) to your local Foreman instance
 See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
 for how to install Foreman plugins
 
+The gem name is "foreman_templates".
+
+RPM users can install the "ruby193-rubygem-foreman_templates" or "rubygem-foreman_templates" packages.
+
 ## Latest code
 
 You can get the develop branch of the plugin by specifying your Gemfile in this way:
