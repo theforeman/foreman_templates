@@ -10,8 +10,8 @@ end
 
 def metadata(text)
   # Pull out the first erb comment only - /m is for a multiline regex
-  extracted = text.match(/<%\#(.+?)%>/m)[1]
-  extracted == "" ? {} : YAML.load(extracted)
+  extracted = text.match(/<%\#(.+?)%>/m)
+  extracted == nil ? {} : YAML.load(extracted[1])
 end
 
 def map_oses
