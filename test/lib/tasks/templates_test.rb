@@ -6,8 +6,7 @@ class PluginTemplateTest < ActiveSupport::TestCase
   setup do
     # Checkout the plugin tests as a source of templates
     # Caveat: changes to /test/templates will need to be committed for tests to work
-    #ENV['repo']    = 'https://github.com/GregSutcliffe/foreman_templates.git'
-    ENV['repo']    = '/home/greg/github/foreman_templates'
+    ENV['repo']    = 'https://github.com/theforeman/foreman_templates.git'
     ENV['prefix']  = 'FooBar'
     ENV['dirname'] = '/test/templates'
     ENV['verbose'] = 'false'
