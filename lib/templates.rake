@@ -192,6 +192,8 @@ Rake::Task[:test].enhance do
   Rake::Task['test:templates'].invoke
 end
 load 'tasks/jenkins.rake'
-Rake::Task["jenkins:unit"].enhance do
-  Rake::Task['test:templates'].invoke
+if Rake::Task.task_defined?('jenkins:unit')
+  Rake::Task["jenkins:unit"].enhance do
+    Rake::Task['test:templates'].invoke
+  end
 end
