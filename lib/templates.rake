@@ -134,6 +134,8 @@ namespace :templates do
       # Build a list of ERB files to parse
       Dir["#{dir}#{dirname}/**/*.erb"].each do |template|
         @text = File.read(template)
+        puts "Parsing: " + template.gsub(/#{dir}#{dirname}/,'') if @verbose
+
         @metadata = metadata(@text)
 
         # Get the name and filter
@@ -142,8 +144,6 @@ namespace :templates do
         @name    = @metadata ['name'] || title
         @name    = [prefix, @name].compact.join(' ')
         next if filter and not @name.match(/#{filter}/i)
-
-        puts "Parsing: " + template.gsub(/#{dir}#{dirname}/,'') if @verbose
 
         unless @metadata['kind']
           puts "  Error: Must specify template kind"
