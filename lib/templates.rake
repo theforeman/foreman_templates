@@ -142,7 +142,7 @@ namespace :templates do
         filename = template.split('/').last
         title    = filename.split('.').first
         @name    = @metadata ['name'] || title
-        @name    = [prefix, @name].compact.join(' ')
+        @name    = [prefix, @name].compact.join()
         next if filter and not @name.match(/#{filter}/i)
 
         unless @metadata['kind']
