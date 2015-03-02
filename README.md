@@ -39,12 +39,13 @@ template will be automatically associated with the OS
 
 # Rake options
 
-* verbose => Print extra information during the run [false]
-* repo    => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
-* branch  => Branch in Git repo [_see note below_]
-* prefix  => The string all imported templates should begin with [Community]
-* dirname => The directory within the git tree containing the templates [/]
-* filter  => Import names matching this regex (case-insensitive; snippets are not filtered)
+* verbose   => Print extra information during the run [false]
+* repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
+* branch    => Branch in Git repo [_see note below_]
+* prefix    => The string all imported templates should begin with [Community]
+* dirname   => The directory within the git tree containing the templates [/]
+* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
+* associate => Associate to OS, "always", when "new" or "never"  [new]
 
 The `branch` default will use *develop* if you're on Foreman-nightly; or the
 matching *1.X-stable* branch for your version of Foreman (if it exists); or
