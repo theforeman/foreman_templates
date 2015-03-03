@@ -37,24 +37,27 @@ def update_template
     :snippet          => false,
     :template_kind_id => kind.id
   }
+  string = db_template.new_record? ? "Created" : "Updated"
 
   oses = map_oses
-  if db_template.new_record?
+  if (@associate == 'new' and db_template.new_record?) or (@associate == 'always')
     data[:operatingsystem_ids] = oses.map(&:id)
-    string = "Created"
-  else
-    string = "Updated"
   end
 
-  if @text == db_template.template
-    diff    = nil
-    status  = true
-    result  = "  No change to Template #{ ( 'id' + db_template.id ) rescue ''}:#{@name}"
-  else
+  if @text != db_template.template
     diff    = Diffy::Diff.new(db_template.template, @text, :include_diff_info => true).to_s(:color)
     status  = db_template.update_attributes(data)
     result  = "  #{string} Template #{ 'id' + db_template.id rescue ''}:#{@name}"
     result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" if !oses.empty?
+  elsif data[:operatingsystem_ids]
+    diff    = nil
+    status  = db_template.update_attributes(data)
+    result  = "  #{string} Template Associations #{ 'id' + db_template.id rescue ''}:#{@name}"
+    result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" if !oses.empty?
+  else
+    diff    = nil
+    status  = true
+    result  = "  No change to Template #{ ( 'id' + db_template.id ) rescue ''}:#{@name}"
   end
   { :diff => diff, :status => status, :result => result }
 end
@@ -62,23 +65,26 @@ end
 def update_ptable
   db_ptable = Ptable.find_or_initialize_by_name(@name)
   data = { :layout => @text }
+  string = db_ptable.new_record? ? "Created" : "Updated"
 
   oses = map_oses
-  if db_ptable.new_record?
+  if (@associate == 'new' and db_ptable.new_record?) or (@associate == 'always')
     data[:os_family] = oses.map(&:family).uniq.first
-    string = "Created"
-  else
-    string = "Updated"
   end
 
-  if @text == db_ptable.layout
-    diff    = nil
-    status  = true
-    result  = "  No change to Ptable #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
-  else
+  if @text != db_ptable.layout
     diff    = Diffy::Diff.new(db_ptable.layout, @text, :include_diff_info => true).to_s(:color)
     status  = db_ptable.update_attributes(data)
     result  = "  #{string} Ptable #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
+  elsif data[:os_family]
+    diff    = nil
+    status  = db_ptable.update_attributes(data)
+    result  = "  #{string} Ptable Associations #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
+    result += "\n    Operatingsystem Family:\n    - #{oses.map(&:family).uniq.first}" if !oses.empty?
+  else
+    diff    = nil
+    status  = true
+    result  = "  No change to Ptable #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
   end
   { :diff => diff, :status => status, :result => result }
 end
@@ -91,14 +97,14 @@ def update_snippet
   }
   string = db_snippet.new_record? ? "Created" : "Updated"
 
-  if @text == db_snippet.template
-    diff    = nil
-    status  = true
-    result  = "  No change to Snippet #{ 'id' + db_snippet.id rescue ''}:#{@name}"
-  else
+  if @text != db_snippet.template
     diff    = Diffy::Diff.new(db_snippet.template, @text, :include_diff_info => true).to_s(:color)
     status  = db_snippet.update_attributes(data)
     result  = "  #{string} Snippet #{ ('id' + db_snippet.id) rescue ''}:#{@name}"
+  else
+    diff    = nil
+    status  = true
+    result  = "  No change to Snippet #{ 'id' + db_snippet.id rescue ''}:#{@name}"
   end
   { :diff => diff, :status => status, :result => result }
 end
@@ -109,19 +115,21 @@ END_DESC
 namespace :templates do
   task :sync => :environment do
     # Available options:
-    #* verbose => Print extra information during the run [false]
-    #* repo    => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
-    #* branch  => Branch in Git repo [default branch]
-    #* prefix  => The string all imported templates should begin with [Community]
-    #* dirname => The directory within the git tree containing the templates [/]
-    #* filter  => Import names matching this regex (case-insensitive; snippets are not filtered)
+    #* verbose   => Print extra information during the run [false]
+    #* repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
+    #* branch    => Branch in Git repo [default branch]
+    #* prefix    => The string all imported templates should begin with [Community]
+    #* dirname   => The directory within the git tree containing the templates [/]
+    #* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
+    #* associate => Associate to OS, always, new or never  [new]
 
-    @verbose = ( ENV['verbose'] and ENV['verbose'] != 'false' ) ? true : false
-    repo    = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
-    branch  = ENV['branch'] ? "-b #{ENV['branch']}" : ""
-    prefix  = ENV['prefix'] ? ENV['prefix'] : nil
-    dirname = ENV['dirname'] ? ENV['dirname'] : '/'
-    filter  = ENV['filter'] ? ENV['filter'] : nil
+    @verbose   = ( ENV['verbose'] and ENV['verbose'] != 'false' ) ? true : false
+    repo       = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
+    branch     = ENV['branch'] ? "-b #{ENV['branch']}" : ""
+    prefix     = ENV['prefix'] ? ENV['prefix'] : nil
+    dirname    = ENV['dirname'] ? ENV['dirname'] : '/'
+    filter     = ENV['filter'] ? ENV['filter'] : nil
+    @associate = ENV['associate'] ? ENV['associate'] : 'new'
 
     # Check out the community templates to a temp location
     begin
