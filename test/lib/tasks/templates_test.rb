@@ -10,6 +10,12 @@ class PluginTemplateTest < ActiveSupport::TestCase
     ENV['prefix']  = 'FooBar '
     ENV['dirname'] = '/test/templates'
     ENV['verbose'] = 'false'
+    @repo = Struct.new(:branches).new(
+      [
+        Struct.new(:name).new('0.1-stable'),
+        Struct.new(:name).new('develop')
+      ]
+    )
 
     # Load the task
     Rake.application.rake_require 'templates'
@@ -18,6 +24,23 @@ class PluginTemplateTest < ActiveSupport::TestCase
 
     # Need to be admin to create templates
     User.current = users :admin
+  end
+
+  context 'get_default_branch' do
+    test 'when on develop, returns develop' do
+      SETTINGS[:version].stubs(:tag).returns('develop')
+      assert_equal 'develop', get_default_branch(@repo)
+    end
+    test 'when branch exists, return it' do
+      SETTINGS[:version].stubs(:tag).returns('not_develop')
+      SETTINGS[:version].stubs(:short).returns('0.1')
+      assert_equal '0.1-stable', get_default_branch(@repo)
+    end
+    test 'when branch does not exist, use default branch' do
+      SETTINGS[:version].stubs(:tag).returns('not_develop')
+      SETTINGS[:version].stubs(:short).returns('0.2')
+      refute get_default_branch(@repo)
+    end
   end
 
   test 'map_oses returns OSes that are in the db' do

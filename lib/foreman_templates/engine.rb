@@ -1,4 +1,5 @@
 require 'diffy'
+require 'git'
 
 module ForemanTemplates
   #Inherit from the Rails module of the parent app (Foreman), not the plugin.

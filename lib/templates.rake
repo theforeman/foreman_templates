@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'yaml'
 require 'diffy'
+require 'git'
 
 class NoKindError < Exception ; end
 
@@ -103,6 +104,17 @@ def update_snippet
   { :diff => diff, :status => status, :result => result }
 end
 
+def get_default_branch(repo)
+  branch_names = repo.branches.map(&:name).uniq
+
+  # Always use develop on Foreman-nightly, if present, or else relevant stable branch
+  target = SETTINGS[:version].tag == 'develop' ? 'develop' : "#{SETTINGS[:version].short}-stable"
+  return target if branch_names.include?(target)
+
+  # stay on default branch as fallback
+  return nil
+end
+
 desc <<-END_DESC
 Synchronize templates from a git repo
 END_DESC
@@ -117,19 +129,18 @@ namespace :templates do
     #* filter  => Import names matching this regex (case-insensitive; snippets are not filtered)
 
     @verbose = ( ENV['verbose'] and ENV['verbose'] != 'false' ) ? true : false
-    repo    = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
-    branch  = ENV['branch'] ? "-b #{ENV['branch']}" : ""
     prefix  = ENV['prefix'] ? ENV['prefix'] : nil
     dirname = ENV['dirname'] ? ENV['dirname'] : '/'
     filter  = ENV['filter'] ? ENV['filter'] : nil
+    repo    = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
+
 
     # Check out the community templates to a temp location
     begin
       dir     = Dir.mktmpdir
-      command = "git clone #{branch} #{repo} #{dir}"
-
-      status = `#{command}`
-      puts "#{status}" if @verbose
+      gitrepo = Git.clone(repo, dir)
+      branch = ENV['branch'] ? ENV['branch'] : get_default_branch(gitrepo)
+      gitrepo.checkout(branch) if branch
 
       # Build a list of ERB files to parse
       Dir["#{dir}#{dirname}/**/*.erb"].each do |template|

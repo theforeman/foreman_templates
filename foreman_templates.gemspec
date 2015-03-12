@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
   s.summary          = %q{Template-syncing engine for Foreman}
 
   s.add_dependency "diffy"
+  s.add_dependency "git"
 
 end
