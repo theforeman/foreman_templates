@@ -7,7 +7,7 @@ class PluginTemplateTest < ActiveSupport::TestCase
     # Checkout the plugin tests as a source of templates
     # Caveat: changes to /test/templates will need to be committed for tests to work
     ENV['repo']    = 'https://github.com/theforeman/foreman_templates.git'
-    ENV['prefix']  = 'FooBar'
+    ENV['prefix']  = 'FooBar '
     ENV['dirname'] = '/test/templates'
     ENV['verbose'] = 'false'
 
@@ -17,14 +17,14 @@ class PluginTemplateTest < ActiveSupport::TestCase
     Rake::Task['templates:sync'].reenable
 
     # Need to be admin to create templates
-    User.current = User.admin
+    User.current = users :admin
   end
 
   test 'map_oses returns OSes that are in the db' do
     @metadata = {}
     @metadata['oses'] = ['centos 5.3', 'Fedora 19']
     assert_equal 1, map_oses.size
-    assert_equal Operatingsystem.find_by_fullname('centos 5.3').id, map_oses.first.id
+    assert_equal Operatingsystem.find_by_title('centos 5.3').id, map_oses.first.id
   end
 
   test 'map_oses returns an empty array for no matched OSes' do
@@ -50,7 +50,7 @@ class PluginTemplateTest < ActiveSupport::TestCase
     assert_present ct
     assert_equal File.read(get_template('metadata1.erb')), ct.template
     assert_equal 1, ct.operatingsystems.size
-    assert_equal Operatingsystem.find_by_fullname('Ubuntu 10.10').id, ct.operatingsystems.first.id
+    assert_equal Operatingsystem.find_by_title('Ubuntu 10.10').id, ct.operatingsystems.first.id
 
     # Check snippet was imported
     sp = ConfigTemplate.find_by_name('FooBar Test Snippet')
