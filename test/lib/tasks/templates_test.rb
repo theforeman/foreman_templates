@@ -6,10 +6,11 @@ class PluginTemplateTest < ActiveSupport::TestCase
   setup do
     # Checkout the plugin tests as a source of templates
     # Caveat: changes to /test/templates will need to be committed for tests to work
-    ENV['repo']    = 'https://github.com/theforeman/foreman_templates.git'
-    ENV['prefix']  = 'FooBar '
-    ENV['dirname'] = '/test/templates'
-    ENV['verbose'] = 'false'
+    ENV['repo']      = 'https://github.com/theforeman/foreman_templates.git'
+    ENV['prefix']    = 'FooBar '
+    ENV['dirname']   = '/test/templates'
+    ENV['verbose']   = 'false'
+    ENV['associate'] = 'new'
     @repo = Struct.new(:branches).new(
       [
         Struct.new(:name).new('0.1-stable'),
@@ -85,6 +86,42 @@ class PluginTemplateTest < ActiveSupport::TestCase
     assert_present pt
     assert_equal File.read(get_template('ptable1.erb')), pt.layout
     assert_equal "Debian", pt.os_family
+  end
+
+  context 'os association:' do
+    # default value of 'new' is implicitly tested by the sync task test
+    # TODO test update_ptable and update_snippet too
+    test 'when associate is never, os should be unaffected on create' do
+      # Set up the data wanted by update_template
+      @os        = FactoryGirl.create(:operatingsystem)
+      @metadata  = { 'kind' => 'provision', 'oses' => [@os.to_label] }
+      @name      = "New Name"
+      @text      = "New template data"
+      @associate = 'never'
+
+      update_template # creates new template
+
+      ct = ConfigTemplate.find_by_name(@name)
+      assert_equal [], ct.operatingsystems
+    end
+
+    test 'when associate is always, os should be updated for existing templates' do
+      # create a basic template with no OS assigned
+      @tk = FactoryGirl.create(:template_kind)
+      @os = FactoryGirl.create(:operatingsystem)
+      @ct = FactoryGirl.create(:config_template, :template_kind => @tk, :operatingsystems => [])
+
+      # Set up the data wanted by update_template
+      @metadata  = { 'kind' => @tk.name, 'oses' => [@os.to_label] }
+      @name      = @ct.name
+      @text      = "New template data"
+      @associate = 'always'
+
+      update_template # creates new template
+
+      ct = ConfigTemplate.find_by_name(@name)
+      assert_equal [@os], ct.operatingsystems
+    end
   end
 
   def get_template(name)
