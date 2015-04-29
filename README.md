@@ -6,8 +6,8 @@ of your choice) to your local Foreman instance
 
 ## Installation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
+See [Install a plugin](http://theforeman.org/manuals/latest/index.html#6.1InstallaPlugin) in the 
+Foreman documentation for how to install Foreman plugins.
 
 The gem name is "foreman_templates".
 
