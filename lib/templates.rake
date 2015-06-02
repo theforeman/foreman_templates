@@ -143,8 +143,8 @@ namespace :templates do
     repo       = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
 
     # Check out the community templates to a temp location
+    dir = Dir.mktmpdir
     begin
-      dir     = Dir.mktmpdir
       gitrepo = Git.clone(repo, dir)
       branch = ENV['branch'] ? ENV['branch'] : get_default_branch(gitrepo)
       gitrepo.checkout(branch) if branch
@@ -191,7 +191,7 @@ namespace :templates do
         end
       end
     ensure
-      FileUtils.remove_entry_secure(dir)
+      FileUtils.remove_entry_secure(dir) if File.exist?(dir)
     end
 
   end
