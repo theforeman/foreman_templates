@@ -32,7 +32,7 @@ def update_template
     raise NoKindError
   end
 
-  db_template = ConfigTemplate.find_or_initialize_by_name(@name)
+  db_template = ProvisioningTemplate.find_or_initialize_by_name(@name)
   data = {
     :template         => @text,
     :snippet          => false,
@@ -91,7 +91,7 @@ def update_ptable
 end
 
 def update_snippet
-  db_snippet = ConfigTemplate.find_or_initialize_by_name(@name)
+  db_snippet = ProvisioningTemplate.find_or_initialize_by_name(@name)
   data = {
     :template => @text,
     :snippet => true
@@ -159,7 +159,7 @@ namespace :templates do
         # Get the name and filter
         filename = template.split('/').last
         title    = filename.split('.').first
-        @name    = @metadata ['name'] || title
+        @name    = @metadata['name'] || title
         @name    = [prefix, @name].compact.join()
         next if filter and not @name.match(/#{filter}/i)
 
