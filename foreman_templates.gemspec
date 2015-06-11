@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version          = ForemanTemplates::VERSION
   s.authors          = ["Greg Sutcliffe"]
   s.email            = %q{gsutclif@redhat.com}
-  s.description      = %q{Engine to sychronise provisioning templates from GitHub}
+  s.description      = %q{Engine to synchronise provisioning templates from GitHub}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
