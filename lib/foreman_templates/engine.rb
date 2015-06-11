@@ -8,7 +8,8 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_templates do
-      end if (Rails.env == "development" or defined? Foreman::Plugin)
+        requires_foreman '>= 1.9'
+      end
     end
 
     rake_tasks do
