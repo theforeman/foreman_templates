@@ -70,14 +70,14 @@ class PluginTemplateTest < ActiveSupport::TestCase
     Rake.application.invoke_task 'templates:sync'
 
     # Check template was imported
-    ct = ConfigTemplate.find_by_name('FooBar Test Data')
+    ct = ProvisioningTemplate.find_by_name('FooBar Test Data')
     assert_present ct
     assert_equal File.read(get_template('metadata1.erb')), ct.template
     assert_equal 1, ct.operatingsystems.size
     assert_equal Operatingsystem.find_by_title('Ubuntu 10.10').id, ct.operatingsystems.first.id
 
     # Check snippet was imported
-    sp = ConfigTemplate.find_by_name('FooBar Test Snippet')
+    sp = ProvisioningTemplate.find_by_name('FooBar Test Snippet')
     assert_present sp
     assert_equal File.read(get_template('snippet1.erb')), sp.template
 
@@ -101,7 +101,7 @@ class PluginTemplateTest < ActiveSupport::TestCase
 
       update_template # creates new template
 
-      ct = ConfigTemplate.find_by_name(@name)
+      ct = ProvisioningTemplate.find_by_name(@name)
       assert_equal [], ct.operatingsystems
     end
 
@@ -109,17 +109,17 @@ class PluginTemplateTest < ActiveSupport::TestCase
       # create a basic template with no OS assigned
       @tk = FactoryGirl.create(:template_kind)
       @os = FactoryGirl.create(:operatingsystem)
-      @ct = FactoryGirl.create(:config_template, :template_kind => @tk, :operatingsystems => [])
+      @pt = FactoryGirl.create(:provisioning_template, :template_kind => @tk, :operatingsystems => [])
 
       # Set up the data wanted by update_template
       @metadata  = { 'kind' => @tk.name, 'oses' => [@os.to_label] }
-      @name      = @ct.name
+      @name      = @pt.name
       @text      = "New template data"
       @associate = 'always'
 
       update_template # creates new template
 
-      ct = ConfigTemplate.find_by_name(@name)
+      ct = ProvisioningTemplate.find_by_name(@name)
       assert_equal [@os], ct.operatingsystems
     end
   end
