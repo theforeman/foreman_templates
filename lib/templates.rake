@@ -130,14 +130,14 @@ namespace :templates do
     #* verbose   => Print extra information during the run [false]
     #* repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
     #* branch    => Branch in Git repo [default branch]
-    #* prefix    => The string all imported templates should begin with [Community]
+    #* prefix    => The string all imported templates should begin with [Community ]
     #* dirname   => The directory within the git tree containing the templates [/]
     #* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
     #* associate => Associate to OS, always, new or never  [new]
 
     @verbose   = ( ENV['verbose'] and ENV['verbose'] != 'false' ) ? true : false
     @associate = ENV['associate'] ? ENV['associate'] : 'new'
-    prefix     = ENV['prefix'] ? ENV['prefix'] : nil
+    prefix     = ENV['prefix'] ? ENV['prefix'] : 'Community '
     dirname    = ENV['dirname'] ? ENV['dirname'] : '/'
     filter     = ENV['filter'] ? ENV['filter'] : nil
     repo       = ENV['repo'] ? ENV['repo'] : "https://github.com/theforeman/community-templates.git"
