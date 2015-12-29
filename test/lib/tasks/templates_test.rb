@@ -71,19 +71,19 @@ class PluginTemplateTest < ActiveSupport::TestCase
 
     # Check template was imported
     ct = ProvisioningTemplate.find_by_name('FooBar Test Data')
-    assert_present ct
+    assert ct.present?
     assert_equal File.read(get_template('metadata1.erb')), ct.template
     assert_equal 1, ct.operatingsystems.size
     assert_equal Operatingsystem.find_by_title('Ubuntu 10.10').id, ct.operatingsystems.first.id
 
     # Check snippet was imported
     sp = ProvisioningTemplate.find_by_name('FooBar Test Snippet')
-    assert_present sp
+    assert sp.present?
     assert_equal File.read(get_template('snippet1.erb')), sp.template
 
     # Check ptable was imported
     pt = Ptable.find_by_name('FooBar Test Ptable')
-    assert_present pt
+    assert pt.present?
     assert_equal File.read(get_template('ptable1.erb')), pt.layout
     assert_equal "Debian", pt.os_family
   end
