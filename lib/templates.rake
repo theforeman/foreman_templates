@@ -32,7 +32,7 @@ def update_template
     raise NoKindError
   end
 
-  db_template = ProvisioningTemplate.find_or_initialize_by_name(@name)
+  db_template = ProvisioningTemplate.where(name: @name).first_or_initialize
   data = {
     :template         => @text,
     :snippet          => false,
@@ -64,7 +64,7 @@ def update_template
 end
 
 def update_ptable
-  db_ptable = Ptable.find_or_initialize_by_name(@name)
+  db_ptable = Ptable.where(name: @name).first_or_initialize
   data = { :layout => @text }
   string = db_ptable.new_record? ? "Created" : "Updated"
 
@@ -91,7 +91,7 @@ def update_ptable
 end
 
 def update_snippet
-  db_snippet = ProvisioningTemplate.find_or_initialize_by_name(@name)
+  db_snippet = ProvisioningTemplate.where(name: @name).first_or_initialize
   data = {
     :template => @text,
     :snippet => true
