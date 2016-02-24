@@ -9,6 +9,10 @@ def db_oses
   @db_oses || Operatingsystem.all
 end
 
+def db_groups(metagroups)
+  @db_groups = Hostgroup.where(title: metagroups)
+end
+
 def metadata(text)
   # Pull out the first erb comment only - /m is for a multiline regex
   extracted = text.match(/<%\#(.+?).-?%>/m)
@@ -26,20 +30,35 @@ def map_oses
   return oses
 end
 
+def map_groups
+  groups = if @metadata['groups']
+         mgroups = @metadata['groups']
+         metanoenv = mgroups.map{ |m| m = m.gsub(/,.*/, '') }
+         db_groups_h = db_groups(metanoenv).map.as_json
+         mgroups.map do |group|
+             db_groups_h.map.each{ |db| db['env'] = group.partition(',').last if db['hostgroup']['title'] == group.gsub(/,.*/, '') }
+         end
+         db_groups_h
+         else
+           []
+         end
+  return groups
+end
+
 def update_template
   # Get template type
   unless kind = TemplateKind.find_by_name(@metadata['kind'])
     raise NoKindError
   end
 
-  db_template = ProvisioningTemplate.where(:name => @name).first_or_initialize
+  db_template = ProvisioningTemplate.find_or_initialize_by_name(@name)
   data = {
     :template         => @text,
     :snippet          => false,
     :template_kind_id => kind.id
   }
   string = db_template.new_record? ? "Created" : "Updated"
-
+  
   oses = map_oses
   if (@associate == 'new' and db_template.new_record?) or (@associate == 'always')
     data[:operatingsystem_ids] = oses.map(&:id)
@@ -60,11 +79,46 @@ def update_template
     status  = true
     result  = "  No change to Template #{ ( 'id' + db_template.id ) rescue ''}:#{@name}"
   end
+
+  if (@associate == 'always')
+    # find groups
+    groups = map_groups
+ 
+    # cleanup
+    TemplateCombination.where(provisioning_template_id: db_template.id).find_each do |rec|
+      if !groups.any? {|h| h['hostgroup']['id'] == rec.hostgroup_id}
+        rec.destroy
+      end
+    end
+
+    # recreate
+    if groups.any?
+  
+      for g in groups
+        t = TemplateCombination.find_or_create_by_provisioning_template_id_and_hostgroup_id(db_template.id, g['hostgroup']['id'])
+        gdata = { :environment_id => nil }
+        if g['env'].to_s != ''
+           puts "find environment association: " + g['env'] + ", for group: " + g['hostgroup']['title']
+           envid = Environment.find_by_name(g['env'])
+           if !envid.nil?
+              gdata = { :environment_id => envid.id }
+           end
+        end
+        t.update_attributes(gdata)
+      end
+    else
+      # destroy associations, because nothing specified
+      t = TemplateCombination.find_by_provisioning_template_id(db_template.id)
+      if !t.nil?
+        t.destroy
+      end
+    end
+  end # END GROUP/ENV ASSOCIATION
   { :diff => diff, :status => status, :result => result }
 end
 
 def update_ptable
-  db_ptable = Ptable.where(:name => @name).first_or_initialize
+  db_ptable = Ptable.find_or_initialize_by_name(@name)
   data = { :layout => @text }
   string = db_ptable.new_record? ? "Created" : "Updated"
 
@@ -91,7 +145,7 @@ def update_ptable
 end
 
 def update_snippet
-  db_snippet = ProvisioningTemplate.where(:name => @name).first_or_initialize
+  db_snippet = ProvisioningTemplate.find_or_initialize_by_name(@name)
   data = {
     :template => @text,
     :snippet => true
