@@ -26,6 +26,21 @@ def map_oses
   return oses
 end
 
+def update_job_template
+  return {:status => false, :result => 'Skipping job template import, remote execution plugin is not installed.'} unless defined?(JobTemplate)
+  template = JobTemplate.import(@text.sub(/^name: .*$/, "name: #{@name}"), :update => true)
+
+  string = template.new_record? ? 'Created' : 'Updated'
+
+  if template.template != template.template_was
+    diff = Diffy::Diff.new(template.template_was, template.template, :include_diff_info => true).to_s(:color)
+  end
+
+  result = "  #{string} Template #{ 'id' + template.id rescue ''}:#{@name}"
+
+  {:diff => diff, :status => template.save, :result => result}
+end
+
 def update_template
   # Get template type
   unless kind = TemplateKind.find_by_name(@metadata['kind'])
@@ -174,6 +189,8 @@ namespace :templates do
             data = update_ptable
           when 'snippet'
             data = update_snippet
+          when 'job_template'
+            data = update_job_template
           else
             data = update_template
           end
