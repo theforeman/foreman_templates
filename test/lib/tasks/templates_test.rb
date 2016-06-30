@@ -94,10 +94,11 @@ class PluginTemplateTest < ActiveSupport::TestCase
     test 'when associate is never, os should be unaffected on create' do
       # Set up the data wanted by update_template
       @os        = FactoryGirl.create(:operatingsystem)
-      @metadata  = { 'kind' => 'provision', 'oses' => [@os.to_label] }
+      @metadata  = { 'kind' => 'provision', 'snippet' => false, 'oses' => [@os.to_label] }
       @name      = "New Name"
       @text      = "New template data"
       @associate = 'never'
+      @snippet   = false
 
       update_template # creates new template
 
@@ -112,10 +113,11 @@ class PluginTemplateTest < ActiveSupport::TestCase
       @pt = FactoryGirl.create(:provisioning_template, :template_kind => @tk, :operatingsystems => [])
 
       # Set up the data wanted by update_template
-      @metadata  = { 'kind' => @tk.name, 'oses' => [@os.to_label] }
+      @metadata  = { 'kind' => @tk.name, 'snippet' => false, 'oses' => [@os.to_label] }
       @name      = @pt.name
       @text      = "New template data"
       @associate = 'always'
+      @snippet   = false
 
       update_template # creates new template
 

@@ -50,7 +50,7 @@ def update_template
   db_template = ProvisioningTemplate.where(:name => @name).first_or_initialize
   data = {
     :template         => @text,
-    :snippet          => false,
+    :snippet          => @snippet,
     :template_kind_id => kind.id
   }
   string = db_template.new_record? ? "Created" : "Updated"
@@ -80,7 +80,10 @@ end
 
 def update_ptable
   db_ptable = Ptable.where(:name => @name).first_or_initialize
-  data = { :layout => @text }
+  data = {
+    :layout  => @text,
+    :snippet => @snippet
+  }
   string = db_ptable.new_record? ? "Created" : "Updated"
 
   oses = map_oses
@@ -177,6 +180,8 @@ namespace :templates do
         @name    = @metadata['name'] || title
         @name    = [prefix, @name].compact.join()
         next if filter and not @name.match(/#{filter}/i)
+
+        @snippet = @metadata['snippet'] || false
 
         unless @metadata['kind']
           puts "  Error: Must specify template kind"
