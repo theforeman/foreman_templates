@@ -206,7 +206,7 @@ namespace :test do
     t.pattern = "#{test_dir}/**/*_test.rb"
   end
 end
-Rake::Task[:test].enhance do
+Rake::Task["test:plugins"].enhance do
   Rake::Task['test:templates'].invoke
 end
 load 'tasks/jenkins.rake'
