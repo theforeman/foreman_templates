@@ -6,9 +6,9 @@ module ForemanTemplates
   #Thus, inhereits from ::Rails::Engine and not from Rails::Engine
   class Engine < ::Rails::Engine
 
-    initializer 'foreman_templates.register_plugin', :after=> :finisher_hook do |app|
+    initializer 'foreman_templates.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 1.9'
+        requires_foreman '>= 1.12'
       end
     end
 
