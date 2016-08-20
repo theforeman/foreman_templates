@@ -79,8 +79,7 @@ module ForemanTemplates
               puts data[:result]
               puts data[:diff]
             elsif data[:status] == false
-              puts "Error with #{@name}"
-              puts data[:result]
+              puts "Template \"#{@name}\": #{data[:result]}"
             end
           rescue NoKindError
             puts "  Error: Unknown template type '#{@metadata['kind']}'"
