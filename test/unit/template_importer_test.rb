@@ -2,12 +2,11 @@ require 'test_plugin_helper'
 
 module ForemanTemplates
   class TemplateImporterTest < ActiveSupport::TestCase
-
     def get_template(name)
       File.expand_path(File.join('..', '..', 'templates', name), __FILE__)
     end
 
-    def importer(opts={})
+    def importer(opts = {})
       # This uses a checkout of the plugin tests as a source of templates
       # Caveat: changes to /test/templates will need to be committed for tests to work
       ForemanTemplates::TemplateImporter.new({
@@ -15,7 +14,7 @@ module ForemanTemplates
         prefix:    'FooBar ',
         dirname:   '/test/templates',
         verbose:   'false',
-        associate: 'new',
+        associate: 'new'
       }.merge(opts))
     end
 
@@ -23,9 +22,9 @@ module ForemanTemplates
       # Need to be admin to create templates
       User.current = users :admin
       @repo = Struct.new(:branches).new([
-        Struct.new(:name).new('0.1-stable'),
-        Struct.new(:name).new('develop')
-      ])
+                                          Struct.new(:name).new('0.1-stable'),
+                                          Struct.new(:name).new('develop')
+                                        ])
 
       @importer = importer
     end
@@ -71,10 +70,10 @@ module ForemanTemplates
       test 'when associate is never, os should be unaffected on create' do
         # Set up the data wanted by update_template
         @os                 = FactoryGirl.create(:operatingsystem)
-        @importer           = importer({associate: 'never'})
+        @importer           = importer(associate: 'never')
         @importer.metadata  = { 'kind' => 'provision', 'oses' => [@os.to_label] }
-        @importer.name      = "New Name"
-        @importer.text      = "New template data"
+        @importer.name      = 'New Name'
+        @importer.text      = 'New template data'
 
         @importer.update_template # creates new template
 
@@ -89,10 +88,10 @@ module ForemanTemplates
         @pt = FactoryGirl.create(:provisioning_template, :template_kind => @tk, :operatingsystems => [])
 
         # Set up the data wanted by update_template
-        @importer           = importer({associate: 'always'})
+        @importer           = importer(associate: 'always')
         @importer.metadata  = { 'kind' => @tk.name, 'oses' => [@os.to_label] }
         @importer.name      = @pt.name
-        @importer.text      = "New template data"
+        @importer.text      = 'New template data'
 
         @importer.update_template # creates new template
 
@@ -120,8 +119,7 @@ module ForemanTemplates
       pt = Ptable.find_by_name('FooBar Test Ptable')
       assert pt.present?
       assert_equal File.read(get_template('ptable1.erb')), pt.layout
-      assert_equal "Debian", pt.os_family
+      assert_equal 'Debian', pt.os_family
     end
-
   end
 end

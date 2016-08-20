@@ -3,7 +3,7 @@ require 'yaml'
 require 'diffy'
 require 'git'
 
-class NoKindError < Exception ; end
+class NoKindError < Exception; end
 
 module ForemanTemplates
   class TemplateImporter
@@ -20,15 +20,15 @@ module ForemanTemplates
       @branch    = args[:branch] || false
 
       # Rake hands off strings, not booleans, and "false" is true...
-      if @verbose.kind_of?(String)
-        if @verbose == 'false'
-          @verbose = false
-        else
-          @verbose = true
-        end
+      if @verbose.is_a?(String)
+        @verbose = if @verbose == 'false'
+                     false
+                   else
+                     true
+                   end
       end
 
-      # TODO - these are properties of each template
+      # TODO: these are properties of each template
       # they should probably have their own model/tests
       # for now, we reset them at the start of each import
       @metadata = {}
@@ -47,7 +47,7 @@ module ForemanTemplates
         # Build a list of ERB files to parse
         Dir["#{dir}#{@dirname}/**/*.erb"].each do |template|
           @text = File.read(template)
-          puts "Parsing: " + template.gsub(/#{dir}#{@dirname}/,'') if @verbose
+          puts 'Parsing: ' + template.gsub(/#{dir}#{@dirname}/, '') if @verbose
 
           @metadata = parse_metadata(@text)
 
@@ -55,25 +55,25 @@ module ForemanTemplates
           filename = template.split('/').last
           title    = filename.split('.').first
           @name    = @metadata['name'] || title
-          @name    = [@prefix, @name].compact.join()
-          next if @filter and not @name.match(/#{filter}/i)
+          @name    = [@prefix, @name].compact.join
+          next if @filter && !@name.match(/#{filter}/i)
 
           unless @metadata['kind']
-            puts "  Error: Must specify template kind"
+            puts '  Error: Must specify template kind'
             next
           end
 
           begin
-            case @metadata['kind']
-            when 'ptable'
-              data = update_ptable
-            when 'snippet'
-              data = update_snippet
-            when 'job_template'
-              data = update_job_template
-            else
-              data = update_template
-            end
+            data = case @metadata['kind']
+                   when 'ptable'
+                     update_ptable
+                   when 'snippet'
+                     update_snippet
+                   when 'job_template'
+                     update_job_template
+                   else
+                     update_template
+                   end
 
             if data[:status] == true && @verbose
               puts data[:result]
@@ -100,31 +100,30 @@ module ForemanTemplates
       return target if branch_names.include?(target)
 
       # stay on default branch as fallback
-      return nil
+      nil
     end
 
     def map_oses
       oses = if @metadata['oses']
                @metadata['oses'].map do |os|
-                 Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil}
+                 Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil }
                end.flatten.compact
              else
                []
              end
-      return oses
+      oses
     end
 
     def parse_metadata(text)
       # Pull out the first erb comment only - /m is for a multiline regex
       extracted = text.match(/<%\#(.+?).-?%>/m)
-      extracted == nil ? {} : YAML.load(extracted[1])
+      extracted.nil? ? {} : YAML.load(extracted[1])
     end
 
     def update_template
       # Get template type
-      unless kind = TemplateKind.find_by_name(@metadata['kind'])
-        raise NoKindError
-      end
+      kind = TemplateKind.find_by_name(@metadata['kind'])
+      raise NoKindError unless kind
 
       db_template = ProvisioningTemplate.where(:name => @name).first_or_initialize
       data = {
@@ -132,33 +131,45 @@ module ForemanTemplates
         :snippet          => false,
         :template_kind_id => kind.id
       }
-      string = db_template.new_record? ? "Created" : "Updated"
+      string = db_template.new_record? ? 'Created' : 'Updated'
 
       oses = map_oses
-      if (@associate == 'new' and db_template.new_record?) or (@associate == 'always')
+      if (@associate == 'new' && db_template.new_record?) || (@associate == 'always')
         data[:operatingsystem_ids] = oses.map(&:id)
       end
 
       if @text != db_template.template
         diff    = Diffy::Diff.new(db_template.template, @text, :include_diff_info => true).to_s(:color)
         status  = db_template.update_attributes(data)
-        result  = "  #{string} Template #{ 'id' + db_template.id rescue ''}:#{@name}"
-        result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" if !oses.empty?
+        result  = "  #{string} Template #{begin
+                                             'id' + db_template.id
+                                           rescue
+                                             ''
+                                           end}:#{@name}"
+        result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" unless oses.empty?
       elsif data[:operatingsystem_ids]
         diff    = nil
         status  = db_template.update_attributes(data)
-        result  = "  #{string} Template Associations #{ 'id' + db_template.id rescue ''}:#{@name}"
-        result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" if !oses.empty?
+        result  = "  #{string} Template Associations #{begin
+                                                          'id' + db_template.id
+                                                        rescue
+                                                          ''
+                                                        end}:#{@name}"
+        result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" unless oses.empty?
       else
         diff    = nil
         status  = true
-        result  = "  No change to Template #{ ( 'id' + db_template.id ) rescue ''}:#{@name}"
+        result  = "  No change to Template #{begin
+                                                ('id' + db_template.id)
+                                              rescue
+                                                ''
+                                              end}:#{@name}"
       end
       { :diff => diff, :status => status, :result => result }
     end
 
     def update_job_template
-      return {:status => false, :result => 'Skipping job template import, remote execution plugin is not installed.'} unless defined?(JobTemplate)
+      return { :status => false, :result => 'Skipping job template import, remote execution plugin is not installed.' } unless defined?(JobTemplate)
       template = JobTemplate.import(@text.sub(/^name: .*$/, "name: #{@name}"), :update => true)
 
       string = template.new_record? ? 'Created' : 'Updated'
@@ -167,34 +178,50 @@ module ForemanTemplates
         diff = Diffy::Diff.new(template.template_was, template.template, :include_diff_info => true).to_s(:color)
       end
 
-      result = "  #{string} Template #{ 'id' + template.id rescue ''}:#{@name}"
+      result = "  #{string} Template #{begin
+                                          'id' + template.id
+                                        rescue
+                                          ''
+                                        end}:#{@name}"
 
-      {:diff => diff, :status => template.save, :result => result}
+      { :diff => diff, :status => template.save, :result => result }
     end
 
     def update_ptable
       db_ptable = Ptable.where(:name => @name).first_or_initialize
       data = { :layout => @text }
-      string = db_ptable.new_record? ? "Created" : "Updated"
+      string = db_ptable.new_record? ? 'Created' : 'Updated'
 
       oses = map_oses
-      if (@associate == 'new' and db_ptable.new_record?) or (@associate == 'always')
+      if (@associate == 'new' && db_ptable.new_record?) || (@associate == 'always')
         data[:os_family] = oses.map(&:family).uniq.first
       end
 
       if @text != db_ptable.layout
         diff    = Diffy::Diff.new(db_ptable.layout, @text, :include_diff_info => true).to_s(:color)
         status  = db_ptable.update_attributes(data)
-        result  = "  #{string} Ptable #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
+        result  = "  #{string} Ptable #{begin
+                                           ('id' + db_ptable.id)
+                                         rescue
+                                           ''
+                                         end}:#{@name}"
       elsif data[:os_family]
         diff    = nil
         status  = db_ptable.update_attributes(data)
-        result  = "  #{string} Ptable Associations #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
-        result += "\n    Operatingsystem Family:\n    - #{oses.map(&:family).uniq.first}" if !oses.empty?
+        result  = "  #{string} Ptable Associations #{begin
+                                                        ('id' + db_ptable.id)
+                                                      rescue
+                                                        ''
+                                                      end}:#{@name}"
+        result += "\n    Operatingsystem Family:\n    - #{oses.map(&:family).uniq.first}" unless oses.empty?
       else
         diff    = nil
         status  = true
-        result  = "  No change to Ptable #{ ( 'id' + db_ptable.id ) rescue ''}:#{@name}"
+        result  = "  No change to Ptable #{begin
+                                              ('id' + db_ptable.id)
+                                            rescue
+                                              ''
+                                            end}:#{@name}"
       end
       { :diff => diff, :status => status, :result => result }
     end
@@ -205,19 +232,26 @@ module ForemanTemplates
         :template => @text,
         :snippet => true
       }
-      string = db_snippet.new_record? ? "Created" : "Updated"
+      string = db_snippet.new_record? ? 'Created' : 'Updated'
 
       if @text != db_snippet.template
         diff    = Diffy::Diff.new(db_snippet.template, @text, :include_diff_info => true).to_s(:color)
         status  = db_snippet.update_attributes(data)
-        result  = "  #{string} Snippet #{ ('id' + db_snippet.id) rescue ''}:#{@name}"
+        result  = "  #{string} Snippet #{begin
+                                            ('id' + db_snippet.id)
+                                          rescue
+                                            ''
+                                          end}:#{@name}"
       else
         diff    = nil
         status  = true
-        result  = "  No change to Snippet #{ 'id' + db_snippet.id rescue ''}:#{@name}"
+        result  = "  No change to Snippet #{begin
+                                               'id' + db_snippet.id
+                                             rescue
+                                               ''
+                                             end}:#{@name}"
       end
       { :diff => diff, :status => status, :result => result }
     end
-
   end
 end

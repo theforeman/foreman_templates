@@ -1,0 +1,26 @@
+AllCops:
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+# Don't enforce documentation
+Style/Documentation:
+  Enabled: false
+
+# Force before_filter until upgrade to Rails 4
+Rails/ActionFilter:
+  EnforcedStyle: filter
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 111 # TODO: discuss and set this
+
+Style/Next:
+  Enabled: false
+
+# Support both ruby19 and hash_rockets
+Style/HashSyntax:
+  Enabled: false
