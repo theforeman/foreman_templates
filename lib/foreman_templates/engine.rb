@@ -9,5 +9,14 @@ module ForemanTemplates
         requires_foreman '>= 1.12'
       end
     end
+
+    config.to_prepare do
+      begin
+        Ptable.send(:include, ForemanTemplates::PtableImport)
+        ProvisioningTemplate.send(:include, ForemanTemplates::ProvisioningTemplateImport)
+      rescue => e
+        puts "#{ForemanTemplates::ENGINE_NAME}: skipping engine hook (#{e})"
+      end
+    end
   end
 end

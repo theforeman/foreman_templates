@@ -47,13 +47,15 @@ module ForemanTemplates
     end
 
     test 'map_oses returns OSes that are in the db' do
-      @importer.metadata['oses'] = ['centos 5.3', 'Fedora 19']
-      assert_equal [Operatingsystem.find_by_title('centos 5.3')], @importer.map_oses
+      metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }
+      assert_equal [Operatingsystem.find_by_title('centos 5.3')], Ptable.map_oses(metadata)
+      assert_equal [Operatingsystem.find_by_title('centos 5.3')], ProvisioningTemplate.map_oses(metadata)
     end
 
     test 'map_oses returns an empty array for no matched OSes' do
-      @importer.metadata['oses'] = ['Fedora 19']
-      assert_equal [], @importer.map_oses
+      metadata = { 'oses' => ['Fedora 19'] }
+      assert_equal [], Ptable.map_oses(metadata)
+      assert_equal [], ProvisioningTemplate.map_oses(metadata)
     end
 
     test 'metadata method extracts correct metadata' do
@@ -68,35 +70,41 @@ module ForemanTemplates
       # default value of 'new' is implicitly tested by the sync task test
       # TODO test update_ptable and update_snippet too
       test 'when associate is never, os should be unaffected on create' do
-        # Set up the data wanted by update_template
-        @os                 = FactoryGirl.create(:operatingsystem)
-        @importer           = importer(associate: 'never')
-        @importer.metadata  = { 'kind' => 'provision', 'oses' => [@os.to_label] }
-        @importer.name      = 'New Name'
-        @importer.text      = 'New template data'
+        # Set up the data wanted by import!
+        os       = FactoryGirl.create(:operatingsystem)
+        name     = 'New Name'
+        text     = 'New template data'
+        metadata = {
+          'kind'      => 'provision',
+          'oses'      => [os.to_label],
+          'associate' => 'never'
+        }
 
-        @importer.update_template # creates new template
+        ProvisioningTemplate.import!(name, text, metadata) # creates new template
 
-        ct = ProvisioningTemplate.find_by_name(@importer.name)
+        ct = ProvisioningTemplate.find_by_name(name)
         assert_equal [], ct.operatingsystems
       end
 
       test 'when associate is always, os should be updated for existing templates' do
         # create a basic template with no OS assigned
-        @tk = FactoryGirl.create(:template_kind)
-        @os = FactoryGirl.create(:operatingsystem)
-        @pt = FactoryGirl.create(:provisioning_template, :template_kind => @tk, :operatingsystems => [])
+        tk = FactoryGirl.create(:template_kind)
+        os = FactoryGirl.create(:operatingsystem)
+        pt = FactoryGirl.create(:provisioning_template, :template_kind => tk, :operatingsystems => [])
 
-        # Set up the data wanted by update_template
-        @importer           = importer(associate: 'always')
-        @importer.metadata  = { 'kind' => @tk.name, 'oses' => [@os.to_label] }
-        @importer.name      = @pt.name
-        @importer.text      = 'New template data'
+        # Set up the data wanted by import!
+        name     = pt.name
+        text     = 'New template data'
+        metadata = {
+          'kind'      => tk.name,
+          'oses'      => [os.to_label],
+          'associate' => 'always'
+        }
 
-        @importer.update_template # creates new template
+        ProvisioningTemplate.import!(name, text, metadata) # creates new template
 
-        ct = ProvisioningTemplate.find_by_name(@importer.name)
-        assert_equal [@os], ct.operatingsystems
+        ct = ProvisioningTemplate.find_by_name(name)
+        assert_equal [os], ct.operatingsystems
       end
     end
 
