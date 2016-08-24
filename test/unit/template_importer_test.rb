@@ -7,10 +7,11 @@ module ForemanTemplates
     end
 
     def importer(opts = {})
-      # This uses a checkout of the plugin tests as a source of templates
-      # Caveat: changes to /test/templates will need to be committed for tests to work
+      # This uses a checkout of the plugin as a source of templates Caveat:
+      # changes to /test/templates will need to be committed (locally) for
+      # tests to work
       ForemanTemplates::TemplateImporter.new({
-        repo:      'https://github.com/theforeman/foreman_templates.git',
+        repo:      File.expand_path(File.join('..','..','..'),__FILE__),
         prefix:    'FooBar ',
         dirname:   '/test/templates',
         verbose:   'false',
