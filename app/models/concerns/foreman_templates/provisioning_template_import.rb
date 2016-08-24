@@ -78,14 +78,13 @@ module ForemanTemplates::ProvisioningTemplateImport
     end
 
     def map_oses(metadata)
-      oses = if metadata['oses']
-               metadata['oses'].map do |os|
-                 Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil }
-               end.flatten.compact
-             else
-               []
-             end
-      oses
+      if metadata['oses']
+        metadata['oses'].map do |os|
+          Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil }
+        end.flatten.compact
+      else
+        []
+      end
     end
   end
 end

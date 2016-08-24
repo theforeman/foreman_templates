@@ -1,8 +1,3 @@
-require 'fileutils'
-require 'yaml'
-require 'diffy'
-require 'git'
-
 class NoKindError < Exception; end
 
 module ForemanTemplates

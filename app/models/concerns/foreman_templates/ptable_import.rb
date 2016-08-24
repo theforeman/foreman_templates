@@ -37,15 +37,15 @@ module ForemanTemplates::PtableImport
       { :diff => diff, :status => status, :result => result }
     end
 
+    # TODO: DRY this, it's copied from ProvisioningTemplateImport
     def map_oses(metadata)
-      oses = if metadata['oses']
-               metadata['oses'].map do |os|
-                 Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil }
-               end.flatten.compact
-             else
-               []
-             end
-      oses
+      if metadata['oses']
+        metadata['oses'].map do |os|
+          Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil }
+        end.flatten.compact
+      else
+        []
+      end
     end
   end
 end
