@@ -1,4 +1,5 @@
 class NoKindError < Exception; end
+class MissingKindError < Exception; end
 
 module ForemanTemplates
   class TemplateImporter
@@ -33,17 +34,19 @@ module ForemanTemplates
         branch = @branch ? @branch : get_default_branch(gitrepo)
         gitrepo.checkout(branch) if branch
 
-        parse_files!
+        return parse_files!
       ensure
         FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
       end
     end
 
     def parse_files!
+      result_lines = []
+
       # Build a list of ERB files to parse
       Dir["#{@dir}#{@dirname}/**/*.erb"].each do |template|
         text = File.read(template)
-        puts 'Parsing: ' + template.gsub(/#{@dir}#{@dirname}/, '') if @verbose
+        result_lines << 'Parsing: ' + template.gsub(/#{@dir}#{@dirname}/, '') if @verbose
 
         metadata = parse_metadata(text)
         metadata['associate'] = @associate
@@ -55,10 +58,7 @@ module ForemanTemplates
         name     = [@prefix, name].compact.join
         next if @filter && !name.match(/#{@filter}/i)
 
-        unless metadata['kind']
-          puts '  Error: Must specify template kind'
-          next
-        end
+        raise MissingKindError unless metadata['kind']
 
         begin
           # Expects a return of { :diff, :status, :result }
@@ -78,16 +78,23 @@ module ForemanTemplates
                  end
 
           if data[:status] == true && @verbose
-            puts data[:result]
-            puts data[:diff]
+            result_lines << data[:result]
+            result_lines << data[:diff] unless data[:diff].nil?
           elsif data[:status] == false
-            puts "Template \"#{name}\": #{data[:result]}"
+            result_lines << "Template \"#{name}\": #{data[:result]}"
           end
+        rescue MissingKindError
+          result_lines << "  Skipping: '#{name}' - No template kind or model detected"
+          next
         rescue NoKindError
-          puts "  Error: Unknown template type '#{metadata['kind']}'"
+          result_lines << "  Skipping: '#{name}' - Unknown template kind '#{metadata['kind']}'"
+          next
+        rescue NameError
+          result_lines << "  Skipping: '#{name}' - Unknown template model '#{metadata['model']}'"
           next
         end
       end
+      result_lines
     end
 
     def get_default_branch(repo)

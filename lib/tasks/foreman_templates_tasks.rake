@@ -11,7 +11,7 @@ namespace :templates do
     #* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
     #* associate => Associate to OS, always, new or never  [new]
 
-    ForemanTemplates::TemplateImporter.new({
+    results = ForemanTemplates::TemplateImporter.new({
       verbose:   ENV['verbose'],
       repo:      ENV['repo'],
       branch:    ENV['branch'],
@@ -20,6 +20,8 @@ namespace :templates do
       filter:    ENV['filter'],
       associate: ENV['associate'],
     }).import!
+
+    puts results.join("\n")
   end
 end
 

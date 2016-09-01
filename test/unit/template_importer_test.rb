@@ -2,8 +2,8 @@ require 'test_plugin_helper'
 
 module ForemanTemplates
   class TemplateImporterTest < ActiveSupport::TestCase
-    def get_template(name)
-      File.expand_path(File.join('..', '..', 'templates', name), __FILE__)
+    def get_template(name,dir='core')
+      File.expand_path(File.join('..', '..', 'templates', dir, name), __FILE__)
     end
 
     def importer(opts = {})
@@ -16,7 +16,7 @@ module ForemanTemplates
         :repo      => path,
         :branch    => Git.open(path).current_branch,
         :prefix    => 'FooBar ',
-        :dirname   => '/test/templates',
+        :dirname   => '/test/templates/core',
         :verbose   => 'false',
         :associate => 'new'
       }.merge(opts))
@@ -62,6 +62,48 @@ module ForemanTemplates
       text = File.read(get_template('metadata2.erb'))
       hash = @importer.parse_metadata(text)
       assert_equal 'ProvisioningTemplate', hash['model']
+    end
+
+    context 'other plugins' do
+      test 'are ignored if not installed' do
+        @importer = importer({:dirname => '/test/templates/plugins'})
+        results = @importer.import!
+
+        # Check core template was imported
+        ct = Template.find_by_name('FooBar CoreTest')
+        assert ct.present?
+        assert_equal File.read(get_template('core.erb','plugins')), ct.template
+
+        # Check plugin template was not imported
+        ct = Template.find_by_name('FooBar PluginTest')
+        refute ct.present?
+        assert_equal results, ["  Skipping: 'FooBar PluginTest' - Unknown template model 'TestTemplate'"]
+
+      end
+
+      test 'can extend without changes' do
+        # Test template class
+        class ::TestTemplate < ::Template
+          def self.import!(name, text, metadata)
+            audited # core tries to call :audit_comment, breaks without this
+            template = TestTemplate.new(:name => name, :template => text)
+            template.save!
+          end
+        end
+
+        @importer = importer({:dirname => '/test/templates/plugins'})
+        results = @importer.import!
+
+        # Check core template was imported
+        ct = Template.find_by_name('FooBar CoreTest')
+        assert ct.present?
+        assert_equal File.read(get_template('core.erb','plugins')), ct.template
+
+        # Check plugin template was imported
+        ct = Template.find_by_name('FooBar PluginTest')
+        assert ct.present?
+        assert_equal File.read(get_template('plugin.erb','plugins')), ct.template
+      end
     end
 
     test 'import! loads templates into db' do
