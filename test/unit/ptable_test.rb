@@ -59,7 +59,7 @@ module ForemanTemplates
       end
     end
 
-    context "when associate=always" do
+    context 'when associate=always' do
       def setup
         @metadata['associate'] = 'always'
       end
@@ -80,7 +80,7 @@ module ForemanTemplates
       end
     end
 
-    context "when associate=never" do
+    context 'when associate=never' do
       def setup
         @metadata['associate'] = 'never'
       end
@@ -117,6 +117,5 @@ module ForemanTemplates
         assert_equal [], Ptable.map_oses(metadata)
       end
     end
-
   end
 end

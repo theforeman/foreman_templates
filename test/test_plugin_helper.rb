@@ -8,7 +8,7 @@ begin
     end
   end
 rescue LoadError
-  puts "-- SimpleCov coverage skipped, add simple to Gemfile.local to enable"
+  puts '-- SimpleCov coverage skipped, add simplecov to Gemfile.local to enable'
 end
 
 # This calls the main test_helper in Foreman-core

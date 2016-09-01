@@ -48,7 +48,7 @@ module ForemanTemplates
 
     context 'import snippet' do
       test 'should create a snippet' do
-        ProvisioningTemplate.import!('Snippet', 'New Text', {'kind' => 'snippet'})
+        ProvisioningTemplate.import!('Snippet', 'New Text', 'kind' => 'snippet')
 
         s = ProvisioningTemplate.find_by_name('Snippet')
         assert s.snippet?
@@ -57,7 +57,7 @@ module ForemanTemplates
 
       test 'should update an existing snippet' do
         s = FactoryGirl.create(:provisioning_template, :snippet)
-        ProvisioningTemplate.import!(s.name, 'New Text', {'kind' => 'snippet'})
+        ProvisioningTemplate.import!(s.name, 'New Text', 'kind' => 'snippet')
 
         s1 = ProvisioningTemplate.find_by_name(s.name)
         assert_equal 'New Text', s1.template
@@ -65,7 +65,7 @@ module ForemanTemplates
 
       test 'should not change a snippet if the text matches' do
         s = FactoryGirl.create(:provisioning_template, :snippet)
-        r = ProvisioningTemplate.import!(s.name, s.template, {'kind' => 'snippet'})
+        r = ProvisioningTemplate.import!(s.name, s.template, 'kind' => 'snippet')
 
         s1 = ProvisioningTemplate.find_by_name(s.name)
         assert r[:diff].nil?
@@ -90,7 +90,7 @@ module ForemanTemplates
       end
     end
 
-    context "when associate=always" do
+    context 'when associate=always' do
       def setup
         @metadata['associate'] = 'always'
       end
@@ -111,7 +111,7 @@ module ForemanTemplates
       end
     end
 
-    context "when associate=never" do
+    context 'when associate=never' do
       def setup
         @metadata['associate'] = 'never'
       end
@@ -136,7 +136,7 @@ module ForemanTemplates
       test 'returns OSes that are in the db' do
         metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }
         assert_equal [Operatingsystem.find_by_title('centos 5.3')],
-          ProvisioningTemplate.map_oses(metadata)
+                     ProvisioningTemplate.map_oses(metadata)
       end
 
       test 'returns an empty array for no matched OSes' do
