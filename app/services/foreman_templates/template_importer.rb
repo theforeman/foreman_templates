@@ -115,6 +115,10 @@ module ForemanTemplates
     end
 
     def update_job_template(name, text)
+      file = name.gsub(/^#{@prefix}/,'')
+      puts 'Deprecation warning: JobTemplate support is moving to the Remote Execution plugin'
+      puts "- please add 'model: JobTemplate' to the metadata in '#{file}' to call the right method"
+
       return {
         :status => false,
         :result => 'Skipping job template import, remote execution plugin is not installed.'
