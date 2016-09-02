@@ -23,6 +23,19 @@ namespace :templates do
 
     puts results.join("\n")
   end
+
+  desc 'Purge unwanted templates from foreman'
+  task :purge => :environment do
+    ForemanTemplates::TemplateImporter.new({
+      #* negate  => negate query [false]
+      #* prefix  => The string all templates to purge should ( or not ) begin with [Community ]
+      #* verbose => Print extra information during the run [false]
+      negate:  ENV['negate'],
+      prefix:  ENV['prefix'],
+      verbose: ENV['verbose'],
+    }).purge!
+  end
+
 end
 
 # Tests

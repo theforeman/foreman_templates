@@ -145,5 +145,26 @@ module ForemanTemplates
       assert_equal File.read(get_template('ptable1.erb')), pt.layout
       assert_equal 'Debian', pt.os_family
     end
+
+    test 'purge! removes expected templates' do
+      # Create more than one template as we expect to delete all 'FooBar '
+      # templates.
+      FactoryGirl.create(:provisioning_template, :name => 'FooBar delete_me')
+      FactoryGirl.create(:provisioning_template, :name => 'FooBar delete_me_too')
+      FactoryGirl.create(:provisioning_template, :name => 'keep_me')
+      count = ProvisioningTemplate.all.size
+      @importer.purge!
+      refute ProvisioningTemplate.find_by_name('FooBar %').present?
+      assert ProvisioningTemplate.find_by_name('keep_me').present?
+      assert ProvisioningTemplate.all.size, count - 2
+    end # 'purge! removes expected template'
+
+    test 'purge! negated purge leaves expected templates' do
+      FactoryGirl.create(:provisioning_template, :name => 'FooBar keep_me')
+      @importer = importer(:negate => true)
+      @importer.purge!
+      assert ProvisioningTemplate.find_by_name('FooBar keep_me').present?
+      assert ProvisioningTemplate.all.size, 1
+    end # 'purge! removes expected template'
   end
 end

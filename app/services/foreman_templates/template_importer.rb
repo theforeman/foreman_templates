@@ -13,6 +13,7 @@ module ForemanTemplates
       @dirname   = args[:dirname] || '/'
       @filter    = args[:filter] || nil
       @repo      = args[:repo] || 'https://github.com/theforeman/community-templates.git'
+      @negate    = args[:negate] || false
       @branch    = args[:branch] || false
 
       # Rake hands off strings, not booleans, and "false" is true...
@@ -127,7 +128,7 @@ module ForemanTemplates
     end
 
     def update_job_template(name, text)
-      file = name.gsub(/^#{@prefix}/,'')
+      file = name.gsub(/^#{@prefix}/, '')
       puts 'Deprecation warning: JobTemplate support is moving to the Remote Execution plugin'
       puts "- please add 'model: JobTemplate' to the metadata in '#{file}' to call the right method"
 
@@ -154,5 +155,13 @@ module ForemanTemplates
       result = "  #{c_or_u} Template #{id_string}:#{name}"
       { :diff => diff, :status => template.save, :result => result }
     end
+
+    def purge!
+      clause = "name #{@negate ? 'NOT ' : ''}LIKE ?"
+      ProvisioningTemplate.where(clause, "#{@prefix}%").each do |template|
+        puts template if @verbose
+        template.destroy
+      end
+    end # :purge
   end
 end
