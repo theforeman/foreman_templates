@@ -69,10 +69,34 @@ Import templates from a subsection of a git repo:
 
     foreman-rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" dirname='/subdir'
 
+## Integration with other Foreman Plugins
+
+`templates` will start processing a template by looking for a metadata entry of
+`model`. If this is found, `templates` will call `import!` on this model.
+
+That means it's possible for a plugin to define it's own handling of text and
+metadata, relevant to the plugins own interests. The `import!` method will be
+sent 3 arguments - the `name` of the template, the `text` of the template, and
+a complete copy of the `metadata`.
+
+As a trivial example for a random plugin, suppose `foreman_nosuchplugin` has
+this code:
+
+```
+module ForemanNosuchplugin
+  class SomeTemplate
+    def self.import!(name, text, metadata)
+      File.open("/tmp/#{name}",'w') {|f| f.write text }
+    end
+  end
+end
+```
+
+Assuming a template had "model: SomeTemplate" in it's metadata, this would then
+get written to a file in `/tmp`.
+
 ## TODO
 
-* Allow user to filter to a specific subset of templates
-* Add associations by template family
 * Add a button to the UI with Deface to run the rake task
 
 ## Copyright
