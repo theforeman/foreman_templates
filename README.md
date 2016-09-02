@@ -95,6 +95,10 @@ end
 Assuming a template had "model: SomeTemplate" in it's metadata, this would then
 get written to a file in `/tmp`.
 
+`templates` will expect the `import!` method to return a Hash, containing
+`:status` (boolean), `:diff` (text, may be nil), and `:result` (text, may be
+nil).
+
 ## TODO
 
 * Add a button to the UI with Deface to run the rake task
