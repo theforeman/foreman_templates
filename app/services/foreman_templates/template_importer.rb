@@ -77,6 +77,10 @@ module ForemanTemplates
                    end
                  end
 
+          if data[:diff].nil? && data[:old].present? && data[:new].present?
+            data[:diff] = calculate_diff(data[:old], data[:new])
+          end
+
           if data[:status] == true && @verbose
             result_lines << data[:result]
             result_lines << data[:diff] unless data[:diff].nil?
@@ -97,6 +101,14 @@ module ForemanTemplates
       result_lines
     end
 
+    def calculate_diff(old, new)
+      if old != new
+        Diffy::Diff.new(old, new, :include_diff_info => true).to_s(:color)
+      else
+        nil
+      end
+    end
+
     def get_default_branch(repo)
       branch_names = repo.branches.map(&:name).uniq
 
@@ -110,7 +122,6 @@ module ForemanTemplates
 
     def parse_metadata(text)
       # Pull out the first erb comment only - /m is for a multiline regex
-      #extracted = text.match(/<%\#(.+?).-?%>/m)
       extracted = text.match(/<%\#[\t a-z0-9=:]*(.+?).-?%>/m)
       extracted.nil? ? {} : YAML.load(extracted[1])
     end
