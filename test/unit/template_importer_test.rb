@@ -52,16 +52,25 @@ module ForemanTemplates
       end
     end
 
-    test 'metadata method extracts correct metadata' do
-      text = File.read(get_template('metadata1.erb'))
-      hash = @importer.parse_metadata(text)
-      assert_equal 'provision', hash['kind']
-      assert_equal 'Test Data', hash['name']
-      assert_equal 5, hash['oses'].size
+    context 'metadata method' do
+      test 'extracts correct metadata' do
+        text = File.read(get_template('metadata1.erb'))
+        hash = @importer.parse_metadata(text)
+        assert_equal 'provision', hash['kind']
+        assert_equal 'Test Data', hash['name']
+        assert_equal 5, hash['oses'].size
 
-      text = File.read(get_template('metadata2.erb'))
-      hash = @importer.parse_metadata(text)
-      assert_equal 'ProvisioningTemplate', hash['model']
+        text = File.read(get_template('metadata2.erb'))
+        hash = @importer.parse_metadata(text)
+        assert_equal 'ProvisioningTemplate', hash['model']
+      end
+
+      test 'handles vim/emacs modelines' do
+        text = "<%# vim:sw=2:ts=2:et\nkind: provision\nname: Modeline\n%>"
+        hash = @importer.parse_metadata(text)
+        assert_equal 'provision', hash['kind']
+        assert_equal 'Modeline', hash['name']
+      end
     end
 
     context 'other plugins' do
