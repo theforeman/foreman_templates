@@ -75,6 +75,9 @@ module ForemanTemplates
 
     context 'other plugins' do
       test 'are ignored if not installed' do
+        # Somehow this persists if the next test runs first
+        Object.send(:remove_const, :TestTemplate) if defined? TestTemplate
+
         @importer = importer(:dirname => '/test/templates/plugins')
         results = @importer.import!
 
