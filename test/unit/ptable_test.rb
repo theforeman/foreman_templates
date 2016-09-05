@@ -4,16 +4,20 @@ module ForemanTemplates
   class PtableTest < ActiveSupport::TestCase
     setup do
       # create a basic template with no OS assigned
-      @os_rh  = FactoryGirl.create(:operatingsystem, :family => 'Redhat')
-      @os_deb = FactoryGirl.create(:operatingsystem, :family => 'Debian')
-      @pt     = FactoryGirl.create(:ptable, :os_family => 'Redhat')
+      @os_rh   = FactoryGirl.create(:operatingsystem, :family => 'Redhat')
+      @os_deb  = FactoryGirl.create(:operatingsystem, :family => 'Debian')
+      @pt      = FactoryGirl.create(:ptable, :os_family => 'Redhat')
+      @new_org = FactoryGirl.create(:organization, :name => 'NewOrg')
+      @new_loc = FactoryGirl.create(:location, :name => 'NewLoc')
 
       # Set up the data wanted by import!
       @name     = @pt.name
       @text     = @pt.template
       @metadata = {
         'oses'      => [@os_deb.to_label],
-        'associate' => 'new'
+        'associate' => 'new',
+        'organizations' => [@new_org.name],
+        'locations' => [@new_loc.name]
       }
     end
 
@@ -43,19 +47,23 @@ module ForemanTemplates
     end
 
     context 'when associate=new' do
-      test 'family should be set for a new ptable' do
+      test 'family/org/loc should be set for a new ptable' do
         name = 'New Associate'
         Ptable.import!(name, @text, @metadata)
 
         pt = Ptable.find_by_name(name)
         assert_equal @os_deb.family, pt.os_family
+        assert (pt.organization_ids.include? @new_org.id)
+        assert (pt.location_ids.include? @new_loc.id)
       end
 
-      test 'family should be unchanged for an existing ptable' do
+      test 'family/org/loc should be unchanged for an existing ptable' do
         Ptable.import!(@name, @text, @metadata)
 
         pt = Ptable.find_by_name(@name)
         assert_equal @os_rh.family, pt.os_family
+        refute (pt.organization_ids.include? @new_org.id)
+        refute (pt.location_ids.include? @new_loc.id)
       end
     end
 
@@ -64,19 +72,23 @@ module ForemanTemplates
         @metadata['associate'] = 'always'
       end
 
-      test 'family should be set for a new ptable' do
+      test 'family/org/loc should be set for a new ptable' do
         name = 'Always Associate'
         Ptable.import!(name, @text, @metadata)
 
         pt = Ptable.find_by_name(name)
         assert_equal @os_deb.family, pt.os_family
+        assert (pt.organization_ids.include? @new_org.id)
+        assert (pt.location_ids.include? @new_loc.id)
       end
 
-      test 'family should be updated for an existing ptable' do
+      test 'family/org/loc should be updated for an existing ptable' do
         Ptable.import!(@name, @text, @metadata)
 
         pt = Ptable.find_by_name(@name)
         assert_equal @os_deb.family, pt.os_family
+        assert (pt.organization_ids.include? @new_org.id)
+        assert (pt.location_ids.include? @new_loc.id)
       end
     end
 
@@ -85,19 +97,23 @@ module ForemanTemplates
         @metadata['associate'] = 'never'
       end
 
-      test 'family should be unset for a new ptable' do
+      test 'family/org/loc should be unset for a new ptable' do
         name = 'Never Associate'
         Ptable.import!(name, @text, @metadata)
 
         pt = Ptable.find_by_name(name)
         assert_nil pt.os_family
+        assert_equal [], pt.organization_ids
+        assert_equal [], pt.location_ids
       end
 
-      test 'family should be unchanged for an existing ptable' do
+      test 'family/org/loc should be unchanged for an existing ptable' do
         Ptable.import!(@name, @text, @metadata)
 
         pt = Ptable.find_by_name(@name)
         assert_equal @os_rh.family, pt.os_family
+        assert (not pt.organization_ids.include? @new_org.id)
+        assert (not pt.location_ids.include? @new_loc.id)
       end
     end
 
@@ -125,23 +141,6 @@ module ForemanTemplates
         s1 = Ptable.find_by_name(s.name)
         assert r[:diff].nil?
         assert_equal s.template, s1.template
-      end
-    end
-
-    context 'map_oses' do
-      test 'returns OSes that are in the db' do
-        metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }
-        assert_equal [Operatingsystem.find_by_title('centos 5.3')], Ptable.map_oses(metadata)
-      end
-
-      test 'returns an empty array for no matched OSes' do
-        metadata = { 'oses' => ['Fedora 19'] }
-        assert_equal [], Ptable.map_oses(metadata)
-      end
-
-      test 'defaults to an emtpy array' do
-        metadata = {}
-        assert_equal [], Ptable.map_oses(metadata)
       end
     end
   end

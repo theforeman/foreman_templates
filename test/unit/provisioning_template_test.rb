@@ -4,10 +4,12 @@ module ForemanTemplates
   class ProvisioningTemplateTest < ActiveSupport::TestCase
     setup do
       # create a basic template with no OS assigned
-      @tk     = FactoryGirl.create(:template_kind)
-      @os_old = FactoryGirl.create(:operatingsystem)
-      @os_new = FactoryGirl.create(:operatingsystem)
-      @pt     = FactoryGirl.create(:provisioning_template,
+      @tk      = FactoryGirl.create(:template_kind)
+      @os_old  = FactoryGirl.create(:operatingsystem)
+      @os_new  = FactoryGirl.create(:operatingsystem)
+      @new_org = FactoryGirl.create(:organization, :name => 'NewOrg')
+      @new_loc = FactoryGirl.create(:location, :name => 'NewLoc')
+      @pt      = FactoryGirl.create(:provisioning_template,
                                    :template_kind => @tk,
                                    :operatingsystems => [@os_old])
 
@@ -15,9 +17,11 @@ module ForemanTemplates
       @name     = @pt.name
       @text     = @pt.template
       @metadata = {
-        'kind'      => @tk.name,
-        'oses'      => [@os_new.to_label],
-        'associate' => 'new'
+        'kind'          => @tk.name,
+        'oses'          => [@os_new.to_label],
+        'associate'     => 'new',
+        'organizations' => [@new_org.name],
+        'locations'     => [@new_loc.name]
       }
     end
 
@@ -83,19 +87,23 @@ module ForemanTemplates
     end
 
     context 'when associate=new' do
-      test 'os should be set for a new template' do
+      test 'os/org/loc should be set for a new template' do
         name = 'New Associate'
         ProvisioningTemplate.import!(name, @text, @metadata)
 
         ct = ProvisioningTemplate.find_by_name(name)
         assert_equal [@os_new], ct.operatingsystems
+        assert (ct.organization_ids.include? @new_org.id)
+        assert (ct.location_ids.include? @new_loc.id)
       end
 
-      test 'os should be unchanged for an existing template' do
+      test 'os/org/loc should be unchanged for an existing template' do
         ProvisioningTemplate.import!(@name, @text, @metadata)
 
         ct = ProvisioningTemplate.find_by_name(@name)
         assert_equal [@os_old], ct.operatingsystems
+        refute (ct.organization_ids.include? @new_org.id)
+        refute (ct.location_ids.include? @new_loc.id)
       end
     end
 
@@ -104,19 +112,23 @@ module ForemanTemplates
         @metadata['associate'] = 'always'
       end
 
-      test 'os should be set for a new template' do
+      test 'os/org/loc should be set for a new template' do
         name = 'Always Associate'
         ProvisioningTemplate.import!(name, @text, @metadata)
 
         ct = ProvisioningTemplate.find_by_name(name)
         assert_equal [@os_new], ct.operatingsystems
+        assert (ct.organization_ids.include? @new_org.id)
+        assert (ct.location_ids.include? @new_loc.id)
       end
 
-      test 'os should be updated for an existing template' do
+      test 'os/org/loc should be updated for an existing template' do
         ProvisioningTemplate.import!(@name, @text, @metadata)
 
         ct = ProvisioningTemplate.find_by_name(@name)
         assert_equal [@os_new], ct.operatingsystems
+        assert (ct.organization_ids.include? @new_org.id)
+        assert (ct.location_ids.include? @new_loc.id)
       end
     end
 
@@ -125,37 +137,23 @@ module ForemanTemplates
         @metadata['associate'] = 'never'
       end
 
-      test 'os should be unset for a new template' do
+      test 'os/org/loc should be unset for a new template' do
         name = 'Never Associate'
         ProvisioningTemplate.import!(name, @text, @metadata)
 
         ct = ProvisioningTemplate.find_by_name(name)
         assert_equal [], ct.operatingsystems
+        assert_equal [], ct.organization_ids
+        assert_equal [], ct.location_ids
       end
 
-      test 'os should be unchanged for an existing template' do
+      test 'os/org/loc should be unchanged for an existing template' do
         ProvisioningTemplate.import!(@name, @text, @metadata)
 
         ct = ProvisioningTemplate.find_by_name(@name)
         assert_equal [@os_old], ct.operatingsystems
-      end
-    end
-
-    context 'map_oses' do
-      test 'returns OSes that are in the db' do
-        metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }
-        assert_equal [Operatingsystem.find_by_title('centos 5.3')],
-                     ProvisioningTemplate.map_oses(metadata)
-      end
-
-      test 'returns an empty array for no matched OSes' do
-        metadata = { 'oses' => ['Fedora 19'] }
-        assert_equal [], ProvisioningTemplate.map_oses(metadata)
-      end
-
-      test 'defaults to an emtpy array' do
-        metadata = {}
-        assert_equal [], ProvisioningTemplate.map_oses(metadata)
+        refute (ct.organization_ids.include? @new_org.id)
+        refute (ct.location_ids.include? @new_loc.id)
       end
     end
   end
