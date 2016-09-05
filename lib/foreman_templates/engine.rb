@@ -17,6 +17,7 @@ module ForemanTemplates
 
     config.to_prepare do
       begin
+        Template.send(:include, ForemanTemplates::TemplateImport)
         Ptable.send(:include, ForemanTemplates::PtableImport)
         ProvisioningTemplate.send(:include, ForemanTemplates::ProvisioningTemplateImport)
       rescue => e

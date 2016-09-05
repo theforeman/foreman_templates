@@ -3,6 +3,9 @@ module ForemanTemplates::PtableImport
 
   module ClassMethods
     def import!(name, text, metadata)
+      # Check for snippet type
+      return import_snippet!(name, text) if metadata['snippet']
+
       # Data
       ptable = Ptable.where(:name => name).first_or_initialize
       data = { :layout => text }

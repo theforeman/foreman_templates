@@ -101,6 +101,33 @@ module ForemanTemplates
       end
     end
 
+    context 'import snippet' do
+      test 'should create a snippet' do
+        Ptable.import!('Snippet', 'New Text', 'snippet' => true)
+
+        s = Ptable.find_by_name('Snippet')
+        assert s.snippet?
+        assert_equal 'New Text', s.template
+      end
+
+      test 'should update an existing snippet' do
+        s = FactoryGirl.create(:ptable, :snippet => true)
+        Ptable.import!(s.name, 'New Text', 'snippet' => true)
+
+        s1 = Ptable.find_by_name(s.name)
+        assert_equal 'New Text', s1.template
+      end
+
+      test 'should not change a snippet if the text matches' do
+        s = FactoryGirl.create(:ptable, :snippet => true)
+        r = Ptable.import!(s.name, s.template, 'snippet' => true)
+
+        s1 = Ptable.find_by_name(s.name)
+        assert r[:diff].nil?
+        assert_equal s.template, s1.template
+      end
+    end
+
     context 'map_oses' do
       test 'returns OSes that are in the db' do
         metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }

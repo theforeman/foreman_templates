@@ -71,6 +71,15 @@ module ForemanTemplates
         assert r[:diff].nil?
         assert_equal s.template, s1.template
       end
+
+      test 'should create a snippet via snippet metadata flag' do
+        md = { 'snippet' => true, 'kind' => 'not_used' }
+        ProvisioningTemplate.import!('Snippet', 'New Text', md)
+
+        s = ProvisioningTemplate.find_by_name('Snippet')
+        assert s.snippet?
+        assert_equal 'New Text', s.template
+      end
     end
 
     context 'when associate=new' do
