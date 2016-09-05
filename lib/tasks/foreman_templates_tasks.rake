@@ -9,7 +9,7 @@ namespace :templates do
     #* prefix    => The string all imported templates should begin with [Community ]
     #* dirname   => The directory within the git tree containing the templates [/]
     #* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
-    #* associate => Associate to OS, always, new or never  [new]
+    #* associate => Associate to OS's, Locations & Organizations. Options are: always, new or never  [new]
 
     results = ForemanTemplates::TemplateImporter.new({
       verbose:   ENV['verbose'],

@@ -166,5 +166,46 @@ module ForemanTemplates
       assert ProvisioningTemplate.find_by_name('FooBar keep_me').present?
       assert ProvisioningTemplate.all.size, 1
     end # 'purge! removes expected template'
+
+    context 'map_metadata' do
+      test 'returns OSes that are in the db' do
+        metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }
+        assert_equal [Operatingsystem.find_by_title('centos 5.3')], Template.map_metadata(metadata, 'oses')
+      end
+
+      test 'returns Orgs that are in the db' do
+        metadata = { 'organizations' => ['Organization 1', 'Organization One'] }
+        assert_equal [Organization.find_by_name('Organization 1')],
+                     Template.map_metadata(metadata, 'organizations')
+      end
+
+      test 'returns Locations that are in the db' do
+        metadata = { 'locations' => ['Location 1', 'Location One'] }
+        assert_equal [Location.find_by_name('Location 1')],
+                     Template.map_metadata(metadata, 'locations')
+      end
+
+      test 'returns an empty array for no matched OSes' do
+        metadata = { 'oses' => ['Fedora 19'] }
+        assert_equal [], Template.map_metadata(metadata, 'oses')
+      end
+
+      test 'returns an empty array for no matched Org' do
+        metadata = { 'organizations' => ['Organization One'] }
+        assert_equal [], Template.map_metadata(metadata, 'organizations')
+      end
+
+      test 'returns an empty array for no matched Location' do
+        metadata = { 'locations' => ['Location One'] }
+        assert_equal [], Template.map_metadata(metadata, 'locations')
+      end
+
+      test 'map_metadata defaults to an emtpy array' do
+        metadata = {}
+        [ 'oses', 'locations', 'organizations' ].each do |param|
+          assert_equal [], Template.map_metadata(metadata, param)
+        end
+      end
+    end
   end
 end
