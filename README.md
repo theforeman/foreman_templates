@@ -102,6 +102,32 @@ get written to a file in `/tmp`.
   * `:old` and `:new` (in which case this plugin will calculate the diff)
 * :result` (text, may be nil).
 
+=======
+### Purge
+
+    foreman-rake templates:purge
+
+This will remove all templates with the prefix "Community "
+#### Rake options
+
+* prefix    => The string all templates to be purged should begin with [Community ]
+* negate    => Negate the search [false]
+* verbose   => Print extra information during the run [false]
+
+#### Examples
+
+Just purge all the templates the begin with 'Community '
+
+    foreman-rake templates:purge
+
+Purge all templates that begin with 'Oops '
+
+    foreman-rake templates:purge prefix='Oops '
+
+Purge all templates that do not begin with 'Community '
+
+    foreman-rake templates:purge negate=true
+
 ## TODO
 
 * Add a button to the UI with Deface to run the rake task

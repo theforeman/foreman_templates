@@ -13,6 +13,7 @@ module ForemanTemplates
       @dirname   = args[:dirname] || '/'
       @filter    = args[:filter] || nil
       @repo      = args[:repo] || 'https://github.com/theforeman/community-templates.git'
+      @negate    = args[:negate] || false
       @branch    = args[:branch] || false
 
       # Rake hands off strings, not booleans, and "false" is true...
@@ -154,5 +155,14 @@ module ForemanTemplates
       result = "  #{c_or_u} Template #{id_string}:#{name}"
       { :diff => diff, :status => template.save, :result => result }
     end
+
+    def purge!
+      clause = "name #{@negate?'NOT ':''}LIKE ?"
+      ProvisioningTemplate.where(clause, "#{@prefix}%").each do |template|
+        puts template if @verbose
+        template.destroy
+      end
+    end # :purge
+
   end
 end
