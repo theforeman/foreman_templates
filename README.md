@@ -21,9 +21,11 @@ You can get the develop branch of the plugin by specifying your Gemfile in this 
 
 ## Configuration
 
-There is UI no configuration at this time.
+There is no UI configuration at this time.
 
 ## Usage
+
+### Import
 
 The plugin provides a Rake task to import the templates. To use it, simply do
 
@@ -37,7 +39,7 @@ The importer will attempt to figure out the OS and Release the template refers t
 this is a new template being created, and we can find a matching OS in Foreman, the
 template will be automatically associated with the OS
 
-# Rake options
+#### Rake options
 
 * verbose   => Print extra information during the run [false]
 * repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
@@ -51,9 +53,9 @@ The `branch` default will use *develop* if you're on Foreman-nightly; or the
 matching *1.X-stable* branch for your version of Foreman (if it exists); or
 finally it will remain on the default branch as a fallback.
 
-## Examples
+#### Examples
 
-Just import all the templates in from the default repo
+Just import all the templates from the default repo
 
     foreman-rake templates:sync
 
@@ -65,9 +67,33 @@ Import templates matching the name "Fedora"
 
     foreman-rake templates:sync filter='fedora'
 
-Import templates from a subsection of a git repo:
+Import templates from a subdirectory of a git repo:
 
     foreman-rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" dirname='/subdir'
+
+### Purge
+
+This task deletes matching templates from the Foreman DB
+
+#### Rake options
+
+* prefix    => The string all templates to be purged should begin with [Community ]
+* negate    => Negate the search [false]
+* verbose   => Print extra information during the run [false]
+
+#### Examples
+
+Just purge all the templates the begin with 'Community '
+
+    foreman-rake templates:purge
+
+Purge all templates that begin with 'Oops '
+
+    foreman-rake templates:purge prefix='Oops '
+
+Purge all templates that do not begin with 'Community '
+
+    foreman-rake templates:purge negate=true
 
 ## Integration with other Foreman Plugins
 
@@ -101,32 +127,6 @@ get written to a file in `/tmp`.
 * `:diff` (text, may be nil), or
   * `:old` and `:new` (in which case this plugin will calculate the diff)
 * :result` (text, may be nil).
-
-=======
-### Purge
-
-    foreman-rake templates:purge
-
-This will remove all templates with the prefix "Community "
-#### Rake options
-
-* prefix    => The string all templates to be purged should begin with [Community ]
-* negate    => Negate the search [false]
-* verbose   => Print extra information during the run [false]
-
-#### Examples
-
-Just purge all the templates the begin with 'Community '
-
-    foreman-rake templates:purge
-
-Purge all templates that begin with 'Oops '
-
-    foreman-rake templates:purge prefix='Oops '
-
-Purge all templates that do not begin with 'Community '
-
-    foreman-rake templates:purge negate=true
 
 ## TODO
 
