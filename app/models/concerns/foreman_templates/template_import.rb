@@ -29,5 +29,26 @@ module ForemanTemplates::TemplateImport
       end
       { :diff => diff, :status => status, :result => result }
     end
+
+    def map_metadata(metadata, param)
+      if metadata[param]
+        case param
+        when 'oses'
+          metadata[param].map do |os|
+            Operatingsystem.all.map { |db| db.to_label =~ /^#{os}/ ? db : nil }
+          end.flatten.compact
+        when 'locations'
+          metadata[param].map do |loc|
+            Location.all.map { |db| db.name =~ /^#{loc}/ ? db : nil }
+          end.flatten.compact
+        when 'organizations'
+          metadata[param].map do |org|
+            Organization.all.map { |db| db.name =~ /^#{org}/ ? db : nil }
+          end.flatten.compact
+        end
+      else
+        []
+      end
+    end
   end
 end
