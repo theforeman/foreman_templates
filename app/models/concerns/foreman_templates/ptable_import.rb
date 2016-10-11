@@ -20,9 +20,10 @@ module ForemanTemplates::PtableImport
       id_string = ('id' + ptable.id) rescue ''
 
       if (metadata['associate'] == 'new' && ptable.new_record?) || (metadata['associate'] == 'always')
-        data[:os_family]        = oses.map(&:family).uniq.first
-        data[:location_ids]     = locations.map(&:id)
-        data[:organization_ids] = organizations.map(&:id)
+        data[:operatingsystem_ids] = oses.map(&:id)
+        data[:os_family]           = oses.map(&:family).uniq.first
+        data[:location_ids]        = locations.map(&:id)
+        data[:organization_ids]    = organizations.map(&:id)
       end
 
       if data[:layout] != ptable.layout
@@ -34,6 +35,7 @@ module ForemanTemplates::PtableImport
         status  = ptable.update_attributes(data)
         result  = "  #{c_or_u} Ptable #{id_string}:#{name}"
         result += "\n    Operatingsystem Family:\n    - #{oses.map(&:family).uniq.first}" unless oses.empty?
+        result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" unless oses.empty?
         result += "\n    Organizations Associations:\n    - #{organizations.map(&:name).join("\n    - ")}" unless organizations.empty?
         result += "\n    Location Associations:\n    - #{locations.map(&:name).join("\n    - ")}" unless locations.empty?
       elsif data[:os_family] || data[:location_ids] || data[:organization_ids]
@@ -41,6 +43,7 @@ module ForemanTemplates::PtableImport
         status  = ptable.update_attributes(data)
         result  = "  #{c_or_u} Ptable Associations #{id_string}:#{name}"
         result += "\n    Operatingsystem Family:\n    - #{oses.map(&:family).uniq.first}" unless oses.empty?
+        result += "\n    Operatingsystem Associations:\n    - #{oses.map(&:fullname).join("\n    - ")}" unless oses.empty?
         result += "\n    Organizations Associations:\n    - #{organizations.map(&:name).join("\n    - ")}" unless organizations.empty?
         result += "\n    Location Associations:\n    - #{locations.map(&:name).join("\n    - ")}" unless locations.empty?
       else
