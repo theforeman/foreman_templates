@@ -6,16 +6,14 @@ module ForemanTemplates
     delegate :logger, :to => :Rails
     attr_accessor :metadata, :name, :text
 
-    def initialize(args = {})
-      @verbose   = args[:verbose] || false
-      @associate = args[:associate] || 'new'
-      @prefix    = args[:prefix] || 'Community '
-      @dirname   = args[:dirname] || '/'
-      @filter    = args[:filter] || nil
-      @repo      = args[:repo] || 'https://github.com/theforeman/community-templates.git'
-      @negate    = args[:negate] || false
-      @branch    = args[:branch] || false
+    def self.setting_overrides
+      %i(verbose associate prefix dirname filter repo negate branch)
+    end
 
+    attr_reader *setting_overrides
+
+    def initialize(args = {})
+      assign_attributes args
       # Rake hands off strings, not booleans, and "false" is true...
       if @verbose.is_a?(String)
         @verbose = if @verbose == 'false'
@@ -163,5 +161,13 @@ module ForemanTemplates
         template.destroy
       end
     end # :purge
+
+    private
+
+    def assign_attributes(args = {})
+      self.class.setting_overrides.each do |attribute|
+        instance_variable_set("@#{attribute}", args[attribute.to_sym] || Setting["template_sync_#{attribute}".to_sym])
+      end
+    end
   end
 end

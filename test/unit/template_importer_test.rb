@@ -207,5 +207,36 @@ module ForemanTemplates
         end
       end
     end
+
+    test 'should create importer with defaults from Settings' do
+      setup_settings
+      imp = ForemanTemplates::TemplateImporter.new
+      imp.class.setting_overrides.each do |attribute|
+        assert_equal imp.public_send(attribute), Setting["template_sync_#{attribute}".to_sym]
+      end
+    end
+
+    test 'should create importer overriding defaults from Settings' do
+      setup_settings
+      args = { :verbose => true, :repo => 'http://coolest_templates_repo', :dirname => '/some/dir' }
+      imp = ForemanTemplates::TemplateImporter.new(args)
+      args.each do |key, value|
+        assert_equal value, imp.public_send(key)
+      end
+    end
+
+    private
+
+    def setup_settings
+      category = "Setting::TemplateSync"
+      FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_verbose', :default => false)
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_associate', :default => "new")
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_prefix', :default => "Community ")
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_dirname', :default => "/")
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_filter', :default => nil)
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => 'https://github.com/theforeman/community-templates.git')
+      FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => nil)
+    end
   end
 end

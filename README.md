@@ -21,7 +21,8 @@ You can get the develop branch of the plugin by specifying your Gemfile in this 
 
 ## Configuration
 
-There is no UI configuration at this time.
+The plugin comes with settings providing sane defaults for import. You can change them under Administer > Settings, TemplateSync tab.
+These can be overriden for each import by passing options directly to a Rake task (see [Usage](https://github.com/theforeman/foreman_templates#usage) section for how to do that)
 
 ## Usage
 
@@ -52,6 +53,8 @@ template will be automatically associated with the OS
 The `branch` default will use *develop* if you're on Foreman-nightly; or the
 matching *1.X-stable* branch for your version of Foreman (if it exists); or
 finally it will remain on the default branch as a fallback.
+
+Passing any option to a Rake task overrides its default value from a corresponding Setting.
 
 #### Examples
 

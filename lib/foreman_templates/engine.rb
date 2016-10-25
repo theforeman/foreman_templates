@@ -9,6 +9,10 @@ module ForemanTemplates
   class Engine < ::Rails::Engine
     engine_name 'foreman_templates'
 
+    initializer 'foreman_templates.load_default_settings', :before => :load_config_initializers do
+      require_dependency File.expand_path('../../../app/models/setting/template_sync.rb', __FILE__) if (Setting.table_exists? rescue(false))
+    end
+
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
         requires_foreman '>= 1.12'
