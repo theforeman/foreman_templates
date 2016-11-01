@@ -11,10 +11,9 @@ module ForemanTemplates
       # changes to /test/templates will need to be committed (locally) for
       # tests to work
 
-      path = File.expand_path(File.join('..', '..', '..'), __FILE__)
       ForemanTemplates::TemplateImporter.new({
-        :repo      => path,
-        :branch    => Git.open(path).current_branch,
+        :repo      => @engine_root,
+        :branch    => Git.open(@engine_root).current_branch,
         :prefix    => 'FooBar ',
         :dirname   => '/test/templates/core',
         :verbose   => 'false',
@@ -23,6 +22,7 @@ module ForemanTemplates
     end
 
     setup do
+      @engine_root = File.expand_path(File.join('..', '..', '..'), __FILE__)
       @importer = importer
     end
 
@@ -225,18 +225,57 @@ module ForemanTemplates
       end
     end
 
+    test 'should import files from git' do
+      setup_settings
+      imp = ForemanTemplates::TemplateImporter.new
+      succ = "Success!"
+      imp.expects(:import_from_git).returns([succ])
+      res = imp.import!
+      assert_equal succ, res.first
+    end
+
+    test 'should import files from filesystem' do
+      setup_settings :repo => @engine_root, :dirname => '/test/templates/core'
+      imp = ForemanTemplates::TemplateImporter.new
+      succ = "Success!"
+      imp.expects(:import_from_files).returns([succ])
+      res = imp.import!
+      assert_equal succ, res.first
+    end
+
+    test 'should fail gracefully when cannot find path on filesystem' do
+      some_dir = File.expand_path(File.join('..', '..', '..', 'some_dir'), __FILE__)
+      setup_settings :repo => some_dir
+      imp = ForemanTemplates::TemplateImporter.new
+      res = imp.import!
+      assert_equal "Using file-based import, but couldn't find #{File.expand_path(some_dir)}", res.first
+    end
+
+    test 'should be able to use ~ in path' do
+      home_dir = '~'
+      setup_settings :repo => home_dir
+      imp = ForemanTemplates::TemplateImporter.new
+      succ = "Success!"
+      imp.expects(:parse_files!).returns([succ])
+      res = imp.import!
+      assert_equal succ, res.first
+    end
+
     private
 
-    def setup_settings
+    def setup_settings(opts = {})
       category = "Setting::TemplateSync"
+      default_repo = opts[:repo] || 'https://github.com/theforeman/community-templates.git'
+      default_dirname = opts[:dirname] || '/'
+      default_branch = opts[:branch] || nil
       FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_verbose', :default => false)
       FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_associate', :default => "new")
       FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_prefix', :default => "Community ")
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_dirname', :default => "/")
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_dirname', :default => default_dirname)
       FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_filter', :default => nil)
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => 'https://github.com/theforeman/community-templates.git')
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => default_repo)
       FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => nil)
+      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => default_branch)
     end
   end
 end
