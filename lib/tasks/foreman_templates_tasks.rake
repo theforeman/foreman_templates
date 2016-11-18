@@ -1,7 +1,10 @@
 # Tasks
 namespace :templates do
   desc 'Synchronize templates from a git repo'
-  task :sync => :environment do
+  task :import => :environment do
+    if Rake.application.top_level_tasks.include?('templates:sync')
+      ActiveSupport::Deprecation.warn('templates:sync task has been renamed to templates:import and will be removed in future version')
+    end
     # Available options:
     #* verbose   => Print extra information during the run [false]
     #* repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
@@ -23,6 +26,8 @@ namespace :templates do
 
     puts results.join("\n")
   end
+
+  task :sync => :import
 
   desc 'Purge unwanted templates from foreman'
   task :purge => :environment do
