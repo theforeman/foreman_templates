@@ -26,32 +26,6 @@ module ForemanTemplates
       @importer = importer
     end
 
-    context 'get_default_branch' do
-      setup do
-        @repo = Struct.new(:branches).new([
-                                            Struct.new(:name).new('0.1-stable'),
-                                            Struct.new(:name).new('develop')
-                                          ])
-      end
-
-      test 'when on develop, returns develop' do
-        SETTINGS[:version].stubs(:tag).returns('develop')
-        assert_equal 'develop', @importer.get_default_branch(@repo)
-      end
-
-      test 'when branch exists, return it' do
-        SETTINGS[:version].stubs(:tag).returns('not_develop')
-        SETTINGS[:version].stubs(:short).returns('0.1')
-        assert_equal '0.1-stable', @importer.get_default_branch(@repo)
-      end
-
-      test 'when branch does not exist, use default branch' do
-        SETTINGS[:version].stubs(:tag).returns('not_develop')
-        SETTINGS[:version].stubs(:short).returns('0.2')
-        refute @importer.get_default_branch(@repo)
-      end
-    end
-
     context 'metadata method' do
       test 'extracts correct metadata' do
         text = File.read(get_template('metadata1.erb'))

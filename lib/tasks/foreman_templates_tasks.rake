@@ -29,6 +29,21 @@ namespace :templates do
 
   task :sync => :import
 
+  task :export => :environment do
+    ForemanTemplates::TemplateExporter.new({
+      verbose:   ENV['verbose'],
+      repo: ENV['repo'],
+      branch: ENV['branch'],
+      prefix: ENV['prefix'],
+      dirname: ENV['dirname'],
+      filter: ENV['filter'],
+      # associate: ENV['associate'],
+      metadata_export_mode: ENV['metadata_export_mode'],
+    }).export!
+
+    puts 'Export finished'
+  end
+
   desc 'Purge unwanted templates from foreman'
   task :purge => :environment do
     ForemanTemplates::TemplateImporter.new({

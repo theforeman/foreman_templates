@@ -2,18 +2,15 @@ class NoKindError < Exception; end
 class MissingKindError < Exception; end
 
 module ForemanTemplates
-  class TemplateImporter
-    delegate :logger, :to => :Rails
+  class TemplateImporter < Action
     attr_accessor :metadata, :name, :text
 
     def self.setting_overrides
       %i(verbose associate prefix dirname filter repo negate branch)
     end
 
-    attr_reader *setting_overrides
-
     def initialize(args = {})
-      assign_attributes args
+      super
       # Rake hands off strings, not booleans, and "false" is true...
       if @verbose.is_a?(String)
         @verbose = if @verbose == 'false'
@@ -70,7 +67,11 @@ module ForemanTemplates
         title    = filename.split('.').first
         name     = metadata['name'] || title
         name     = [@prefix, name].compact.join
-        next if @filter && !name.match(/#{@filter}/i)
+        if @filter
+          matching = name.match(/#{@filter}/i)
+          matching = !matching if @negate
+          next if !matching
+        end
 
         raise MissingKindError unless metadata['kind']
 
@@ -123,17 +124,6 @@ module ForemanTemplates
       end
     end
 
-    def get_default_branch(repo)
-      branch_names = repo.branches.map(&:name).uniq
-
-      # Always use develop on Foreman-nightly, if present, or else relevant stable branch
-      target = SETTINGS[:version].tag == 'develop' ? 'develop' : "#{SETTINGS[:version].short}-stable"
-      return target if branch_names.include?(target)
-
-      # stay on default branch as fallback
-      nil
-    end
-
     def parse_metadata(text)
       # Pull out the first erb comment only - /m is for a multiline regex
       extracted = text.match(/<%\#[\t a-z0-9=:]*(.+?).-?%>/m)
@@ -176,13 +166,5 @@ module ForemanTemplates
         template.destroy
       end
     end # :purge
-
-    private
-
-    def assign_attributes(args = {})
-      self.class.setting_overrides.each do |attribute|
-        instance_variable_set("@#{attribute}", args[attribute.to_sym] || Setting["template_sync_#{attribute}".to_sym])
-      end
-    end
   end
 end
