@@ -43,7 +43,7 @@ template will be automatically associated with the OS
 #### Rake options
 
 * verbose   => Print extra information during the run [false]
-* repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
+* repo      => Sync templates from a different repo [https://github.com/theforeman/community-templates]. Importing from git and file system is supported.
 * branch    => Branch in Git repo [_see note below_]
 * prefix    => The string all imported templates should begin with [Community]
 * dirname   => The directory within the git tree containing the templates [/]
@@ -73,6 +73,10 @@ Import templates matching the name "Fedora"
 Import templates from a subdirectory of a git repo:
 
     foreman-rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" dirname='/subdir'
+
+Import templates from file system:
+
+    foreman-rake templates:sync repo="/path/to/my/templates"
 
 ### Purge
 

@@ -25,6 +25,21 @@ module ForemanTemplates
     end
 
     def import!
+      if @repo.start_with?('http://', 'https://', 'git://')
+        import_from_git
+      else
+        import_from_files
+      end
+    end
+
+    def import_from_files
+      abs_repo_path = File.expand_path @repo
+      return ["Using file-based import, but couldn't find #{abs_repo_path}"] unless Dir.exist?(abs_repo_path)
+      @dir = abs_repo_path
+      return parse_files!
+    end
+
+    def import_from_git
       # Check out the community templates to a temp location
       @dir = Dir.mktmpdir
 
