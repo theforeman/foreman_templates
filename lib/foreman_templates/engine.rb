@@ -15,7 +15,16 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 1.14'
+        requires_foreman '>= 1.15'
+
+        apipie_documented_controllers ["#{ForemanTemplates::Engine.root}/app/controllers/api/v2/*.rb"]
+
+        security_block :templates do
+          permission :import_templates, {
+            :"api/v2/template" => [:import]
+          }, :resource_type => 'Template'
+        end
+        add_all_permissions_to_default_roles
       end
     end
 
