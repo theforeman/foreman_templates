@@ -3,7 +3,7 @@ module ForemanTemplates
     delegate :logger, :to => :Rails
 
     def self.setting_overrides
-      []
+      %i(verbose prefix dirname filter repo negate branch)
     end
 
     def method_missing(method, *args, &block)
@@ -31,6 +31,18 @@ module ForemanTemplates
 
       # stay on default branch as fallback
       nil
+    end
+
+    def git_repo?
+      @repo.start_with?('http://', 'https://', 'git://')
+    end
+
+    def get_absolute_repo_path
+      File.expand_path(@repo)
+    end
+
+    def verify_path!(path)
+      raise "Using file-based synchronization, but couldn't find #{path}" unless Dir.exist?(path)
     end
 
     private

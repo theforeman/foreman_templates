@@ -1,10 +1,26 @@
 module ForemanTemplates
   class TemplateExporter < Action
     def self.setting_overrides
-      %i(prefix dirname filter repo negate branch metadata_export_mode)
+      super + %i(metadata_export_mode)
     end
 
     def export!
+      if git_repo?
+        export_to_git
+      else
+        export_to_files
+      end
+
+      return true
+    end
+
+    def export_to_files
+      @dir = get_absolute_repo_path
+      verify_path!(@dir)
+      dump_files!
+    end
+
+    def export_to_git
       @dir = Dir.mktmpdir
 
       git_repo = Git.clone(@repo, @dir)
@@ -19,8 +35,6 @@ module ForemanTemplates
       git_repo.commit "Templates export made by Foreman user #{User.current.try(:login) || User::ANONYMOUS_ADMIN}"
       logger.debug "pushing to branch #{branch} at origin #{@repo}"
       git_repo.push 'origin', branch
-
-      return true
     ensure
       FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
     end

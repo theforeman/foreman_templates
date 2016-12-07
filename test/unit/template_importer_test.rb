@@ -217,12 +217,14 @@ module ForemanTemplates
       assert_equal succ, res.first
     end
 
-    test 'should fail gracefully when cannot find path on filesystem' do
+    test 'should fail with exception when cannot find path on filesystem' do
       some_dir = File.expand_path(File.join('..', '..', '..', 'some_dir'), __FILE__)
       setup_settings :repo => some_dir
       imp = ForemanTemplates::TemplateImporter.new
-      res = imp.import!
-      assert_equal "Using file-based import, but couldn't find #{File.expand_path(some_dir)}", res.first
+      assert_raises RuntimeError do |exception|
+        imp.import!
+        assert_equal exception.message, "Using file-based import, but couldn't find #{File.expand_path(some_dir)}"
+      end
     end
 
     test 'should be able to use ~ in path' do

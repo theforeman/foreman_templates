@@ -6,7 +6,7 @@ module ForemanTemplates
     attr_accessor :metadata, :name, :text
 
     def self.setting_overrides
-      %i(verbose associate prefix dirname filter repo negate branch)
+      super + %i(associate)
     end
 
     def initialize(args = {})
@@ -22,7 +22,7 @@ module ForemanTemplates
     end
 
     def import!
-      if @repo.start_with?('http://', 'https://', 'git://')
+      if git_repo?
         import_from_git
       else
         import_from_files
@@ -30,9 +30,8 @@ module ForemanTemplates
     end
 
     def import_from_files
-      abs_repo_path = File.expand_path @repo
-      return ["Using file-based import, but couldn't find #{abs_repo_path}"] unless Dir.exist?(abs_repo_path)
-      @dir = abs_repo_path
+      @dir = get_absolute_repo_path
+      verify_path!(@dir)
       return parse_files!
     end
 
