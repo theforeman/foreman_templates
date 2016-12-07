@@ -66,7 +66,7 @@ module ForemanTemplates
         filename = template.split('/').last
         title    = filename.split('.').first
         name     = metadata['name'] || title
-        name     = [@prefix, name].compact.join
+        name     = auto_prefix(name)
         if @filter
           matching = name.match(/#{@filter}/i)
           matching = !matching if @negate
@@ -114,6 +114,10 @@ module ForemanTemplates
         end
       end
       result_lines
+    end
+
+    def auto_prefix(name)
+      name.start_with?(@prefix) ? name : [@prefix, name].compact.join
     end
 
     def calculate_diff(old, new)

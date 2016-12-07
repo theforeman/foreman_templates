@@ -235,6 +235,12 @@ module ForemanTemplates
       assert_equal succ, res.first
     end
 
+    test '#auto_prefix' do
+      assert_equal 'FooBar something', @importer.auto_prefix('something')
+      assert_equal 'FooBar something', @importer.auto_prefix('FooBar something')
+      assert_equal 'FooBar template FooBar something', @importer.auto_prefix('template FooBar something')
+    end
+
     private
 
     def setup_settings(opts = {})
