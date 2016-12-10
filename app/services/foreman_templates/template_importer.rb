@@ -72,8 +72,6 @@ module ForemanTemplates
           next if !matching
         end
 
-        raise MissingKindError unless metadata['kind']
-
         begin
           # Expects a return of { :diff, :status, :result }
           data = if metadata['model'].present?

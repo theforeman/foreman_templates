@@ -42,11 +42,6 @@ module ForemanTemplates
       test 'converts spaces to underscores and suffixes with .erb' do
         assert_equal 'template_name.erb', @exporter.get_template_filename(@template)
       end
-
-      test 'adds prefix' do
-        @exporter.stubs(:prefix).returns('[wip]')
-        assert_equal '[wip]template_name.erb', @exporter.get_template_filename(@template)
-      end
     end
 
     # kind = template.respond_to?(:template_kind) ? template.template_kind.try(:name) || 'snippet' : nil

@@ -3,7 +3,7 @@ namespace :templates do
   desc 'Synchronize templates from a git repo'
   task :import => :environment do
     if Rake.application.top_level_tasks.include?('templates:sync')
-      ActiveSupport::Deprecation.warn('templates:sync task has been renamed to templates:import and will be removed in future version')
+      ActiveSupport::Deprecation.warn('templates:sync task has been renamed to templates:import and will be removed in a future version')
     end
     # Available options:
     #* verbose   => Print extra information during the run [false]

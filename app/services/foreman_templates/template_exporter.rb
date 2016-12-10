@@ -26,15 +26,27 @@ module ForemanTemplates
       git_repo = Git.clone(@repo, @dir)
       logger.debug "cloned #{@repo} to #{@dir}"
       branch = @branch ? @branch : get_default_branch(git_repo)
-      git_repo.checkout(branch) if branch
+      # either checkout to existing or create a new one and checkout afterwards
+      if branch
+        if git_repo.is_branch?(branch)
+          git_repo.checkout(branch)
+        else
+          git_repo.branch(branch).checkout
+        end
+      end
 
       dump_files!
-
       git_repo.add
-      logger.debug "commiting changes in cloned repo"
-      git_repo.commit "Templates export made by Foreman user #{User.current.try(:login) || User::ANONYMOUS_ADMIN}"
-      logger.debug "pushing to branch #{branch} at origin #{@repo}"
-      git_repo.push 'origin', branch
+
+      if git_repo.status.added.any?
+        logger.debug "committing changes in cloned repo"
+        git_repo.commit "Templates export made by Foreman user #{User.current.try(:login) || User::ANONYMOUS_ADMIN}"
+
+        logger.debug "pushing to branch #{branch} at origin #{@repo}"
+        git_repo.push 'origin', branch
+      else
+        logger.debug 'no change detected, skipping the commit and push'
+      end
     ensure
       FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
     end
@@ -54,7 +66,7 @@ module ForemanTemplates
     end
 
     def get_template_filename(template)
-      prefix.to_s + template.name.downcase.tr(' ', '_') + '.erb'
+      template.name.downcase.tr(' ', '_') + '.erb'
     end
 
     def get_dump_dir(template)
