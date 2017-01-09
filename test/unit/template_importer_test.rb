@@ -26,32 +26,6 @@ module ForemanTemplates
       @importer = importer
     end
 
-    context 'get_default_branch' do
-      setup do
-        @repo = Struct.new(:branches).new([
-                                            Struct.new(:name).new('0.1-stable'),
-                                            Struct.new(:name).new('develop')
-                                          ])
-      end
-
-      test 'when on develop, returns develop' do
-        SETTINGS[:version].stubs(:tag).returns('develop')
-        assert_equal 'develop', @importer.get_default_branch(@repo)
-      end
-
-      test 'when branch exists, return it' do
-        SETTINGS[:version].stubs(:tag).returns('not_develop')
-        SETTINGS[:version].stubs(:short).returns('0.1')
-        assert_equal '0.1-stable', @importer.get_default_branch(@repo)
-      end
-
-      test 'when branch does not exist, use default branch' do
-        SETTINGS[:version].stubs(:tag).returns('not_develop')
-        SETTINGS[:version].stubs(:short).returns('0.2')
-        refute @importer.get_default_branch(@repo)
-      end
-    end
-
     context 'metadata method' do
       test 'extracts correct metadata' do
         text = File.read(get_template('metadata1.erb'))
@@ -243,12 +217,14 @@ module ForemanTemplates
       assert_equal succ, res.first
     end
 
-    test 'should fail gracefully when cannot find path on filesystem' do
+    test 'should fail with exception when cannot find path on filesystem' do
       some_dir = File.expand_path(File.join('..', '..', '..', 'some_dir'), __FILE__)
       setup_settings :repo => some_dir
       imp = ForemanTemplates::TemplateImporter.new
-      res = imp.import!
-      assert_equal "Using file-based import, but couldn't find #{File.expand_path(some_dir)}", res.first
+      assert_raises RuntimeError do |exception|
+        imp.import!
+        assert_equal exception.message, "Using file-based import, but couldn't find #{File.expand_path(some_dir)}"
+      end
     end
 
     test 'should be able to use ~ in path' do
@@ -259,6 +235,12 @@ module ForemanTemplates
       imp.expects(:parse_files!).returns([succ])
       res = imp.import!
       assert_equal succ, res.first
+    end
+
+    test '#auto_prefix' do
+      assert_equal 'FooBar something', @importer.auto_prefix('something')
+      assert_equal 'FooBar something', @importer.auto_prefix('FooBar something')
+      assert_equal 'FooBar template FooBar something', @importer.auto_prefix('template FooBar something')
     end
 
     private
