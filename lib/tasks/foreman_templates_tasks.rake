@@ -1,6 +1,6 @@
 # Tasks
 namespace :templates do
-  desc 'Synchronize templates from a git repo'
+  desc 'Import templates according to settings'
   task :import => :environment do
     if Rake.application.top_level_tasks.include?('templates:sync')
       ActiveSupport::Deprecation.warn('templates:sync task has been renamed to templates:import and will be removed in a future version')
@@ -29,6 +29,7 @@ namespace :templates do
 
   task :sync => :import
 
+  desc 'Export templates according to settings'
   task :export => :environment do
     ForemanTemplates::TemplateExporter.new({
       verbose:   ENV['verbose'],
