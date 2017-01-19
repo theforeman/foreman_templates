@@ -32,13 +32,17 @@ module ForemanTemplates
           git_repo.checkout(branch)
         else
           git_repo.branch(branch).checkout
+          if git_repo.is_remote_branch?(branch) # if we work with remote branch we need to sync it first
+            git_repo.reset_hard("origin/#{branch}")
+          end
         end
       end
 
       dump_files!
       git_repo.add
 
-      if git_repo.status.added.any?
+      status = git_repo.status
+      if status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
         logger.debug "committing changes in cloned repo"
         git_repo.commit "Templates export made by Foreman user #{User.current.try(:login) || User::ANONYMOUS_ADMIN}"
 
