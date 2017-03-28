@@ -34,7 +34,7 @@ module ForemanTemplates
     end
 
     def git_repo?
-      @repo.start_with?('http://', 'https://', 'git://')
+      @repo.start_with?('http://', 'https://', 'git://', 'ssh://')
     end
 
     def get_absolute_repo_path
