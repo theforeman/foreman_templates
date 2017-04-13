@@ -77,6 +77,18 @@ module ForemanTemplates
       test 'it returns true for git url' do
         assert Action.new(:repo => 'git://github.com').git_repo?
       end
+
+      test 'it returns true for git+ssh url' do
+        assert Action.new(:repo => 'git://github.com').git_repo?
+      end
+
+      test 'it returns true for ssh+git url' do
+        assert Action.new(:repo => 'ssh+git://github.com').git_repo?
+      end
+
+      test 'it returns true for ssh url' do
+        assert Action.new(:repo => 'ssh://github.com').git_repo?
+      end
     end
 
     context 'get_absolute_path' do
