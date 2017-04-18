@@ -1,0 +1,16 @@
+<%= javascript_tag do %>
+var ready;
+
+ready = function() {
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+<% end %>
+<%= display_link_if_authorized(_("Sync templates"), { :controller => 'templates_sync', :action => :sync },
+  :title => _("Sync the templates now"), 
+  :id => "sync_templates_button", 
+  :class =>"btn btn-success") %>
+<%= content_tag(:br) %>
