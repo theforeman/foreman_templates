@@ -57,6 +57,13 @@ namespace :templates do
     }).purge!
   end
 
+  desc 'Clean default data created by this plugin, this will permanently delete the data!'
+  task :cleanup => :environment do
+    puts 'Cleaning data...'
+    ForemanTemplates::Cleaner.new.clean_up!
+    puts 'Clean up finished, you can now remove the plugin from your system'
+  end
+
 end
 
 # Tests
