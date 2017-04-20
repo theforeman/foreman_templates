@@ -4,21 +4,17 @@ module ForemanTemplates
   class ActionTest < ActiveSupport::TestCase
     context 'initialization of action' do
       test '#initialize loads data from settings' do
-        Setting.stub(:[], '/tmp') do
-          ForemanTemplates::Action.stub(:setting_overrides, [ :directory ]) do
-            action = ForemanTemplates::Action.new
-            assert_equal '/tmp', action.instance_variable_get('@directory')
-          end
-        end
+        ::Setting.stubs(:[]).returns('/tmp')
+        ForemanTemplates::Action.stubs(:setting_overrides).returns([ :directory ])
+        action = ForemanTemplates::Action.new
+        assert_equal '/tmp', action.instance_variable_get('@directory')
       end
 
       test '#initialize can be overriden by specific value' do
-        Setting.stub(:[], '/tmp') do
-          ForemanTemplates::Action.stub(:setting_overrides, [ :directory ]) do
-            action = ForemanTemplates::Action.new :directory => '/var/tmp'
-            assert_equal '/var/tmp', action.instance_variable_get('@directory')
-          end
-        end
+        ::Setting.stubs(:[]).returns('/tmp')
+        ForemanTemplates::Action.stubs(:setting_overrides).returns([ :directory ])
+        action = ForemanTemplates::Action.new :directory => '/var/tmp'
+        assert_equal '/var/tmp', action.instance_variable_get('@directory')
       end
     end
 
