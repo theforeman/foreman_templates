@@ -14,6 +14,8 @@ namespace :templates do
     #* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
     #* associate => Associate to OS's, Locations & Organizations. Options are: always, new or never  [new]
 
+    User.current = User.anonymous_admin
+
     results = ForemanTemplates::TemplateImporter.new({
       verbose:   ENV['verbose'],
       repo:      ENV['repo'],
@@ -31,6 +33,8 @@ namespace :templates do
 
   desc 'Export templates according to settings'
   task :export => :environment do
+    User.current = User.anonymous_admin
+
     ForemanTemplates::TemplateExporter.new({
       verbose:   ENV['verbose'],
       repo: ENV['repo'],
@@ -47,6 +51,8 @@ namespace :templates do
 
   desc 'Purge unwanted templates from foreman'
   task :purge => :environment do
+    User.current = User.anonymous_admin
+
     ForemanTemplates::TemplateImporter.new({
       #* negate  => negate query [false]
       #* prefix  => The string all templates to purge should ( or not ) begin with [Community ]
