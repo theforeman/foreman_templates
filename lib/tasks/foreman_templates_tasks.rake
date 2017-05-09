@@ -6,13 +6,13 @@ namespace :templates do
       ActiveSupport::Deprecation.warn('templates:sync task has been renamed to templates:import and will be removed in a future version')
     end
     # Available options:
-    #* verbose   => Print extra information during the run [false]
-    #* repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
-    #* branch    => Branch in Git repo [default branch]
-    #* prefix    => The string all imported templates should begin with [Community ]
-    #* dirname   => The directory within the git tree containing the templates [/]
-    #* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
-    #* associate => Associate to OS's, Locations & Organizations. Options are: always, new or never  [new]
+    # * verbose   => Print extra information during the run [false]
+    # * repo      => Sync templates from a different Git repo [https://github.com/theforeman/community-templates]
+    # * branch    => Branch in Git repo [default branch]
+    # * prefix    => The string all imported templates should begin with [Community ]
+    # * dirname   => The directory within the git tree containing the templates [/]
+    # * filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
+    # * associate => Associate to OS's, Locations & Organizations. Options are: always, new or never  [new]
 
     User.current = User.anonymous_admin
 
@@ -54,9 +54,9 @@ namespace :templates do
     User.current = User.anonymous_admin
 
     ForemanTemplates::TemplateImporter.new({
-      #* negate  => negate query [false]
-      #* prefix  => The string all templates to purge should ( or not ) begin with [Community ]
-      #* verbose => Print extra information during the run [false]
+      # * negate  => negate query [false]
+      # * prefix  => The string all templates to purge should ( or not ) begin with [Community ]
+      # * verbose => Print extra information during the run [false]
       negate:  ENV['negate'],
       prefix:  ENV['prefix'],
       verbose: ENV['verbose'],
@@ -69,7 +69,6 @@ namespace :templates do
     ForemanTemplates::Cleaner.new.clean_up!
     puts 'Clean up finished, you can now remove the plugin from your system'
   end
-
 end
 
 # Tests

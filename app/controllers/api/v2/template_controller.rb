@@ -1,7 +1,6 @@
 module Api
   module V2
     class TemplateController < ::Api::V2::BaseController
-
       api :POST, "/template/import/", N_("Initiate Import")
       param :repo, String, :required => false, :desc => N_("Import templates from a different repo.")
       param :branch, String, :required => false, :desc => N_("Branch in Git repo.")
@@ -21,7 +20,7 @@ module Api
           associate: params['associate'],
           negate:    params['negate'],
         }).import!
-        render :json => {:message => results}
+        render :json => { :message => results }
       end
     end
   end

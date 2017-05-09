@@ -26,21 +26,21 @@ module ForemanTemplates
         name = 'New Associate'
         Ptable.import!(name, 'New Text', @metadata)
 
-        pt = Ptable.find_by_name(name)
+        pt = Ptable.find_by(name: name)
         assert_equal 'New Text', pt.layout
       end
 
       test 'should update an existing ptable' do
         Ptable.import!(@name, 'New Text', @metadata)
 
-        pt = Ptable.find_by_name(@name)
+        pt = Ptable.find_by(name: @name)
         assert_equal 'New Text', pt.layout
       end
 
       test 'should not change a ptable if the text matches' do
         r = Ptable.import!(@name, @text, @metadata)
 
-        pt = Ptable.find_by_name(@name)
+        pt = Ptable.find_by(name: @name)
         assert_equal @text, pt.layout
         assert r[:diff].nil?
       end
@@ -51,19 +51,19 @@ module ForemanTemplates
         name = 'New Associate'
         Ptable.import!(name, @text, @metadata)
 
-        pt = Ptable.find_by_name(name)
+        pt = Ptable.find_by(name: name)
         assert_equal @os_deb.family, pt.os_family
-        assert (pt.organization_ids.include? @new_org.id)
-        assert (pt.location_ids.include? @new_loc.id)
+        assert pt.organization_ids.include?(@new_org.id)
+        assert pt.location_ids.include?(@new_loc.id)
       end
 
       test 'family/org/loc should be unchanged for an existing ptable' do
         Ptable.import!(@name, @text, @metadata)
 
-        pt = Ptable.find_by_name(@name)
+        pt = Ptable.find_by(name: @name)
         assert_equal @os_rh.family, pt.os_family
-        refute (pt.organization_ids.include? @new_org.id)
-        refute (pt.location_ids.include? @new_loc.id)
+        refute pt.organization_ids.include?(@new_org.id)
+        refute pt.location_ids.include?(@new_loc.id)
       end
     end
 
@@ -76,19 +76,19 @@ module ForemanTemplates
         name = 'Always Associate'
         Ptable.import!(name, @text, @metadata)
 
-        pt = Ptable.find_by_name(name)
+        pt = Ptable.find_by(name: name)
         assert_equal @os_deb.family, pt.os_family
-        assert (pt.organization_ids.include? @new_org.id)
-        assert (pt.location_ids.include? @new_loc.id)
+        assert pt.organization_ids.include?(@new_org.id)
+        assert pt.location_ids.include?(@new_loc.id)
       end
 
       test 'family/org/loc should be updated for an existing ptable' do
         Ptable.import!(@name, @text, @metadata)
 
-        pt = Ptable.find_by_name(@name)
+        pt = Ptable.find_by(name: @name)
         assert_equal @os_deb.family, pt.os_family
-        assert (pt.organization_ids.include? @new_org.id)
-        assert (pt.location_ids.include? @new_loc.id)
+        assert pt.organization_ids.include?(@new_org.id)
+        assert pt.location_ids.include?(@new_loc.id)
       end
     end
 
@@ -101,7 +101,7 @@ module ForemanTemplates
         name = 'Never Associate'
         Ptable.import!(name, @text, @metadata)
 
-        pt = Ptable.find_by_name(name)
+        pt = Ptable.find_by(name: name)
         assert_nil pt.os_family
         assert_equal [], pt.organization_ids
         assert_equal [], pt.location_ids
@@ -110,10 +110,10 @@ module ForemanTemplates
       test 'family/org/loc should be unchanged for an existing ptable' do
         Ptable.import!(@name, @text, @metadata)
 
-        pt = Ptable.find_by_name(@name)
+        pt = Ptable.find_by(name: @name)
         assert_equal @os_rh.family, pt.os_family
-        assert (not pt.organization_ids.include? @new_org.id)
-        assert (not pt.location_ids.include? @new_loc.id)
+        refute pt.organization_ids.include?(@new_org.id)
+        refute pt.location_ids.include?(@new_loc.id)
       end
     end
 
@@ -121,7 +121,7 @@ module ForemanTemplates
       test 'should create a snippet' do
         Ptable.import!('Snippet', 'New Text', 'snippet' => true)
 
-        s = Ptable.find_by_name('Snippet')
+        s = Ptable.find_by(name: 'Snippet')
         assert s.snippet?
         assert_equal 'New Text', s.template
       end
@@ -130,7 +130,7 @@ module ForemanTemplates
         s = FactoryGirl.create(:ptable, :snippet => true)
         Ptable.import!(s.name, 'New Text', 'snippet' => true)
 
-        s1 = Ptable.find_by_name(s.name)
+        s1 = Ptable.find_by(name: s.name)
         assert_equal 'New Text', s1.template
       end
 
@@ -138,7 +138,7 @@ module ForemanTemplates
         s = FactoryGirl.create(:ptable, :snippet => true)
         r = Ptable.import!(s.name, s.template, 'snippet' => true)
 
-        s1 = Ptable.find_by_name(s.name)
+        s1 = Ptable.find_by(name: s.name)
         assert r[:diff].nil?
         assert_equal s.template, s1.template
       end

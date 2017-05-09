@@ -16,11 +16,89 @@ Metrics/MethodLength:
   Max: 20
 
 Metrics/LineLength:
-  Max: 111 # TODO: discuss and set this
+  Enabled: false 
 
 Style/Next:
   Enabled: false
 
 # Support both ruby19 and hash_rockets
 Style/HashSyntax:
+  Enabled: false
+
+Style/CaseIndentation:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/EmptyElse:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/IndentHash:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/Proc:
+  Enabled: false
+
+Style/SpaceInsideBrackets:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+
+# needs major refactorings before we can improve
+Metrics/PerceivedComplexity:
+  Max: 13
+Metrics/MethodLength:
+  Max: 49
+Metrics/ClassLength:
+  Max: 200
+Metrics/AbcSize:
+  Max: 72
+Metrics/CyclomaticComplexity:
+  Max: 36
+Metrics/BlockLength:
+  Max: 47
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+# JobTemplates use this for inputs, we should probably whitelist classes
+Security/YAMLLoad:
   Enabled: false

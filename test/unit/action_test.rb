@@ -112,6 +112,5 @@ module ForemanTemplates
         end
       end
     end
-
   end
 end

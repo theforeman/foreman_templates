@@ -10,8 +10,8 @@ module ForemanTemplates
       @new_org = FactoryGirl.create(:organization, :name => 'NewOrg')
       @new_loc = FactoryGirl.create(:location, :name => 'NewLoc')
       @pt      = FactoryGirl.create(:provisioning_template,
-                                   :template_kind => @tk,
-                                   :operatingsystems => [@os_old])
+                                    :template_kind => @tk,
+                                    :operatingsystems => [@os_old])
 
       # Set up the data wanted by import!
       @name     = @pt.name
@@ -30,21 +30,21 @@ module ForemanTemplates
         name = 'New Associate'
         ProvisioningTemplate.import!(name, 'New Text', @metadata)
 
-        pt = ProvisioningTemplate.find_by_name(name)
+        pt = ProvisioningTemplate.find_by(name: name)
         assert_equal 'New Text', pt.template
       end
 
       test 'should update an existing template' do
         ProvisioningTemplate.import!(@name, 'New Text', @metadata)
 
-        pt = ProvisioningTemplate.find_by_name(@name)
+        pt = ProvisioningTemplate.find_by(name: @name)
         assert_equal 'New Text', pt.template
       end
 
       test 'should not change a template if the text matches' do
         r = ProvisioningTemplate.import!(@name, @text, @metadata)
 
-        pt = ProvisioningTemplate.find_by_name(@name)
+        pt = ProvisioningTemplate.find_by(name: @name)
         assert_equal @text, pt.template
         assert r[:diff].nil?
       end
@@ -54,7 +54,7 @@ module ForemanTemplates
       test 'should create a snippet' do
         ProvisioningTemplate.import!('Snippet', 'New Text', 'kind' => 'snippet')
 
-        s = ProvisioningTemplate.find_by_name('Snippet')
+        s = ProvisioningTemplate.find_by(name: 'Snippet')
         assert s.snippet?
         assert_equal 'New Text', s.template
       end
@@ -63,7 +63,7 @@ module ForemanTemplates
         s = FactoryGirl.create(:provisioning_template, :snippet)
         ProvisioningTemplate.import!(s.name, 'New Text', 'kind' => 'snippet')
 
-        s1 = ProvisioningTemplate.find_by_name(s.name)
+        s1 = ProvisioningTemplate.find_by(name: s.name)
         assert_equal 'New Text', s1.template
       end
 
@@ -71,7 +71,7 @@ module ForemanTemplates
         s = FactoryGirl.create(:provisioning_template, :snippet)
         r = ProvisioningTemplate.import!(s.name, s.template, 'kind' => 'snippet')
 
-        s1 = ProvisioningTemplate.find_by_name(s.name)
+        s1 = ProvisioningTemplate.find_by(name: s.name)
         assert r[:diff].nil?
         assert_equal s.template, s1.template
       end
@@ -80,7 +80,7 @@ module ForemanTemplates
         md = { 'snippet' => true, 'kind' => 'not_used' }
         ProvisioningTemplate.import!('Snippet', 'New Text', md)
 
-        s = ProvisioningTemplate.find_by_name('Snippet')
+        s = ProvisioningTemplate.find_by(name: 'Snippet')
         assert s.snippet?
         assert_equal 'New Text', s.template
       end
@@ -91,19 +91,19 @@ module ForemanTemplates
         name = 'New Associate'
         ProvisioningTemplate.import!(name, @text, @metadata)
 
-        ct = ProvisioningTemplate.find_by_name(name)
+        ct = ProvisioningTemplate.find_by(name: name)
         assert_equal [@os_new], ct.operatingsystems
-        assert (ct.organization_ids.include? @new_org.id)
-        assert (ct.location_ids.include? @new_loc.id)
+        assert ct.organization_ids.include?(@new_org.id)
+        assert ct.location_ids.include?(@new_loc.id)
       end
 
       test 'os/org/loc should be unchanged for an existing template' do
         ProvisioningTemplate.import!(@name, @text, @metadata)
 
-        ct = ProvisioningTemplate.find_by_name(@name)
+        ct = ProvisioningTemplate.find_by(name: @name)
         assert_equal [@os_old], ct.operatingsystems
-        refute (ct.organization_ids.include? @new_org.id)
-        refute (ct.location_ids.include? @new_loc.id)
+        refute ct.organization_ids.include?(@new_org.id)
+        refute ct.location_ids.include?(@new_loc.id)
       end
     end
 
@@ -116,19 +116,19 @@ module ForemanTemplates
         name = 'Always Associate'
         ProvisioningTemplate.import!(name, @text, @metadata)
 
-        ct = ProvisioningTemplate.find_by_name(name)
+        ct = ProvisioningTemplate.find_by(name: name)
         assert_equal [@os_new], ct.operatingsystems
-        assert (ct.organization_ids.include? @new_org.id)
-        assert (ct.location_ids.include? @new_loc.id)
+        assert ct.organization_ids.include?(@new_org.id)
+        assert ct.location_ids.include?(@new_loc.id)
       end
 
       test 'os/org/loc should be updated for an existing template' do
         ProvisioningTemplate.import!(@name, @text, @metadata)
 
-        ct = ProvisioningTemplate.find_by_name(@name)
+        ct = ProvisioningTemplate.find_by(name: @name)
         assert_equal [@os_new], ct.operatingsystems
-        assert (ct.organization_ids.include? @new_org.id)
-        assert (ct.location_ids.include? @new_loc.id)
+        assert ct.organization_ids.include?(@new_org.id)
+        assert ct.location_ids.include?(@new_loc.id)
       end
     end
 
@@ -141,7 +141,7 @@ module ForemanTemplates
         name = 'Never Associate'
         ProvisioningTemplate.import!(name, @text, @metadata)
 
-        ct = ProvisioningTemplate.find_by_name(name)
+        ct = ProvisioningTemplate.find_by(name: name)
         assert_equal [], ct.operatingsystems
         assert_equal [], ct.organization_ids
         assert_equal [], ct.location_ids
@@ -150,10 +150,10 @@ module ForemanTemplates
       test 'os/org/loc should be unchanged for an existing template' do
         ProvisioningTemplate.import!(@name, @text, @metadata)
 
-        ct = ProvisioningTemplate.find_by_name(@name)
+        ct = ProvisioningTemplate.find_by(name: @name)
         assert_equal [@os_old], ct.operatingsystems
-        refute (ct.organization_ids.include? @new_org.id)
-        refute (ct.location_ids.include? @new_loc.id)
+        refute ct.organization_ids.include?(@new_org.id)
+        refute ct.location_ids.include?(@new_loc.id)
       end
     end
   end
