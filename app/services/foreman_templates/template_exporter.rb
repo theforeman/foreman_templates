@@ -43,7 +43,7 @@ module ForemanTemplates
 
       status = git_repo.status
       if status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
-        logger.debug "committing changes in cloned repo"
+        logger.debug 'committing changes in cloned repo'
         git_repo.commit "Templates export made by Foreman user #{User.current.try(:login) || User::ANONYMOUS_ADMIN}"
 
         logger.debug "pushing to branch #{branch} at origin #{@repo}"
@@ -105,6 +105,5 @@ module ForemanTemplates
           raise "Unknown metadata export mode #{@metadata_export_mode}"
       end
     end
-
   end
 end

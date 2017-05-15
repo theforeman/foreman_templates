@@ -1,5 +1,5 @@
-class NoKindError < Exception; end
-class MissingKindError < Exception; end
+class NoKindError < RuntimeError; end
+class MissingKindError < RuntimeError; end
 
 module ForemanTemplates
   class TemplateImporter < Action
@@ -13,11 +13,7 @@ module ForemanTemplates
       super
       # Rake hands off strings, not booleans, and "false" is true...
       if @verbose.is_a?(String)
-        @verbose = if @verbose == 'false'
-                     false
-                   else
-                     true
-                   end
+        @verbose = @verbose != 'false'
       end
     end
 
@@ -69,7 +65,7 @@ module ForemanTemplates
         if @filter
           matching = name.match(/#{@filter}/i)
           matching = !matching if @negate
-          next if !matching
+          next unless matching
         end
 
         begin
@@ -136,10 +132,12 @@ module ForemanTemplates
       puts 'Deprecation warning: JobTemplate support is moving to the Remote Execution plugin'
       puts "- please add 'model: JobTemplate' to the metadata in '#{file}' to call the right method"
 
-      return {
-        :status => false,
-        :result => 'Skipping job template import, remote execution plugin is not installed.'
-      } unless defined?(JobTemplate)
+      unless defined?(JobTemplate)
+        return {
+          :status => false,
+          :result => 'Skipping job template import, remote execution plugin is not installed.'
+        }
+      end
       template = JobTemplate.import(
         text.sub(/^name: .*$/, "name: #{name}"),
         :update => true

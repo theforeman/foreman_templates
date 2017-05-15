@@ -14,7 +14,7 @@ module ForemanTemplates
       end
     end
 
-    def repond_to_missing?(method, include_private = false)
+    def respond_to_missing?(method, include_private = false)
       self.class.setting_overrides.include?(method)
     end
 
