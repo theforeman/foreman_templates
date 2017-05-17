@@ -16,7 +16,7 @@ Metrics/MethodLength:
   Max: 20
 
 Metrics/LineLength:
-  Enabled: false 
+  Enabled: false
 
 Style/Next:
   Enabled: false
@@ -97,6 +97,9 @@ Metrics/BlockLength:
   Max: 47
 Metrics/PerceivedComplexity:
   Max: 20
+
+Metrics/ParameterLists:
+  Max: 6
 
 Lint/UnusedMethodArgument:
   Enabled: false

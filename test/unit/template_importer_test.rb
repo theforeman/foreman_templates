@@ -64,13 +64,13 @@ module ForemanTemplates
         # Check plugin template was not imported
         ct = Template.find_by(name: 'FooBar PluginTest')
         refute ct.present?
-        assert_equal results, ["  Skipping: 'FooBar PluginTest' - Unknown template model 'ForemanTemplates::TemplateImporterTest::TestTemplate'"]
+        assert_includes results, "  Skipping: 'FooBar PluginTest' - Unknown template model 'ForemanTemplates::TemplateImporterTest::TestTemplate'"
       end
 
       test 'can extend without changes' do
         # Test template class
         class TestTemplate < ::Template
-          def self.import!(name, text, _metadata)
+          def self.import!(name, text, _metadata, force = false)
             audited # core tries to call :audit_comment, breaks without this
             template = TestTemplate.new(:name => name, :template => text)
             template.save!
@@ -243,6 +243,71 @@ module ForemanTemplates
       assert_equal 'FooBar something', @importer.auto_prefix('something')
       assert_equal 'FooBar something', @importer.auto_prefix('FooBar something')
       assert_equal 'FooBar template FooBar something', @importer.auto_prefix('template FooBar something')
+    end
+
+    test "should not update locked templates" do
+      initial_path = "#{@engine_root}/test/templates/locking/core_initial"
+      template_template = File.read("#{initial_path}/metadata1.erb")
+      ptable_layout = File.read("#{initial_path}/ptable1.erb")
+      snippet_template = File.read("#{initial_path}/snippet1.erb")
+
+      provision = TemplateKind.find_by :name => 'provision'
+      template = FactoryGirl.create(:provisioning_template,
+                                    :name => "Test Data",
+                                    :template => template_template,
+                                    :locked => true,
+                                    :template_kind => provision)
+      ptable = FactoryGirl.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
+      snippet = FactoryGirl.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
+
+      imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '')
+      res = imp.import!
+
+      assert res.include?("Skipping Template id #{template.id}:#{template.name} - template is locked")
+      assert res.include?("Skipping Partition Table id #{ptable.id}:#{ptable.name} - partition table is locked")
+      assert res.include?("Skipping snippet id #{snippet.id}:#{snippet.name} - template is locked")
+      assert_equal template_template, template.template
+      assert_equal ptable_layout, ptable.layout
+      assert_equal snippet_template, snippet.template
+    end
+
+    test "should update locked template when forced" do
+      locking_path = "#{@engine_root}/test/templates/locking"
+      initial_path = "#{locking_path}/core_initial"
+      template_template = File.read("#{initial_path}/metadata1.erb")
+      ptable_layout = File.read("#{initial_path}/ptable1.erb")
+      snippet_template = File.read("#{initial_path}/snippet1.erb")
+
+      provision = TemplateKind.find_by :name => 'provision'
+      template = FactoryGirl.create(:provisioning_template,
+                                    :name => "Test Data",
+                                    :template => template_template,
+                                    :locked => true,
+                                    :template_kind => provision)
+      ptable = FactoryGirl.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
+      snippet = FactoryGirl.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
+
+      imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => true)
+      res = imp.import!
+
+      updated_path = "#{locking_path}/core_updated"
+      new_template_template = File.read("#{updated_path}/metadata1.erb")
+      new_ptable_layout = File.read("#{updated_path}/ptable1.erb")
+      new_snippet_template = File.read("#{updated_path}/snippet1.erb")
+
+      [template, snippet, ptable].map(&:reload)
+
+      refute_equal template_template, template.template
+      assert_equal new_template_template, template.template
+      assert res.include? "  Updating Template id #{template.id}:#{template.name}"
+
+      refute_equal ptable_layout, ptable.layout
+      assert_equal new_ptable_layout, ptable.layout
+      assert res.include? "  Updating Ptable id #{ptable.id}:#{ptable.name}"
+
+      refute_equal snippet_template, snippet.template
+      assert_equal new_snippet_template, snippet.template
+      assert res.include? "  Updating Snippet id #{snippet.id}:#{snippet.name}"
     end
 
     private
