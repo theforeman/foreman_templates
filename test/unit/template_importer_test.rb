@@ -186,6 +186,7 @@ module ForemanTemplates
       setup_settings
       imp = ForemanTemplates::TemplateImporter.new
       imp.class.setting_overrides.each do |attribute|
+        next if assert_both_equal_nil imp.public_send(attribute), Setting["template_sync_#{attribute}".to_sym]
         assert_equal imp.public_send(attribute), Setting["template_sync_#{attribute}".to_sym]
       end
     end
@@ -258,6 +259,16 @@ module ForemanTemplates
       FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => default_repo)
       FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
       FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => default_branch)
+    end
+
+    def assert_both_equal_nil(expected, actual)
+      if expected.nil? || actual.nil?
+        assert_nil expected
+        assert_nil actual
+        true
+      else
+        false
+      end
     end
   end
 end
