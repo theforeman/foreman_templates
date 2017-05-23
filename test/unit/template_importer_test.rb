@@ -2,15 +2,6 @@ require 'test_plugin_helper'
 
 module ForemanTemplates
   class TemplateImporterTest < ActiveSupport::TestCase
-    # Test template class
-    class TestTemplate < ::Template
-      def self.import!(name, text, _metadata)
-        audited # core tries to call :audit_comment, breaks without this
-        template = TestTemplate.new(:name => name, :template => text)
-        template.save!
-      end
-    end
-
     def get_template(name, dir = 'core')
       File.expand_path(File.join('..', '..', 'templates', dir, name), __FILE__)
     end
@@ -76,6 +67,15 @@ module ForemanTemplates
       end
 
       test 'can extend without changes' do
+        # Test template class
+        class TestTemplate < ::Template
+          def self.import!(name, text, _metadata)
+            audited # core tries to call :audit_comment, breaks without this
+            template = TestTemplate.new(:name => name, :template => text)
+            template.save!
+          end
+        end
+
         @importer = importer(:dirname => '/test/templates/plugins')
         @importer.import!
 
