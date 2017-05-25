@@ -1,6 +1,7 @@
 require 'test_plugin_helper'
 
 module ForemanTemplates
+  # rubocop:disable ClassLength
   class TemplateImporterTest < ActiveSupport::TestCase
     def get_template(name, dir = 'core')
       File.expand_path(File.join('..', '..', 'templates', dir, name), __FILE__)

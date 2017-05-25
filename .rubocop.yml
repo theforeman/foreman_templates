@@ -79,6 +79,8 @@ Style/WordArray:
 Rails/Output:
   Enabled: false
 
+Rails/HttpPositionalArguments:
+  Enabled: false
 
 # needs major refactorings before we can improve
 Metrics/PerceivedComplexity:
