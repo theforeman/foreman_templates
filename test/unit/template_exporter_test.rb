@@ -42,6 +42,11 @@ module ForemanTemplates
       test 'converts spaces to underscores and suffixes with .erb' do
         assert_equal 'template_name.erb', @exporter.get_template_filename(@template)
       end
+
+      test 'weird characters are properly replaced or escaped' do
+        @template.name = "a/b'c d"
+        assert_equal "a_b\\'c_d.erb", @exporter.get_template_filename(@template)
+      end
     end
 
     # kind = template.respond_to?(:template_kind) ? template.template_kind.try(:name) || 'snippet' : nil
