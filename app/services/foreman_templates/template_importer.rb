@@ -6,15 +6,13 @@ module ForemanTemplates
     attr_accessor :metadata, :name, :text
 
     def self.setting_overrides
-      super + %i(associate)
+      super + %i(associate force)
     end
 
     def initialize(args = {})
       super
-      # Rake hands off strings, not booleans, and "false" is true...
-      if @verbose.is_a?(String)
-        @verbose = @verbose != 'false'
-      end
+      @verbose = parse_bool(@verbose)
+      @force = parse_bool(@force)
     end
 
     def import!
@@ -69,19 +67,19 @@ module ForemanTemplates
         end
 
         begin
-          # Expects a return of { :diff, :status, :result }
+          # Expects a return of { :diff, :status, :result, :errors }
           data = if metadata['model'].present?
-                   metadata['model'].constantize.import!(name, text, metadata)
+                   metadata['model'].constantize.import!(name, text, metadata, @force)
                  else
                    # For backwards-compat before "model" metadata was added
                    case metadata['kind']
                    when 'ptable'
-                     Ptable.import!(name, text, metadata)
+                     Ptable.import!(name, text, metadata, @force)
                    when 'job_template'
                      # TODO: update REX templates to have `model` and delete this
                      update_job_template(name, text)
                    else
-                     ProvisioningTemplate.import!(name, text, metadata)
+                     ProvisioningTemplate.import!(name, text, metadata, @force)
                    end
                  end
 
@@ -89,12 +87,12 @@ module ForemanTemplates
             data[:diff] = calculate_diff(data[:old], data[:new])
           end
 
-          if data[:status] == true && @verbose
+          if @verbose
             result_lines << data[:result]
             result_lines << data[:diff] unless data[:diff].nil?
-          elsif data[:status] == false
-            result_lines << "Template \"#{name}\": #{data[:result]}"
           end
+          result_lines << status_to_text(data[:status], name)
+          result_lines << data[:errors] unless data[:errors].empty?
         rescue MissingKindError
           result_lines << "  Skipping: '#{name}' - No template kind or model detected"
           next
@@ -165,5 +163,21 @@ module ForemanTemplates
         template.destroy
       end
     end # :purge
+
+    private
+
+    def parse_bool(bool_name)
+      bool_name.is_a?(String) ? bool_name != 'false' : bool_name
+    end
+
+    def status_to_text(status, name)
+      msg = "#{name} - import "
+      msg << if status
+               "success"
+             else
+               'failure'
+             end
+      msg
+    end
   end
 end

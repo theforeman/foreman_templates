@@ -9,6 +9,7 @@ module Api
       param :filter, String, :required => false, :desc => N_("Import names matching this regex (case-insensitive; snippets are not filtered).")
       param :negate, :bool, :required => false, :desc => N_("Negate the prefix (for purging).")
       param :associate, String, :required => false, :desc => N_("Associate to OS's, Locations & Organizations. Options are: always, new or never.")
+      param :force, :bool, :required => false, :desc => N_("Update templates that are locked")
       def import
         results = ForemanTemplates::TemplateImporter.new({
           verbose:   params['verbose'],
@@ -19,6 +20,7 @@ module Api
           filter:    params['filter'],
           associate: params['associate'],
           negate:    params['negate'],
+          force:     params['force']
         }).import!
         render :json => { :message => results }
       end
