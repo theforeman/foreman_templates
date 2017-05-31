@@ -1,3 +1,5 @@
+require 'shellwords'
+
 module ForemanTemplates
   class TemplateExporter < Action
     def self.setting_overrides
@@ -70,7 +72,7 @@ module ForemanTemplates
     end
 
     def get_template_filename(template)
-      template.name.downcase.tr(' ', '_') + '.erb'
+      Shellwords.escape(template.name.downcase.tr(' /', '_') + '.erb')
     end
 
     def get_dump_dir(template)
