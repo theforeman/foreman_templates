@@ -23,6 +23,9 @@ module ForemanTemplates
           permission :import_templates, {
             :"api/v2/template" => [:import]
           }, :resource_type => 'Template'
+          permission :export_templates, {
+            :"api/v2/template" => [:export]
+          }, :resource_type => 'Template'
         end
         add_all_permissions_to_default_roles
       end
