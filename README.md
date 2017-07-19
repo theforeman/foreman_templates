@@ -26,7 +26,7 @@ These can be overriden for each import by passing options directly to a Rake tas
 
 ## Usage
 
-### Import
+### Import via Rake task
 
 The plugin provides a Rake task to import the templates. To use it, simply do
 
@@ -102,6 +102,14 @@ Purge all templates that do not begin with 'Community '
 
     foreman-rake templates:purge negate=true
 
+### Import via API
+
+There is an API (`/template/import/`) to initiate import from external
+repository. The API uses Foreman's authorization and authentication
+mechanisms. There is also an export action available.
+
+Unfortunately, there is no CLI support yet.
+
 ## Integration with other Foreman Plugins
 
 `templates` will start processing a template by looking for a metadata entry of
@@ -134,10 +142,6 @@ get written to a file in `/tmp`.
 * `:diff` (text, may be nil), or
   * `:old` and `:new` (in which case this plugin will calculate the diff)
 * :result` (text, may be nil).
-
-## TODO
-
-* Add a button to the UI with Deface to run the rake task
 
 ## Copyright
 
