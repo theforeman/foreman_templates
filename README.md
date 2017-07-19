@@ -108,7 +108,8 @@ There is an API (`/template/import/`) to initiate import from external
 repository. The API uses Foreman's authorization and authentication
 mechanisms. There is also an export action available.
 
-Unfortunately, there is no CLI support yet.
+Unfortunately, there is no CLI support yet. For examples about how to
+use the API, [visit our documentation](https://theforeman.org/plugins/foreman_templates/5.0/index.html#5.API).
 
 ## Integration with other Foreman Plugins
 
