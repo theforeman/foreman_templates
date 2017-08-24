@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "diffy"
   s.add_dependency "git"
+  s.add_dependency "rubocop"
 end

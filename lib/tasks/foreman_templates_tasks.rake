@@ -69,40 +69,25 @@ namespace :templates do
     ForemanTemplates::Cleaner.new.clean_up!
     puts 'Clean up finished, you can now remove the plugin from your system'
   end
-end
 
-# Tests
-namespace :test do
-  desc "Test ForemanTemplates"
-  Rake::TestTask.new(:foreman_templates) do |t|
-    test_dir = File.join(File.dirname(__FILE__), '../..', 'test')
-    t.libs << ['test', test_dir]
-    t.pattern = "#{test_dir}/**/*_test.rb"
-    t.verbose = true
-    t.warning = false
-  end
-end
+  desc 'Validate template'
+  task :validate => :environment do
+    require 'tempfile'
+    template_source_file = ARGV[1]
+    template_source_buffer = File.read(template_source_file)
+    template_destination = File.basename(template_source_file, '.erb')
 
-namespace :foreman_templates do
-  task :rubocop do
-    begin
-      require 'rubocop/rake_task'
-      RuboCop::RakeTask.new(:rubocop_foreman_templates) do |task|
-        task.patterns = ["#{ForemanTemplates::Engine.root}/app/**/*.rb",
-                         "#{ForemanTemplates::Engine.root}/lib/**/*.rb",
-                         "#{ForemanTemplates::Engine.root}/test/**/*.rb"]
-      end
-    rescue
-      puts 'Rubocop not loaded.'
+    Tempfile.open([template_destination, '.erb']) do |modified_template|
+      modified_template_buffer = ForemanTemplates::ErbStrip.new(template_source_buffer).strip
+      modified_template.write(modified_template_buffer)
+      modified_template.flush
+      json_temp_file = Tempfile.new(['template_report', '.json'])
+      json_temp_file_name = json_temp_file.path
+      json_temp_file.close # we don't need this file to remain open.
+      rubocop_folder = File.expand_path(File.dirname(__FILE__) + "/../rubocop")
+      `cat #{modified_template.path} | rubocop -d -s "#{template_source_file}" -r "#{rubocop_folder}/foreman_callback_cop.rb" --only "Foreman/ForemanUrl" -r "#{rubocop_folder}/foreman_erb_monkey_patch.rb" --format json --out #{json_temp_file_name}`
+      ForemanTemplates::RubocopJsonProcessor.new(json_temp_file_name).to_clang
+      json_temp_file.unlink
     end
-
-    Rake::Task['rubocop_foreman_templates'].invoke
   end
-end
-
-Rake::Task[:test].enhance ['test:foreman_templates']
-
-load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:unit')
-  Rake::Task['jenkins:unit'].enhance ['test:foreman_templates', 'foreman_templates:rubocop']
 end
