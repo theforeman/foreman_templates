@@ -1,3 +1,7 @@
+# TEST CHANGE for PR Processor
+
+yay!
+
 # foreman\_templates
 
 This plugin will sync the contents of the Foreman Community Templates
