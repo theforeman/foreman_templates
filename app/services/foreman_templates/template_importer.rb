@@ -36,7 +36,16 @@ module ForemanTemplates
       begin
         gitrepo = Git.clone(@repo, @dir)
         branch = @branch ? @branch : get_default_branch(gitrepo)
-        gitrepo.checkout(branch) if branch
+        if branch
+          if gitrepo.is_branch?(branch)
+            gitrepo.checkout(branch)
+          else
+            gitrepo.branch(branch).checkout
+            if gitrepo.is_remote_branch?(branch) # if we work with remote branch we need to sync it first
+              gitrepo.reset_hard("origin/#{branch}")
+            end
+          end
+        end
 
         return parse_files!
       ensure
