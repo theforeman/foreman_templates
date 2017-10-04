@@ -49,6 +49,7 @@ template will be automatically associated with the OS
 * dirname   => The directory within the git tree containing the templates [/]
 * filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
 * associate => Associate to OS, "always", when "new" or "never"  [new]
+* lock      => Lock imported templates [false]
 
 The `branch` default will use *develop* if you're on Foreman-nightly; or the
 matching *1.X-stable* branch for your version of Foreman (if it exists); or

@@ -3,15 +3,16 @@ module ForemanTemplates
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def import!(name, text, metadata, force = false)
+      def import!(name, text, metadata, force = false, lock = false)
         # Check for snippet type
-        return import_snippet!(name, text, force) if metadata['snippet']
+        return import_snippet!(name, text, force, lock) if metadata['snippet']
 
         # Data
         ptable = Ptable.where(:name => name).first_or_initialize
         data = {
           :layout => text
         }
+        data[:locked] = lock if lock
         oses          = map_metadata(metadata, 'oses')
         locations     = map_metadata(metadata, 'locations')
         organizations = map_metadata(metadata, 'organizations')
@@ -19,7 +20,7 @@ module ForemanTemplates
         # Printout helpers
         c_or_u = ptable.new_record? ? 'Creating' : 'Updating'
         id_string = ptable.new_record? ? '' : "id #{ptable.id}"
-        if ptable.locked? && !ptable.new_record? && !force
+        if ptable.locked && !ptable.new_record? && !force
           return { :diff => nil,
                    :status => false,
                    :result => "Skipping Partition Table #{id_string}:#{name} - partition table is locked" }
@@ -60,6 +61,10 @@ module ForemanTemplates
         !(data[:os_family] || data[:location_ids] || data[:organization_ids]).nil?
       end
 
+      def data_changed?(data, ptable)
+        (!data[:locked].nil? && data[:locked] != ptable.locked)
+      end
+
       def create_diff(data, ptable)
         if ptable_content_changed?(data[:layout], ptable.layout)
           Diffy::Diff.new(
@@ -82,7 +87,7 @@ module ForemanTemplates
       end
 
       def ptable_changed?(data, ptable)
-        ptable_content_changed?(data[:layout], ptable.layout) || associations_changed?(data)
+        ptable_content_changed?(data[:layout], ptable.layout) || associations_changed?(data) || data_changed?(data, ptable)
       end
     end
   end

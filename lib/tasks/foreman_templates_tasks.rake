@@ -13,6 +13,7 @@ namespace :templates do
     # * dirname   => The directory within the git tree containing the templates [/]
     # * filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
     # * associate => Associate to OS's, Locations & Organizations. Options are: always, new or never  [new]
+    # * lock      => Lock imported templates [false]
 
     User.current = User.anonymous_admin
 
@@ -24,6 +25,7 @@ namespace :templates do
       dirname:   ENV['dirname'],
       filter:    ENV['filter'],
       associate: ENV['associate'],
+      lock:      ENV['lock'],
     }).import!
 
     puts results.join("\n")
