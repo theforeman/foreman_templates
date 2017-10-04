@@ -3,7 +3,7 @@ module ForemanTemplates
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def import!(name, text, metadata, force = false)
+      def import!(name, text, metadata, force = false, lock = false)
         # Check for snippet type
         return import_snippet!(name, text, force) if metadata['snippet'] || metadata['kind'] == 'snippet'
 
@@ -18,6 +18,7 @@ module ForemanTemplates
           :snippet          => false,
           :template_kind_id => kind.id
         }
+        data[:locked] = lock if lock
         oses          = map_metadata(metadata, 'oses')
         locations     = map_metadata(metadata, 'locations')
         organizations = map_metadata(metadata, 'organizations')
@@ -86,8 +87,12 @@ module ForemanTemplates
         !(data[:operatingsystem_ids] || data[:location_ids] || data[:organization_ids]).nil?
       end
 
+      def data_changed?(data, template)
+        (!data[:locked].nil? && data[:locked] != template.locked)
+      end
+
       def template_changed?(data, template)
-        template_content_changed?(template.template, data[:template]) || associations_changed?(data)
+        template_content_changed?(template.template, data[:template]) || associations_changed?(data) || data_changed?(data, template)
       end
     end
   end

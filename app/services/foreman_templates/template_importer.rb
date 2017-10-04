@@ -6,13 +6,14 @@ module ForemanTemplates
     attr_accessor :metadata, :name, :text
 
     def self.setting_overrides
-      super + %i(associate force)
+      super + %i(associate force lock)
     end
 
     def initialize(args = {})
       super
       @verbose = parse_bool(@verbose)
       @force = parse_bool(@force)
+      @lock = parse_bool(@lock)
     end
 
     def import!
@@ -69,17 +70,17 @@ module ForemanTemplates
         begin
           # Expects a return of { :diff, :status, :result, :errors }
           data = if metadata['model'].present?
-                   metadata['model'].constantize.import!(name, text, metadata, @force)
+                   metadata['model'].constantize.import!(name, text, metadata, @force, @lock)
                  else
                    # For backwards-compat before "model" metadata was added
                    case metadata['kind']
                    when 'ptable'
-                     Ptable.import!(name, text, metadata, @force)
+                     Ptable.import!(name, text, metadata, @force, @lock)
                    when 'job_template'
                      # TODO: update REX templates to have `model` and delete this
                      update_job_template(name, text)
                    else
-                     ProvisioningTemplate.import!(name, text, metadata, @force)
+                     ProvisioningTemplate.import!(name, text, metadata, @force, @lock)
                    end
                  end
 

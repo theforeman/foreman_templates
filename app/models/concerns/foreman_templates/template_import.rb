@@ -3,13 +3,14 @@ module ForemanTemplates
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def import_snippet!(name, text, force = false)
+      def import_snippet!(name, text, force = false, lock = false)
         # Data
         snippet = self.where(:name => name).first_or_initialize
         data = {
           :template => text,
           :snippet  => true
         }
+        data[:locked] = lock if lock
 
         # Printout helpers
         c_or_u = snippet.new_record? ? 'Creating' : 'Updating'

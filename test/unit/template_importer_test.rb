@@ -70,7 +70,7 @@ module ForemanTemplates
       test 'can extend without changes' do
         # Test template class
         class TestTemplate < ::Template
-          def self.import!(name, text, _metadata, force = false)
+          def self.import!(name, text, _metadata, force = false, lock = false)
             audited # core tries to call :audit_comment, breaks without this
             template = TestTemplate.new(:name => name, :template => text)
             template.save!

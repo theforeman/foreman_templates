@@ -3,7 +3,7 @@ module ForemanTemplates
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def import!(name, text, metadata, force = false)
+      def import!(name, text, metadata, force = false, lock = false)
         # Check for snippet type
         return import_snippet!(name, text, force) if metadata['snippet']
 
@@ -12,6 +12,7 @@ module ForemanTemplates
         data = {
           :layout => text
         }
+        data[:locked] = lock if lock
         oses          = map_metadata(metadata, 'oses')
         locations     = map_metadata(metadata, 'locations')
         organizations = map_metadata(metadata, 'organizations')
@@ -60,6 +61,10 @@ module ForemanTemplates
         !(data[:os_family] || data[:location_ids] || data[:organization_ids]).nil?
       end
 
+      def data_changed?(data, ptable)
+        (!data[:locked].nil? && data[:locked] != ptable.locked)
+      end
+
       def create_diff(data, ptable)
         if ptable_content_changed?(data[:layout], ptable.layout)
           Diffy::Diff.new(
@@ -82,7 +87,7 @@ module ForemanTemplates
       end
 
       def ptable_changed?(data, ptable)
-        ptable_content_changed?(data[:layout], ptable.layout) || associations_changed?(data)
+        ptable_content_changed?(data[:layout], ptable.layout) || associations_changed?(data) || data_changed?(data, ptable)
       end
     end
   end

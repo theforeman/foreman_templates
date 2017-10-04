@@ -11,6 +11,7 @@ module Api
       param :negate, :bool, :required => false, :desc => N_("Negate the prefix (for purging).")
       param :associate, Setting::TemplateSync.associate_types.keys, :required => false, :desc => N_("Associate to OS's, Locations & Organizations. Options are: always, new or never.")
       param :force, :bool, :required => false, :desc => N_("Update templates that are locked")
+      param :lock, :bool, :required => false, :desc => N_("Lock imported templates")
 
       def import
         results = ForemanTemplates::TemplateImporter.new({
@@ -22,7 +23,8 @@ module Api
           filter:    params['filter'],
           associate: params['associate'],
           negate:    params['negate'],
-          force:     params['force']
+          force:     params['force'],
+          lock:      params['lock'],
         }).import!
         render :json => { :message => results }
       end
