@@ -25,13 +25,13 @@ Style/Next:
 Style/HashSyntax:
   Enabled: false
 
-Style/CaseIndentation:
+Layout/CaseIndentation:
   Enabled: false
 
 Style/RedundantReturn:
   Enabled: false
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: false
 
 Style/PercentLiteralDelimiters:
@@ -52,7 +52,7 @@ Style/GuardClause:
 Style/EmptyMethod:
   Enabled: false
 
-Style/IndentHash:
+Layout/IndentHash:
   Enabled: false
 
 Style/TrailingCommaInLiteral:
@@ -70,7 +70,7 @@ Style/RedundantSelf:
 Style/Proc:
   Enabled: false
 
-Style/SpaceInsideBrackets:
+Layout/SpaceInsideBrackets:
   Enabled: false
 
 Style/WordArray:

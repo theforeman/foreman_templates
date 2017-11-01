@@ -132,7 +132,8 @@ module ForemanTemplates
       refute ProvisioningTemplate.find_by(name: 'FooBar %').present?
       assert ProvisioningTemplate.find_by(name: 'keep_me').present?
       assert ProvisioningTemplate.all.size, count - 2
-    end # 'purge! removes expected template'
+      # 'purge! removes expected template'
+    end
 
     test 'purge! negated purge leaves expected templates' do
       FactoryGirl.create(:provisioning_template, :name => 'FooBar keep_me')
@@ -140,7 +141,8 @@ module ForemanTemplates
       @importer.purge!
       assert ProvisioningTemplate.find_by(name: 'FooBar keep_me').present?
       assert ProvisioningTemplate.all.size, 1
-    end # 'purge! removes expected template'
+      # 'purge! removes expected template'
+    end
 
     context 'map_metadata' do
       test 'returns OSes that are in the db' do
