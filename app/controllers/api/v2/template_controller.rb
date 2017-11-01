@@ -46,7 +46,7 @@ module Api
           dir:                  params['dir']
         }).export!
         render :json => { :message => _('Success') }
-      rescue => e
+      rescue StandardException => e
         logger.debug e
         render :json => { :message => (_('Something went wrong during export: %s') % e.message) }, :status => 500
       end

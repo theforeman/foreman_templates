@@ -142,7 +142,11 @@ module ForemanTemplates
       )
 
       c_or_u = template.new_record? ? 'Created' : 'Updated'
-      id_string = ('id' + template.id) rescue ''
+      begin
+        id_string = ('id' + template.id)
+      rescue StandardException
+        id_string = ''
+      end
 
       if template.template != template.template_was
         diff = Diffy::Diff.new(
@@ -162,7 +166,8 @@ module ForemanTemplates
         puts template if @verbose
         template.destroy
       end
-    end # :purge
+      # :purge
+    end
 
     private
 
