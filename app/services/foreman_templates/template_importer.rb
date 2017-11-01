@@ -144,7 +144,7 @@ module ForemanTemplates
       c_or_u = template.new_record? ? 'Created' : 'Updated'
       begin
         id_string = ('id' + template.id)
-      rescue StandardException
+      rescue StandardError
         id_string = ''
       end
 
