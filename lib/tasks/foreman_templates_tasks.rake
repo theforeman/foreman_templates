@@ -92,7 +92,7 @@ namespace :foreman_templates do
                          "#{ForemanTemplates::Engine.root}/lib/**/*.rb",
                          "#{ForemanTemplates::Engine.root}/test/**/*.rb"]
       end
-    rescue StandardException
+    rescue StandardError
       puts 'Rubocop not loaded.'
     end
 

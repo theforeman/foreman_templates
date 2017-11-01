@@ -36,7 +36,7 @@ module ForemanTemplates
         Template.send(:include, ForemanTemplates::TemplateImport)
         Ptable.send(:include, ForemanTemplates::PtableImport)
         ProvisioningTemplate.send(:include, ForemanTemplates::ProvisioningTemplateImport)
-      rescue StandardException => e
+      rescue StandardError => e
         puts "#{ForemanTemplates::ENGINE_NAME}: skipping engine hook (#{e})"
       end
     end
