@@ -4,11 +4,11 @@ module ForemanTemplates
   class PtableTest < ActiveSupport::TestCase
     setup do
       # create a basic template with no OS assigned
-      @os_rh   = FactoryGirl.create(:operatingsystem, :family => 'Redhat')
-      @os_deb  = FactoryGirl.create(:operatingsystem, :family => 'Debian')
-      @pt      = FactoryGirl.create(:ptable, :os_family => 'Redhat')
-      @new_org = FactoryGirl.create(:organization, :name => 'NewOrg')
-      @new_loc = FactoryGirl.create(:location, :name => 'NewLoc')
+      @os_rh   = FactoryBot.create(:operatingsystem, :family => 'Redhat')
+      @os_deb  = FactoryBot.create(:operatingsystem, :family => 'Debian')
+      @pt      = FactoryBot.create(:ptable, :os_family => 'Redhat')
+      @new_org = FactoryBot.create(:organization, :name => 'NewOrg')
+      @new_loc = FactoryBot.create(:location, :name => 'NewLoc')
 
       # Set up the data wanted by import!
       @name     = @pt.name
@@ -127,7 +127,7 @@ module ForemanTemplates
       end
 
       test 'should update an existing snippet' do
-        s = FactoryGirl.create(:ptable, :snippet => true)
+        s = FactoryBot.create(:ptable, :snippet => true)
         Ptable.import!(s.name, 'New Text', 'snippet' => true)
 
         s1 = Ptable.find_by(name: s.name)
@@ -135,7 +135,7 @@ module ForemanTemplates
       end
 
       test 'should not change a snippet if the text matches' do
-        s = FactoryGirl.create(:ptable, :snippet => true)
+        s = FactoryBot.create(:ptable, :snippet => true)
         r = Ptable.import!(s.name, s.template, 'snippet' => true)
 
         s1 = Ptable.find_by(name: s.name)

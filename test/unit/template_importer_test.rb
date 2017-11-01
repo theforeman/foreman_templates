@@ -124,9 +124,9 @@ module ForemanTemplates
     test 'purge! removes expected templates' do
       # Create more than one template as we expect to delete all 'FooBar '
       # templates.
-      FactoryGirl.create(:provisioning_template, :name => 'FooBar delete_me')
-      FactoryGirl.create(:provisioning_template, :name => 'FooBar delete_me_too')
-      FactoryGirl.create(:provisioning_template, :name => 'keep_me')
+      FactoryBot.create(:provisioning_template, :name => 'FooBar delete_me')
+      FactoryBot.create(:provisioning_template, :name => 'FooBar delete_me_too')
+      FactoryBot.create(:provisioning_template, :name => 'keep_me')
       count = ProvisioningTemplate.all.size
       @importer.purge!
       refute ProvisioningTemplate.find_by(name: 'FooBar %').present?
@@ -135,7 +135,7 @@ module ForemanTemplates
     end # 'purge! removes expected template'
 
     test 'purge! negated purge leaves expected templates' do
-      FactoryGirl.create(:provisioning_template, :name => 'FooBar keep_me')
+      FactoryBot.create(:provisioning_template, :name => 'FooBar keep_me')
       @importer = importer(:negate => true)
       @importer.purge!
       assert ProvisioningTemplate.find_by(name: 'FooBar keep_me').present?
@@ -252,13 +252,13 @@ module ForemanTemplates
       snippet_template = File.read("#{initial_path}/snippet1.erb")
 
       provision = TemplateKind.find_by :name => 'provision'
-      template = FactoryGirl.create(:provisioning_template,
+      template = FactoryBot.create(:provisioning_template,
                                     :name => "Test Data",
                                     :template => template_template,
                                     :locked => true,
                                     :template_kind => provision)
-      ptable = FactoryGirl.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
-      snippet = FactoryGirl.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
+      ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
+      snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
 
       imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '')
       res = imp.import!
@@ -279,13 +279,13 @@ module ForemanTemplates
       snippet_template = File.read("#{initial_path}/snippet1.erb")
 
       provision = TemplateKind.find_by :name => 'provision'
-      template = FactoryGirl.create(:provisioning_template,
+      template = FactoryBot.create(:provisioning_template,
                                     :name => "Test Data",
                                     :template => template_template,
                                     :locked => true,
                                     :template_kind => provision)
-      ptable = FactoryGirl.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
-      snippet = FactoryGirl.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
+      ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
+      snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
 
       imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => true)
       res = imp.import!
@@ -317,14 +317,14 @@ module ForemanTemplates
       default_repo = opts[:repo] || 'https://github.com/theforeman/community-templates.git'
       default_dirname = opts[:dirname] || '/'
       default_branch = opts[:branch] || nil
-      FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_verbose', :default => false)
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_associate', :default => "new")
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_prefix', :default => "Community ")
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_dirname', :default => default_dirname)
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_filter', :default => nil)
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => default_repo)
-      FactoryGirl.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
-      FactoryGirl.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => default_branch)
+      FactoryBot.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_verbose', :default => false)
+      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_associate', :default => "new")
+      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_prefix', :default => "Community ")
+      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_dirname', :default => default_dirname)
+      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_filter', :default => nil)
+      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => default_repo)
+      FactoryBot.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
+      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => default_branch)
     end
 
     def assert_both_equal_nil(expected, actual)
