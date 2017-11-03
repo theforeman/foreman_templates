@@ -255,10 +255,10 @@ module ForemanTemplates
 
       provision = TemplateKind.find_by :name => 'provision'
       template = FactoryBot.create(:provisioning_template,
-                                    :name => "Test Data",
-                                    :template => template_template,
-                                    :locked => true,
-                                    :template_kind => provision)
+                                   :name => "Test Data",
+                                   :template => template_template,
+                                   :locked => true,
+                                   :template_kind => provision)
       ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
       snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
 
@@ -282,10 +282,10 @@ module ForemanTemplates
 
       provision = TemplateKind.find_by :name => 'provision'
       template = FactoryBot.create(:provisioning_template,
-                                    :name => "Test Data",
-                                    :template => template_template,
-                                    :locked => true,
-                                    :template_kind => provision)
+                                   :name => "Test Data",
+                                   :template => template_template,
+                                   :locked => true,
+                                   :template_kind => provision)
       ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
       snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
 
