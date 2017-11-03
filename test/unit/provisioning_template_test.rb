@@ -10,8 +10,8 @@ module ForemanTemplates
       @new_org = FactoryBot.create(:organization, :name => 'NewOrg')
       @new_loc = FactoryBot.create(:location, :name => 'NewLoc')
       @pt      = FactoryBot.create(:provisioning_template,
-                                    :template_kind => @tk,
-                                    :operatingsystems => [@os_old])
+                                   :template_kind => @tk,
+                                   :operatingsystems => [@os_old])
 
       # Set up the data wanted by import!
       @name     = @pt.name
