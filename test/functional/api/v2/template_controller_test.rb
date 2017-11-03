@@ -18,7 +18,7 @@ module Api
 
       test "should not export filtered template" do
         Dir.mktmpdir do |tmpdir|
-          FactoryGirl.create(:provisioning_template, :name => 'export_test_template')
+          FactoryBot.create(:provisioning_template, :name => 'export_test_template')
           post :export, { "repo" => tmpdir, "filter" => "^export_test_template", "negate" => true, "metadata_export_mode" => "keep" }
           assert_response :success
           refute Dir.entries("#{tmpdir}/provisioning_templates/provision").include?('export_test_template.erb')

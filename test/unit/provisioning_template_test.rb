@@ -4,12 +4,12 @@ module ForemanTemplates
   class ProvisioningTemplateTest < ActiveSupport::TestCase
     setup do
       # create a basic template with no OS assigned
-      @tk      = FactoryGirl.create(:template_kind)
-      @os_old  = FactoryGirl.create(:operatingsystem)
-      @os_new  = FactoryGirl.create(:operatingsystem)
-      @new_org = FactoryGirl.create(:organization, :name => 'NewOrg')
-      @new_loc = FactoryGirl.create(:location, :name => 'NewLoc')
-      @pt      = FactoryGirl.create(:provisioning_template,
+      @tk      = FactoryBot.create(:template_kind)
+      @os_old  = FactoryBot.create(:operatingsystem)
+      @os_new  = FactoryBot.create(:operatingsystem)
+      @new_org = FactoryBot.create(:organization, :name => 'NewOrg')
+      @new_loc = FactoryBot.create(:location, :name => 'NewLoc')
+      @pt      = FactoryBot.create(:provisioning_template,
                                     :template_kind => @tk,
                                     :operatingsystems => [@os_old])
 
@@ -60,7 +60,7 @@ module ForemanTemplates
       end
 
       test 'should update an existing snippet' do
-        s = FactoryGirl.create(:provisioning_template, :snippet)
+        s = FactoryBot.create(:provisioning_template, :snippet)
         ProvisioningTemplate.import!(s.name, 'New Text', 'kind' => 'snippet')
 
         s1 = ProvisioningTemplate.find_by(name: s.name)
@@ -68,7 +68,7 @@ module ForemanTemplates
       end
 
       test 'should not change a snippet if the text matches' do
-        s = FactoryGirl.create(:provisioning_template, :snippet)
+        s = FactoryBot.create(:provisioning_template, :snippet)
         r = ProvisioningTemplate.import!(s.name, s.template, 'kind' => 'snippet')
 
         s1 = ProvisioningTemplate.find_by(name: s.name)

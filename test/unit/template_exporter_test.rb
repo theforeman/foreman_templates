@@ -8,7 +8,7 @@ module ForemanTemplates
 
     describe '#templates_to_dump' do
       before do
-        @template = FactoryGirl.create(:provisioning_template, :name => 'included')
+        @template = FactoryBot.create(:provisioning_template, :name => 'included')
       end
 
       test 'finds existing templates' do
@@ -16,7 +16,7 @@ module ForemanTemplates
       end
 
       test 'finds templates based on filter' do
-        ignored = FactoryGirl.create(:provisioning_template, :name => 'not-included')
+        ignored = FactoryBot.create(:provisioning_template, :name => 'not-included')
         @exporter.stubs(:filter).returns('\Aincluded\Z')
         @exporter.stubs(:negate).returns(false)
         result = @exporter.templates_to_dump
@@ -25,7 +25,7 @@ module ForemanTemplates
       end
 
       test 'filter can be negated' do
-        ignored = FactoryGirl.create(:provisioning_template, :name => 'not-included')
+        ignored = FactoryBot.create(:provisioning_template, :name => 'not-included')
         @exporter.stubs(:filter).returns('\Aincluded\Z')
         @exporter.stubs(:negate).returns(true)
         result = @exporter.templates_to_dump
@@ -36,7 +36,7 @@ module ForemanTemplates
 
     describe '#get_template_filename(template)' do
       before do
-        @template = FactoryGirl.create(:provisioning_template, :name => 'template name')
+        @template = FactoryBot.create(:provisioning_template, :name => 'template name')
       end
 
       test 'converts spaces to underscores and suffixes with .erb' do
@@ -53,7 +53,7 @@ module ForemanTemplates
     # File.join(@dir, dirname, template.model_name.human.pluralize.downcase.tr(' ', '_'), kind.to_s)
     describe '#get_dump_dir' do
       before do
-        @template = FactoryGirl.create(:provisioning_template)
+        @template = FactoryBot.create(:provisioning_template)
       end
 
       test 'underscores the model name based on type' do
@@ -69,7 +69,7 @@ module ForemanTemplates
 
       test 'does not appends anything for template without kind' do
         @exporter.instance_variable_set('@dir', '/tmp')
-        template = FactoryGirl.create(:ptable)
+        template = FactoryBot.create(:ptable)
         assert_equal "/tmp/ptables/", @exporter.get_dump_dir(template)
       end
 
