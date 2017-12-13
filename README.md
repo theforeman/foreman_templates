@@ -102,7 +102,7 @@ Purge all templates that do not begin with 'Community '
 
     foreman-rake templates:purge negate=true
 
-### Import via API
+### Import and Export via API
 
 There is an API (`/template/import/`) to initiate import from external
 repository. The API uses Foreman's authorization and authentication
