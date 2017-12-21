@@ -70,7 +70,10 @@ Style/RedundantSelf:
 Style/Proc:
   Enabled: false
 
-Layout/SpaceInsideBrackets:
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
+Style/FormatStringToken:
   Enabled: false
 
 Style/WordArray:
