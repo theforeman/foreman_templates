@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
 gemspec
-gem 'rubocop'
+gem 'rubocop', '0.52.0'
