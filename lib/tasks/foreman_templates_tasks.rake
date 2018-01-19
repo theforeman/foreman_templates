@@ -2,6 +2,7 @@
 namespace :templates do
   desc 'Import templates according to settings'
   task :import => :environment do
+    ActiveSupport::Deprecation.warn "You are using a deprecated behavior, 'rake templates:import' will be removed in a future version. Please use appropriate API endpoint for this functionality"
     if Rake.application.top_level_tasks.include?('templates:sync')
       ActiveSupport::Deprecation.warn('templates:sync task has been renamed to templates:import and will be removed in a future version')
     end
@@ -35,6 +36,7 @@ namespace :templates do
 
   desc 'Export templates according to settings'
   task :export => :environment do
+    ActiveSupport::Deprecation.warn "You are using a deprecated behavior, 'rake templates:export' will be removed in a future version. Please use appropriate API endpoint for this functionality"
     User.current = User.anonymous_admin
 
     ForemanTemplates::TemplateExporter.new({
@@ -53,6 +55,7 @@ namespace :templates do
 
   desc 'Purge unwanted templates from foreman'
   task :purge => :environment do
+    ActiveSupport::Deprecation.warn "You are using a deprecated behavior, 'rake templates:purge' will be removed in a future version. Please use appropriate API endpoint for this functionality"
     User.current = User.anonymous_admin
 
     ForemanTemplates::TemplateImporter.new({
