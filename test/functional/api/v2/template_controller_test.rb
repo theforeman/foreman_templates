@@ -24,6 +24,13 @@ module Api
           refute Dir.entries("#{tmpdir}/provisioning_templates/provision").include?('export_test_template.erb')
         end
       end
+
+      test "should purge templates" do
+        FactoryBot.create(:provisioning_template, :name => "Community test template")
+        post :purge, params: { "prefix" => "Community" }
+        assert_response :success
+        refute ProvisioningTemplate.find_by(:name => "Community test template")
+      end
     end
   end
 end
