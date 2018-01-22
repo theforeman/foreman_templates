@@ -64,7 +64,7 @@ module ForemanTemplates
         # Check plugin template was not imported
         ct = Template.find_by(name: 'FooBar PluginTest')
         refute ct.present?
-        assert_includes results, "  Skipping: 'FooBar PluginTest' - Unknown template model 'ForemanTemplates::TemplateImporterTest::TestTemplate'"
+        assert_includes results, "Unknown template type 'FooBar PluginTest' import failed - uninitialized constant ForemanTemplates::TemplateImporterTest::TestTemplate"
       end
 
       test 'can extend without changes' do
@@ -142,47 +142,6 @@ module ForemanTemplates
       assert ProvisioningTemplate.find_by(name: 'FooBar keep_me').present?
       assert ProvisioningTemplate.all.size, 1
       # 'purge! removes expected template'
-    end
-
-    context 'map_metadata' do
-      test 'returns OSes that are in the db' do
-        metadata = { 'oses' => ['centos 5.3', 'Fedora 19'] }
-        assert_equal [Operatingsystem.find_by(title: 'centos 5.3')], Template.map_metadata(metadata, 'oses')
-      end
-
-      test 'returns Orgs that are in the db' do
-        metadata = { 'organizations' => ['Organization 1', 'Organization One'] }
-        assert_equal [Organization.find_by(name: 'Organization 1')],
-                     Template.map_metadata(metadata, 'organizations')
-      end
-
-      test 'returns Locations that are in the db' do
-        metadata = { 'locations' => ['Location 1', 'Location One'] }
-        assert_equal [Location.find_by(name: 'Location 1')],
-                     Template.map_metadata(metadata, 'locations')
-      end
-
-      test 'returns an empty array for no matched OSes' do
-        metadata = { 'oses' => ['Fedora 19'] }
-        assert_equal [], Template.map_metadata(metadata, 'oses')
-      end
-
-      test 'returns an empty array for no matched Org' do
-        metadata = { 'organizations' => ['Organization One'] }
-        assert_equal [], Template.map_metadata(metadata, 'organizations')
-      end
-
-      test 'returns an empty array for no matched Location' do
-        metadata = { 'locations' => ['Location One'] }
-        assert_equal [], Template.map_metadata(metadata, 'locations')
-      end
-
-      test 'map_metadata defaults to an emtpy array' do
-        metadata = {}
-        [ 'oses', 'locations', 'organizations' ].each do |param|
-          assert_equal [], Template.map_metadata(metadata, param)
-        end
-      end
     end
 
     test 'should create importer with defaults from Settings' do
@@ -265,9 +224,10 @@ module ForemanTemplates
       imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '')
       res = imp.import!
 
-      assert res.include?("Skipping Template id #{template.id}:#{template.name} - template is locked")
-      assert res.include?("Skipping Partition Table id #{ptable.id}:#{ptable.name} - partition table is locked")
-      assert res.include?("Skipping snippet id #{snippet.id}:#{snippet.name} - template is locked")
+      result = res.join("\n")
+      assert result.include?("ProvisioningTemplate '#{template.name}' import failed - Validation failed: This template is locked")
+      assert result.include?("Ptable '#{ptable.name}' import failed - Validation failed: This template is locked")
+      assert result.include?("ProvisioningTemplate '#{snippet.name}' import failed - Validation failed: This template is locked")
       assert_equal template_template, template.template
       assert_equal ptable_layout, ptable.layout
       assert_equal snippet_template, snippet.template
@@ -291,6 +251,7 @@ module ForemanTemplates
 
       imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => true)
       res = imp.import!
+      result = res.join("\n")
 
       updated_path = "#{locking_path}/core_updated"
       new_template_template = File.read("#{updated_path}/metadata1.erb")
@@ -301,15 +262,15 @@ module ForemanTemplates
 
       refute_equal template_template, template.template
       assert_equal new_template_template, template.template
-      assert res.include? "  Updating Template id #{template.id}:#{template.name}"
+      assert result.include? "Provisioning template '#{template.name}' import successful"
 
       refute_equal ptable_layout, ptable.layout
       assert_equal new_ptable_layout, ptable.layout
-      assert res.include? "  Updating Ptable id #{ptable.id}:#{ptable.name}"
+      assert result.include? "Ptable '#{ptable.name}' import successful"
 
       refute_equal snippet_template, snippet.template
       assert_equal new_snippet_template, snippet.template
-      assert res.include? "  Updating Snippet id #{snippet.id}:#{snippet.name}"
+      assert result.include? "Provisioning template '#{snippet.name}' import successful"
     end
 
     private
