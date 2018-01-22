@@ -20,6 +20,7 @@ class Setting
       return unless super
 
       %w(template_sync_filter template_sync_branch template_sync_prefix).each { |s| Setting::BLANK_ATTRS << s }
+      Setting::NOT_STRIPPED << 'template_sync_prefix'
 
       self.transaction do
         [
