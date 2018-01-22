@@ -1,6 +1,3 @@
-class NoKindError < RuntimeError; end
-class MissingKindError < RuntimeError; end
-
 module ForemanTemplates
   class TemplateImporter < Action
     attr_accessor :metadata, :name, :text
@@ -53,55 +50,59 @@ module ForemanTemplates
         text = File.read(template)
         result_lines << 'Parsing: ' + template.gsub(/#{@dir}#{@dirname}/, '') if @verbose
 
-        metadata = parse_metadata(text)
-        metadata['associate'] = @associate
+        metadata = Template.parse_metadata(text)
 
         # Get the name and filter
-        filename = template.split('/').last
-        title    = filename.split('.').first
-        name     = metadata['name'] || title
-        name     = auto_prefix(name)
+        name = metadata['name']
+        name = auto_prefix(name)
         if @filter
           matching = name.match(/#{@filter}/i)
           matching = !matching if @negate
-          next unless matching
+          unless matching
+            result_lines << "Skipping template 'name' since it's name is matching filter condition" if @verbose
+            next
+          end
         end
 
+        options = { :force => @force, :associate => @associate, :lock => @lock }
+        template_type = 'Unknown template type'
         begin
-          # Expects a return of { :diff, :status, :result, :errors }
-          data = if metadata['model'].present?
-                   metadata['model'].constantize.import!(name, text, metadata, @force, @lock)
-                 else
-                   # For backwards-compat before "model" metadata was added
-                   case metadata['kind']
-                   when 'ptable'
-                     Ptable.import!(name, text, metadata, @force, @lock)
-                   when 'job_template'
-                     # TODO: update REX templates to have `model` and delete this
-                     update_job_template(name, text)
-                   else
-                     ProvisioningTemplate.import!(name, text, metadata, @force, @lock)
-                   end
-                 end
-
-          if data[:diff].nil? && data[:old].present? && data[:new].present?
-            data[:diff] = calculate_diff(data[:old], data[:new])
+          if metadata.key?('model')
+            template_type = metadata['model'].constantize
+          else
+            result_lines << "Metadata for template '#{name}' do not specify 'model', import failed"
+            next
           end
+
+          template = template_type.import_without_save(name, text, options)
+
+          data = {}
+          if template.template_changed?
+            data[:old] = template.template_was
+            data[:new] = template.template
+            if data[:diff].nil? && data[:old].present? && data[:new].present?
+              data[:diff] = calculate_diff(data[:old], data[:new])
+            end
+          end
+
+          if options[:force]
+            template.ignore_locking { template.save! }
+          else
+            template.save!
+          end
+
+          template_type = template.class.model_name.human
+          data[:status] = template.errors.blank? ? "#{template_type} '#{name}' import successful" : "#{template_type} '#{name}' import failed"
+          data[:errors] = template.errors.full_messages
 
           if @verbose
-            result_lines << data[:result]
             result_lines << data[:diff] unless data[:diff].nil?
           end
-          result_lines << status_to_text(data[:status], name)
+          result_lines << data[:status]
           result_lines << data[:errors] unless data[:errors].empty?
-        rescue MissingKindError
-          result_lines << "  Skipping: '#{name}' - No template kind or model detected"
-          next
-        rescue NoKindError
-          result_lines << "  Skipping: '#{name}' - Unknown template kind '#{metadata['kind']}'"
-          next
-        rescue NameError
-          result_lines << "  Skipping: '#{name}' - Unknown template model '#{metadata['model']}'"
+        rescue => e
+          Foreman::Logging.exception 'error during template import', e, :level => :debug
+          result_lines << "#{template_type} '#{name}' import failed - #{e.message}"
           next
         end
       end
@@ -120,47 +121,6 @@ module ForemanTemplates
       end
     end
 
-    def parse_metadata(text)
-      # Pull out the first erb comment only - /m is for a multiline regex
-      extracted = text.match(/<%\#[\t a-z0-9=:]*(.+?).-?%>/m)
-      extracted.nil? ? {} : YAML.load(extracted[1])
-    end
-
-    def update_job_template(name, text)
-      file = name.gsub(/^#{@prefix}/, '')
-      puts 'Deprecation warning: JobTemplate support is moving to the Remote Execution plugin'
-      puts "- please add 'model: JobTemplate' to the metadata in '#{file}' to call the right method"
-
-      unless defined?(JobTemplate)
-        return {
-          :status => false,
-          :result => 'Skipping job template import, remote execution plugin is not installed.'
-        }
-      end
-      template = JobTemplate.import(
-        text.sub(/^name: .*$/, "name: #{name}"),
-        :update => true
-      )
-
-      c_or_u = template.new_record? ? 'Created' : 'Updated'
-      begin
-        id_string = ('id' + template.id)
-      rescue StandardError
-        id_string = ''
-      end
-
-      if template.template != template.template_was
-        diff = Diffy::Diff.new(
-          template.template_was,
-          template.template,
-          :include_diff_info => true
-        ).to_s(:color)
-      end
-
-      result = "  #{c_or_u} Template #{id_string}:#{name}"
-      { :diff => diff, :status => template.save, :result => result }
-    end
-
     def purge!
       clause = "name #{@negate ? 'NOT ' : ''}LIKE ?"
       ProvisioningTemplate.where(clause, "#{@prefix}%").each do |template|
@@ -174,16 +134,6 @@ module ForemanTemplates
 
     def parse_bool(bool_name)
       bool_name.is_a?(String) ? bool_name != 'false' : bool_name
-    end
-
-    def status_to_text(status, name)
-      msg = "#{name} - import "
-      msg << if status
-               "success"
-             else
-               'failure'
-             end
-      msg
     end
   end
 end

@@ -30,15 +30,5 @@ module ForemanTemplates
         add_all_permissions_to_default_roles
       end
     end
-
-    config.to_prepare do
-      begin
-        Template.send(:include, ForemanTemplates::TemplateImport)
-        Ptable.send(:include, ForemanTemplates::PtableImport)
-        ProvisioningTemplate.send(:include, ForemanTemplates::ProvisioningTemplateImport)
-      rescue StandardError => e
-        puts "#{ForemanTemplates::ENGINE_NAME}: skipping engine hook (#{e})"
-      end
-    end
   end
 end
