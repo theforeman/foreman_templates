@@ -1,7 +1,7 @@
 module Api
   module V2
     class TemplateController < ::Api::V2::BaseController
-      api :POST, "/template/import/", N_("Initiate Import")
+      api :POST, "/templates/import/", N_("Initiate Import")
       param :verbose, :bool, :required => false, :desc => N_("Set verbosity of import")
       param :repo, String, :required => false, :desc => N_("Override the default repo from settings.")
       param :branch, String, :required => false, :desc => N_("Branch in Git repo.")
@@ -27,7 +27,7 @@ module Api
         render :json => { :message => results }
       end
 
-      api :POST, "/template/export", N_("Initiate Export")
+      api :POST, "/templates/export", N_("Initiate Export")
       param :verbose, :bool, :required => false, :desc => N_("Set verbosity of export")
       param :repo, String, :required => false, :desc => N_("Override the default repo from settings")
       param :branch, String, :required => false, :desc => N_("Branch in Git repo.")
