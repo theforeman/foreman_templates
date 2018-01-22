@@ -50,6 +50,22 @@ module Api
         logger.debug e
         render :json => { :message => (_('Something went wrong during export: %s') % e.message) }, :status => 500
       end
+
+      api :POST, "/templates/purge", N_("Initialte template purge")
+      param :negate, :bool, :required => false, :desc => N_("Negate the prefix (for purging).")
+      param :prefix, String, :required => false, :desc => N_("The string all templates begin with.")
+      param :verbose, :bool, :required => false, :desc => N_("Set verbosity of export")
+      def purge
+        ForemanTemplates::TemplateImporter.new({
+          negate:  params['negate'],
+          prefix:  params['prefix'],
+          verbose: params['verbose'],
+        }).purge!
+        render :json => { :message => _('Success') }
+      rescue StandardError => e
+        logger.debug e
+        render :json => { :message => (_('Something went wrong during template purge: %s') % e.message) }, :status => 500
+      end
     end
   end
 end

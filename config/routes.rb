@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         collection do
           post 'import'
           post 'export'
+          post 'purge'
         end
       end
     end
