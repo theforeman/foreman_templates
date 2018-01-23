@@ -19,13 +19,13 @@ class Setting
     def self.load_defaults
       return unless super
 
-      %w(template_sync_filter template_sync_branch).each { |s| Setting::BLANK_ATTRS << s }
+      %w(template_sync_filter template_sync_branch template_sync_prefix).each { |s| Setting::BLANK_ATTRS << s }
 
       self.transaction do
         [
           self.set('template_sync_verbose', N_('Choose verbosity for Rake task importing templates'), false, N_('Verbosity')),
           self.set('template_sync_associate', N_('Associate templates to OS'), 'new', N_('Associate'), nil, { :collection => Proc.new { self.associate_types } }),
-          self.set('template_sync_prefix', N_('The string all imported templates should begin with'), "Community ", N_('Prefix')),
+          self.set('template_sync_prefix', N_('The string all imported templates should begin with'), "", N_('Prefix')),
           self.set('template_sync_dirname', N_('The directory within the Git repo containing the templates'), '/', N_('Dirname')),
           self.set('template_sync_filter', N_('Import or export names matching this regex (case-insensitive; snippets are not filtered)'), nil, N_('Filter')),
           self.set('template_sync_repo', N_('Target path to import and export. Different protocols can be used, e.g. /tmp/dir, git://example.com, https://example.com, ssh://example.com'), 'https://github.com/theforeman/community-templates.git', N_('Repo')),
