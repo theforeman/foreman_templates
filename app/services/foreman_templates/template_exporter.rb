@@ -62,6 +62,8 @@ module ForemanTemplates
         current_dir = get_dump_dir(template)
         FileUtils.mkdir_p current_dir
 
+        set_name_without_prefix(template)
+
         filename = File.join(current_dir, get_template_filename(template))
         File.open(filename, 'w+') do |file|
           logger.debug "Writing to file #{filename}"
@@ -73,6 +75,10 @@ module ForemanTemplates
 
     def get_template_filename(template)
       Shellwords.escape(template.name.downcase.tr(' /', '_') + '.erb')
+    end
+
+    def set_name_without_prefix(template)
+      template.name = template.name.sub(@prefix, '') if template.name.start_with? @prefix
     end
 
     def get_dump_dir(template)
