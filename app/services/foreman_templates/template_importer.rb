@@ -7,7 +7,7 @@ module ForemanTemplates
     end
 
     def initialize(args = {})
-      super
+      super args
       @verbose = parse_bool(@verbose)
       @force = parse_bool(@force)
       @lock = parse_bool(@lock)

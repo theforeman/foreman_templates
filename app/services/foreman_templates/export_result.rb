@@ -1,6 +1,7 @@
 module ForemanTemplates
   class ExportResult
     attr_accessor :exported, :error, :warning
+    attr_reader :templates, :git_user, :branch, :repo
 
     def initialize(repo, branch, git_user)
       @repo = repo

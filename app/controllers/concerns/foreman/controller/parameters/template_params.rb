@@ -25,14 +25,30 @@ module Foreman
           end
         end
 
+        def ui_template_import_params
+          base_import_params :template_sync
+        end
+
+        def ui_tempate_export_params
+          base_export_params :template_sync
+        end
+
         def template_import_params
-          add_taxonomy_params(self.class.template_params_filter(self.class.extra_import_params)
-            .filter_params(params, parameter_filter_context, :none).with_indifferent_access)
+          add_taxonomy_params(base_import_params :none)
         end
 
         def template_export_params
-          add_taxonomy_params(self.class.template_params_filter(self.class.extra_export_params)
-            .filter_params(params, parameter_filter_context, :none).with_indifferent_access)
+          add_taxonomy_params(base_export_params :none)
+        end
+
+        def base_import_params(toplevel_key)
+          self.class.template_params_filter(self.class.extra_import_params)
+            .filter_params(params, parameter_filter_context, toplevel_key).with_indifferent_access
+        end
+
+        def base_export_params(toplevel_key)
+          self.class.template_params_filter(self.class.extra_export_params)
+            .filter_params(params, parameter_filter_context, toplevel_key).with_indifferent_access
         end
 
         def organization_params

@@ -2,6 +2,7 @@ require 'fileutils'
 require 'yaml'
 require 'diffy'
 require 'git'
+require 'rabl'
 
 module ForemanTemplates
   # Inherit from the Rails module of the parent app (Foreman), not the plugin.
@@ -11,6 +12,12 @@ module ForemanTemplates
 
     initializer 'foreman_templates.load_default_settings', :before => :load_config_initializers do
       require_dependency File.expand_path('../../app/models/setting/template_sync.rb', __dir__) if (Setting.table_exists? rescue(false))
+    end
+
+    initializer "foreman_templates.add_rabl_view_path" do |app|
+      Rabl.configure do |config|
+        config.view_paths << ForemanTemplates::Engine.root.join('app', 'views')
+      end
     end
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
@@ -28,6 +35,13 @@ module ForemanTemplates
           }, :resource_type => 'Template'
         end
         add_all_permissions_to_default_roles
+
+        menu :top_menu, :template_sync,
+             :url_hash => { :controller => :template_syncs, :action => :index },
+             :caption => N_('Sync Templates'),
+             :parent => :hosts_menu,
+             :before => :ptables,
+             :turbolinks => false
       end
     end
   end

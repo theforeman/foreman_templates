@@ -2,6 +2,18 @@ module ForemanTemplates
   class Action
     delegate :logger, :to => :Rails
 
+    def self.git_repo_start_with
+      %w{http:// https:// git:// ssh:// git+ssh:// ssh+git://}
+    end
+
+    def self.file_repo_start_with
+      ['/']
+    end
+
+    def self.repo_start_with
+      git_repo_start_with + file_repo_start_with
+    end
+
     def self.setting_overrides
       %i(verbose prefix dirname filter repo negate branch)
     end
@@ -25,7 +37,7 @@ module ForemanTemplates
     end
 
     def git_repo?
-      @repo.start_with?('http://', 'https://', 'git://', 'ssh://', 'git+ssh://', 'ssh+git://')
+      @repo.start_with? *self.class.git_repo_start_with
     end
 
     def get_absolute_repo_path
@@ -33,8 +45,8 @@ module ForemanTemplates
     end
 
     def verify_path!(path)
-      msg = _("Using file-based synchronization, but couldn't access %s to export templates. ") % path
-      msg += _("Please check the access permissions/SELinux and make sure it is writable for the web application user account, typically 'foreman'.")
+      msg = _("Using file-based synchronization, but couldn't access %s. ") % path
+      msg += _("Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically 'foreman'.")
       raise msg unless Dir.exist?(path)
     end
 

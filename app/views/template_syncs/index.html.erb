@@ -1,0 +1,14 @@
+<%= webpacked_plugins_js_for :foreman_templates %>
+<%= webpacked_plugins_css_for :foreman_templates %>
+
+<div id="foreman-templates"/>
+
+<%= mount_react_component('ForemanTemplates',
+                          '#foreman-templates',
+                          { :apiUrls => {
+                              :exportUrl => export_template_syncs_path,
+                              :syncSettingsUrl => sync_settings_template_syncs_path,
+                              :importUrl => import_template_syncs_path
+                              },
+                            :validationData => { :repo => ForemanTemplates::Action.repo_start_with }
+                          }.to_json )%>
