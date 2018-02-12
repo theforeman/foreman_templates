@@ -1,5 +1,4 @@
-class NoKindError < RuntimeError; end
-class MissingKindError < RuntimeError; end
+class TemplateImportError < RuntimeError; end
 
 module ForemanTemplates
   class TemplateImporter < Action
@@ -45,78 +44,38 @@ module ForemanTemplates
     end
 
     def parse_files!
-      result_lines = []
-
+      parse_results = []
+      template_parser = TemplateParser.new(:force => @force)
       # Build a list of ERB files to parse
       Dir["#{@dir}#{@dirname}/**/*.erb"].each do |template|
         text = File.read(template)
-        result_lines << 'Parsing: ' + template.gsub(/#{@dir}#{@dirname}/, '') if @verbose
 
-        metadata = parse_metadata(text)
-        metadata['associate'] = @associate
+        parse_result = ParseResult.new
+        parse_result.add 'Parsing: ' + template.gsub(/#{@dir}#{@dirname}/, ''), true
 
-        # Get the name and filter
-        filename = template.split('/').last
-        title    = filename.split('.').first
-        name     = metadata['name'] || title
-        name     = auto_prefix(name)
-        if @filter
-          matching = name.match(/#{@filter}/i)
-          matching = !matching if @negate
-          next unless matching
-        end
+        metadata = process_metadata(text)
+
+        name = parse_name template, metadata['name']
+
+        next if @filter && !name_matching_filter?(name)
 
         begin
-          # Expects a return of { :diff, :status, :result, :errors }
-          data = if metadata['model'].present?
-                   metadata['model'].constantize.import!(name, text, metadata, @force)
-                 else
-                   # For backwards-compat before "model" metadata was added
-                   case metadata['kind']
-                   when 'ptable'
-                     Ptable.import!(name, text, metadata, @force)
-                   when 'job_template'
-                     # TODO: update REX templates to have `model` and delete this
-                     update_job_template(name, text)
-                   else
-                     ProvisioningTemplate.import!(name, text, metadata, @force)
-                   end
-                 end
-
-          if data[:diff].nil? && data[:old].present? && data[:new].present?
-            data[:diff] = calculate_diff(data[:old], data[:new])
-          end
-
-          if @verbose
-            result_lines << data[:result]
-            result_lines << data[:diff] unless data[:diff].nil?
-          end
-          result_lines << status_to_text(data[:status], name)
-          result_lines << data[:errors] unless data[:errors].empty?
-        rescue MissingKindError
-          result_lines << "  Skipping: '#{name}' - No template kind or model detected"
-          next
-        rescue NoKindError
-          result_lines << "  Skipping: '#{name}' - Unknown template kind '#{metadata['kind']}'"
-          next
-        rescue NameError
-          result_lines << "  Skipping: '#{name}' - Unknown template model '#{metadata['model']}'"
-          next
+          parse_result = template_parser.parse_template_file(parse_result, name, text, metadata)
+        rescue TemplateImportError => e
+          parse_result.add_import_error e
+          parse_results << parse_result
         end
       end
-      result_lines
+      parse_results.map { |result| result.to_s(@verbose)}
     end
 
     def auto_prefix(name)
       name.start_with?(@prefix) ? name : [@prefix, name].compact.join
     end
 
-    def calculate_diff(old, new)
-      if old != new
-        Diffy::Diff.new(old, new, :include_diff_info => true).to_s(:color)
-      else
-        nil
-      end
+    def name_matching_filter?(name)
+      matching = name.match(/#{@filter}/i)
+      !matching if @negate
     end
 
     def parse_metadata(text)
@@ -125,39 +84,17 @@ module ForemanTemplates
       extracted.nil? ? {} : YAML.load(extracted[1])
     end
 
-    def update_job_template(name, text)
-      file = name.gsub(/^#{@prefix}/, '')
-      puts 'Deprecation warning: JobTemplate support is moving to the Remote Execution plugin'
-      puts "- please add 'model: JobTemplate' to the metadata in '#{file}' to call the right method"
+    def process_metadata(text)
+      metadata = parse_metadata(text)
+      metadata['associate'] = @associate
+      metadata
+    end
 
-      unless defined?(JobTemplate)
-        return {
-          :status => false,
-          :result => 'Skipping job template import, remote execution plugin is not installed.'
-        }
-      end
-      template = JobTemplate.import(
-        text.sub(/^name: .*$/, "name: #{name}"),
-        :update => true
-      )
-
-      c_or_u = template.new_record? ? 'Created' : 'Updated'
-      begin
-        id_string = ('id' + template.id)
-      rescue StandardError
-        id_string = ''
-      end
-
-      if template.template != template.template_was
-        diff = Diffy::Diff.new(
-          template.template_was,
-          template.template,
-          :include_diff_info => true
-        ).to_s(:color)
-      end
-
-      result = "  #{c_or_u} Template #{id_string}:#{name}"
-      { :diff => diff, :status => template.save, :result => result }
+    def parse_name(template_file, from_metadata)
+      filename = template_file.split('/').last
+      title    = filename.split('.').first
+      name     = from_metadata || title
+      auto_prefix(name)
     end
 
     def purge!
@@ -173,16 +110,6 @@ module ForemanTemplates
 
     def parse_bool(bool_name)
       bool_name.is_a?(String) ? bool_name != 'false' : bool_name
-    end
-
-    def status_to_text(status, name)
-      msg = "#{name} - import "
-      msg << if status
-               "success"
-             else
-               'failure'
-             end
-      msg
     end
   end
 end
