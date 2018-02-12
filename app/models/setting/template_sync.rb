@@ -28,7 +28,7 @@ class Setting
           self.set('template_sync_prefix', N_('The string all imported templates should begin with'), "Community ", N_('Prefix')),
           self.set('template_sync_dirname', N_('The directory within the Git repo containing the templates'), '/', N_('Dirname')),
           self.set('template_sync_filter', N_('Import or export names matching this regex (case-insensitive; snippets are not filtered)'), nil, N_('Filter')),
-          self.set('template_sync_repo', N_('Default Git repo to sync from'), 'https://github.com/theforeman/community-templates.git', N_('Repo')),
+          self.set('template_sync_repo', N_('Target path to import and export. Different protocols can be used, e.g. /tmp/dir, git://example.com, https://example.com, ssh://example.com'), 'https://github.com/theforeman/community-templates.git', N_('Repo')),
           self.set('template_sync_negate', N_('Negate the prefix (for purging) / filter (for importing/exporting)'), false, N_('Negate')),
           self.set('template_sync_branch', N_('Default branch in Git repo'), nil, N_('Branch')),
           self.set('template_sync_metadata_export_mode', N_('Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template withou metadata'), 'refresh', N_('Metadata export mode'), nil, { :collection => Proc.new { self.metadata_export_mode_types } }),
