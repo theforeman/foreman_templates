@@ -22,23 +22,44 @@ module ForemanTemplates
                    :result => "Skipping snippet #{id_string}:#{name} - template is locked" }
         end
 
+        diff = nil
         status = nil
-        if data[:template] != snippet.template
-          diff = Diffy::Diff.new(
-            snippet.template,
-            data[:template],
-            :include_diff_info => true
-          ).to_s(:color)
+        if snippet_changed?(data, snippet)
+          diff = create_diff(data, snippet)
           snippet.ignore_locking do
             status = snippet.update_attributes(data)
           end
           result  = "  #{c_or_u} Snippet #{id_string}:#{name}"
         else
-          diff    = nil
           status  = true
           result  = "  No change to Snippet #{id_string}:#{name}"
         end
+
         { :diff => diff, :status => status, :result => result, :errors => snippet.errors }
+      end
+
+      def create_diff(data, snippet)
+        if snippet_content_changed?(data[:template], snippet.template)
+          Diffy::Diff.new(
+            snippet.template,
+            data[:template],
+            :include_diff_info => true
+          ).to_s(:color)
+        else
+          nil
+        end
+      end
+
+      def snippet_content_changed?(data_template, snippet_template)
+        data_template != snippet_template
+      end
+
+      def data_changed?(data, snippet)
+        (!data[:locked].nil? && data[:locked] != snippet.locked)
+      end
+
+      def snippet_changed?(data, snippet)
+        snippet_content_changed?(data[:template], snippet.template) || data_changed?(data, snippet)
       end
 
       def map_metadata(metadata, param)

@@ -5,7 +5,7 @@ module ForemanTemplates
     module ClassMethods
       def import!(name, text, metadata, force = false, lock = false)
         # Check for snippet type
-        return import_snippet!(name, text, force) if metadata['snippet']
+        return import_snippet!(name, text, force, lock) if metadata['snippet']
 
         # Data
         ptable = Ptable.where(:name => name).first_or_initialize

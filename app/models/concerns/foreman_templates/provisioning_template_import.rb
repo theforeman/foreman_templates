@@ -5,7 +5,7 @@ module ForemanTemplates
     module ClassMethods
       def import!(name, text, metadata, force = false, lock = false)
         # Check for snippet type
-        return import_snippet!(name, text, force) if metadata['snippet'] || metadata['kind'] == 'snippet'
+        return import_snippet!(name, text, force, lock) if metadata['snippet'] || metadata['kind'] == 'snippet'
 
         # Get template type
         kind = TemplateKind.find_by(name: metadata['kind'])
