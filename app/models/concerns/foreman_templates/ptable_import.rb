@@ -20,7 +20,7 @@ module ForemanTemplates
         # Printout helpers
         c_or_u = ptable.new_record? ? 'Creating' : 'Updating'
         id_string = ptable.new_record? ? '' : "id #{ptable.id}"
-        if ptable.locked? && !ptable.new_record? && !force
+        if ptable.locked && !ptable.new_record? && !force
           return { :diff => nil,
                    :status => false,
                    :result => "Skipping Partition Table #{id_string}:#{name} - partition table is locked" }

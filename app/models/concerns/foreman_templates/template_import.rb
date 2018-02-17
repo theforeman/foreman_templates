@@ -16,7 +16,7 @@ module ForemanTemplates
         c_or_u = snippet.new_record? ? 'Creating' : 'Updating'
         id_string = snippet.new_record? ? '' : "id #{snippet.id}"
 
-        if snippet.locked? && !snippet.new_record? && !force
+        if snippet.locked && !snippet.new_record? && !force
           return { :diff => nil,
                    :status => false,
                    :result => "Skipping snippet #{id_string}:#{name} - template is locked" }

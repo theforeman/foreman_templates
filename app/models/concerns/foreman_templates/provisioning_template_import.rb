@@ -26,7 +26,7 @@ module ForemanTemplates
         # Printout helpers
         c_or_u = template.new_record? ? 'Creating' : 'Updating'
         id_string = template.new_record? ? '' : "id #{template.id}"
-        if template.locked? && !template.new_record? && !force
+        if template.locked && !template.new_record? && !force
           return { :diff => nil,
                    :status => false,
                    :result => "Skipping Template #{id_string}:#{name} - template is locked" }
