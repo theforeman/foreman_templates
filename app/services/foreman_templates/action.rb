@@ -19,6 +19,8 @@ module ForemanTemplates
     end
 
     def initialize(args = {})
+      @taxonomies = { :organizations => args[:organization_params] || {},
+                      :locations => args[:location_params] || {} }
       assign_attributes args
     end
 

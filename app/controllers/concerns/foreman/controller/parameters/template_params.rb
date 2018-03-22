@@ -3,6 +3,7 @@ module Foreman
     module Parameters
       module TemplateParams
         extend ActiveSupport::Concern
+        include Foreman::Controller::Parameters::Taxonomix
 
         class_methods do
           def filter_params_list
@@ -25,11 +26,27 @@ module Foreman
         end
 
         def template_import_params
-          self.class.template_params_filter(self.class.extra_import_params).filter_params(params, parameter_filter_context, :none)
+          add_taxonomy_params(self.class.template_params_filter(self.class.extra_import_params)
+            .filter_params(params, parameter_filter_context, :none).with_indifferent_access)
         end
 
         def template_export_params
-          self.class.template_params_filter(self.class.extra_export_params).filter_params(params, parameter_filter_context, :none)
+          add_taxonomy_params(self.class.template_params_filter(self.class.extra_export_params)
+            .filter_params(params, parameter_filter_context, :none).with_indifferent_access)
+        end
+
+        def organization_params
+          self.class.organization_params_filter(Hash).filter_params(params, parameter_filter_context, :none)
+        end
+
+        def location_params
+          self.class.location_params_filter(Hash).filter_params(params, parameter_filter_context, :none)
+        end
+
+        private
+
+        def add_taxonomy_params(params)
+          params.merge(:organization_params => organization_params.to_h).merge(:location_params => location_params.to_h)
         end
       end
     end

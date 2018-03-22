@@ -83,7 +83,7 @@ module ForemanTemplates
     end
 
     def templates_to_dump
-      base = Template.all
+      base = find_templates
       if filter.present?
         method = negate ? :reject : :select
         base.public_send(method) { |template| template.name.match(/#{filter}/i) }
@@ -106,6 +106,37 @@ module ForemanTemplates
         else
           raise "Unknown metadata export mode #{@metadata_export_mode}"
       end
+    end
+
+    private
+
+    def find_templates
+      @taxonomies.values.all?(&:empty?) ? Template.all : find_taxed_templates
+    end
+
+    def find_taxed_templates
+      location_ids = taxes_ids('location')
+      organization_ids = taxes_ids('organization')
+      if location_ids.empty?
+        templates_query(organization_ids)
+      elsif organization_ids.empty?
+        templates_query(location_ids)
+      else
+        templates_query(organization_ids) & templates_query(location_ids)
+      end
+    end
+
+    def templates_query(tax_ids)
+      Template.where(:id => TaxableTaxonomy.where(:taxonomy_id => tax_ids,
+                                                  :taxable_type => Template.subclasses.map(&:name)).pluck(:taxable_id))
+    end
+
+    def taxes_ids(tax_type)
+      tax_type.capitalize.constantize
+              .where(:name => @taxonomies[tax_type.pluralize.to_sym]["#{tax_type}_names".to_sym])
+              .pluck(:id)
+              .concat(@taxonomies[tax_type.pluralize.to_sym]["#{tax_type}_ids".to_sym] || [])
+              .uniq
     end
   end
 end
