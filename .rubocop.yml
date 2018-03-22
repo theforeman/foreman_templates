@@ -1,3 +1,6 @@
+inherit_from:
+  - .rubocop_todo.yml
+
 AllCops:
   DisplayCopNames: true
 
@@ -7,9 +10,6 @@ Rails:
 # Don't enforce documentation
 Style/Documentation:
   Enabled: false
-
-Metrics/MethodLength:
-  Max: 20
 
 Metrics/LineLength:
   Enabled: false
@@ -81,16 +81,12 @@ Rails/Output:
 # needs major refactorings before we can improve
 Metrics/PerceivedComplexity:
   Max: 13
-Metrics/MethodLength:
-  Max: 49
 Metrics/ClassLength:
   Max: 200
 Metrics/AbcSize:
   Max: 72
 Metrics/CyclomaticComplexity:
   Max: 36
-Metrics/BlockLength:
-  Max: 47
 Metrics/PerceivedComplexity:
   Max: 20
 
