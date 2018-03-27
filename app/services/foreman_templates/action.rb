@@ -24,17 +24,6 @@ module ForemanTemplates
       assign_attributes args
     end
 
-    def get_default_branch(repo)
-      branch_names = repo.branches.map(&:name).uniq
-
-      # Always use develop on Foreman-nightly, if present, or else relevant stable branch
-      target = SETTINGS[:version].tag == 'develop' ? 'develop' : "#{SETTINGS[:version].short}-stable"
-      return target if branch_names.include?(target)
-
-      # stay on default branch as fallback
-      nil
-    end
-
     def git_repo?
       @repo.start_with?('http://', 'https://', 'git://', 'ssh://', 'git+ssh://', 'ssh+git://')
     end

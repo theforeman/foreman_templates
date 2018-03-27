@@ -41,9 +41,12 @@ module ForemanTemplates
         assert_equal File.read(get_template('core.erb', 'plugins')), ct.template
 
         # Check plugin template was not imported
-        ct = Template.find_by(name: 'FooBar PluginTest')
+        ct_name = 'FooBar PluginTest'
+        ct = Template.find_by(name: ct_name)
         refute ct.present?
-        assert_includes results, "Unknown template type 'FooBar PluginTest' import failed - uninitialized constant ForemanTemplates::TemplateImporterTest::TestTemplate"
+        ct_result = find_result(results[:results], ct_name)
+        refute ct_result.imported
+        assert_includes ct_result.additional_errors, "Template type ForemanTemplates::TemplateImporterTest::TestTemplate was not found, are you missing a plugin?"
       end
 
       test 'can extend without changes' do
@@ -183,7 +186,7 @@ module ForemanTemplates
       assert_equal succ, res.first
     end
 
-    test '#auto_prefix' do
+    test '#auto_prefix_name' do
       assert_equal 'FooBar something', @importer.auto_prefix('something')
       assert_equal 'FooBar something', @importer.auto_prefix('FooBar something')
       assert_equal 'FooBar template FooBar something', @importer.auto_prefix('template FooBar something')
@@ -204,13 +207,21 @@ module ForemanTemplates
       ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
       snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
 
-      imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '')
-      res = imp.import!
+      imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :locked => true)
+      results = imp.import!
 
-      result = res.join("\n")
-      assert result.include?("ProvisioningTemplate '#{template.name}' import failed - Validation failed: This template is locked")
-      assert result.include?("Ptable '#{ptable.name}' import failed - Validation failed: This template is locked")
-      assert result.include?("ProvisioningTemplate '#{snippet.name}' import failed - Validation failed: This template is locked")
+      template_res = find_result(results[:results], template.name)
+      refute template_res.imported
+      assert_equal template_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+
+      ptable_res = find_result(results[:results], ptable.name)
+      refute ptable_res.imported
+      assert_equal ptable_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+
+      snippet_res = find_result(results[:results], snippet.name)
+      refute snippet_res.imported
+      assert_equal snippet_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+
       assert_equal template_template, template.template
       assert_equal ptable_layout, ptable.layout
       assert_equal snippet_template, snippet.template
@@ -233,8 +244,7 @@ module ForemanTemplates
       snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
 
       imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => true)
-      res = imp.import!
-      result = res.join("\n")
+      results = imp.import!
 
       updated_path = "#{locking_path}/core_updated"
       new_template_template = File.read("#{updated_path}/metadata1.erb")
@@ -245,15 +255,15 @@ module ForemanTemplates
 
       refute_equal template_template, template.template
       assert_equal new_template_template, template.template
-      assert result.include? "Provisioning template '#{template.name}' import successful"
+      assert find_result(results[:results], template.name).imported
 
       refute_equal ptable_layout, ptable.layout
       assert_equal new_ptable_layout, ptable.layout
-      assert result.include? "Ptable '#{ptable.name}' import successful"
+      assert find_result(results[:results], ptable.name).imported
 
       refute_equal snippet_template, snippet.template
       assert_equal new_snippet_template, snippet.template
-      assert result.include? "Provisioning template '#{snippet.name}' import successful"
+      assert find_result(results[:results], snippet.name).imported
     end
 
     private
@@ -281,6 +291,10 @@ module ForemanTemplates
       else
         false
       end
+    end
+
+    def find_result(results, template_name)
+      results.find { |res| res.name == template_name }
     end
   end
   # rubocop:enable ClassLength

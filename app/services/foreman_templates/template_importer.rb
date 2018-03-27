@@ -11,6 +11,7 @@ module ForemanTemplates
       @verbose = parse_bool(@verbose)
       @force = parse_bool(@force)
       @lock = parse_bool(@lock)
+      @result_lines = []
     end
 
     def import!
@@ -24,7 +25,7 @@ module ForemanTemplates
     def import_from_files
       @dir = get_absolute_repo_path
       verify_path!(@dir)
-      return parse_files!
+      parse_files!
     end
 
     def import_from_git
@@ -33,79 +34,42 @@ module ForemanTemplates
 
       begin
         gitrepo = Git.clone(@repo, @dir)
-        branch = @branch ? @branch : get_default_branch(gitrepo)
-        gitrepo.checkout(branch) if branch
+        gitrepo.checkout(@branch) if @branch
 
-        return parse_files!
+        parse_files!
       ensure
         FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
       end
     end
 
     def parse_files!
-      result_lines = []
+      Dir["#{@dir}#{@dirname}/**/*.erb"].each do |template_file|
+        parse_result = ParseResult.new(template_file)
 
-      # Build a list of ERB files to parse
-      Dir["#{@dir}#{@dirname}/**/*.erb"].each do |template|
-        text = File.read(template)
-        result_lines << 'Parsing: ' + template.gsub(/#{@dir}#{@dirname}/, '') if @verbose
-
+        text = File.read(template_file)
         metadata = Template.parse_metadata(text)
 
-        # Get the name and filter
-        name = metadata['name']
-        name = auto_prefix(name)
-        if @filter
-          matching = name.match(/#{@filter}/i)
-          matching = !matching if @negate
-          unless matching
-            result_lines << "Skipping template '#{name}' since it's name is matching filter condition" if @verbose
-            next
-          end
-        end
+        next if metadata_corrupted?(metadata, parse_result)
 
-        template_type = 'Unknown template type'
+        next unless (name = auto_prefix_name(metadata, parse_result))
+
+        next if filtered_out name, parse_result
+
         begin
-          if metadata.key?('model')
-            template_type = metadata['model'].constantize
-          else
-            result_lines << "Metadata for template '#{name}' do not specify 'model', import failed"
-            next
-          end
-
+          next unless (template_type = template_model(metadata, parse_result))
           template = template_type.import_without_save(name, text, import_options)
+          parse_result.template = template
+          parse_result.determine_result_diff
 
-          data = {}
-          if template.template_changed?
-            data[:old] = template.template_was
-            data[:new] = template.template
-            if data[:diff].nil? && data[:old].present? && data[:new].present?
-              data[:diff] = calculate_diff(data[:old], data[:new])
-            end
-          end
-
-          if @force
-            template.ignore_locking { template.save! }
-          else
-            template.save!
-          end
-
-          template_type = template.class.model_name.human
-          data[:status] = template.errors.blank? ? "#{template_type} '#{name}' import successful" : "#{template_type} '#{name}' import failed"
-          data[:errors] = template.errors.full_messages
-
-          if @verbose
-            result_lines << data[:diff] unless data[:diff].nil?
-          end
-          result_lines << data[:status]
-          result_lines << data[:errors] unless data[:errors].empty?
+          save_template template, @force
+          @result_lines << parse_result.check_for_errors
+        rescue NameError => e
+          @result_lines << parse_result.name_error(e, metadata['model'])
         rescue => e
-          Foreman::Logging.exception 'error during template import', e, :level => :debug
-          result_lines << "#{template_type} '#{name}' import failed - #{e.message}"
-          next
+          @result_lines << parse_result.add_exception(e)
         end
       end
-      result_lines
+      { :results => @result_lines, :repo => @repo, :branch => @branch }
     end
 
     def import_options
@@ -116,16 +80,55 @@ module ForemanTemplates
         :location_params => @locations }
     end
 
-    def auto_prefix(name)
-      name.start_with?(@prefix) ? name : [@prefix, name].compact.join
-    end
-
-    def calculate_diff(old, new)
-      if old != new
-        Diffy::Diff.new(old, new, :include_diff_info => true).to_s(:color)
+    def template_model(metadata, parse_result)
+      if metadata.key?('model')
+        metadata['model'].constantize
       else
+        @result_lines << parse_result.missing_model
         nil
       end
+    end
+
+    def save_template(template, force)
+      if force
+        template.ignore_locking { template.save }
+      else
+        template.save
+      end
+    end
+
+    def filtered_out(name, parse_result)
+      if @filter && !name_matching_filter?(name)
+        @result_lines << parse_result.matching_filter
+        true
+      end
+    end
+
+    def metadata_corrupted?(metadata, parse_result)
+      if metadata.empty?
+        @result_lines << parse_result.corrupted_metadata
+        return true
+      end
+      false
+    end
+
+    def name_matching_filter?(name)
+      matching = name.match(/#{@filter}/i)
+      return !matching if @negate
+      matching
+    end
+
+    def auto_prefix_name(metadata, parse_result)
+      unless (name = metadata['name'])
+        @result_lines << parse_result.no_metadata_name
+        return nil
+      end
+      parse_result.name = auto_prefix(name)
+      auto_prefix(name)
+    end
+
+    def auto_prefix(name)
+      name.start_with?(@prefix) ? name : [@prefix, name].compact.join
     end
 
     def purge!
