@@ -59,7 +59,7 @@ module ForemanTemplates
           matching = name.match(/#{@filter}/i)
           matching = !matching if @negate
           unless matching
-            result_lines << "Skipping template 'name' since it's name is matching filter condition" if @verbose
+            result_lines << "Skipping template '#{name}' since it's name is matching filter condition" if @verbose
             next
           end
         end
