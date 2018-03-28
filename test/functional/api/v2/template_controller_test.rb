@@ -3,6 +3,10 @@ require 'test_plugin_helper'
 module Api
   module V2
     class TemplateControllerTest < ::ActionController::TestCase
+      before do
+        FactoryBot.create(:template_sync_setting, :name => 'template_sync_prefix', :value => 'community ')
+      end
+
       test "should import from git" do
         post :import, params: { 'repo' => "#{ForemanTemplates::Engine.root}/test/templates/core", 'prefix' => '' }
         assert_response :success
