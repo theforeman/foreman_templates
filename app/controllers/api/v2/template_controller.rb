@@ -31,7 +31,7 @@ module Api
         render :json => { :message => _('Success') }
       rescue StandardError => e
         logger.debug e
-        render :json => { :message => (_('Something went wrong during export: %s') % e.message) }, :status => 500
+        render :json => { :message => (_('Something went wrong during export: %s') % e.message) }, :status => :internal_server_error
       end
     end
   end
