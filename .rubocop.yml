@@ -51,7 +51,10 @@ Style/EmptyMethod:
 Layout/IndentHash:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 Style/BracesAroundHashParameters:
@@ -98,4 +101,8 @@ Lint/UnusedMethodArgument:
 
 # JobTemplates use this for inputs, we should probably whitelist classes
 Security/YAMLLoad:
+  Enabled: false
+
+# rake task over 50 LOCs
+Metrics/BlockLength:
   Enabled: false
