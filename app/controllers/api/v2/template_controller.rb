@@ -18,6 +18,7 @@ module Api
       param :force, :bool, :required => false, :desc => N_("Update templates that are locked")
       param :lock, :bool, :required => false, :desc => N_("Lock imported templates")
       param_group :foreman_template_sync_params
+      param_group :taxonomies, ::Api::V2::BaseController
       def import
         results = ForemanTemplates::TemplateImporter.new(template_import_params).import!
         render :json => { :message => results }
@@ -26,6 +27,7 @@ module Api
       api :POST, "/templates/export", N_("Initiate Export")
       param :metadata_export_mode, Setting::TemplateSync.metadata_export_mode_types.keys, :required => false, :desc => N_("Specify how to handle metadata")
       param_group :foreman_template_sync_params
+      param_group :taxonomies, ::Api::V2::BaseController
       def export
         ForemanTemplates::TemplateExporter.new(template_export_params).export!
         render :json => { :message => _('Success') }

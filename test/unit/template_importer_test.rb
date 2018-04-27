@@ -49,6 +49,8 @@ module ForemanTemplates
       test 'can extend without changes' do
         # Test template class
         class TestTemplate < ::Template
+          include Taxonomix
+
           def self.import!(name, text, opts = { :force => false, :lock => false })
             template = TestTemplate.new(:name => name, :template => text)
             template.save!

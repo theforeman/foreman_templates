@@ -64,7 +64,6 @@ module ForemanTemplates
           end
         end
 
-        options = { :force => @force, :associate => @associate, :lock => @lock }
         template_type = 'Unknown template type'
         begin
           if metadata.key?('model')
@@ -74,7 +73,7 @@ module ForemanTemplates
             next
           end
 
-          template = template_type.import_without_save(name, text, options)
+          template = template_type.import_without_save(name, text, import_options)
 
           data = {}
           if template.template_changed?
@@ -85,7 +84,7 @@ module ForemanTemplates
             end
           end
 
-          if options[:force]
+          if @force
             template.ignore_locking { template.save! }
           else
             template.save!
@@ -107,6 +106,14 @@ module ForemanTemplates
         end
       end
       result_lines
+    end
+
+    def import_options
+      { :force => @force,
+        :associate => @associate,
+        :lock => @lock,
+        :organization_params => @organizations,
+        :location_params => @locations }
     end
 
     def auto_prefix(name)

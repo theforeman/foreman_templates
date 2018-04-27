@@ -34,6 +34,42 @@ module ForemanTemplates
       end
     end
 
+    describe '#templates_to_dump limited to taxonomies' do
+      before do
+        @org = FactoryBot.create(:organization, :name => 'TemplateOrg')
+        @empty = FactoryBot.create(:organization, :name => 'EmptyOrg')
+        @ptable = FactoryBot.create(:ptable, :name => 'exported_ptable', :organizations => [@org])
+        FactoryBot.create(:ptable, :name => 'not_exported_ptable', :organizations => [@empty])
+        @provisioning_template = FactoryBot.create(:provisioning_template, :name => 'exported_template', :organizations => [@org])
+        FactoryBot.create(:provisioning_template, :name => 'not_exported_template')
+      end
+
+      test 'should export templates only from specified org by id' do
+        exporter = TemplateExporter.new(:filter => "", :organization_params => { :organization_ids => [@org.id] })
+        templates = exporter.templates_to_dump
+        assert_equal 2, templates.count
+        assert templates.include?(@ptable)
+        assert templates.include?(@provisioning_template)
+      end
+
+      test 'should export templates only from specified org by name' do
+        exporter = TemplateExporter.new(:filter => "", :organization_params => { :organization_names => [@org.name] })
+        templates = exporter.templates_to_dump
+        assert_equal 2, templates.count
+        assert templates.include?(@ptable)
+        assert templates.include?(@provisioning_template)
+      end
+
+      test 'should export template only in both organization and location' do
+        loc =  FactoryBot.create(:location, :name => 'TemplateLoc')
+        template = FactoryBot.create(:provisioning_template, :name => 'exported_template_with_taxonomies', :organizations => [@org], :locations => [loc])
+        exporter = TemplateExporter.new(:filter => "", :organization_params => { :organization_ids => [@org.id] }, :location_params => { :location_ids => [loc.id] })
+        templates = exporter.templates_to_dump
+        assert_equal 1, templates.count
+        assert templates.include?(template)
+      end
+    end
+
     describe '#get_template_filename(template)' do
       before do
         @template = FactoryBot.create(:provisioning_template, :name => 'template name')
@@ -49,8 +85,6 @@ module ForemanTemplates
       end
     end
 
-    # kind = template.respond_to?(:template_kind) ? template.template_kind.try(:name) || 'snippet' : nil
-    # File.join(@dir, dirname, template.model_name.human.pluralize.downcase.tr(' ', '_'), kind.to_s)
     describe '#get_dump_dir' do
       before do
         @template = FactoryBot.create(:provisioning_template)
