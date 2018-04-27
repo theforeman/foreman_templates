@@ -48,6 +48,7 @@ module ForemanTemplates
     def generic_error(additional_msg)
       @imported = false
       @additional_errors = additional_msg
+      Logging.logger('app').debug "Error in '#{@template_file}': #{additional_msg}"
       self
     end
 
