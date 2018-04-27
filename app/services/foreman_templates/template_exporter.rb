@@ -77,8 +77,8 @@ module ForemanTemplates
 
     def get_dump_dir(template)
       kind = template.respond_to?(:template_kind) ? template.template_kind.try(:name) || 'snippet' : nil
-      template_class_dir = template.model_name.human.pluralize.downcase.tr(' ', '_')
-      template_class_dir += '_templates' if template_class_dir == 'partition_tables'
+      template_class_dir = template.model_name.plural
+      template_class_dir = 'partition_tables_templates' if template_class_dir == 'ptables'
       File.join(@dir, dirname.to_s, template_class_dir, kind.to_s)
     end
 
