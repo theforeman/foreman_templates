@@ -28,7 +28,7 @@ module ForemanTemplates
       @dir = Dir.mktmpdir
       return @export_result if branch_missing?
       git_repo = Git.clone(@repo, @dir)
-      logger.debug "cloned #{@repo} to #{@dir}"
+      logger.debug "cloned '#{@repo}' to '#{@dir}'"
 
       setup_git_branch git_repo
       dump_files!
@@ -50,6 +50,7 @@ module ForemanTemplates
     end
 
     def setup_git_branch(git_repo)
+      logger.debug "checking out branch '#{@branch}'"
       if git_repo.is_branch?(@branch)
         git_repo.checkout(@branch)
       else

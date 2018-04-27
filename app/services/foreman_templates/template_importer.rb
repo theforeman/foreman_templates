@@ -33,8 +33,12 @@ module ForemanTemplates
       @dir = Dir.mktmpdir
 
       begin
+        logger.debug "cloned '#{@repo}' to '#{@dir}'"
         gitrepo = Git.clone(@repo, @dir)
-        gitrepo.checkout(@branch) if @branch
+        if @branch
+          logger.debug "checking out branch '#{@branch}'"
+          gitrepo.checkout(@branch)
+        end
 
         parse_files!
       ensure
@@ -44,6 +48,7 @@ module ForemanTemplates
 
     def parse_files!
       Dir["#{@dir}#{@dirname}/**/*.erb"].each do |template_file|
+        logger.debug 'Parsing: ' + template_file.gsub(/#{@dir}#{@dirname}/, '')
         parse_result = ParseResult.new(template_file)
 
         text = File.read(template_file)
@@ -90,11 +95,19 @@ module ForemanTemplates
     end
 
     def save_template(template, force)
+      result = nil
       if force
-        template.ignore_locking { template.save }
+        result = template.ignore_locking { template.save }
       else
-        template.save
+        result = template.save
       end
+
+      if result
+        logger.debug 'saved'
+      else
+        logger.error "couldn't save the template because of: #{template.errors.full_messages.join(', ')}"
+      end
+      result
     end
 
     def filtered_out(name, parse_result)
