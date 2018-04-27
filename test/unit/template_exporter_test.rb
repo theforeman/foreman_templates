@@ -70,7 +70,7 @@ module ForemanTemplates
       test 'does not appends anything for template without kind' do
         @exporter.instance_variable_set('@dir', '/tmp')
         template = FactoryBot.create(:ptable)
-        assert_equal "/tmp/ptables/", @exporter.get_dump_dir(template)
+        assert_equal "/tmp/partition_tables_templates/", @exporter.get_dump_dir(template)
       end
 
       test 'appends configured dirname to temp dir' do
