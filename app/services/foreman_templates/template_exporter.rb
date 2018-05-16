@@ -7,61 +7,68 @@ module ForemanTemplates
     end
 
     def export!
+      @export_result = ExportResult.new(@repo, @branch, foreman_git_user)
       if git_repo?
         export_to_git
       else
         export_to_files
       end
 
-      return true
+      return @export_result
     end
 
     def export_to_files
       @dir = get_absolute_repo_path
       verify_path!(@dir)
       dump_files!
+      @export_result.exported = true
     end
 
     def export_to_git
       @dir = Dir.mktmpdir
-
+      return @export_result if branch_missing?
       git_repo = Git.clone(@repo, @dir)
       logger.debug "cloned #{@repo} to #{@dir}"
-      branch = @branch ? @branch : get_default_branch(git_repo)
-      # either checkout to existing or create a new one and checkout afterwards
-      if branch
-        if git_repo.is_branch?(branch)
-          git_repo.checkout(branch)
-        else
-          git_repo.branch(branch).checkout
-          if git_repo.is_remote_branch?(branch) # if we work with remote branch we need to sync it first
-            git_repo.reset_hard("origin/#{branch}")
-          end
-        end
-      end
 
+      setup_git_branch git_repo
       dump_files!
       git_repo.add
 
       status = git_repo.status
       if status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
-        logger.debug 'committing changes in cloned repo'
-        git_repo.commit "Templates export made by Foreman user #{User.current.try(:login) || User::ANONYMOUS_ADMIN}"
-
-        logger.debug "pushing to branch #{branch} at origin #{@repo}"
+        git_repo.commit "Templates export made by Foreman user #{foreman_git_user}"
         git_repo.push 'origin', branch
+        @export_result.exported = true
       else
-        logger.debug 'no change detected, skipping the commit and push'
+        @export_result.warning = 'No change detected, skipping the commit and push'
       end
+    rescue StandardError => e
+      @export_result.error = e.message
     ensure
       FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
+      @export_result
+    end
+
+    def setup_git_branch(git_repo)
+      if git_repo.is_branch?(@branch)
+        git_repo.checkout(@branch)
+      else
+        git_repo.branch(@branch).checkout
+        if git_repo.is_remote_branch?(@branch) # if we work with remote branch we need to sync it first
+          git_repo.reset_hard("origin/#{@branch}")
+        end
+      end
+    end
+
+    def foreman_git_user
+      User.current.try(:login) || User::ANONYMOUS_ADMIN
     end
 
     def dump_files!
-      templates_to_dump.map do |template|
+      templates = templates_to_dump
+      templates.map do |template|
         current_dir = get_dump_dir(template)
         FileUtils.mkdir_p current_dir
-
         filename = File.join(current_dir, get_template_filename(template))
         File.open(filename, 'w+') do |file|
           logger.debug "Writing to file #{filename}"
@@ -69,6 +76,7 @@ module ForemanTemplates
           logger.debug "finished writing #{bytes}"
         end
       end
+      @export_result.add_exported_templates templates
     end
 
     def get_template_filename(template)
@@ -90,6 +98,14 @@ module ForemanTemplates
       else
         base
       end
+    end
+
+    def branch_missing?
+      if @branch.blank?
+        @export_result.error = "Please specify a branch when exporting into a git repo"
+        return true
+      end
+      false
     end
 
     # * refresh - template.to_erb stripping existing metadata,
