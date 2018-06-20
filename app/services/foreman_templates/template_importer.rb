@@ -81,8 +81,8 @@ module ForemanTemplates
       { :force => @force,
         :associate => @associate,
         :lock => @lock,
-        :organization_params => @organizations,
-        :location_params => @locations }
+        :organization_params => @taxonomies[:organizations],
+        :location_params => @taxonomies[:locations] }
     end
 
     def template_model(metadata, parse_result)

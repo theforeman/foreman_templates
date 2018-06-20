@@ -266,6 +266,17 @@ module ForemanTemplates
       assert find_result(results[:results], snippet.name).imported
     end
 
+    test "should have correct taxonomy options" do
+      orgs = { :organization_ids => [3] }
+      locs = { :location_ids => [5] }
+      params = { :organization_params => orgs,
+                 :location_params => locs }
+      importer = ForemanTemplates::TemplateImporter.new params
+
+      assert_equal orgs, importer.import_options[:organization_params]
+      assert_equal locs, importer.import_options[:location_params]
+    end
+
     private
 
     def setup_settings(opts = {})
