@@ -36,12 +36,7 @@ module ForemanTemplates
 
     describe '#templates_to_dump limited to taxonomies' do
       before do
-        @org = FactoryBot.create(:organization, :name => 'TemplateOrg')
-        @empty = FactoryBot.create(:organization, :name => 'EmptyOrg')
-        @ptable = FactoryBot.create(:ptable, :name => 'exported_ptable', :organizations => [@org])
-        FactoryBot.create(:ptable, :name => 'not_exported_ptable', :organizations => [@empty])
-        @provisioning_template = FactoryBot.create(:provisioning_template, :name => 'exported_template', :organizations => [@org])
-        FactoryBot.create(:provisioning_template, :name => 'not_exported_template')
+        taxonomy_setup
       end
 
       test 'should export templates only from specified org by id' do
@@ -67,6 +62,26 @@ module ForemanTemplates
         templates = exporter.templates_to_dump
         assert_equal 1, templates.count
         assert templates.include?(template)
+      end
+    end
+
+    describe '#templates_to_dump based on taxonomy context' do
+      before do
+        taxonomy_setup
+        @before_org = Organization.current
+        Organization.current = @org
+      end
+
+      after do
+        Organization.current = @before_org
+      end
+
+      test 'should export templates only from current scope' do
+        exporter = TemplateExporter.new(:filter => "", :organization_id => @org.id)
+        templates = exporter.templates_to_dump
+        assert_equal 2, templates.count
+        assert templates.include?(@ptable)
+        assert templates.include?(@provisioning_template)
       end
     end
 
@@ -112,6 +127,17 @@ module ForemanTemplates
         @exporter.stubs(:dirname).returns('extra_path')
         assert_equal "/tmp/extra_path/provisioning_templates/#{@template.template_kind.name}", @exporter.get_dump_dir(@template)
       end
+    end
+
+    private
+
+    def taxonomy_setup
+      @org = FactoryBot.create(:organization, :name => 'TemplateOrg')
+      @empty = FactoryBot.create(:organization, :name => 'EmptyOrg')
+      @ptable = FactoryBot.create(:ptable, :name => 'exported_ptable', :organizations => [@org])
+      FactoryBot.create(:ptable, :name => 'not_exported_ptable', :organizations => [@empty])
+      @provisioning_template = FactoryBot.create(:provisioning_template, :name => 'exported_template', :organizations => [@org])
+      FactoryBot.create(:provisioning_template, :name => 'not_exported_template')
     end
   end
 end

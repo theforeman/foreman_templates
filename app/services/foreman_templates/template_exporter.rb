@@ -128,7 +128,12 @@ module ForemanTemplates
     private
 
     def find_templates
-      @taxonomies.values.all?(&:empty?) ? Template.all : find_taxed_templates
+      @taxonomies.values.all?(&:empty?) ? find_all_templates : find_taxed_templates
+    end
+
+    # We have to go through subclasses because Template does not include Taxonomix
+    def find_all_templates
+      Template.subclasses.flat_map(&:all)
     end
 
     def find_taxed_templates
