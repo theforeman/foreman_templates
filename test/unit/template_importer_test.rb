@@ -18,7 +18,8 @@ module ForemanTemplates
         :prefix => 'FooBar ',
         :dirname => '/test/templates/core',
         :verbose => 'false',
-        :associate => 'new'
+        :associate => 'new',
+        :lock => 'lock',
       }.merge(opts))
     end
 
@@ -54,7 +55,7 @@ module ForemanTemplates
         class TestTemplate < ::Template
           include Taxonomix
 
-          def self.import!(name, text, opts = { :force => false, :lock => false })
+          def self.import!(name, text, opts = { :force => false })
             template = TestTemplate.new(:name => name, :template => text)
             template.save!
           end
@@ -193,78 +194,137 @@ module ForemanTemplates
       assert_equal 'FooBar template FooBar something', @importer.auto_prefix('template FooBar something')
     end
 
-    test "should not update locked templates" do
-      initial_path = "#{@engine_root}/test/templates/locking/core_initial"
-      template_template = File.read("#{initial_path}/metadata1.erb")
-      ptable_layout = File.read("#{initial_path}/ptable1.erb")
-      snippet_template = File.read("#{initial_path}/snippet1.erb")
+    context 'locking' do
+      setup do
+        @initial_path = "#{@engine_root}/test/templates/locking/core_initial"
+        @locking_path = "#{@engine_root}/test/templates/locking"
+        @updated_path = "#{@locking_path}/core_updated"
+        @template_template = File.read("#{@initial_path}/metadata1.erb")
+        @ptable_layout = File.read("#{@initial_path}/ptable1.erb")
+        @snippet_template = File.read("#{@initial_path}/snippet1.erb")
+        @provision = TemplateKind.find_by :name => 'provision'
 
-      provision = TemplateKind.find_by :name => 'provision'
-      template = FactoryBot.create(:provisioning_template,
-                                   :name => "Test Data",
-                                   :template => template_template,
-                                   :locked => true,
-                                   :template_kind => provision)
-      ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
-      snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
+        @new_template_template = File.read("#{@updated_path}/metadata1.erb")
+        @new_ptable_layout = File.read("#{@updated_path}/ptable1.erb")
+        @new_snippet_template = File.read("#{@updated_path}/snippet1.erb")
+      end
 
-      imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :locked => true)
-      results = imp.import!
+      test "should not update locked templates" do
+        template = FactoryBot.create(:provisioning_template,
+                                     :name => "Test Data",
+                                     :template => @template_template,
+                                     :locked => 'lock',
+                                     :template_kind => @provision)
+        ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => 'lock', :layout => @ptable_layout)
+        snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => 'lock', :template => @snippet_template)
 
-      template_res = find_result(results[:results], template.name)
-      refute template_res.imported
-      assert_equal template_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+        imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => false, :lock => 'lock')
+        results = imp.import!
 
-      ptable_res = find_result(results[:results], ptable.name)
-      refute ptable_res.imported
-      assert_equal ptable_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+        template_res = find_result(results[:results], template.name)
+        refute template_res.imported
+        assert_equal template_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
-      snippet_res = find_result(results[:results], snippet.name)
-      refute snippet_res.imported
-      assert_equal snippet_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+        ptable_res = find_result(results[:results], ptable.name)
+        refute ptable_res.imported
+        assert_equal ptable_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
-      assert_equal template_template, template.template
-      assert_equal ptable_layout, ptable.layout
-      assert_equal snippet_template, snippet.template
-    end
+        snippet_res = find_result(results[:results], snippet.name)
+        refute snippet_res.imported
+        assert_equal snippet_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
-    test "should update locked template when forced" do
-      locking_path = "#{@engine_root}/test/templates/locking"
-      initial_path = "#{locking_path}/core_initial"
-      template_template = File.read("#{initial_path}/metadata1.erb")
-      ptable_layout = File.read("#{initial_path}/ptable1.erb")
-      snippet_template = File.read("#{initial_path}/snippet1.erb")
+        assert_equal @template_template, template.template
+        assert_equal @ptable_layout, ptable.layout
+        assert_equal @snippet_template, snippet.template
+      end
 
-      provision = TemplateKind.find_by :name => 'provision'
-      template = FactoryBot.create(:provisioning_template,
-                                   :name => "Test Data",
-                                   :template => template_template,
-                                   :locked => true,
-                                   :template_kind => provision)
-      ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => true, :layout => ptable_layout)
-      snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => true, :template => snippet_template)
+      test "should update locked template when forced" do
+        template = FactoryBot.create(:provisioning_template,
+                                     :name => "Test Data",
+                                     :template => @template_template,
+                                     :locked => 'lock',
+                                     :template_kind => @provision)
+        ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => 'lock', :layout => @ptable_layout)
+        snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => 'lock', :template => @snippet_template)
 
-      imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => true)
-      results = imp.import!
+        imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => true, :lock => 'lock')
+        results = imp.import!
 
-      updated_path = "#{locking_path}/core_updated"
-      new_template_template = File.read("#{updated_path}/metadata1.erb")
-      new_ptable_layout = File.read("#{updated_path}/ptable1.erb")
-      new_snippet_template = File.read("#{updated_path}/snippet1.erb")
+        [template, snippet, ptable].map(&:reload)
 
-      [template, snippet, ptable].map(&:reload)
+        refute_equal @template_template, template.template
+        assert_equal @new_template_template, template.template
+        assert find_result(results[:results], template.name).imported
 
-      refute_equal template_template, template.template
-      assert_equal new_template_template, template.template
-      assert find_result(results[:results], template.name).imported
+        refute_equal @ptable_layout, ptable.layout
+        assert_equal @new_ptable_layout, ptable.layout
+        assert find_result(results[:results], ptable.name).imported
 
-      refute_equal ptable_layout, ptable.layout
-      assert_equal new_ptable_layout, ptable.layout
-      assert find_result(results[:results], ptable.name).imported
+        refute_equal @snippet_template, snippet.template
+        assert_equal @new_snippet_template, snippet.template
+        assert find_result(results[:results], snippet.name).imported
+      end
 
-      refute_equal snippet_template, snippet.template
-      assert_equal new_snippet_template, snippet.template
-      assert find_result(results[:results], snippet.name).imported
+      test "should not update locked template and keep new unlocked" do
+        results = keep_options_test_common('keep')
+
+        snippet = Template.find_by :name => 'Test Snippet'
+        refute_equal @snippet_template, snippet.template
+        assert_equal @new_snippet_template, snippet.template
+        assert find_result(results[:results], snippet.name).imported
+        refute snippet.locked
+      end
+
+      test "should not update locked template and lock new template" do
+        results = keep_options_test_common('keep_lock_new')
+
+        snippet = Template.find_by :name => 'Test Snippet'
+        refute_equal @snippet_template, snippet.template
+        assert_equal @new_snippet_template, snippet.template
+        assert find_result(results[:results], snippet.name).imported
+        assert snippet.locked
+      end
+
+      test "should update and unlock existing template" do
+        template = FactoryBot.create(:provisioning_template,
+                                     :name => "Test Data",
+                                     :template => @template_template,
+                                     :locked => 'lock',
+                                     :template_kind => @provision)
+        imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => false, :lock => "unlock")
+        results = imp.import!
+
+        template.reload
+
+        template_res = find_result(results[:results], template.name)
+        assert template_res.imported
+        refute template_res.template.locked
+        refute_equal @template_template, template.template
+        assert_equal @new_template_template, template.template
+      end
+
+      def keep_options_test_common(lock_setting)
+        template = FactoryBot.create(:provisioning_template,
+                                     :name => "Test Data",
+                                     :template => @template_template,
+                                     :locked => 'lock',
+                                     :template_kind => @provision)
+        ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => 'lock', :layout => @ptable_layout)
+
+        imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => false, :lock => lock_setting)
+        results = imp.import!
+
+        [template, ptable].map(&:reload)
+
+        template_res = find_result(results[:results], template.name)
+        refute template_res.imported
+        assert_equal template_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+
+        ptable_res = find_result(results[:results], ptable.name)
+        refute ptable_res.imported
+        assert_equal ptable_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
+        results
+      end
     end
 
     test "should have correct taxonomy options" do

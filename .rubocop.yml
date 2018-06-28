@@ -63,6 +63,9 @@ Style/BracesAroundHashParameters:
 Style/StringLiterals:
   Enabled: false
 
+Style/RaiseArgs:
+  Enabled: false
+
 Style/RedundantSelf:
   Enabled: false
 

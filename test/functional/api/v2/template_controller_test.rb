@@ -31,7 +31,13 @@ module Api
       end
 
       test "should import filtered templates" do
-        post :import, params: { "repo" => "#{template_fixtures_path}/core", "filter" => 'filter1', "prefix" => "filtTemp_", "associate" => "new" }
+        post :import, params: {
+          "repo" => "#{template_fixtures_path}/core",
+          "filter" => 'filter1',
+          "prefix" => "filtTemp_",
+          "associate" => "new",
+          "lock" => "lock",
+        }
         assert_response :success
         templates = JSON.parse(@response.body)['message']['templates']
         templates.each do |template|
@@ -57,7 +63,7 @@ module Api
           :repo => "#{template_fixtures_path}/locking/core_initial",
           :prefix => '',
           :associate => "new",
-          :lock => true
+          :lock => 'lock'
         }
 
         ForemanTemplates::TemplateImporter.new(import_params).import!
@@ -77,7 +83,7 @@ module Api
           :repo => "#{template_fixtures_path}/locking/core_initial",
           :prefix => '',
           :associate => "new",
-          :lock => true
+          :lock => 'lock'
         }
 
         post :import, params: import_params.merge(:repo => "#{template_fixtures_path}/locking/core_updated", :force => true)
@@ -89,7 +95,7 @@ module Api
       end
 
       test "should associate template to taxonomies in metadata on import" do
-        post :import, params: { "repo" => "#{template_fixtures_path}/with_taxonomies", "prefix" => '', "associate" => "always" }
+        post :import, params: { "repo" => "#{template_fixtures_path}/with_taxonomies", "prefix" => '', "associate" => "always", "lock" => "lock" }
         assert_response :success
         template = Ptable.unscoped.find_by :name => 'Test Ptable'
         assert_equal 1, template.organizations.count

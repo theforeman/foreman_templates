@@ -20,6 +20,12 @@ module ForemanTemplates
       end
     end
 
+    initializer "foreman_templates.load_app_instance_data" do |app|
+      ForemanTemplates::Engine.paths['db/migrate'].existent.each do |path|
+        app.config.paths['db/migrate'] << path
+      end
+    end
+
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
         requires_foreman '>= 1.24'
