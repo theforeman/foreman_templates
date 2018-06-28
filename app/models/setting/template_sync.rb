@@ -38,6 +38,15 @@ class Setting
       }
     end
 
+    def self.lock_types
+      {
+        'lock' => _('Lock'),
+        'keep_lock_new' => _('Keep, lock new'),
+        'keep' => _('Keep, do not lock new'),
+        'unlock' => _('Unlock')
+      }
+    end
+
     def self.metadata_export_mode_types
       {
         'refresh' => _('Refresh'),
@@ -75,7 +84,7 @@ class Setting
           self.set('template_sync_branch', N_('Default branch in Git repo'), '', N_('Branch')),
           self.set('template_sync_metadata_export_mode', N_('Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata'), 'refresh', N_('Metadata export mode'), nil, { :collection => Proc.new { self.metadata_export_mode_types } }),
           self.set('template_sync_force', N_('Should importing overwrite locked templates?'), false, N_('Force import')),
-          self.set('template_sync_lock', N_('Should importing lock templates?'), false, N_('Lock templates')),
+          self.set('template_sync_lock', N_('How to handle lock for imported templates?'), 'keep', N_('Lock templates'), nil, { :collection => Proc.new { self.lock_types } }),
           self.set('template_sync_commit_msg', N_('Custom commit message for templates export'), 'Templates export made by a Foreman user', N_('Commit message'))
         ].compact.each { |s| self.create! s.update(:category => "Setting::TemplateSync") }
       end

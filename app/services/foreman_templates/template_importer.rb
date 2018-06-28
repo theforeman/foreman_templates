@@ -10,7 +10,6 @@ module ForemanTemplates
       super args
       @verbose = parse_bool(@verbose)
       @force = parse_bool(@force)
-      @lock = parse_bool(@lock)
       @result_lines = []
     end
 
@@ -79,11 +78,32 @@ module ForemanTemplates
     end
 
     def import_options
-      { :force => @force,
+      lock_predicate = lambda do |template|
+        case @lock
+        when 'lock'
+          return true
+        when 'unlock'
+          return false
+        when 'keep'
+          return template.locked unless template.new_record?
+
+          return false
+        when 'keep_lock_new'
+          return template.locked unless template.new_record?
+
+          return true
+        else
+          raise ::Foreman::Exception.new("Unknown lock option type, expected one of #{::Setting::TemplateSync.lock_types.keys}, got #{@lock}")
+        end
+      end
+
+      {
+        :force => @force,
         :associate => @associate,
-        :lock => @lock,
+        :lock => lock_predicate,
         :organization_params => @taxonomies[:organizations],
-        :location_params => @taxonomies[:locations] }
+        :location_params => @taxonomies[:locations]
+      }
     end
 
     def template_model(metadata, parse_result)

@@ -5,7 +5,7 @@ class ForemanTemplatesIntegrationTest < ActionDispatch::IntegrationTest
     name = 'Prefix Ptable'
     admin = users(:apiadmin)
     Dir.mktmpdir do |tmpdir|
-      common_params = { "repo" => "#{template_fixtures_path}/with_prefix", "prefix" => "Prefix" }
+      common_params = { "repo" => "#{template_fixtures_path}/with_prefix", "prefix" => "Prefix", "lock" => "keep" }
       # rubocop:disable Rails/HttpPositionalArguments
       post '/api/templates/import', **create_params(common_params.merge("associate" => "new"), admin, "secret")
       assert_response :success
