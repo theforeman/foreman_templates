@@ -2,7 +2,8 @@
 
 This plugin will sync the contents of the Foreman Community Templates
 [repository](https://github.com/theforeman/community-templates/) (or a git repo
-of your choice) to your local Foreman instance
+of your choice) to your local Foreman instance. It can also be used to sync
+local directory, therefore any other version control systems can be used.
 
 ## Installation
 
@@ -11,7 +12,7 @@ Foreman documentation for how to install Foreman plugins.
 
 The gem name is "foreman_templates".
 
-RPM users can install the "ruby193-rubygem-foreman_templates" or "rubygem-foreman_templates" packages.
+RPM users can install the "tfm-rubygem-foreman_templates" or "rubygem-foreman_templates" packages.
 
 ## Latest code
 
@@ -26,124 +27,12 @@ These can be overriden for each import by passing options directly to a Rake tas
 
 ## Usage
 
-### Import via Rake task
-
-The plugin provides a Rake task to import the templates. To use it, simply do
-
-    foreman-rake templates:sync
-
-This will create a set of templates named "Community ...." (or update them if they
-already exist). Audit history is preserved, but no comment is currently added for
-any changes made.
-
-The importer will attempt to figure out the OS and Release the template refers to. If
-this is a new template being created, and we can find a matching OS in Foreman, the
-template will be automatically associated with the OS
-
-#### Rake options
-
-* verbose   => Print extra information during the run [false]
-* repo      => Sync templates from a different repo [https://github.com/theforeman/community-templates]. Importing from git and file system is supported.
-* branch    => Branch in Git repo [_see note below_]
-* prefix    => The string all imported templates should begin with [Community]
-* dirname   => The directory within the git tree containing the templates [/]
-* filter    => Import names matching this regex (case-insensitive; snippets are not filtered)
-* associate => Associate to OS, "always", when "new" or "never"  [new]
-* lock      => Lock imported templates [false]
-
-The `branch` default will use *develop* if you're on Foreman-nightly; or the
-matching *1.X-stable* branch for your version of Foreman (if it exists); or
-finally it will remain on the default branch as a fallback.
-
-Passing any option to a Rake task overrides its default value from a corresponding Setting.
-
-#### Examples
-
-Just import all the templates from the default repo
-
-    foreman-rake templates:sync
-
-Import all templates from a custom repo, with a different prefix
-
-    foreman-rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" prefix="Greg"
-
-Import templates matching the name "Fedora"
-
-    foreman-rake templates:sync filter='fedora'
-
-Import templates from a subdirectory of a git repo:
-
-    foreman-rake templates:sync repo="http://github.com/GregSutcliffe/community-templates" dirname='/subdir'
-
-Import templates from file system:
-
-    foreman-rake templates:sync repo="/path/to/my/templates"
-
-### Purge
-
-This task deletes matching templates from the Foreman DB
-
-#### Rake options
-
-* prefix    => The string all templates to be purged should begin with [Community ]
-* negate    => Negate the search [false]
-* verbose   => Print extra information during the run [false]
-
-#### Examples
-
-Just purge all the templates the begin with 'Community '
-
-    foreman-rake templates:purge
-
-Purge all templates that begin with 'Oops '
-
-    foreman-rake templates:purge prefix='Oops '
-
-Purge all templates that do not begin with 'Community '
-
-    foreman-rake templates:purge negate=true
-
-### Import and Export via API
-
-There is an API (`/template/import/`) to initiate import from external
-repository. The API uses Foreman's authorization and authentication
-mechanisms. There is also an export action available.
-
-Unfortunately, there is no CLI support yet. For examples about how to
-use the API, [visit our documentation](https://theforeman.org/plugins/foreman_templates/5.0/index.html#5.API).
+For more detailed description, please see [the plugin manual](https://www.theforeman.org/plugins/foreman_templates/), select the approriate version
 
 ## Integration with other Foreman Plugins
 
-`templates` will start processing a template by looking for a metadata entry of
-`model`. If this is found, `templates` will call `import!` on this model.
-
-That means it's possible for a plugin to define it's own handling of text and
-metadata, relevant to the plugins own interests. The `import!` method will be
-sent 3 arguments - the `name` of the template, the `text` of the template, and
-a complete copy of the `metadata`.
-
-As a trivial example for a random plugin, suppose `foreman_nosuchplugin` has
-this code:
-
-```
-module ForemanNosuchplugin
-  class SomeTemplate
-    def self.import!(name, text, metadata)
-      File.open("/tmp/#{name}",'w') {|f| f.write text }
-    end
-  end
-end
-```
-
-Assuming a template had "model: SomeTemplate" in it's metadata, this would then
-get written to a file in `/tmp`.
-
-`templates` will expect the `import!` method to return a Hash, containing:
-
-* `:status` (boolean),
-* `:diff` (text, may be nil), or
-  * `:old` and `:new` (in which case this plugin will calculate the diff)
-* :result` (text, may be nil).
+This plugin now fully relies on core importing capabilities. That means models inheriting from Template class are supported. To customize import behavior,
+you can override `import_custom_data` in your inheritting class. See example at [remote execution plugin](https://github.com/theforeman/foreman_remote_execution/blob/v1.5.3/app/models/job_template.rb#L201-L217)
 
 ## Copyright
 
