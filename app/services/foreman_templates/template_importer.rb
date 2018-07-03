@@ -47,8 +47,8 @@ module ForemanTemplates
     end
 
     def parse_files!
-      Dir["#{@dir}#{@dirname}/**/*.erb"].each do |template_file|
-        logger.debug 'Parsing: ' + template_file.gsub(/#{@dir}#{@dirname}/, '')
+      Dir["#{@dir}/#{@dirname}/**/*.erb"].each do |template_file|
+        logger.debug 'Parsing: ' + template_file.gsub(%r{#{@dir}\/#{@dirname}}, '')
         parse_result = ParseResult.new(template_file)
 
         text = File.read(template_file)
