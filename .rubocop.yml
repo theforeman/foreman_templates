@@ -109,3 +109,6 @@ Security/YAMLLoad:
 # rake task over 50 LOCs
 Metrics/BlockLength:
   Enabled: false
+
+Rails/RefuteMethods:
+  Enabled: false
