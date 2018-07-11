@@ -30,8 +30,7 @@ namespace :templates do
       associate: ENV['associate'],
       lock:      ENV['lock'],
     }).import!
-
-    pp(results.map { |result| result.to_h(verbose) })
+    pp(results[:results].map { |result| result.to_h(verbose) })
   end
 
   task :sync => :import
