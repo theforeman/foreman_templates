@@ -1,6 +1,5 @@
 require 'pp'
 # Tasks
-# rubocop:disable Metrics/BlockLength
 namespace :templates do
   desc 'Import templates according to settings'
   task :import => :environment do
@@ -73,7 +72,6 @@ namespace :templates do
     puts 'Clean up finished, you can now remove the plugin from your system'
   end
 end
-# rubocop:enable Metrics/BlockLength
 
 # Tests
 namespace :test do
