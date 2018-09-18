@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   ]
   s.files            = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.homepage         = 'https://github.com/theforeman/foreman_templates'
-  s.licenses         = ["GPL-3"]
+  s.licenses         = ["GPL-3.0"]
   s.summary          = 'Template-syncing engine for Foreman'
 
   s.add_dependency "diffy"
