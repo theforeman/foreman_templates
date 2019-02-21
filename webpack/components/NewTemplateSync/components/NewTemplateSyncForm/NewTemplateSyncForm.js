@@ -18,6 +18,7 @@ const submit = syncType => (formValues, dispatch, props) => {
     }
     return memo;
   }, {});
+
   return submitForm({
     url,
     values: postValues,
@@ -91,11 +92,12 @@ class TemplateSyncForm extends React.Component {
     return (
       <Form
         onSubmit={handleSubmit(submit(this.state.syncType))}
-        disabled={submitting || !valid}
+        disabled={submitting || (!valid && !error)}
         submitting={submitting}
         error={error}
         onCancel={redirectToResult(history)}
-      >
+        errorTitle={error && error.severity === 'danger' ? __('Error! ') : __('Warning! ')}>
+
         <SyncTypeRadios
           name="syncType"
           controlLabel="Action type"
