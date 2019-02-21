@@ -29,7 +29,7 @@ module Foreman
           base_import_params :template_sync
         end
 
-        def ui_tempate_export_params
+        def ui_template_export_params
           base_export_params :template_sync
         end
 
