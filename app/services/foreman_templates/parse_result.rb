@@ -1,7 +1,7 @@
 module ForemanTemplates
   class ParseResult
     attr_accessor :name, :template
-    attr_reader :imported, :diff, :exception, :additional_errors
+    attr_reader :imported, :diff, :exception, :additional_errors, :template_file
 
     def initialize(template_file)
       @template_file = template_file.split('/').last

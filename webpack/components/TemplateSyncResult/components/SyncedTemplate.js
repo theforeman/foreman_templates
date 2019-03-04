@@ -45,7 +45,7 @@ const SyncedTemplate = props => {
   const { template } = props;
 
   const additionalInfo = (template) => {
-    const infoAttrs = ['locked', 'snippet', 'class_name', 'kind'];
+    const infoAttrs = ['locked', 'snippet', 'class_name', 'kind', 'template_file'];
 
     return infoAttrs.map((attr) => {
       const key = itemIteratorId(template, attr)
@@ -76,6 +76,10 @@ const SyncedTemplate = props => {
           return (<StringInfoItem template={template}
                                   attr={attr}
                                   key={key} />);
+        case 'template_file':
+          return (<StringInfoItem template={template}
+                                  attr={attr}
+                                  key={key} />)
       }
     });
   };
@@ -116,7 +120,7 @@ const SyncedTemplate = props => {
   return (
       <ListView.Item
         key={template.id}
-        heading={template.name}
+        heading={template.name || ' '}
         additionalInfo={additionalInfo(template)}
         className={'listViewItem--listItemVariants'}
         leftContent={itemLeftContentIcon(template)}

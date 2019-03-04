@@ -6,11 +6,7 @@ import TextButtonField from './TextButtonField';
 
 const SyncSettingField = ({ setting, resetField, disabled }) => {
   // TODO: fails prop type and displays poorly, fix this in core
-  const label = (setting) => (
-    <div>
-      { `${setting.full_name} ` } <FieldLevelHelp content={setting.description}/>
-    </div>
-  );
+  const label = (setting) => `${setting.full_name} `;
 
   const fieldSelector = (setting) => {
     if (setting.settings_type === 'boolean') {
@@ -39,6 +35,7 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
                        disabled={disabled}
                        fieldRequired={setting.required}
                        validate={setting.validate}
+                       tooltipHelp={<FieldLevelHelp content={setting.description}/>}
                        >{setting.value}</TextButtonField>
   )
 };

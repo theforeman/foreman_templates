@@ -16,6 +16,7 @@ const renderField = ({
   blank,
   item,
   fieldSelector,
+  tooltipHelp = null,
   meta: { error, touched },
   buttonAttrs: { buttonText = "Action", buttonAction },
 }) => (
@@ -26,6 +27,7 @@ const renderField = ({
     required={fieldRequired}
     error={error}
     touched={touched}
+    tooltipHelp={tooltipHelp}
   >
     <InputGroup>
       <FieldType item={item} fieldSelector={fieldSelector} input={input} disabled={disabled} blank={blank} />
@@ -47,12 +49,14 @@ const TextButtonField = ({
   fieldSelector,
   validate,
   disabled = false,
-  fieldRequired = false
+  fieldRequired = false,
+  tooltipHelp = null,
 }) => (
   <Field name={name}
          label={label}
          type={fieldSelector(item)}
          fieldSelector={fieldSelector}
+         tooltipHelp={tooltipHelp}
          component={renderField}
          buttonAttrs={buttonAttrs}
          blank={blank}
