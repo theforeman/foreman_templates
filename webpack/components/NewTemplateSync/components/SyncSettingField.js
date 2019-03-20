@@ -1,11 +1,26 @@
 import React from 'react';
-import { FieldLevelHelp } from 'patternfly-react';
+import { FieldLevelHelp, OverlayTrigger, Tooltip, Icon } from 'patternfly-react';
 
 import TextField from 'foremanReact/components/common/forms/TextField';
 import TextButtonField from './TextButtonField';
 
+const ButtonTooltip = props => {
+  const tooltip = (
+    <Tooltip id={`${props.tooltipId}-tooltip-id`}>
+      <span>
+        Use default value from settings
+      </span>
+    </Tooltip>
+  );
+
+  return (
+    <OverlayTrigger overlay={tooltip} trigger={['hover', 'focus']}>
+        <Icon type="fa" name="refresh" />
+    </OverlayTrigger>
+  );
+}
+
 const SyncSettingField = ({ setting, resetField, disabled }) => {
-  // TODO: fails prop type and displays poorly, fix this in core
   const label = (setting) => `${setting.full_name} `;
 
   const fieldSelector = (setting) => {
@@ -29,7 +44,7 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
                        label={label(setting)}
                        blank={{}}
                        item={setting}
-                       buttonAttrs={ { buttonText: "Use Default",
+                       buttonAttrs={ { buttonText: <ButtonTooltip tooltipId={setting.name} />,
                                        buttonAction: () => handleReset(setting.name, setting.value) } }
                        fieldSelector={fieldSelector}
                        disabled={disabled}
