@@ -31,7 +31,7 @@ const renderField = ({
   >
     <InputGroup>
       <FieldType item={item} fieldSelector={fieldSelector} input={input} disabled={disabled} blank={blank} />
-      <InputGroup.Button>
+      <InputGroup.Button className="left-padded">
         <Button onClick={buttonAction} disabled={disabled}>{ buttonText }</Button>
       </InputGroup.Button>
     </InputGroup>
