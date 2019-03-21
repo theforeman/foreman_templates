@@ -6,9 +6,9 @@
 <%= mount_react_component('ForemanTemplates',
                           '#foreman-templates',
                           { :apiUrls => {
-                              :exportUrl => export_template_syncs_path,
-                              :syncSettingsUrl => sync_settings_template_syncs_path,
-                              :importUrl => import_template_syncs_path
+                              :exportUrl => export_ui_template_syncs_path,
+                              :syncSettingsUrl => sync_settings_ui_template_syncs_path,
+                              :importUrl => import_ui_template_syncs_path
                               },
                             :validationData => { :repo => ForemanTemplates::Action.repo_start_with }
                           }.to_json )%>

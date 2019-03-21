@@ -4,3 +4,8 @@
 .left-padded {
   padding-left: 3%;
 }
+
+// No need to hide content, see #26122
+#main > #content {
+  display: block;
+}

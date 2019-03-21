@@ -53,8 +53,6 @@ const TemplateSyncForm = ({
   })(dispatch, change, formName);
 
   return (
-    <div>
-      <Title titleText="Import or Export Templates" />
       <Form onSubmit={handleSubmit(submit)} disabled={submitting || !valid} submitting={submitting} error={error} onCancel={redirectToResult(history)}>
         <RadioButtonGroup name="syncType" controlLabel="Action type" radios={radioButtons(syncType)} disabled={submitting}></RadioButtonGroup>
         <SyncSettingsFields importSettings={importSettings}
@@ -65,7 +63,6 @@ const TemplateSyncForm = ({
                             validationData={validationData}>
         </SyncSettingsFields>
       </Form>
-    </div>
   );
 }
 

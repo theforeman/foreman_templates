@@ -1,8 +1,8 @@
 import React from 'react';
 import { LoadingState } from 'patternfly-react';
+import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout'
 
 import NewTemplateSyncForm from './components/NewTemplateSyncForm';
-
 import './NewTemplateSync.scss';
 
 class NewTemplateSync extends React.Component {
@@ -13,13 +13,17 @@ class NewTemplateSync extends React.Component {
 
   render() {
     const { apiUrls: { importUrl, exportUrl }, loadingSettings, history, validationData } = this.props;
-
     return (
       <LoadingState loading={loadingSettings}>
-        <NewTemplateSyncForm validationData={validationData}
-                             importUrl={importUrl}
-                             exportUrl={exportUrl}
-                             history={history} />
+        <PageLayout
+          header={__('Import or Export Templates')}
+          searchable={false}>
+
+          <NewTemplateSyncForm validationData={validationData}
+                               importUrl={importUrl}
+                               exportUrl={exportUrl}
+                               history={history} />
+        </PageLayout>
       </LoadingState>
     );
   }
