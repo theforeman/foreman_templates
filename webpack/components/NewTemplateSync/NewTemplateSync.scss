@@ -5,7 +5,16 @@
   padding-left: 3%;
 }
 
-// No need to hide content, see #26122
-#main > #content {
-  display: block;
+#foreman-templates {
+  .loading-state-pf.loading-state-pf-lg {
+    padding-top: 5%;
+  }
+  // No need to hide content, see #26122
+  #main > #content {
+    display: block;
+  }
+
+  .blank-slate-pf {
+    padding-top: 5%;
+  }
 }

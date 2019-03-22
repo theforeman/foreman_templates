@@ -20,9 +20,9 @@ const links = [
 
 export default (data) => {
   return (
-  <div>
+  <React.Fragment>
     {links.map(({ path, Component }) => (
       <Route exact key={path} path={`/${path}`} render={(props) => <Component {...props} {...data} />} />
     ))}
-  </div>
+  </React.Fragment>
 )};

@@ -22,6 +22,7 @@ class SyncTypeRadios extends React.Component {
       >
         {radios.map((item, index) => (
           <Radio
+            key={index}
             inline={true}
             title={item.label}
             checked={item.checked}

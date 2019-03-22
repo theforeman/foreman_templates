@@ -4,8 +4,8 @@ class UiTemplateSyncsController < ApplicationController
   include ::Foreman::Controller::Parameters::TemplateParams
 
   def sync_settings
-    import_settings = Setting.where :name => Setting::TemplateSync.import_setting_names
-    export_settings = Setting.where :name => Setting::TemplateSync.export_setting_names
+    import_settings = Setting.where :name => Setting::TemplateSync.import_setting_names(['verbose'])
+    export_settings = Setting.where :name => Setting::TemplateSync.export_setting_names(['verbose'])
     @results = OpenStruct.new(:import => import_settings, :export => export_settings)
   end
 
