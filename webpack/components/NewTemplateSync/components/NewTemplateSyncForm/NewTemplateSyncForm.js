@@ -6,15 +6,16 @@ import RadioButtonGroup from 'foremanReact/components/common/forms/RadioButtonGr
 import TextField from 'foremanReact/components/common/forms/TextField';
 
 import SyncSettingsFields from '../SyncSettingFields';
-import Title from '../../../layout/Title';
+import SyncTypeRadios from './SyncTypeRadios';
 
 import { formName } from './NewTemplateSyncFormConstants';
 
-const submit = (formValues, dispatch, props) => {
-  const { submitForm, syncType, importUrl, exportUrl, history } = props;
+const submit = (syncType) => (formValues, dispatch, props) => {
+  const { submitForm, importUrl, exportUrl, history, currentFields } = props;
   const url = syncType === 'import' ? importUrl : exportUrl;
+  const currentFieldNames = Object.keys(currentFields);
   const postValues = Object.keys(formValues).reduce((memo, key) => {
-    if (key !== 'syncType') {
+    if (currentFieldNames.includes(key)) {
       memo[key] = formValues[key];
     }
     return memo;
@@ -28,42 +29,64 @@ const submit = (formValues, dispatch, props) => {
 
 const redirectToResult = (history) => () => history.push({ pathname: '/template_syncs/result' })
 
-const radioButtons = (syncType) => (
-  [
-    { label: 'Import', checked: ("import" === syncType), value: "import" },
-    { label: 'Export', checked: ("export" === syncType), value: "export" }
-  ]
-);
+class TemplateSyncForm extends React.Component {
 
-const TemplateSyncForm = ({
-  submitting,
-  error,
-  handleSubmit,
-  importSettings,
-  exportSettings,
-  syncType,
-  dispatch,
-  history,
-  validationData,
-  valid
-}) => {
+  constructor(props) {
+    super(props);
 
-  const resetToDefault = ((dispatch, change, formName) => (fieldName, value) => {
-    dispatch(change(formName, fieldName, value));
-  })(dispatch, change, formName);
+    this.state = {
+      syncType: 'import'
+    }
+  }
 
-  return (
-      <Form onSubmit={handleSubmit(submit)} disabled={submitting || !valid} submitting={submitting} error={error} onCancel={redirectToResult(history)}>
-        <RadioButtonGroup name="syncType" controlLabel="Action type" radios={radioButtons(syncType)} disabled={submitting}></RadioButtonGroup>
+  updateSyncType = (event) => {
+    this.setState({ syncType: event.target.value });
+  }
+
+  radioButtons = (syncType) => (
+    [
+      { label: 'Import', checked: ("import" === syncType), value: "import", onChange: this.updateSyncType },
+      { label: 'Export', checked: ("export" === syncType), value: "export", onChange: this.updateSyncType }
+    ]
+  );
+
+  render() {
+    const {
+      submitting,
+      error,
+      handleSubmit,
+      importSettings,
+      exportSettings,
+      currentFields,
+      dispatch,
+      history,
+      validationData,
+      valid
+    } = this.props;
+
+    const resetToDefault = ((dispatch, change, formName) => (fieldName, value) => {
+      dispatch(change(formName, fieldName, value));
+    })(dispatch, change, formName);
+
+    return (
+      <Form onSubmit={handleSubmit(submit(this.state.syncType))}
+            disabled={submitting || !valid}
+            submitting={submitting}
+            error={error}
+            onCancel={redirectToResult(history)}>
+        <SyncTypeRadios name="syncType"
+                        controlLabel="Action type"
+                        radios={this.radioButtons(this.state.syncType)}
+                        disabled={submitting} />
         <SyncSettingsFields importSettings={importSettings}
                             exportSettings={exportSettings}
-                            syncType={syncType}
+                            syncType={this.state.syncType}
                             resetField={resetToDefault}
                             disabled={submitting}
-                            validationData={validationData}>
-        </SyncSettingsFields>
+                            validationData={validationData} />
       </Form>
-  );
+    );
+  }
 }
 
 export default TemplateSyncForm;

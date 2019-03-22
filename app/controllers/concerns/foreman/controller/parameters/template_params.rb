@@ -26,11 +26,11 @@ module Foreman
         end
 
         def ui_template_import_params
-          base_import_params :template_sync
+          base_import_params :ui_template_sync
         end
 
         def ui_template_export_params
-          base_export_params :template_sync
+          base_export_params :ui_template_sync
         end
 
         def template_import_params

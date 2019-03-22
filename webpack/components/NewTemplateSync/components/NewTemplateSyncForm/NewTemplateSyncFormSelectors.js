@@ -9,3 +9,10 @@ export const selectInitialFormValues = createSelector(
     importSettings.concat(exportSettings)
                   .reduce((memo, item) => Object.assign(memo, { [item.name]: item.value }), {})
 );
+
+const selectFormState = (formName, state) => {
+  return state.form && state.form[formName] ? state.form[formName] : {};
+}
+
+export const selectRegisteredFields = (formName, state) =>
+  selectFormState(formName, state).registeredFields || {};

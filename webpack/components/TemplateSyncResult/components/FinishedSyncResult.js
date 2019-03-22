@@ -5,9 +5,6 @@ import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout';
 import { Link } from 'react-router-dom';
 import SyncResultList from './SyncResultList';
 
-import TitleActions from '../../layout/TitleActions';
-import Title from '../../layout/Title';
-
 const FinishedSyncResult = (props) => {
   const {
     templates,
@@ -40,26 +37,19 @@ const FinishedSyncResult = (props) => {
   ];
 
   return (
-    <div>
       <PageLayout
         searchable={false}
         breadcrumbOptions={{ breadcrumbItems: items }}>
+
+        <div className="form-group">
+          <h4>{ `You tried to ${type} the templates ${composeSubtitle(repo, branch, gitUser)}` }</h4>
+        </div>
 
         <SyncResultList templates={templates}
                         pagination={pagination}
                         pageChange={pageChange}/>
       </PageLayout>
-    </div>
   )
 }
 
 export default FinishedSyncResult;
-
-
-// <Title titleText={`You tried to ${type} the following templates`} headingSize='1' />
-//       <Title titleText={composeSubtitle(repo, branch, gitUser)} headingSize='4' />
-//       <div className="row title-row">
-//         <TitleActions>
-//           <Button onClick={redirectBack}>{ __('Back') }</Button>
-//         </TitleActions>
-//       </div>
