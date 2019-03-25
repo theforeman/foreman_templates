@@ -10,10 +10,12 @@ class UiTemplateSyncsController < ApplicationController
   end
 
   def import
+    # todo: add permissions
     @parse_result = OpenStruct.new ForemanTemplates::TemplateImporter.new(ui_template_import_params).import!
   end
 
   def export
+    # todo: add permissions
     @result = ForemanTemplates::TemplateExporter.new(ui_template_export_params).export!
   end
 

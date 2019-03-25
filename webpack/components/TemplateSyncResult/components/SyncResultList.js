@@ -6,7 +6,7 @@ import SyncedTemplate from './SyncedTemplate';
 import { templatesPage } from '../TemplateSyncResultSelectors';
 
 const SyncResultList = props => {
-  const { pagination, pageChange, templates } = props;
+  const { pagination, pageChange, templates, editPaths } = props;
 
   return (
     <ListView>
@@ -22,6 +22,7 @@ const SyncResultList = props => {
           <SyncedTemplate
             template={template}
             key={template.name}
+            editPath={editPaths[template.class_name]}
           />
         ))
       }

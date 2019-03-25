@@ -10,5 +10,6 @@
                               :syncSettingsUrl => sync_settings_ui_template_syncs_path,
                               :importUrl => import_ui_template_syncs_path
                               },
-                            :validationData => { :repo => ForemanTemplates::Action.repo_start_with }
+                            :validationData => { :repo => ForemanTemplates::Action.repo_start_with },
+                            :editPaths => edit_paths
                           }.to_json )%>

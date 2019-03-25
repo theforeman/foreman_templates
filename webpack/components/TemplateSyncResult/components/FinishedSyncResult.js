@@ -9,12 +9,12 @@ const FinishedSyncResult = (props) => {
   const {
     templates,
     type,
-    redirectBack,
     repo,
     branch,
     gitUser,
     pagination,
     pageChange,
+    editPaths,
   } = props;
 
   const composeSubtitle = (repo, branch, gitUser) => {
@@ -47,6 +47,7 @@ const FinishedSyncResult = (props) => {
 
         <SyncResultList templates={templates}
                         pagination={pagination}
+                        editPaths={editPaths}
                         pageChange={pageChange}/>
       </PageLayout>
   )

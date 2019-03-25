@@ -7,5 +7,9 @@ node(:kind) do |template|
 end
 
 node(:class_name) do |template|
+  template.class.name
+end
+
+node(:humanized_class_name) do |template|
   template.class.name.underscore.split('_').map { |part| part.capitalize }.join(' ')
 end

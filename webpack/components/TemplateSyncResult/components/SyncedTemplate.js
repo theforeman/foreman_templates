@@ -2,11 +2,20 @@ import React from 'react';
 import { ListView, Grid, Icon, OverlayTrigger, Tooltip } from 'patternfly-react';
 import classNames from 'classnames';
 import { pick, mergeWith, isEmpty } from 'lodash';
+import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
 
-const StringInfoItem = ({ template, attr, tooltipText, translate = false }) => {
+
+const StringInfoItem = ({ template, attr, tooltipText, translate = false, mapAttr = (template, attr) => template[attr], elipsed = false }) => {
+    const inner = <strong>{ translate ? __(mapAttr(template, attr)) : mapAttr(template, attr) }</strong>
+    const innerContent = elipsed ? (
+            <EllipsisWithTooltip placement="top">
+              { inner }
+            </EllipsisWithTooltip>) :
+            inner
+
     return (<InfoItem itemId={itemIteratorId(template, attr)}
                       tooltipText={tooltipText}>
-              <strong>{ translate ? __(template[attr]) : template[attr] }</strong>
+              { innerContent }
             </InfoItem>);
 };
 
@@ -42,13 +51,16 @@ const itemIteratorId = (template, attr) =>
   `${template.name}-${attr}`;
 
 const SyncedTemplate = props => {
-  const { template } = props;
+  const { template, editPath } = props;
 
   const additionalInfo = (template) => {
-    const infoAttrs = ['locked', 'snippet', 'class_name', 'kind', 'template_file'];
+    const infoAttrs = ['locked', 'snippet', 'humanized_class_name', 'kind', 'template_file'];
 
     return infoAttrs.map((attr) => {
-      const key = itemIteratorId(template, attr)
+      const key = itemIteratorId(template, attr);
+
+      const classNameMap = { Ptable: 'Partition Table' };
+
 
       if (!template[attr]) {
         return (<EmptyInfoItem template={template} attr={attr} key={key}/>);
@@ -67,19 +79,23 @@ const SyncedTemplate = props => {
                                 cssClassNames={'glyphicon glyphicon-scissors'}
                                 tooltipText={'Snippet'}
                                 key={key} />);
-        case 'class_name':
+        case 'humanized_class_name':
           return (<StringInfoItem template={template}
                                   attr={attr}
                                   translate={true}
+                                  mapAttr={(template, attr) => (classNameMap[template[attr]] ? classNameMap[template[attr]] : template[attr]) }
                                   key={key} />);
         case 'kind':
           return (<StringInfoItem template={template}
                                   attr={attr}
                                   key={key} />);
         case 'template_file':
-          return (<StringInfoItem template={template}
-                                  attr={attr}
-                                  key={key} />)
+          return (
+              <StringInfoItem template={template}
+                              attr={attr}
+                              key={key}
+                              elipsed={true} />
+            )
       }
     });
   };
@@ -117,10 +133,17 @@ const SyncedTemplate = props => {
     return (<span>There were no errors.</span>);
   }
 
+  const templateHeading = (template, editPath) => {
+    if (template.id) {
+      return <a href={editPath.replace(':id', template.id)} target="_blank">{template.name}</a>
+    }
+    return template.name || ' ';
+  }
+
   return (
       <ListView.Item
         key={template.id}
-        heading={template.name || ' '}
+        heading={templateHeading(template, editPath)}
         additionalInfo={additionalInfo(template)}
         className={'listViewItem--listItemVariants'}
         leftContent={itemLeftContentIcon(template)}

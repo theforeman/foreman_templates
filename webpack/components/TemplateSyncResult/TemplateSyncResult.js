@@ -18,7 +18,8 @@ const TemplateSyncResult = props => {
       pagination
     },
     history,
-    syncedTemplatesPageChange
+    syncedTemplatesPageChange,
+    editPaths
   } = props;
 
   const redirectBack = () => history.push({ pathname: '/template_syncs'});
@@ -32,7 +33,7 @@ const TemplateSyncResult = props => {
                               repo={repo}
                               branch={branch}
                               gitUser={gitUser}
-                              redirectBack={redirectBack}
+                              editPaths={editPaths}
                               pagination={pagination}
                               pageChange={syncedTemplatesPageChange}/>
       }
