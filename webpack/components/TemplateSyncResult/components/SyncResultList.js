@@ -10,13 +10,6 @@ const SyncResultList = props => {
 
   return (
     <ListView>
-      <Pagination
-        viewType='list'
-        itemCount={templates.length}
-        pagination={pagination}
-        onChange={pageChange}
-        dropdownButtonId='template-sync-result-dropdown'
-      />
       {
         templatesPage(templates, pagination).map((template) => (
           <SyncedTemplate
@@ -26,6 +19,13 @@ const SyncResultList = props => {
           />
         ))
       }
+      <Pagination
+        viewType='list'
+        itemCount={templates.length}
+        pagination={pagination}
+        onChange={pageChange}
+        dropdownButtonId='template-sync-result-dropdown'
+      />
     </ListView>
   )
 };
