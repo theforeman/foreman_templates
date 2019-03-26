@@ -11,5 +11,9 @@
                               :importUrl => import_ui_template_syncs_path
                               },
                             :validationData => { :repo => ForemanTemplates::Action.repo_start_with },
-                            :editPaths => edit_paths
+                            :editPaths => edit_paths,
+                            :userPermissions => {
+                              :import => authorized_for(:controller => :ui_template_syncs, :action => :import),
+                              :export => authorized_for(:controller => :ui_template_syncs, :action => :export)
+                            }
                           }.to_json )%>

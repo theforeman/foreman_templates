@@ -6,7 +6,11 @@ export default (props) => {
   console.log(props)
   return (
     <Router>
-      <Routes apiUrls={props.data.apiUrls} validationData={props.data.validationData} editPaths={props.data.editPaths} />
+      <Routes
+        apiUrls={props.data.apiUrls}
+        validationData={props.data.validationData}
+        editPaths={props.data.editPaths}
+        userPermissions={props.data.userPermissions} />
     </Router>
   );
 }

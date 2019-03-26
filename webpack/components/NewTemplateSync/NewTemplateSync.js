@@ -12,7 +12,17 @@ class NewTemplateSync extends React.Component {
   }
 
   render() {
-    const { apiUrls: { importUrl, exportUrl }, loadingSettings, history, validationData } = this.props;
+    const {
+      apiUrls: {
+        importUrl,
+        exportUrl
+      },
+      loadingSettings,
+      history,
+      validationData,
+      userPermissions
+    } = this.props;
+
     return (
       <LoadingState loading={loadingSettings}>
         <PageLayout
@@ -22,7 +32,8 @@ class NewTemplateSync extends React.Component {
           <NewTemplateSyncForm validationData={validationData}
                                importUrl={importUrl}
                                exportUrl={exportUrl}
-                               history={history} />
+                               history={history}
+                               userPermissions={userPermissions} />
         </PageLayout>
       </LoadingState>
     );

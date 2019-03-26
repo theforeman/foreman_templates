@@ -30,12 +30,20 @@ const submit = (syncType) => (formValues, dispatch, props) => {
 const redirectToResult = (history) => () => history.push({ pathname: '/template_syncs/result' })
 
 class TemplateSyncForm extends React.Component {
+  allowedSyncType = (userPermissions, radioAttrs) => this.props.userPermissions[radioAttrs.permission]
 
   constructor(props) {
     super(props);
 
+    this.radioButtons = [
+      { label: 'Import', value: "import", permission: 'import' },
+      { label: 'Export', value: "export", permission: 'export' }
+    ];
+
     this.state = {
-      syncType: 'import'
+      syncType: this.radioButtons.find(radioAttrs =>
+        this.allowedSyncType(props.userPermissions, radioAttrs)
+      ).value
     }
   }
 
@@ -43,12 +51,13 @@ class TemplateSyncForm extends React.Component {
     this.setState({ syncType: event.target.value });
   }
 
-  radioButtons = (syncType) => (
-    [
-      { label: 'Import', checked: ("import" === syncType), value: "import", onChange: this.updateSyncType },
-      { label: 'Export', checked: ("export" === syncType), value: "export", onChange: this.updateSyncType }
-    ]
-  );
+  permitRadioButtons = buttons => buttons.filter((buttonAttrs) => this.allowedSyncType(this.props.userPermissions, buttonAttrs))
+
+  initRadioButtons = (syncType) => this.permitRadioButtons(this.radioButtons).map(buttonAttrs => ({
+    get checked() { return this.value === syncType },
+    onChange: this.updateSyncType,
+    ...buttonAttrs
+  }))
 
   render() {
     const {
@@ -76,7 +85,7 @@ class TemplateSyncForm extends React.Component {
             onCancel={redirectToResult(history)}>
         <SyncTypeRadios name="syncType"
                         controlLabel="Action type"
-                        radios={this.radioButtons(this.state.syncType)}
+                        radios={this.initRadioButtons(this.state.syncType)}
                         disabled={submitting} />
         <SyncSettingsFields importSettings={importSettings}
                             exportSettings={exportSettings}

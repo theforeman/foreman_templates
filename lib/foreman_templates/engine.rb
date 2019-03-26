@@ -28,10 +28,16 @@ module ForemanTemplates
 
         security_block :templates do
           permission :import_templates, {
-            :"api/v2/template" => [:import]
+            :"api/v2/template" => [:import],
+            :ui_template_syncs => [:import]
           }, :resource_type => 'Template'
           permission :export_templates, {
-            :"api/v2/template" => [:export]
+            :"api/v2/template" => [:export],
+            :ui_template_syncs => [:export]
+          }, :resource_type => 'Template'
+          permission :view_template_syncs, {
+            :ui_template_syncs => [:sync_settings],
+            :template_syncs => [:index]
           }, :resource_type => 'Template'
         end
         add_all_permissions_to_default_roles

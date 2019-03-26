@@ -22,7 +22,7 @@ class UiTemplateSyncsController < ApplicationController
   def action_permission
     case params[:action]
     when 'sync_settings'
-      :view
+      :view_template_syncs
     else
       super
     end
