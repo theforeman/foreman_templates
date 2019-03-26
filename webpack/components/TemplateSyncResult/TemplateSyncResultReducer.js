@@ -4,6 +4,8 @@ import { combineReducers } from 'redux';
 import { TEMPLATESYNC_FORM_SUBMITTED,
          SYNC_RESULT_PAGINATION_CHANGE } from '../../consts';
 
+import { deepPropsToCamelCase } from '../../helpers';
+
 const initialState = Immutable({
   resultAction: '',
   templates: [],
@@ -19,11 +21,7 @@ const syncResult = (state = initialState, action) => {
   switch(action.type) {
     case TEMPLATESYNC_FORM_SUBMITTED:
       return state.merge({
-        'resultAction': payload.data.result_action,
-        'templates': payload.data.templates,
-        'repo': payload.data.repo,
-        'branch': payload.data.branch,
-        'gitUser': payload.data.git_user
+        ...deepPropsToCamelCase(payload.data),
       })
     case SYNC_RESULT_PAGINATION_CHANGE:
       return state.set('pagination', payload.pagination);

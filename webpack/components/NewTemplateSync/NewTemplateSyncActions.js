@@ -1,18 +1,24 @@
+import { ajaxRequestAction } from 'foremanReact/redux/actions/common';
+import api from 'foremanReact/API';
+
 import {
   SYNC_SETTINGS_REQUEST,
   SYNC_SETTINGS_SUCCESS,
   SYNC_SETTINGS_FAILURE
 } from '../../consts';
 
-import { ajaxRequestAction } from 'foremanReact/redux/actions/common';
+import { deepPropsToCamelCase } from '../../helpers';
 
 export const getSyncSettings = url => dispatch => {
-  return ajaxRequestAction({
-    dispatch,
-    requestAction: SYNC_SETTINGS_REQUEST,
-    successAction: SYNC_SETTINGS_SUCCESS,
-    failureAction: SYNC_SETTINGS_FAILURE,
-    url,
-    item: {}
-  });
+  dispatch({ type: SYNC_SETTINGS_REQUEST });
+  return api.get(url)
+    .then(({ data }) =>
+      dispatch({
+        type: SYNC_SETTINGS_SUCCESS,
+        payload: {
+          ...deepPropsToCamelCase(data),
+        },
+      })
+    )
+    .catch(error => dispatch(errorHandler(SYNC_SETTINGS_FAILURE, error)));
 }

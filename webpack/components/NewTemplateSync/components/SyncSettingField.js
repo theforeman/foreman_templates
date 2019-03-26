@@ -21,7 +21,7 @@ const ButtonTooltip = props => {
 }
 
 const SyncSettingField = ({ setting, resetField, disabled }) => {
-  const label = (setting) => `${setting.full_name} `;
+  const label = (setting) => `${setting.fullName} `;
 
   const fieldSelector = (setting) => {
     if (setting.settings_type === 'boolean') {
@@ -35,8 +35,8 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
     return "text";
   }
 
-  const handleReset = (setting_name, setting_value) => {
-    resetField(setting_name, setting_value)
+  const handleReset = (settingName, settingValue) => {
+    resetField(settingName, settingValue)
   }
 
   return (

@@ -22,7 +22,7 @@ const SyncResultList = props => {
           <SyncedTemplate
             template={template}
             key={template.name}
-            editPath={editPaths[template.class_name]}
+            editPath={editPaths[template.className]}
           />
         ))
       }
