@@ -13,3 +13,7 @@ end
 node(:humanized_class_name) do |template|
   template.class.name.underscore.split('_').map { |part| part.capitalize }.join(' ')
 end
+
+node(:can_edit) do |template|
+  authorized_for(:auth_object => template, :authorizer => authorizer, :permission => "edit_#{template.class.name.underscore.pluralize}")
+end

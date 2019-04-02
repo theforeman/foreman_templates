@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import NewTemplateSync from './components/NewTemplateSync';
 import TemplateSyncResult from './components/TemplateSyncResult';
+import PageNotFound from './components/PageNotFound';
 
 const links = [
   {
@@ -17,12 +18,12 @@ const links = [
   }
 ];
 
-
 export default (data) => {
   return (
-  <React.Fragment>
-    {links.map(({ path, Component }) => (
-      <Route exact key={path} path={`/${path}`} render={(props) => <Component {...props} {...data} />} />
-    ))}
-  </React.Fragment>
+    <Switch>
+      {links.map(({ path, Component }) => (
+        <Route exact key={path} path={`/${path}`} render={(props) => <Component {...props} {...data} />} />
+      ))}
+      <Route component={PageNotFound} />
+    </Switch>
 )};
