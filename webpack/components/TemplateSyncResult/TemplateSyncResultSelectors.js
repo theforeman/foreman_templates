@@ -5,4 +5,4 @@ export const templatesPage = (templates, pagination) => {
   return templates.slice(offset, offset + pagination.perPage);
 };
 
-export const selectSyncResult = state => state.foreman_templates.syncResult;
+export const selectSyncResult = state => state.foremanTemplates.syncResult;

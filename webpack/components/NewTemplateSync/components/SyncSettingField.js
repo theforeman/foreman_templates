@@ -24,7 +24,7 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
   const label = (setting) => `${setting.fullName} `;
 
   const fieldSelector = (setting) => {
-    if (setting.settings_type === 'boolean') {
+    if (setting.settingsType === 'boolean') {
       return "checkbox";
     }
 

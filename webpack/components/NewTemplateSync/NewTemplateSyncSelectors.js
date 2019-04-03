@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const newSyncState = state => state.foreman_templates.syncSettings;
+export const newSyncState = state => state.foremanTemplates.syncSettings;
 
 export const selectImportSettings = state => newSyncState(state).importSettings;
 export const selectExportSettings = state => newSyncState(state).exportSettings;

@@ -39,7 +39,7 @@ const renderField = ({
 )
 
 const TextButtonField = ({
-  item,
+  item = {},
   label,
   name,
   className = '',
@@ -54,7 +54,6 @@ const TextButtonField = ({
 }) => (
   <Field name={name}
          label={label}
-         type={fieldSelector(item)}
          fieldSelector={fieldSelector}
          tooltipHelp={tooltipHelp}
          component={renderField}

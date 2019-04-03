@@ -6,7 +6,7 @@ import { TEMPLATESYNC_FORM_SUBMITTED,
 
 import { deepPropsToCamelCase } from '../../helpers';
 
-const initialState = Immutable({
+export const initialState = Immutable({
   resultAction: '',
   templates: [],
 
@@ -14,7 +14,7 @@ const initialState = Immutable({
     page: 1,
     perPage: 20
   }
-})
+});
 
 const syncResult = (state = initialState, action) => {
   const { payload } = action;

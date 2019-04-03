@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
+<TextButtonField
+  blank={Object {}}
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": <ButtonTooltip
+        tooltipId="force"
+      />,
+    }
+  }
+  disabled={false}
+  fieldSelector={[Function]}
+  item={
+    Object {
+      "id": 46,
+      "name": "force",
+      "settingsType": "bool",
+      "value": false,
+    }
+  }
+  label="undefined "
+  name="force"
+  tooltipHelp={
+    <FieldLevelHelp
+      buttonClass=""
+      content={null}
+      placement="top"
+      rootClose={true}
+    />
+  }
+/>
+`;
+
+exports[`SyncSettingField should render setting with input field 1`] = `
+<TextButtonField
+  blank={Object {}}
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": <ButtonTooltip
+        tooltipId="filter"
+      />,
+    }
+  }
+  disabled={false}
+  fieldSelector={[Function]}
+  item={
+    Object {
+      "id": 47,
+      "name": "filter",
+      "settingsType": "string",
+      "value": "",
+    }
+  }
+  label="undefined "
+  name="filter"
+  tooltipHelp={
+    <FieldLevelHelp
+      buttonClass=""
+      content={null}
+      placement="top"
+      rootClose={true}
+    />
+  }
+/>
+`;
+
+exports[`SyncSettingField should render setting with select choices 1`] = `
+<TextButtonField
+  blank={Object {}}
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": <ButtonTooltip
+        tooltipId="associate"
+      />,
+    }
+  }
+  disabled={false}
+  fieldSelector={[Function]}
+  item={
+    Object {
+      "id": 45,
+      "name": "associate",
+      "selection": Array [
+        Object {
+          "label": "New",
+          "value": "new",
+        },
+        Object {
+          "label": "Never",
+          "value": "never",
+        },
+        Object {
+          "label": "Always",
+          "value": "always",
+        },
+      ],
+      "settingsType": "string",
+      "value": "new",
+    }
+  }
+  label="undefined "
+  name="associate"
+  tooltipHelp={
+    <FieldLevelHelp
+      buttonClass=""
+      content={null}
+      placement="top"
+      rootClose={true}
+    />
+  }
+>
+  new
+</TextButtonField>
+`;

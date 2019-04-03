@@ -25,8 +25,7 @@ const TemplateSyncResult = props => {
   const redirectBack = () => history.push({ pathname: '/template_syncs'});
 
   return (
-    <div>
-      { isEmpty(templates) ?
+      isEmpty(templates) ?
           <EmptySyncResult primaryAction={redirectBack}/> :
           <FinishedSyncResult templates={templates}
                               type={resultAction}
@@ -36,8 +35,6 @@ const TemplateSyncResult = props => {
                               editPaths={editPaths}
                               pagination={pagination}
                               pageChange={syncedTemplatesPageChange}/>
-      }
-    </div>
   )
 }
 

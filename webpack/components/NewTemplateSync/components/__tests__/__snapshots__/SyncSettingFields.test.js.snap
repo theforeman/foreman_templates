@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyncSettingFields should show export settings 1`] = `
+<Fragment>
+  <SyncSettingField
+    disabled={false}
+    key="filter"
+    resetField={[Function]}
+    setting={
+      Object {
+        "id": 47,
+        "name": "filter",
+        "settingsType": "string",
+        "value": "",
+      }
+    }
+  />
+  <SyncSettingField
+    disabled={false}
+    key="negate"
+    resetField={[Function]}
+    setting={
+      Object {
+        "id": 48,
+        "name": "negate",
+        "settingsType": "bool",
+        "value": false,
+      }
+    }
+  />
+  <SyncSettingField
+    disabled={false}
+    key="repo"
+    resetField={[Function]}
+    setting={
+      Object {
+        "id": 49,
+        "name": "repo",
+        "required": true,
+        "settingsType": "string",
+        "validate": Array [
+          [Function],
+        ],
+        "value": "https://github.com/theforeman/community-templates.git",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`SyncSettingFields should show import settings 1`] = `
+<Fragment>
+  <SyncSettingField
+    disabled={false}
+    key="associate"
+    resetField={[Function]}
+    setting={
+      Object {
+        "id": 45,
+        "name": "associate",
+        "selection": Array [
+          Object {
+            "label": "New",
+            "value": "new",
+          },
+          Object {
+            "label": "Never",
+            "value": "never",
+          },
+          Object {
+            "label": "Always",
+            "value": "always",
+          },
+        ],
+        "settingsType": "string",
+        "value": "new",
+      }
+    }
+  />
+  <SyncSettingField
+    disabled={false}
+    key="force"
+    resetField={[Function]}
+    setting={
+      Object {
+        "id": 46,
+        "name": "force",
+        "settingsType": "bool",
+        "value": false,
+      }
+    }
+  />
+</Fragment>
+`;

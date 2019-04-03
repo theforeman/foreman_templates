@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyncResultList should render 1`] = `
+<ListView
+  className=""
+>
+  <SyncedTemplate
+    key="null"
+    template={
+      Object {
+        "additionalErrors": "No \\"name\\" found in metadata",
+        "errors": null,
+        "name": null,
+        "templateFile": "random_template.erb",
+      }
+    }
+  />
+  <SyncedTemplate
+    editPath=""
+    key="EPEL"
+    template={
+      Object {
+        "additionalErrors": null,
+        "className": "ProvisioningTemplate",
+        "errors": Object {
+          "base": Array [
+            "This template is locked",
+          ],
+        },
+        "humanizedClassName": "Provisioning Template",
+        "kind": "Provision",
+        "locked": true,
+        "name": "EPEL",
+        "snippet": true,
+        "templateFile": "epel.erb",
+      }
+    }
+  />
+  <SyncedTemplate
+    editPath=""
+    key="CoreOS default"
+    template={
+      Object {
+        "additionalErrors": null,
+        "className": "Ptable",
+        "errors": Object {},
+        "humanizedClassName": "Ptable",
+        "locked": false,
+        "name": "CoreOS default",
+        "snippet": false,
+        "templateFile": "coreos_default.erb",
+      }
+    }
+  />
+  <SyncedTemplate
+    key="null"
+    template={
+      Object {
+        "additionalErrors": "No \\"model\\" found in metadata",
+        "errors": null,
+        "name": null,
+        "templateFile": "no_model.erb",
+      }
+    }
+  />
+  <SyncedTemplate
+    editPath=""
+    key="Kickstart fake"
+    template={
+      Object {
+        "additionalErrors": null,
+        "className": "ProvisioningTemplate",
+        "errors": Object {
+          "name": Array [
+            "has already been taken",
+          ],
+        },
+        "humanizedClassName": "Provisioning Template",
+        "locked": true,
+        "name": "Kickstart fake",
+        "snippet": true,
+        "templateFile": "kickstart_fake.erb",
+      }
+    }
+  />
+  <PaginationWrapper
+    dropdownButtonId="template-sync-result-dropdown"
+    itemCount={5}
+    onChange={[Function]}
+    pagination={
+      Object {
+        "page": 1,
+        "perPage": 20,
+      }
+    }
+    viewType="list"
+  />
+</ListView>
+`;

@@ -5,4 +5,4 @@ import templateSyncReducer from './reducer';
 
 componentRegistry.register({ name: 'ForemanTemplates', type: ForemanTemplates });
 
-injectReducer('foreman_templates', templateSyncReducer);
+injectReducer('foremanTemplates', templateSyncReducer);

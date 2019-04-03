@@ -6,7 +6,7 @@ import {
   SYNC_SETTINGS_FAILURE,
 } from '../../consts';
 
-const initialState = Immutable({
+export const initialState = Immutable({
   loadingSettings: false,
   importSettings: [],
   exportSettings: [],
@@ -25,7 +25,7 @@ const syncSettings = (state = initialState, action) => {
         'exportSettings': payload.results.export
       });
     case SYNC_SETTINGS_FAILURE:
-      return state.set({ error: payload.error}).set({ loadingSettings: false });
+      return state.merge({ error: payload.error, loadingSettings: false });
     default:
       return state;
   }

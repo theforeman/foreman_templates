@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTemplateSyncForm should render for export settings 1`] = `
+<Form
+  disabled={false}
+  onCancel={[Function]}
+>
+  <SyncTypeRadios
+    controlLabel="Action type"
+    name="syncType"
+    radios={
+      Array [
+        Object {
+          "checked": true,
+          "label": "Export",
+          "onChange": [Function],
+          "permission": "export",
+          "value": "export",
+        },
+      ]
+    }
+  />
+  <SyncSettingsFields
+    exportSettings={
+      Array [
+        Object {
+          "id": 47,
+          "name": "filter",
+          "settingsType": "string",
+          "value": "",
+        },
+        Object {
+          "id": 48,
+          "name": "negate",
+          "settingsType": "bool",
+          "value": false,
+        },
+        Object {
+          "id": 49,
+          "name": "repo",
+          "settingsType": "string",
+          "value": "https://github.com/theforeman/community-templates.git",
+        },
+      ]
+    }
+    importSettings={
+      Array [
+        Object {
+          "id": 45,
+          "name": "associate",
+          "selection": Array [
+            Object {
+              "label": "New",
+              "value": "new",
+            },
+            Object {
+              "label": "Never",
+              "value": "never",
+            },
+            Object {
+              "label": "Always",
+              "value": "always",
+            },
+          ],
+          "settingsType": "string",
+          "value": "new",
+        },
+        Object {
+          "id": 46,
+          "name": "force",
+          "settingsType": "bool",
+          "value": false,
+        },
+      ]
+    }
+    resetField={[Function]}
+    syncType="export"
+    validationData={Object {}}
+  />
+</Form>
+`;
+
+exports[`NewTemplateSyncForm should render when for import settings 1`] = `
+<Form
+  disabled={false}
+  onCancel={[Function]}
+>
+  <SyncTypeRadios
+    controlLabel="Action type"
+    name="syncType"
+    radios={
+      Array [
+        Object {
+          "checked": true,
+          "label": "Import",
+          "onChange": [Function],
+          "permission": "import",
+          "value": "import",
+        },
+        Object {
+          "checked": false,
+          "label": "Export",
+          "onChange": [Function],
+          "permission": "export",
+          "value": "export",
+        },
+      ]
+    }
+  />
+  <SyncSettingsFields
+    exportSettings={
+      Array [
+        Object {
+          "id": 47,
+          "name": "filter",
+          "settingsType": "string",
+          "value": "",
+        },
+        Object {
+          "id": 48,
+          "name": "negate",
+          "settingsType": "bool",
+          "value": false,
+        },
+        Object {
+          "id": 49,
+          "name": "repo",
+          "settingsType": "string",
+          "value": "https://github.com/theforeman/community-templates.git",
+        },
+      ]
+    }
+    importSettings={
+      Array [
+        Object {
+          "id": 45,
+          "name": "associate",
+          "selection": Array [
+            Object {
+              "label": "New",
+              "value": "new",
+            },
+            Object {
+              "label": "Never",
+              "value": "never",
+            },
+            Object {
+              "label": "Always",
+              "value": "always",
+            },
+          ],
+          "settingsType": "string",
+          "value": "new",
+        },
+        Object {
+          "id": 46,
+          "name": "force",
+          "settingsType": "bool",
+          "value": false,
+        },
+      ]
+    }
+    resetField={[Function]}
+    syncType="import"
+    validationData={Object {}}
+  />
+</Form>
+`;

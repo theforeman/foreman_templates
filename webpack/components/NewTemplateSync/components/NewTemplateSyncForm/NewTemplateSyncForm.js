@@ -2,11 +2,10 @@ import React from 'react';
 import { change } from 'redux-form';
 
 import Form from 'foremanReact/components/common/forms/Form';
-import RadioButtonGroup from 'foremanReact/components/common/forms/RadioButtonGroup';
 import TextField from 'foremanReact/components/common/forms/TextField';
 
 import SyncSettingsFields from '../SyncSettingFields';
-import SyncTypeRadios from './SyncTypeRadios';
+import SyncTypeRadios from '../SyncTypeRadios';
 
 import { formName } from './NewTemplateSyncFormConstants';
 

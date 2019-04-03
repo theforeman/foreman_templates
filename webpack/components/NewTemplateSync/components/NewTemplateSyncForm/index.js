@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { reduxForm, formValueSelector } from 'redux-form';
+import { reduxForm } from 'redux-form';
 
 import * as FormActions from 'foremanReact/redux/actions/common/forms';
 

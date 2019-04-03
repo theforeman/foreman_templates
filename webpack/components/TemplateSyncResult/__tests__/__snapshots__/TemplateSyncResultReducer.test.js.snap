@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TemplateSyncResultReducer should return initial state 1`] = `
+Object {
+  "pagination": Object {
+    "page": 1,
+    "perPage": 20,
+  },
+  "resultAction": "",
+  "templates": Array [],
+}
+`;
+
+exports[`TemplateSyncResultReducer should set new pagination 1`] = `
+Object {
+  "pagination": Object {
+    "page": 2,
+    "perPage": 5,
+  },
+  "resultAction": "",
+  "templates": Array [],
+}
+`;
+
+exports[`TemplateSyncResultReducer should update state when form submitted 1`] = `
+Object {
+  "branch": "master",
+  "pagination": Object {
+    "page": 1,
+    "perPage": 20,
+  },
+  "repo": "https://github.com/theforeman/community-templates.git",
+  "resultAction": "import",
+  "templates": Array [
+    Object {
+      "additionalErrors": "No \\"name\\" found in metadata",
+      "errors": null,
+      "name": null,
+      "templateFile": "random_template.erb",
+    },
+    Object {
+      "additionalErrors": null,
+      "className": "ProvisioningTemplate",
+      "errors": Object {
+        "base": Array [
+          "This template is locked",
+        ],
+      },
+      "humanizedClassName": "Provisioning Template",
+      "kind": "Provision",
+      "locked": true,
+      "name": "EPEL",
+      "snippet": true,
+      "templateFile": "epel.erb",
+    },
+    Object {
+      "additionalErrors": null,
+      "className": "Ptable",
+      "errors": Object {},
+      "humanizedClassName": "Ptable",
+      "locked": false,
+      "name": "CoreOS default",
+      "snippet": false,
+      "templateFile": "coreos_default.erb",
+    },
+    Object {
+      "additionalErrors": "No \\"model\\" found in metadata",
+      "errors": null,
+      "name": null,
+      "templateFile": "no_model.erb",
+    },
+    Object {
+      "additionalErrors": null,
+      "className": "ProvisioningTemplate",
+      "errors": Object {
+        "name": Array [
+          "has already been taken",
+        ],
+      },
+      "humanizedClassName": "Provisioning Template",
+      "locked": true,
+      "name": "Kickstart fake",
+      "snippet": true,
+      "templateFile": "kickstart_fake.erb",
+    },
+  ],
+}
+`;

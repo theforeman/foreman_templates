@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTemplateSyncFormSelectors should return initial form values 1`] = `
+Object {
+  "associate": "new",
+  "filter": "",
+  "force": false,
+  "negate": false,
+  "repo": "https://github.com/theforeman/community-templates.git",
+}
+`;
+
+exports[`NewTemplateSyncFormSelectors should return registered fields 1`] = `
+Object {
+  "associate": Object {
+    "id": 45,
+    "name": "associate",
+    "selection": Array [
+      Object {
+        "label": "New",
+        "value": "new",
+      },
+      Object {
+        "label": "Never",
+        "value": "never",
+      },
+      Object {
+        "label": "Always",
+        "value": "always",
+      },
+    ],
+    "settingsType": "string",
+    "value": "new",
+  },
+  "force": Object {
+    "id": 46,
+    "name": "force",
+    "settingsType": "bool",
+    "value": false,
+  },
+}
+`;
