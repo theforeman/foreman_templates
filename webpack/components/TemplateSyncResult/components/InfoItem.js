@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListView, OverlayTrigger, Tooltip } from 'patternfly-react';
+import PropTypes from 'prop-types';
 
 const InfoItem = ({ itemId, children, tooltipText }) => {
   const overlay = (
@@ -17,5 +18,11 @@ const InfoItem = ({ itemId, children, tooltipText }) => {
     </ListView.InfoItem>
   );
 }
+
+InfoItem.propTypes = {
+  itemId: PropTypes.string,
+  children: PropTypes.node,
+  tooltipText: PropTypes.string,
+};
 
 export default InfoItem;

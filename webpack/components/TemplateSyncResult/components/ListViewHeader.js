@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import InfoItem from './InfoItem';
 
-
 const ListViewHeader = props => {
   const additionalInfo = ['Locked', 'Snippet', 'Template Class', 'Kind', 'File Name'].map((title, idx) => {
     return (

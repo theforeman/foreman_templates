@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Radio } from 'patternfly-react';
+import PropTypes from 'prop-types';
+
 import CommonForm from 'foremanReact/components/common/forms/CommonForm';
 
 class SyncTypeRadios extends React.Component {
@@ -37,5 +39,14 @@ class SyncTypeRadios extends React.Component {
     )
   }
 }
+
+SyncTypeRadios.propTypes = {
+  controlLabel: PropTypes.string,
+  radios: PropTypes.array,
+  name: PropTypes.string,
+  className: PropTypes.string,
+  inputClassName: PropTypes.string,
+  disabled: PropTypes.bool,
+};
 
 export default SyncTypeRadios;

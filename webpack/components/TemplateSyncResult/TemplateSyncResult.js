@@ -1,5 +1,6 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
+import PropTypes from 'prop-types';
 
 import EmptySyncResult from './components/EmptySyncResult';
 import FinishedSyncResult from './components/FinishedSyncResult';
@@ -36,6 +37,22 @@ const TemplateSyncResult = props => {
                               pagination={pagination}
                               pageChange={syncedTemplatesPageChange}/>
   )
+}
+
+TemplateSyncResult.propTypes = {
+  syncResult: PropTypes.shape({
+    templates: PropTypes.array,
+    resultAction: PropTypes.string,
+    repo: PropTypes.string,
+    branch: PropTypes.string,
+    gitUser: PropTypes.string,
+    pagination: PropTypes.shape({
+      page: PropTypes.number,
+      perPage: PropTypes.number,
+    }),
+    syncedTemplatesPageChange: PropTypes.func,
+    editPaths: PropTypes.object,
+  })
 }
 
 export default TemplateSyncResult;

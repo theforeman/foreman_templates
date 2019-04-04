@@ -1,5 +1,7 @@
 import React from 'react';
 import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
+import PropTypes from 'prop-types';
+
 import InfoItem from './InfoItem';
 
 const StringInfoItem = ({
@@ -21,6 +23,15 @@ const StringInfoItem = ({
                       tooltipText={tooltipText}>
               { innerContent }
             </InfoItem>);
+};
+
+StringInfoItem.propTypes = {
+  template: PropTypes.object,
+  attr: PropTypes.string,
+  tooltipText: PropTypes.string,
+  translate: PropTypes.bool,
+  mapAttr: PropTypes.func,
+  elipsed : PropTypes.bool,
 };
 
 export const itemIteratorId = (template, attr) =>

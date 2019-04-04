@@ -1,5 +1,6 @@
 import React from 'react';
 import { FieldLevelHelp, OverlayTrigger, Tooltip, Icon } from 'patternfly-react';
+import PropTypes from 'prop-types';
 
 import TextField from 'foremanReact/components/common/forms/TextField';
 import TextButtonField from './TextButtonField';
@@ -53,6 +54,12 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
                        tooltipHelp={<FieldLevelHelp content={setting.description}/>}
                        >{setting.value}</TextButtonField>
   )
+};
+
+SyncSettingField.propTypes = {
+  setting: PropTypes.object.required,
+  resetField: PropTypes.func.required,
+  disabled: PropTypes.bool,
 };
 
 export default SyncSettingField;

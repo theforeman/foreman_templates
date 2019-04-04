@@ -3,6 +3,8 @@ import { ListView, Grid, Icon, OverlayTrigger, Tooltip } from 'patternfly-react'
 import classNames from 'classnames';
 import { pick, mergeWith, isEmpty } from 'lodash';
 import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
+import PropTypes from 'prop-types';
+
 import InfoItem from './InfoItem';
 import StringInfoItem, { itemIteratorId } from './StringInfoItem';
 
@@ -13,13 +15,11 @@ const IconInfoItem = ({ template, attr, cssClassNames, tooltipText }) => {
           </InfoItem>);
 };
 
-const EmptyInfoItem = (template, attr) => (
+const EmptyInfoItem = ({ template, attr }) => (
   <InfoItem itemId={itemIteratorId(template, attr)} />
 );
 
-const SyncedTemplate = props => {
-  const { template, editPath } = props;
-
+const SyncedTemplate = ({ template, editPath }) => {
   const additionalInfo = (template) => {
     const infoAttrs = ['locked', 'snippet', 'humanizedClassName', 'kind', 'templateFile'];
 
@@ -120,6 +120,11 @@ const SyncedTemplate = props => {
         { templateErrors(template) }
     </ListView.Item>
   );
+}
+
+SyncedTemplate.propTypes = {
+  template: PropTypes.object,
+  editPath: PropTypes.string,
 }
 
 export default SyncedTemplate;

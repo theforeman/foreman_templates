@@ -22,7 +22,7 @@
   "homepage": "https://github.com/theforeman/foreman_templates",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "class-names": "^1.0.0",
+    "classnames": "^2.2.6",
     "patternfly": "^3.58.0",
     "patternfly-react": "^2.25.4",
     "prop-types": "^15.7.2",

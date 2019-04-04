@@ -66,6 +66,27 @@ const TextButtonField = ({
   </Field>
 );
 
+TextButtonField.propTypes = {
+  item: PropTypes.object,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  className: PropTypes.string,
+  inputClassName: PropTypes.string,
+  blank: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+  }),
+  buttonAttrs: PropTypes.shape({
+    buttonText: PropTypes.node,
+    buttonAction: PropTypes.func,
+  }),
+  fieldSelector: PropTypes.func,
+  validate: PropTypes.func,
+  disabled: PropTypes.bool,
+  fieldRequired: PropTypes.bool,
+  tooltipHelp: PropTypes.node,
+}
+
 const FieldType = ({ item, fieldSelector, input, disabled, blank }) => {
   if (!fieldSelector) {
     return (<InputField input={input} disabled={disabled} />);

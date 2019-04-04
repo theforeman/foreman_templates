@@ -1,12 +1,12 @@
 import React from 'react';
 import { change } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import Form from 'foremanReact/components/common/forms/Form';
 import TextField from 'foremanReact/components/common/forms/TextField';
 
 import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
-
 import { formName } from './NewTemplateSyncFormConstants';
 
 const submit = (syncType) => (formValues, dispatch, props) => {
@@ -95,6 +95,14 @@ class TemplateSyncForm extends React.Component {
       </Form>
     );
   }
+}
+
+TemplateSyncForm.propTypes = {
+  importSettings: PropTypes.array,
+  exportSettings: PropTypes.array,
+  currentFields: PropTypes.object,
+  importUrl: PropTypes.string,
+  exportUrl: PropTypes.string,
 }
 
 export default TemplateSyncForm;

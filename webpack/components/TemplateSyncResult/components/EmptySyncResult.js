@@ -1,5 +1,6 @@
 import React from 'react';
 import { EmptyState, Button } from 'patternfly-react';
+import PropTypes from 'prop-types';
 
 const EmptySyncResult = ({ primaryAction }) => {
   return (
@@ -16,6 +17,10 @@ const EmptySyncResult = ({ primaryAction }) => {
       </EmptyState.Action>
     </EmptyState>
   )
-}
+};
+
+EmptySyncResult.propTypes = {
+  primaryAction: PropTypes.func,
+};
 
 export default EmptySyncResult;

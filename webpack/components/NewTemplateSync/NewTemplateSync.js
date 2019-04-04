@@ -1,6 +1,7 @@
 import React from 'react';
 import { LoadingState } from 'patternfly-react';
 import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout'
+import PropTypes from 'prop-types';
 
 import NewTemplateSyncForm from './components/NewTemplateSyncForm';
 import './NewTemplateSync.scss';
@@ -39,5 +40,13 @@ class NewTemplateSync extends React.Component {
     );
   }
 }
+
+NewTemplateSync.propTypes = {
+  getSyncSettings: PropTypes.func.isRequired,
+  apiUrls: PropTypes.object.isRequired,
+  userPermissions: PropTypes.object.isRequired,
+  validationData: PropTypes.object,
+  loadingSettings: PropTypes.bool,
+};
 
 export default NewTemplateSync;

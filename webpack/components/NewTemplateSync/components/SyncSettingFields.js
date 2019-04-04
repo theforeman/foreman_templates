@@ -1,6 +1,8 @@
 import React from 'react';
 import { required } from 'redux-form-validators';
 import { memoize } from 'lodash';
+import PropTypes from 'prop-types';
+
 import SyncSettingField from './SyncSettingField';
 
 const repoFormat = memoize(formatAry => value => {
@@ -48,5 +50,14 @@ const SyncSettingsFields = ({
 
   return (syncType === "import" ? mapSettings(importSettings) : mapSettings(exportSettings));
 }
+
+SyncSettingsFields.propTypes = {
+  importSettings: PropTypes.array.required,
+  exportSettings: PropTypes.array.required,
+  syncType: PropTypes.string.required,
+  resetField: PropTypes.func.required,
+  disabled: PropTypes.bool.required,
+  validationData: PropTypes.object,
+};
 
 export default SyncSettingsFields;

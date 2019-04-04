@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Button, Breadcrumb } from 'patternfly-react';
 import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout';
@@ -51,6 +52,14 @@ const FinishedSyncResult = (props) => {
                         pageChange={pageChange}/>
       </PageLayout>
   )
+}
+
+FinishedSyncResult.propTypes = {
+  templates: PropTypes.array,
+  type: PropTypes.string,
+  repo: PropTypes.string,
+  branch: PropTypes.string,
+  gitUser: PropTypes.string,
 }
 
 export default FinishedSyncResult;
