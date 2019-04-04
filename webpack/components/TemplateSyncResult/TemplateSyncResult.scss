@@ -1,10 +1,38 @@
-.list-view-pf-body {
- .list-view-pf-description {
-   width: 20%;
- }
-}
+#foreman-templates {
+  .list-view-pf-body {
+    .list-view-pf-description {
+      width: 20%;
+    }
+  }
 
-.list-view-pf-additional-info-item.additional-info-wide {
- width: 15%;
-}
+  .list-view-pf-additional-info-item.additional-info-wide {
+    width: 15%;
+  }
 
+  .list-group-item-heading {
+    font-weight: normal;
+  }
+
+  .list-view-header {
+    border-top: 0px;
+    background-color: #fff;
+    border-left-color: #fff;
+    border-right-color: #fff;
+
+    .list-view-pf-main-info {
+      padding-bottom: 0px;
+    }
+
+    .list-group-item-heading {
+      font-weight: 600;
+    }
+
+    .list-view-pf-left {
+      visibility: hidden;
+    }
+    .list-view-pf-expand {
+      visibility: hidden;
+      margin-bottom: 0px;
+    }
+  }
+}

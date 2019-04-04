@@ -4,9 +4,11 @@ import Pagination from 'foremanReact/components/Pagination/PaginationWrapper';
 
 import SyncedTemplate from './SyncedTemplate';
 import { templatesPage } from '../TemplateSyncResultSelectors';
+import ListViewHeader from './ListViewHeader';
 
 const SyncResultList = ({ pagination, pageChange, templates, editPaths }) => (
   <ListView>
+    <ListViewHeader />
     {
       templatesPage(templates, pagination).map((template) => (
         <SyncedTemplate

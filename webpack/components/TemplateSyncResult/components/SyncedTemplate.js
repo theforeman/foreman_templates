@@ -3,27 +3,8 @@ import { ListView, Grid, Icon, OverlayTrigger, Tooltip } from 'patternfly-react'
 import classNames from 'classnames';
 import { pick, mergeWith, isEmpty } from 'lodash';
 import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
-
-const StringInfoItem = ({
-  template,
-  attr,
-  tooltipText,
-  translate = false,
-  mapAttr = (template, attr) => template[attr],
-  elipsed = false
-}) => {
-    const inner = <strong>{ translate ? __(mapAttr(template, attr)) : mapAttr(template, attr) }</strong>
-    const innerContent = elipsed ? (
-            <EllipsisWithTooltip placement="top">
-              { inner }
-            </EllipsisWithTooltip>) :
-            inner
-
-    return (<InfoItem itemId={itemIteratorId(template, attr)}
-                      tooltipText={tooltipText}>
-              { innerContent }
-            </InfoItem>);
-};
+import InfoItem from './InfoItem';
+import StringInfoItem, { itemIteratorId } from './StringInfoItem';
 
 const IconInfoItem = ({ template, attr, cssClassNames, tooltipText }) => {
   return (<InfoItem itemId={itemIteratorId(template, attr)}
@@ -35,26 +16,6 @@ const IconInfoItem = ({ template, attr, cssClassNames, tooltipText }) => {
 const EmptyInfoItem = (template, attr) => (
   <InfoItem itemId={itemIteratorId(template, attr)} />
 );
-
-const InfoItem = ({ itemId, children, tooltipText }) => {
-  const overlay = (
-    <OverlayTrigger overlay={tooltipText ? (<Tooltip id={itemId}>{ tooltipText }</Tooltip>) : ''}
-                    placement="top"
-                    trigger={['hover', 'focus']}
-                    rootClose={false}
-                    >
-        { children }
-      </OverlayTrigger>
-    )
-  return (
-    <ListView.InfoItem key={itemId} className='additional-info-wide'>
-      { tooltipText ? overlay : children }
-    </ListView.InfoItem>
-  );
-}
-
-const itemIteratorId = (template, attr) =>
-  `${template.name}-${attr}`;
 
 const SyncedTemplate = props => {
   const { template, editPath } = props;
