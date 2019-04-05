@@ -2,7 +2,11 @@ import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
 import SyncSettingField from '../SyncSettingField';
 
-import { associateSetting, forceSetting, filterSetting } from '../../__fixtures__/templateSyncSettings.fixtures'
+import {
+  associateSetting,
+  forceSetting,
+  filterSetting,
+} from '../../__fixtures__/templateSyncSettings.fixtures';
 
 const noop = () => {};
 
@@ -14,15 +18,15 @@ const commonFixtures = {
 const fixtures = {
   'should render setting with select choices': {
     setting: associateSetting,
-    ...commonFixtures
+    ...commonFixtures,
   },
   'should render setting with input field': {
     setting: filterSetting,
-    ...commonFixtures
+    ...commonFixtures,
   },
   'should render boolean setting as checkbox': {
     setting: forceSetting,
-    ...commonFixtures
+    ...commonFixtures,
   },
 };
 

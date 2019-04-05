@@ -3,6 +3,9 @@ import injectReducer from 'foremanReact/redux/reducers/registerReducer';
 import ForemanTemplates from './ForemanTemplates';
 import templateSyncReducer from './reducer';
 
-componentRegistry.register({ name: 'ForemanTemplates', type: ForemanTemplates });
+componentRegistry.register({
+  name: 'ForemanTemplates',
+  type: ForemanTemplates,
+});
 
 injectReducer('foremanTemplates', templateSyncReducer);

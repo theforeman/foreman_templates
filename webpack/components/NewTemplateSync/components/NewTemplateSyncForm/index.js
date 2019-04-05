@@ -6,8 +6,14 @@ import * as FormActions from 'foremanReact/redux/actions/common/forms';
 import { formName } from './NewTemplateSyncFormConstants';
 import NewTemplateSyncForm from './NewTemplateSyncForm';
 
-import { selectImportSettings, selectExportSettings } from '../../NewTemplateSyncSelectors';
-import { selectInitialFormValues, selectRegisteredFields } from './NewTemplateSyncFormSelectors';
+import {
+  selectImportSettings,
+  selectExportSettings,
+} from '../../NewTemplateSyncSelectors';
+import {
+  selectInitialFormValues,
+  selectRegisteredFields,
+} from './NewTemplateSyncFormSelectors';
 
 const mapStateToProps = (state, ownProps) => {
   const importSettings = selectImportSettings(state);
@@ -18,8 +24,16 @@ const mapStateToProps = (state, ownProps) => {
 
   const currentFields = selectRegisteredFields(formName, state);
 
-  return ({ initialValues: { ...initialFormValues }, importSettings, exportSettings, currentFields });
-}
+  return {
+    initialValues: { ...initialFormValues },
+    importSettings,
+    exportSettings,
+    currentFields,
+  };
+};
 
 const form = reduxForm({ form: formName })(NewTemplateSyncForm);
-export default connect(mapStateToProps, FormActions)(form);
+export default connect(
+  mapStateToProps,
+  FormActions
+)(form);

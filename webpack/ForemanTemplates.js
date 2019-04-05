@@ -1,16 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import Routes from './Routes';
 
-export default (props) => {
-  return (
-    <Router>
-      <Routes
-        apiUrls={props.data.apiUrls}
-        validationData={props.data.validationData}
-        editPaths={props.data.editPaths}
-        userPermissions={props.data.userPermissions} />
-    </Router>
-  );
-}
+const ForemanTemplates = ({ data }) => (
+  <Router>
+    <Routes
+      apiUrls={data.apiUrls}
+      validationData={data.validationData}
+      editPaths={data.editPaths}
+      userPermissions={data.userPermissions}
+    />
+  </Router>
+);
 
+ForemanTemplates.propTypes = {
+  data: PropTypes.shape({
+    apiUrls: PropTypes.object,
+    validationData: PropTypes.object,
+    editPaths: PropTypes.object,
+    userPermissions: PropTypes.object,
+  }).isRequired,
+};
+
+export default ForemanTemplates;

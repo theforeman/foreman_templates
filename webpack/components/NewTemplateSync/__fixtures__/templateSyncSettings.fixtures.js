@@ -2,30 +2,30 @@ import Immutable from 'seamless-immutable';
 
 export const associateSetting = Immutable({
   id: 45,
-  value: "new",
+  value: 'new',
   settingsType: 'string',
   name: 'associate',
   selection: [
     { value: 'new', label: 'New' },
     { value: 'never', label: 'Never' },
     { value: 'always', label: 'Always' },
-  ]
+  ],
 });
 
 export const forceSetting = Immutable({
   id: 46,
   value: false,
   settingsType: 'bool',
-  name: 'force'
+  name: 'force',
 });
 
-export const importSettings = [associateSetting, forceSetting]
+export const importSettings = [associateSetting, forceSetting];
 
 export const filterSetting = Immutable({
   id: 47,
-  value: "",
+  value: '',
   settingsType: 'string',
-  name: 'filter'
+  name: 'filter',
 });
 
 export const negateSetting = Immutable({
@@ -44,28 +44,28 @@ export const repoSetting = Immutable({
 
 export const exportSettings = [filterSetting, negateSetting, repoSetting];
 
-const registeredSettings = settings => settings.reduce(
-  (memo, item) => {
+const registeredSettings = settings =>
+  settings.reduce((memo, item) => {
     memo[item.name] = item;
     return memo;
-  },
-  {});
+  }, {});
 
-export const registeredImportSettings = { registeredFields: registeredSettings(importSettings) };
-export const registeredExportSettings = { registeredFields: registeredSettings(exportSettings) };
+export const registeredImportSettings = {
+  registeredFields: registeredSettings(importSettings),
+};
+export const registeredExportSettings = {
+  registeredFields: registeredSettings(exportSettings),
+};
 
 export const initialValues = {
-  initial: importSettings.concat(exportSettings).reduce(
-    (memo, item) => {
-      memo[item.name] = item.value;
-      return memo;
-    },
-    {})
-}
+  initial: importSettings.concat(exportSettings).reduce((memo, item) => {
+    memo[item.name] = item.value;
+    return memo;
+  }, {}),
+};
 
 export const stateFactory = obj => ({
   foremanTemplates: {
-    syncSettings: obj
-  }
+    syncSettings: obj,
+  },
 });
-

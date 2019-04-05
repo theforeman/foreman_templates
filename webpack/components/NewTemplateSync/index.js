@@ -9,19 +9,24 @@ import PermissionDenied from '../PermissionDenied';
 
 const mapStateToProps = state => ({
   loadingSettings: selectLoadingSettings(state),
-  error: selectError(state)
+  error: selectError(state),
 });
 
 const permissionList = (
-    <ul className="list-unstyled">
-      <li>import_templates</li>
-      <li>export_templates</li>
-    </ul>
-  );
+  <ul className="list-unstyled">
+    <li>import_templates</li>
+    <li>export_templates</li>
+  </ul>
+);
 
 export default withProtectedView(
-  connect(mapStateToProps, TemplateSyncActions)(NewTemplateSync),
+  connect(
+    mapStateToProps,
+    TemplateSyncActions
+  )(NewTemplateSync),
   PermissionDenied,
-  (props) => props.userPermissions && (props.userPermissions.import || props.userPermissions.export),
+  props =>
+    props.userPermissions &&
+    (props.userPermissions.import || props.userPermissions.export),
   { doc: permissionList }
-)
+);

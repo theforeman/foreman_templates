@@ -1,6 +1,9 @@
 import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
-import { importTemplates, exportTemplates } from '../__fixtures__/templateSyncResult.fixtures';
+import {
+  importTemplates,
+  exportTemplates,
+} from '../__fixtures__/templateSyncResult.fixtures';
 import TemplateSyncResult from '../TemplateSyncResult';
 
 const fixtures = {
@@ -15,7 +18,7 @@ const fixtures = {
   },
   'should render empty state when no templates synced': {
     syncResult: {
-      templates: []
+      templates: [],
     },
   },
   'should render import result': {

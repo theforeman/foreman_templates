@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {
-  propsToCamelCase,
-} from 'foremanReact/common/helpers';
+import { propsToCamelCase } from 'foremanReact/common/helpers';
 
 export const deepPropsToCamelCase = obj => {
   if (typeof obj !== 'object' || obj === null) {
@@ -15,7 +13,7 @@ export const deepPropsToCamelCase = obj => {
   return Object.keys(transformed).reduce((memo, key) => {
     memo[key] = deepPropsToCamelCase(transformed[key]);
     return memo;
-  }, {})
+  }, {});
 };
 
 // TODO: extract to core
@@ -28,7 +26,7 @@ export const withProtectedView = (
   protectionFn(props) ? (
     <ProtectedComponent {...props} />
   ) : (
-    <ProtectionComponent {...props} {...extraProtectionProps}/>
+    <ProtectionComponent {...props} {...extraProtectionProps} />
   );
 
 export default withProtectedView;

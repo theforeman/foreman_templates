@@ -11,21 +11,27 @@ import {
 
 import {
   selectInitialFormValues,
-  selectRegisteredFields
+  selectRegisteredFields,
 } from '../NewTemplateSyncFormSelectors';
 
 const formStateFactory = obj => ({
   form: {
-    [formName]: obj
-  }
+    [formName]: obj,
+  },
 });
 
 const fixtures = {
   'should return registered fields': () =>
-    selectRegisteredFields(formName, formStateFactory(registeredImportSettings)),
+    selectRegisteredFields(
+      formName,
+      formStateFactory(registeredImportSettings)
+    ),
   'should return initial form values': () =>
-    selectInitialFormValues({ ...stateFactory({ importSettings, exportSettings }), ...formStateFactory(initialValues) }),
-}
+    selectInitialFormValues({
+      ...stateFactory({ importSettings, exportSettings }),
+      ...formStateFactory(initialValues),
+    }),
+};
 
 describe('NewTemplateSyncFormSelectors', () =>
   testSelectorsSnapshotWithFixtures(fixtures));

@@ -8,36 +8,30 @@ import FinishedSyncResult from './components/FinishedSyncResult';
 import './TemplateSyncResult.scss';
 
 const TemplateSyncResult = props => {
-
   const {
-    syncResult: {
-      templates,
-      resultAction,
-      repo,
-      branch,
-      gitUser,
-      pagination
-    },
+    syncResult: { templates, resultAction, repo, branch, gitUser, pagination },
     history,
     syncedTemplatesPageChange,
-    editPaths
+    editPaths,
   } = props;
 
-  const redirectBack = () => history.push({ pathname: '/template_syncs'});
+  const redirectBack = () => history.push({ pathname: '/template_syncs' });
 
-  return (
-      isEmpty(templates) ?
-          <EmptySyncResult primaryAction={redirectBack}/> :
-          <FinishedSyncResult templates={templates}
-                              type={resultAction}
-                              repo={repo}
-                              branch={branch}
-                              gitUser={gitUser}
-                              editPaths={editPaths}
-                              pagination={pagination}
-                              pageChange={syncedTemplatesPageChange}/>
-  )
-}
+  return isEmpty(templates) ? (
+    <EmptySyncResult primaryAction={redirectBack} />
+  ) : (
+    <FinishedSyncResult
+      templates={templates}
+      type={resultAction}
+      repo={repo}
+      branch={branch}
+      gitUser={gitUser}
+      editPaths={editPaths}
+      pagination={pagination}
+      pageChange={syncedTemplatesPageChange}
+    />
+  );
+};
 
 TemplateSyncResult.propTypes = {
   syncResult: PropTypes.shape({
@@ -51,8 +45,10 @@ TemplateSyncResult.propTypes = {
       perPage: PropTypes.number,
     }),
     syncedTemplatesPageChange: PropTypes.func,
-    editPaths: PropTypes.object,
-  })
-}
+  }).isRequired,
+  history: PropTypes.object.isRequired,
+  editPaths: PropTypes.object.isRequired,
+  syncedTemplatesPageChange: PropTypes.func.isRequired,
+};
 
 export default TemplateSyncResult;

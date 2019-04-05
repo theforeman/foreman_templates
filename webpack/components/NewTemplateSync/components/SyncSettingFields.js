@@ -1,19 +1,18 @@
 import React from 'react';
-import { required } from 'redux-form-validators';
 import { memoize } from 'lodash';
 import PropTypes from 'prop-types';
 
 import SyncSettingField from './SyncSettingField';
 
 const repoFormat = memoize(formatAry => value => {
-  const valid = formatAry.map((item) => value.startsWith(item))
-                         .reduce((memo, item) => (item || memo), false)
+  const valid = formatAry
+    .map(item => value.startsWith(item))
+    .reduce((memo, item) => item || memo, false);
 
   if (value && valid) {
     return undefined;
-  } else {
-    return `Invalid repo format, must start with one of: ${formatAry.join(', ')}`;
   }
+  return `Invalid repo format, must start with one of: ${formatAry.join(', ')}`;
 });
 
 const SyncSettingsFields = ({
@@ -22,34 +21,38 @@ const SyncSettingsFields = ({
   syncType,
   resetField,
   disabled,
-  validationData
+  validationData,
 }) => {
-  const mapSettings = (settingsAry) =>
-    (
-      <React.Fragment>
-        { addValidations(settingsAry).map((setting, index) =>
-          (<SyncSettingField setting={setting}
-                             key={setting.name}
-                             disabled={disabled}
-                             resetField={resetField}>
-          </SyncSettingField>))
-        }
-      </React.Fragment>
-    )
+  const mapSettings = settingsAry => (
+    <React.Fragment>
+      {addValidations(settingsAry).map((setting, index) => (
+        <SyncSettingField
+          setting={setting}
+          key={setting.name}
+          disabled={disabled}
+          resetField={resetField}
+        />
+      ))}
+    </React.Fragment>
+  );
 
-  const addValidations = (validationData => settingsAry => {
-    return settingsAry.map((setting) => {
-      switch(setting.name) {
+  const addValidations = (validationDataObj => settingsAry =>
+    settingsAry.map(setting => {
+      switch (setting.name) {
         case 'repo':
-          return setting.merge({ 'required': true, 'validate': [repoFormat(validationData['repo'])] })
+          return setting.merge({
+            required: true,
+            validate: [repoFormat(validationDataObj.repo)],
+          });
         default:
           return setting;
       }
-    })
-  })(validationData);
+    }))(validationData);
 
-  return (syncType === "import" ? mapSettings(importSettings) : mapSettings(exportSettings));
-}
+  return syncType === 'import'
+    ? mapSettings(importSettings)
+    : mapSettings(exportSettings);
+};
 
 SyncSettingsFields.propTypes = {
   importSettings: PropTypes.array.isRequired,

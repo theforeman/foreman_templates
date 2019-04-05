@@ -1,17 +1,17 @@
-import { ajaxRequestAction } from 'foremanReact/redux/actions/common';
 import api from 'foremanReact/API';
 
 import {
   SYNC_SETTINGS_REQUEST,
   SYNC_SETTINGS_SUCCESS,
-  SYNC_SETTINGS_FAILURE
+  SYNC_SETTINGS_FAILURE,
 } from '../../consts';
 
 import { deepPropsToCamelCase } from '../../helpers';
 
 export const getSyncSettings = url => dispatch => {
   dispatch({ type: SYNC_SETTINGS_REQUEST });
-  return api.get(url)
+  return api
+    .get(url)
     .then(({ data }) =>
       dispatch({
         type: SYNC_SETTINGS_SUCCESS,
@@ -21,4 +21,12 @@ export const getSyncSettings = url => dispatch => {
       })
     )
     .catch(error => dispatch(errorHandler(SYNC_SETTINGS_FAILURE, error)));
-}
+};
+
+const errorHandler = (msg, err) => {
+  const error = {
+    errorMsg: 'Failed to fetch Settings for template sync from server.',
+    statusText: err.response.statusText,
+  };
+  return { type: msg, payload: { error } };
+};

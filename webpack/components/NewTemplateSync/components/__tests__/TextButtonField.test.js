@@ -3,10 +3,8 @@ import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 import TextButtonField from '../TextButtonField';
 
 const textItem = {
-  type: 'text'
+  type: 'text',
 };
-
-const unspecifiedItem = {};
 
 const selectItem = {
   type: 'select',
@@ -14,11 +12,11 @@ const selectItem = {
     { label: 'A', value: 'a' },
     { label: 'B', value: 'b' },
     { label: 'C', value: 'c' },
-  ]
+  ],
 };
 
 const checkboxItem = {
-  type: 'checkbox'
+  type: 'checkbox',
 };
 
 const blank = { label: 'Bare Metal', value: 'bareMetal' };
@@ -31,14 +29,14 @@ const fixtures = {
     fieldSelector,
     disabled: false,
     label: 'Text',
-    blank: {}
+    blank: {},
   },
   'should render checkbox item': {
     item: checkboxItem,
     fieldSelector,
     disabled: false,
     label: 'Checkbox',
-    blank: {}
+    blank: {},
   },
   'should render select item with custom blank opt': {
     item: selectItem,
@@ -51,8 +49,8 @@ const fixtures = {
     label: 'Text field',
     disabled: false,
     blank: {},
-  }
-}
+  },
+};
 
 describe('TextButtonField', () =>
   testComponentSnapshotsWithFixtures(TextButtonField, fixtures));

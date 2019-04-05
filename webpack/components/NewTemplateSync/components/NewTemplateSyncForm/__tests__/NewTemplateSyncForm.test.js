@@ -2,7 +2,10 @@ import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
 import NewTemplateSyncForm from '../NewTemplateSyncForm';
 
-import { importSettings, exportSettings } from '../../../__fixtures__/templateSyncSettings.fixtures';
+import {
+  importSettings,
+  exportSettings,
+} from '../../../__fixtures__/templateSyncSettings.fixtures';
 
 const noop = () => {};
 
@@ -23,7 +26,7 @@ const commonFixture = {
 const fixtures = {
   'should render when for import settings': {
     loadingSettings: false,
-    ...commonFixture
+    ...commonFixture,
   },
   'should render for export settings': {
     loadingSettings: true,
@@ -31,7 +34,7 @@ const fixtures = {
     userPermissions: {
       import: false,
       export: true,
-    }
+    },
   },
 };
 

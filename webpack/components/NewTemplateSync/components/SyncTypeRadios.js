@@ -5,48 +5,47 @@ import PropTypes from 'prop-types';
 
 import CommonForm from 'foremanReact/components/common/forms/CommonForm';
 
-class SyncTypeRadios extends React.Component {
-  render() {
-    const {
-      controlLabel,
-      radios,
-      name,
-      className = '',
-      inputClassName = 'col-md-6',
-      disabled = false
-    } = this.props;
-
-    return (
-      <CommonForm
-        label={controlLabel}
-        className={className}
-        inputClassName={inputClassName}
+const SyncTypeRadios = ({
+  controlLabel,
+  radios,
+  name,
+  className = '',
+  inputClassName = 'col-md-6',
+  disabled = false,
+}) => (
+  <CommonForm
+    label={controlLabel}
+    className={className}
+    inputClassName={inputClassName}
+  >
+    {radios.map((item, index) => (
+      <Radio
+        key={index}
+        inline
+        title={item.label}
+        checked={item.checked}
+        disabled={disabled}
+        value={item.value}
+        onChange={item.onChange}
       >
-        {radios.map((item, index) => (
-          <Radio
-            key={index}
-            inline={true}
-            title={item.label}
-            checked={item.checked}
-            disabled={disabled}
-            value={item.value}
-            onChange={item.onChange}
-          >
-            {item.label}
-          </Radio>
-        ))}
-      </CommonForm>
-    )
-  }
-}
+        {item.label}
+      </Radio>
+    ))}
+  </CommonForm>
+);
 
 SyncTypeRadios.propTypes = {
-  controlLabel: PropTypes.string,
-  radios: PropTypes.array,
-  name: PropTypes.string,
+  controlLabel: PropTypes.string.isRequired,
+  radios: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
   className: PropTypes.string,
   inputClassName: PropTypes.string,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool.isRequired,
+};
+
+SyncTypeRadios.defaultProps = {
+  className: undefined,
+  inputClassName: undefined,
 };
 
 export default SyncTypeRadios;

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { EmptyStatePattern as EmptyState } from 'foremanReact/components/common/EmptyState';
 
 const PermissionDenied = props => {
@@ -22,6 +24,10 @@ const PermissionDenied = props => {
       documentation={props.doc}
     />
   );
+};
+
+PermissionDenied.propTypes = {
+  doc: PropTypes.node.isRequired,
 };
 
 export default PermissionDenied;

@@ -8,33 +8,47 @@ const StringInfoItem = ({
   template,
   attr,
   tooltipText,
-  translate = false,
-  mapAttr = (template, attr) => template[attr],
-  elipsed = false
+  translate,
+  mapAttr,
+  elipsed,
 }) => {
-    const inner = <span>{ translate ? __(mapAttr(template, attr)) : mapAttr(template, attr) }</span>
-    const innerContent = elipsed ? (
-            <EllipsisWithTooltip placement="top">
-              { inner }
-            </EllipsisWithTooltip>) :
-            inner
+  const inner = (
+    <span>
+      {translate ? __(mapAttr(template, attr)) : mapAttr(template, attr)}
+    </span>
+  );
+  const innerContent = elipsed ? (
+    <EllipsisWithTooltip placement="top">{inner}</EllipsisWithTooltip>
+  ) : (
+    inner
+  );
 
-    return (<InfoItem itemId={itemIteratorId(template, attr)}
-                      tooltipText={tooltipText}>
-              { innerContent }
-            </InfoItem>);
+  return (
+    <InfoItem itemId={itemIteratorId(template, attr)} tooltipText={tooltipText}>
+      {innerContent}
+    </InfoItem>
+  );
 };
 
 StringInfoItem.propTypes = {
-  template: PropTypes.object,
-  attr: PropTypes.string,
+  template: PropTypes.object.isRequired,
+  attr: PropTypes.string.isRequired,
   tooltipText: PropTypes.string,
   translate: PropTypes.bool,
   mapAttr: PropTypes.func,
-  elipsed : PropTypes.bool,
+  elipsed: PropTypes.bool,
 };
 
-export const itemIteratorId = (template, attr) =>
-  `${template.name}-${attr}`;
+StringInfoItem.defaultProps = {
+  tooltipText: undefined,
+};
+
+StringInfoItem.defaultProps = {
+  translate: false,
+  mapAttr: (template, attr) => template[attr],
+  elipsed: false,
+};
+
+export const itemIteratorId = (template, attr) => `${template.name}-${attr}`;
 
 export default StringInfoItem;

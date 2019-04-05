@@ -2,7 +2,10 @@ import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
 
 import reducer, { initialState } from '../NewTemplateSyncReducer';
 
-import { importSettings, exportSettings } from '../__fixtures__/templateSyncSettings.fixtures'
+import {
+  importSettings,
+  exportSettings,
+} from '../__fixtures__/templateSyncSettings.fixtures';
 import {
   SYNC_SETTINGS_REQUEST,
   SYNC_SETTINGS_SUCCESS,
@@ -27,7 +30,7 @@ const fixtures = {
   'should start loading on setting values request': {
     state: initialState,
     action: {
-      type: SYNC_SETTINGS_REQUEST
+      type: SYNC_SETTINGS_REQUEST,
     },
   },
   'should stop loading on setting values success': {
@@ -41,7 +44,7 @@ const fixtures = {
       action: {
         type: SYNC_SETTINGS_FAILURE,
         payload: {
-          error: 'Failed to fetch setting values'
+          error: 'Failed to fetch setting values',
         },
       },
     },

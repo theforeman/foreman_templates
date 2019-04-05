@@ -19,11 +19,11 @@ const commonFixture = {
 const fixtures = {
   'should render when loaded': {
     loadingSettings: false,
-    ...commonFixture
+    ...commonFixture,
   },
   'should render when loading': {
     loadingSettings: true,
-    ...commonFixture
+    ...commonFixture,
   },
 };
 

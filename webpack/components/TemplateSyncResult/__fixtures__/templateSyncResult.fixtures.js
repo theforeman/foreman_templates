@@ -7,7 +7,7 @@ export const exportTemplates = [
     snippet: true,
     locked: true,
     className: 'JobTemplate',
-    humanizedClassName: 'Job Template'
+    humanizedClassName: 'Job Template',
   },
   {
     name: 'CoreOS default',
@@ -26,30 +26,30 @@ export const noName = {
   templateFile: 'random_template.erb',
   additionalErrors: 'No "name" found in metadata',
   errors: null,
-}
+};
 
 export const epel = {
   name: 'EPEL',
   templateFile: 'epel.erb',
   additionalErrors: null,
-  errors: { base: ['This template is locked']},
+  errors: { base: ['This template is locked'] },
   snippet: true,
   locked: true,
   className: 'ProvisioningTemplate',
   kind: 'Provision',
   humanizedClassName: 'Provisioning Template',
-}
+};
 
 export const coreos = {
-    name: 'CoreOS default',
-    templateFile: 'coreos_default.erb',
-    additionalErrors: null,
-    errors: {},
-    snippet: false,
-    locked: false,
-    className: 'Ptable',
-    humanizedClassName: 'Ptable',
-  }
+  name: 'CoreOS default',
+  templateFile: 'coreos_default.erb',
+  additionalErrors: null,
+  errors: {},
+  snippet: false,
+  locked: false,
+  className: 'Ptable',
+  humanizedClassName: 'Ptable',
+};
 
 export const importTemplates = [
   noName,
@@ -65,7 +65,7 @@ export const importTemplates = [
     name: 'Kickstart fake',
     templateFile: 'kickstart_fake.erb',
     additionalErrors: null,
-    errors: { name: ['has already been taken']},
+    errors: { name: ['has already been taken'] },
     snippet: true,
     locked: true,
     className: 'ProvisioningTemplate',

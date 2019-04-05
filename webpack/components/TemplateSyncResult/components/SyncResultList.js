@@ -11,21 +11,19 @@ import ListViewHeader from './ListViewHeader';
 const SyncResultList = ({ pagination, pageChange, templates, editPaths }) => (
   <ListView>
     <ListViewHeader />
-    {
-      templatesPage(templates, pagination).map((template) => (
-        <SyncedTemplate
-          template={template}
-          key={template.name}
-          editPath={editPaths[template.className]}
-        />
-      ))
-    }
+    {templatesPage(templates, pagination).map(template => (
+      <SyncedTemplate
+        template={template}
+        key={template.name}
+        editPath={editPaths[template.className]}
+      />
+    ))}
     <Pagination
-      viewType='list'
+      viewType="list"
       itemCount={templates.length}
       pagination={pagination}
       onChange={pageChange}
-      dropdownButtonId='template-sync-result-dropdown'
+      dropdownButtonId="template-sync-result-dropdown"
     />
   </ListView>
 );
@@ -34,10 +32,10 @@ SyncResultList.propTypes = {
   pagination: PropTypes.shape({
     page: PropTypes.number,
     perPage: PropTypes.number,
-  }),
-  pageChange: PropTypes.func,
-  templates: PropTypes.array,
-  editPaths: PropTypes.object,
+  }).isRequired,
+  pageChange: PropTypes.func.isRequired,
+  templates: PropTypes.array.isRequired,
+  editPaths: PropTypes.object.isRequired,
 };
 
 export default SyncResultList;

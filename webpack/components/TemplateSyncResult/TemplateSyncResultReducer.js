@@ -1,8 +1,9 @@
 import Immutable from 'seamless-immutable';
-import { combineReducers } from 'redux';
 
-import { TEMPLATESYNC_FORM_SUBMITTED,
-         SYNC_RESULT_PAGINATION_CHANGE } from '../../consts';
+import {
+  TEMPLATESYNC_FORM_SUBMITTED,
+  SYNC_RESULT_PAGINATION_CHANGE,
+} from '../../consts';
 
 import { deepPropsToCamelCase } from '../../helpers';
 
@@ -12,22 +13,22 @@ export const initialState = Immutable({
 
   pagination: {
     page: 1,
-    perPage: 20
-  }
+    perPage: 20,
+  },
 });
 
 const syncResult = (state = initialState, action) => {
   const { payload } = action;
-  switch(action.type) {
+  switch (action.type) {
     case TEMPLATESYNC_FORM_SUBMITTED:
       return state.merge({
         ...deepPropsToCamelCase(payload.data),
-      })
+      });
     case SYNC_RESULT_PAGINATION_CHANGE:
       return state.set('pagination', payload.pagination);
     default:
       return state;
   }
-}
+};
 
 export default syncResult;

@@ -15,15 +15,19 @@ const links = [
     title: 'Template Sync Result',
     path: 'template_syncs/result',
     Component: TemplateSyncResult,
-  }
+  },
 ];
 
-export default (data) => {
-  return (
-    <Switch>
-      {links.map(({ path, Component }) => (
-        <Route exact key={path} path={`/${path}`} render={(props) => <Component {...props} {...data} />} />
-      ))}
-      <Route component={PageNotFound} />
-    </Switch>
-)};
+export default data => (
+  <Switch>
+    {links.map(({ path, Component }) => (
+      <Route
+        exact
+        key={path}
+        path={`/${path}`}
+        render={props => <Component {...props} {...data} />}
+      />
+    ))}
+    <Route component={PageNotFound} />
+  </Switch>
+);

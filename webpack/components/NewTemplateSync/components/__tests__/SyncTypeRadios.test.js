@@ -11,7 +11,7 @@ const fixtures = {
       { label: 'A', checked: false, value: 'a', onChange: noop },
       { label: 'B', checked: true, value: 'b', onChange: noop },
       { label: 'C', checked: false, value: 'c', onChange: noop },
-    ]
+    ],
   },
 };
 

@@ -1,6 +1,10 @@
 import { testSelectorsSnapshotWithFixtures } from 'react-redux-test-utils';
 
-import { importSettings, exportSettings, stateFactory } from '../__fixtures__/templateSyncSettings.fixtures';
+import {
+  importSettings,
+  exportSettings,
+  stateFactory,
+} from '../__fixtures__/templateSyncSettings.fixtures';
 
 import {
   selectImportSettings,
@@ -17,8 +21,8 @@ const fixtures = {
   'should return loading settings': () =>
     selectLoadingSettings(stateFactory({ loadingSettings: true })),
   'should return loading error': () =>
-    selectError(stateFactory({ error: 'Error'})),
-}
+    selectError(stateFactory({ error: 'Error' })),
+};
 
 describe('NewTemplateSyncSelectors', () =>
   testSelectorsSnapshotWithFixtures(fixtures));

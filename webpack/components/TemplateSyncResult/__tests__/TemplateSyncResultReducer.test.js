@@ -5,7 +5,7 @@ import { importTemplates } from '../__fixtures__/templateSyncResult.fixtures';
 
 import {
   TEMPLATESYNC_FORM_SUBMITTED,
-  SYNC_RESULT_PAGINATION_CHANGE
+  SYNC_RESULT_PAGINATION_CHANGE,
 } from '../../../consts';
 
 const fixtures = {
@@ -13,8 +13,8 @@ const fixtures = {
     state: initialState,
     action: {
       type: undefined,
-      payload: {}
-    }
+      payload: {},
+    },
   },
   'should set new pagination': {
     state: initialState,
@@ -23,10 +23,10 @@ const fixtures = {
       payload: {
         pagination: {
           page: 2,
-          perPage: 5
-        }
-      }
-    }
+          perPage: 5,
+        },
+      },
+    },
   },
   'should update state when form submitted': {
     state: initialState,
@@ -38,11 +38,11 @@ const fixtures = {
           repo: 'https://github.com/theforeman/community-templates.git',
           branch: 'master',
           result_action: 'import',
-        }
-      }
-    }
-  }
-}
+        },
+      },
+    },
+  },
+};
 
 describe('TemplateSyncResultReducer', () =>
   testReducerSnapshotWithFixtures(reducer, fixtures));

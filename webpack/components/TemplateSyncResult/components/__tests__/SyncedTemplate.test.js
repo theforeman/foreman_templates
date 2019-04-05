@@ -1,21 +1,25 @@
 import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 import SyncedTemplate from '../SyncedTemplate';
-import { noName, epel, coreos } from '../../__fixtures__/templateSyncResult.fixtures';
+import {
+  noName,
+  epel,
+  coreos,
+} from '../../__fixtures__/templateSyncResult.fixtures';
 
 const fixtures = {
   'should render template with invalid metadata': {
     template: noName,
-    editPath: ''
+    editPath: '',
   },
   'should render template with validation errors': {
     template: epel,
-    editPath: '/templates/:id/edit'
+    editPath: '/templates/:id/edit',
   },
   'should render template without errros': {
     template: coreos,
-    editPath: '/ptables/:id/edit'
-  }
-}
+    editPath: '/ptables/:id/edit',
+  },
+};
 
 describe('SyncedTemplate', () =>
   testComponentSnapshotsWithFixtures(SyncedTemplate, fixtures));
