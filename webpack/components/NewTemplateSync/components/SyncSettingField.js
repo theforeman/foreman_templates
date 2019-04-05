@@ -57,8 +57,8 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
 };
 
 SyncSettingField.propTypes = {
-  setting: PropTypes.object.required,
-  resetField: PropTypes.func.required,
+  setting: PropTypes.object.isRequired,
+  resetField: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 };
 

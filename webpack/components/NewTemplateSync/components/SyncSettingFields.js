@@ -52,11 +52,11 @@ const SyncSettingsFields = ({
 }
 
 SyncSettingsFields.propTypes = {
-  importSettings: PropTypes.array.required,
-  exportSettings: PropTypes.array.required,
-  syncType: PropTypes.string.required,
-  resetField: PropTypes.func.required,
-  disabled: PropTypes.bool.required,
+  importSettings: PropTypes.array.isRequired,
+  exportSettings: PropTypes.array.isRequired,
+  syncType: PropTypes.string.isRequired,
+  resetField: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
   validationData: PropTypes.object,
 };
 

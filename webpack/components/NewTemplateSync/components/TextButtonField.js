@@ -81,7 +81,7 @@ TextButtonField.propTypes = {
     buttonAction: PropTypes.func,
   }),
   fieldSelector: PropTypes.func,
-  validate: PropTypes.func,
+  validate: PropTypes.array,
   disabled: PropTypes.bool,
   fieldRequired: PropTypes.bool,
   tooltipHelp: PropTypes.node,

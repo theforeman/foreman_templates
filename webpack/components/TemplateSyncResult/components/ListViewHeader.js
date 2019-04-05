@@ -7,7 +7,7 @@ import InfoItem from './InfoItem';
 const ListViewHeader = props => {
   const additionalInfo = ['Locked', 'Snippet', 'Template Class', 'Kind', 'File Name'].map((title, idx) => {
     return (
-      <InfoItem itemId={idx} key={idx}>
+      <InfoItem itemId={`${idx}`} key={idx}>
         <strong>{ title }</strong>
       </InfoItem>
     );
