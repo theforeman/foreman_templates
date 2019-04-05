@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Button, Breadcrumb } from 'patternfly-react';
 import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout';
@@ -24,26 +23,14 @@ const FinishedSyncResult = (props) => {
     return `using repo ${repo}${branchString}${userString}`;
   }
 
-  const customItem = (props) => {
-    return (
-      <li>
-        <span { ...props} />
-      </li>
-    )
-  }
-
-  const items = [
-    { caption: <Link to={'/template_syncs'}>Import or Export Templates</Link>, customItem: customItem, customTitle: 'penene' },
-    { caption: "Sync Result" },
-  ];
-
   return (
-      <PageLayout
-        searchable={false}
-        breadcrumbOptions={{ breadcrumbItems: items }}>
+      <PageLayout searchable={false} header={`You tried to ${type} the following templates`}>
+        <div className="form-group">
+          <h4>{ composeSubtitle(repo, branch, gitUser) }</h4>
+        </div>
 
         <div className="form-group">
-          <h4>{ `You tried to ${type} the templates ${composeSubtitle(repo, branch, gitUser)}` }</h4>
+          <Link to='/template_syncs'>Go back</Link>
         </div>
 
         <SyncResultList templates={templates}
