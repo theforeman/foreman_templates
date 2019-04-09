@@ -5,8 +5,9 @@ import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout';
 import { Link } from 'react-router-dom';
 import SyncResultList from './SyncResultList';
 
-const composeSubtitle = (repo, branch, gitUser) => {
-  const branchString = (branch && ` and branch ${branch}`) || '';
+const composeSubtitle = (repo, branch, gitUser, fileRepoStartWith) => {
+  const isFileRepo = fileRepoStartWith.reduce((memo, item) => (repo.startsWith(item) || memo), false);
+  const branchString = branch && !isFileRepo ? ` and branch ${branch}` : '';
   const userString = (gitUser && ` as user ${gitUser}`) || '';
   return `using repo ${repo}${branchString}${userString}`;
 };
@@ -17,6 +18,7 @@ const FinishedSyncResult = ({
   repo,
   branch,
   gitUser,
+  fileRepoStartWith,
   pagination,
   pageChange,
   editPaths,
@@ -26,11 +28,11 @@ const FinishedSyncResult = ({
     header={`You tried to ${type} the following templates`}
   >
     <div className="form-group">
-      <h4>{composeSubtitle(repo, branch, gitUser)}</h4>
+      <h4>{composeSubtitle(repo, branch, gitUser, fileRepoStartWith)}</h4>
     </div>
 
     <div className="form-group">
-      <Link to="/template_syncs">Go back</Link>
+      <Link to="/template_syncs">{ __('Back') }</Link>
     </div>
 
     <SyncResultList
@@ -51,6 +53,7 @@ FinishedSyncResult.propTypes = {
   pagination: PropTypes.object.isRequired,
   pageChange: PropTypes.func.isRequired,
   editPaths: PropTypes.object.isRequired,
+  fileRepoStartWith: PropTypes.array.isRequired,
 };
 
 FinishedSyncResult.defaultProps = {

@@ -10,6 +10,7 @@ const ForemanTemplates = ({ data }) => (
       apiUrls={data.apiUrls}
       validationData={data.validationData}
       editPaths={data.editPaths}
+      fileRepoStartWith={data.fileRepoStartWith}
       userPermissions={data.userPermissions}
     />
   </Router>
@@ -21,6 +22,7 @@ ForemanTemplates.propTypes = {
     validationData: PropTypes.object,
     editPaths: PropTypes.object,
     userPermissions: PropTypes.object,
+    fileRepoStartWith: PropTypes.array,
   }).isRequired,
 };
 

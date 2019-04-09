@@ -62,7 +62,7 @@ RenderField.propTypes = {
 
 RenderField.defaultProps = {
   className: '',
-  inputClassName: '',
+  inputClassName: 'col-md-4',
   fieldRequired: false,
   blank: {},
   fieldSelector: null,
@@ -75,15 +75,15 @@ const TextButtonField = ({
   item = {},
   label,
   name,
-  className = '',
-  inputClassName = 'col-md-6',
+  className,
+  inputClassName,
   blank,
   buttonAttrs,
   fieldSelector,
   validate,
-  disabled = false,
-  fieldRequired = false,
-  tooltipHelp = null,
+  disabled,
+  fieldRequired,
+  tooltipHelp,
 }) => (
   <Field
     name={name}
@@ -194,16 +194,17 @@ TextButtonField.propTypes = {
   validate: PropTypes.array,
   disabled: PropTypes.bool,
   fieldRequired: PropTypes.bool,
-  tooltipHelp: PropTypes.node.isRequired,
+  tooltipHelp: PropTypes.node,
 };
 
 TextButtonField.defaultProps = {
   blank: { label: 'Choose one...', value: '' },
   className: '',
-  inputClassName: '',
+  inputClassName: 'col-md-6',
   validate: [],
   disabled: false,
   fieldRequired: false,
+  tooltipHelp: null,
 };
 
 export default TextButtonField;

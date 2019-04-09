@@ -12,6 +12,7 @@
                               },
                             :validationData => { :repo => ForemanTemplates::Action.repo_start_with },
                             :editPaths => edit_paths,
+                            :fileRepoStartWith => ForemanTemplates::Action.file_repo_start_with,
                             :userPermissions => {
                               :import => authorized_for(:controller => :ui_template_syncs, :action => :import),
                               :export => authorized_for(:controller => :ui_template_syncs, :action => :export)

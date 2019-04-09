@@ -123,7 +123,7 @@ const templateErrors = template => {
 
 const templateHeading = (template, editPath) => {
   console.log(template);
-  if (template.id) {
+  if (template.id && template.canEdit) {
     return (
       <a
         href={editPath.replace(':id', template.id)}
