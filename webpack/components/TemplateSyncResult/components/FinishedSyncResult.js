@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 import SyncResultList from './SyncResultList';
 
 const composeSubtitle = (repo, branch, gitUser, fileRepoStartWith) => {
-  const isFileRepo = fileRepoStartWith.reduce((memo, item) => (repo.startsWith(item) || memo), false);
+  const isFileRepo = fileRepoStartWith.reduce(
+    (memo, item) => repo.startsWith(item) || memo,
+    false
+  );
   const branchString = branch && !isFileRepo ? ` and branch ${branch}` : '';
   const userString = (gitUser && ` as user ${gitUser}`) || '';
   return `using repo ${repo}${branchString}${userString}`;
@@ -32,7 +35,7 @@ const FinishedSyncResult = ({
     </div>
 
     <div className="form-group">
-      <Link to="/template_syncs">{ __('Back') }</Link>
+      <Link to="/template_syncs">{__('Back')}</Link>
     </div>
 
     <SyncResultList
@@ -59,6 +62,7 @@ FinishedSyncResult.propTypes = {
 FinishedSyncResult.defaultProps = {
   branch: '',
   gitUser: '',
+  pagination: {},
 };
 
 export default FinishedSyncResult;

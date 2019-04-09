@@ -54,10 +54,10 @@ TemplateSyncResult.propTypes = {
   syncedTemplatesPageChange: PropTypes.func,
 };
 
-TemplateSyncResult.defaultProps = ({
+TemplateSyncResult.defaultProps = {
   editPaths: {},
   syncedTemplatesPageChange: () => {},
   fileRepoStartWith: [],
-});
+};
 
 export default TemplateSyncResult;

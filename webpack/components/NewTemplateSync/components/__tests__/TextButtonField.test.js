@@ -22,7 +22,7 @@ const checkboxItem = {
 const blank = { label: 'Bare Metal', value: 'bareMetal' };
 
 const fieldSelector = item => item.type;
-const buttonAttrs = { buttonText : 'Button', buttonAction: () => {} };
+const buttonAttrs = { buttonText: 'Button', buttonAction: () => {} };
 
 const fixtures = {
   'should render text item': {

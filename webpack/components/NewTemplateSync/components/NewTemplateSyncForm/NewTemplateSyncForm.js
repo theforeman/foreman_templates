@@ -96,8 +96,10 @@ class NewTemplateSyncForm extends React.Component {
         submitting={submitting}
         error={error}
         onCancel={redirectToResult(history)}
-        errorTitle={error && error.severity === 'danger' ? __('Error! ') : __('Warning! ')}>
-
+        errorTitle={
+          error && error.severity === 'danger' ? __('Error! ') : __('Warning! ')
+        }
+      >
         <SyncTypeRadios
           name="syncType"
           controlLabel="Action type"

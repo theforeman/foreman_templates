@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withProtectedView should return protected component 1`] = `<ProtectedComponent />`;
+
+exports[`withProtectedView should return protection component 1`] = `<ProtectionComponent />`;
