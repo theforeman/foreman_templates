@@ -49,9 +49,15 @@ TemplateSyncResult.propTypes = {
     syncedTemplatesPageChange: PropTypes.func,
   }).isRequired,
   history: PropTypes.object.isRequired,
-  editPaths: PropTypes.object.isRequired,
-  fileRepoStartWith: PropTypes.array.isRequired,
-  syncedTemplatesPageChange: PropTypes.func.isRequired,
+  editPaths: PropTypes.object,
+  fileRepoStartWith: PropTypes.array,
+  syncedTemplatesPageChange: PropTypes.func,
 };
+
+TemplateSyncResult.defaultProps = ({
+  editPaths: {},
+  syncedTemplatesPageChange: () => {},
+  fileRepoStartWith: [],
+});
 
 export default TemplateSyncResult;

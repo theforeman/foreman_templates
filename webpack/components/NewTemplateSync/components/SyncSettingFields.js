@@ -59,8 +59,12 @@ SyncSettingsFields.propTypes = {
   exportSettings: PropTypes.array.isRequired,
   syncType: PropTypes.string.isRequired,
   resetField: PropTypes.func.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   validationData: PropTypes.object,
+};
+
+SyncSettingsFields.defaultProps = {
+  disabled: false,
 };
 
 export default SyncSettingsFields;

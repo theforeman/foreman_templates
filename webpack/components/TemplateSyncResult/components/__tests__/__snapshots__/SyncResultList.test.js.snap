@@ -4,7 +4,9 @@ exports[`SyncResultList should render 1`] = `
 <ListView
   className=""
 >
+  <ListViewHeader />
   <SyncedTemplate
+    editPath=""
     key="null"
     template={
       Object {
@@ -53,6 +55,7 @@ exports[`SyncResultList should render 1`] = `
     }
   />
   <SyncedTemplate
+    editPath=""
     key="null"
     template={
       Object {

@@ -9,7 +9,10 @@ exports[`TemplateSyncResult should render empty state when no templates synced 1
 exports[`TemplateSyncResult should render export result 1`] = `
 <FinishedSyncResult
   branch="master"
+  editPaths={Object {}}
+  fileRepoStartWith={Array []}
   gitUser="Admin"
+  pageChange={[Function]}
   repo="https://github.com/theforeman/community-templates.git"
   templates={
     Array [
@@ -41,6 +44,11 @@ exports[`TemplateSyncResult should render export result 1`] = `
 
 exports[`TemplateSyncResult should render import result 1`] = `
 <FinishedSyncResult
+  branch=""
+  editPaths={Object {}}
+  fileRepoStartWith={Array []}
+  gitUser=""
+  pageChange={[Function]}
   repo="/home/vagrant/templates"
   templates={
     Array [

@@ -7,6 +7,7 @@ const noop = () => {};
 const fixtures = {
   'should render': {
     controlLabel: 'Test radios',
+    name: 'radios',
     radios: [
       { label: 'A', checked: false, value: 'a', onChange: noop },
       { label: 'B', checked: true, value: 'b', onChange: noop },

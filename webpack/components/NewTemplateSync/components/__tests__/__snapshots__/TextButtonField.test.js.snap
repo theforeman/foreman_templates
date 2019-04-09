@@ -3,6 +3,12 @@
 exports[`TextButtonField should render checkbox item 1`] = `
 <Field
   blank={Object {}}
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": "Button",
+    }
+  }
   component={[Function]}
   disabled={false}
   fieldRequired={false}
@@ -13,6 +19,7 @@ exports[`TextButtonField should render checkbox item 1`] = `
     }
   }
   label="Checkbox"
+  name="Checkbox field"
   tooltipHelp={null}
 />
 `;
@@ -23,6 +30,12 @@ exports[`TextButtonField should render select item with custom blank opt 1`] = `
     Object {
       "label": "Bare Metal",
       "value": "bareMetal",
+    }
+  }
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": "Button",
     }
   }
   component={[Function]}
@@ -49,6 +62,7 @@ exports[`TextButtonField should render select item with custom blank opt 1`] = `
     }
   }
   label="Select"
+  name="select field"
   tooltipHelp={null}
 />
 `;
@@ -56,11 +70,19 @@ exports[`TextButtonField should render select item with custom blank opt 1`] = `
 exports[`TextButtonField should render text field without field selector 1`] = `
 <Field
   blank={Object {}}
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": "Button",
+    }
+  }
   component={[Function]}
   disabled={false}
   fieldRequired={false}
+  fieldSelector={[Function]}
   item={Object {}}
   label="Text field"
+  name="no selector"
   tooltipHelp={null}
 />
 `;
@@ -68,6 +90,12 @@ exports[`TextButtonField should render text field without field selector 1`] = `
 exports[`TextButtonField should render text item 1`] = `
 <Field
   blank={Object {}}
+  buttonAttrs={
+    Object {
+      "buttonAction": [Function],
+      "buttonText": "Button",
+    }
+  }
   component={[Function]}
   disabled={false}
   fieldRequired={false}
@@ -78,6 +106,7 @@ exports[`TextButtonField should render text item 1`] = `
     }
   }
   label="Text"
+  name="Text field"
   tooltipHelp={null}
 />
 `;

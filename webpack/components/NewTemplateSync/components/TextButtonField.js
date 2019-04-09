@@ -177,7 +177,7 @@ SelectField.propTypes = {
 };
 
 TextButtonField.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.object,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
@@ -190,7 +190,7 @@ TextButtonField.propTypes = {
     buttonText: PropTypes.node,
     buttonAction: PropTypes.func,
   }).isRequired,
-  fieldSelector: PropTypes.func.isRequired,
+  fieldSelector: PropTypes.func,
   validate: PropTypes.array,
   disabled: PropTypes.bool,
   fieldRequired: PropTypes.bool,
@@ -205,6 +205,8 @@ TextButtonField.defaultProps = {
   disabled: false,
   fieldRequired: false,
   tooltipHelp: null,
+  fieldSelector: () => 'text',
+  item: {},
 };
 
 export default TextButtonField;

@@ -15,11 +15,13 @@ const fixtures = {
       branch: 'master',
       gitUser: 'Admin',
     },
+    history: {},
   },
   'should render empty state when no templates synced': {
     syncResult: {
       templates: [],
     },
+    history: {},
   },
   'should render import result': {
     syncResult: {
@@ -27,6 +29,7 @@ const fixtures = {
       templates: importTemplates,
       repo: '/home/vagrant/templates',
     },
+    history: {},
   },
 };
 

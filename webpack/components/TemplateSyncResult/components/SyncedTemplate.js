@@ -122,7 +122,6 @@ const templateErrors = template => {
 };
 
 const templateHeading = (template, editPath) => {
-  console.log(template);
   if (template.id && template.canEdit) {
     return (
       <a

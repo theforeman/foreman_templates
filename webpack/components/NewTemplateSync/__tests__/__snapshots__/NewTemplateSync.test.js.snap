@@ -13,6 +13,7 @@ exports[`NewTemplateSync should render when loaded 1`] = `
     searchable={false}
   >
     <Connect(ReduxForm)
+      history={Object {}}
       userPermissions={
         Object {
           "export": true,
@@ -38,6 +39,7 @@ exports[`NewTemplateSync should render when loading 1`] = `
     searchable={false}
   >
     <Connect(ReduxForm)
+      history={Object {}}
       userPermissions={
         Object {
           "export": true,

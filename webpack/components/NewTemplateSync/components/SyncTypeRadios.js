@@ -40,12 +40,13 @@ SyncTypeRadios.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   inputClassName: PropTypes.string,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
 };
 
 SyncTypeRadios.defaultProps = {
   className: undefined,
   inputClassName: undefined,
+  disabled: false,
 };
 
 export default SyncTypeRadios;

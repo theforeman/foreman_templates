@@ -3,10 +3,13 @@
 exports[`NewTemplateSyncForm should render for export settings 1`] = `
 <Form
   disabled={false}
+  errorTitle="Warning! "
   onCancel={[Function]}
+  submitting={false}
 >
   <SyncTypeRadios
     controlLabel="Action type"
+    disabled={false}
     name="syncType"
     radios={
       Array [
@@ -21,6 +24,7 @@ exports[`NewTemplateSyncForm should render for export settings 1`] = `
     }
   />
   <SyncSettingsFields
+    disabled={false}
     exportSettings={
       Array [
         Object {
@@ -83,10 +87,13 @@ exports[`NewTemplateSyncForm should render for export settings 1`] = `
 exports[`NewTemplateSyncForm should render when for import settings 1`] = `
 <Form
   disabled={false}
+  errorTitle="Warning! "
   onCancel={[Function]}
+  submitting={false}
 >
   <SyncTypeRadios
     controlLabel="Action type"
+    disabled={false}
     name="syncType"
     radios={
       Array [
@@ -108,6 +115,7 @@ exports[`NewTemplateSyncForm should render when for import settings 1`] = `
     }
   />
   <SyncSettingsFields
+    disabled={false}
     exportSettings={
       Array [
         Object {

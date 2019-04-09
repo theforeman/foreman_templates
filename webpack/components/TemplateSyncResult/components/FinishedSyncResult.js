@@ -50,7 +50,7 @@ FinishedSyncResult.propTypes = {
   repo: PropTypes.string.isRequired,
   branch: PropTypes.string,
   gitUser: PropTypes.string,
-  pagination: PropTypes.object.isRequired,
+  pagination: PropTypes.object,
   pageChange: PropTypes.func.isRequired,
   editPaths: PropTypes.object.isRequired,
   fileRepoStartWith: PropTypes.array.isRequired,

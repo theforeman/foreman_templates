@@ -32,7 +32,7 @@ const submit = syncType => (formValues, dispatch, props) => {
 const redirectToResult = history => () =>
   history.push({ pathname: '/template_syncs/result' });
 
-class TemplateSyncForm extends React.Component {
+class NewTemplateSyncForm extends React.Component {
   allowedSyncType = (userPermissions, radioAttrs) =>
     this.props.userPermissions[radioAttrs.permission];
 
@@ -117,24 +117,27 @@ class TemplateSyncForm extends React.Component {
   }
 }
 
-TemplateSyncForm.propTypes = {
+NewTemplateSyncForm.propTypes = {
   importSettings: PropTypes.array,
   exportSettings: PropTypes.array,
   userPermissions: PropTypes.object.isRequired,
-  submitting: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool,
   error: PropTypes.object,
   handleSubmit: PropTypes.func.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  dispatch: PropTypes.func,
+  history: PropTypes.object,
   validationData: PropTypes.object,
   valid: PropTypes.bool.isRequired,
 };
 
-TemplateSyncForm.defaultProps = {
+NewTemplateSyncForm.defaultProps = {
   importSettings: [],
   exportSettings: [],
   validationData: {},
   error: undefined,
+  dispatch: () => {},
+  submitting: false,
+  history: {},
 };
 
-export default TemplateSyncForm;
+export default NewTemplateSyncForm;

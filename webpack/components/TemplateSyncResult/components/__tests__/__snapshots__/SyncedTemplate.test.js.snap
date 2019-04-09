@@ -52,6 +52,7 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
       <StringInfoItem
         attr="templateFile"
         elipsed={true}
+        mapAttr={[Function]}
         template={
           Object {
             "additionalErrors": "No \\"name\\" found in metadata",
@@ -60,6 +61,7 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
             "templateFile": "random_template.erb",
           }
         }
+        translate={false}
       />,
     ]
   }
@@ -140,6 +142,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
       />,
       <StringInfoItem
         attr="humanizedClassName"
+        elipsed={false}
         mapAttr={[Function]}
         template={
           Object {
@@ -162,6 +165,8 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
       />,
       <StringInfoItem
         attr="kind"
+        elipsed={false}
+        mapAttr={[Function]}
         template={
           Object {
             "additionalErrors": null,
@@ -179,10 +184,12 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
             "templateFile": "epel.erb",
           }
         }
+        translate={false}
       />,
       <StringInfoItem
         attr="templateFile"
         elipsed={true}
+        mapAttr={[Function]}
         template={
           Object {
             "additionalErrors": null,
@@ -200,6 +207,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
             "templateFile": "epel.erb",
           }
         }
+        translate={false}
       />,
     ]
   }
@@ -270,6 +278,7 @@ exports[`SyncedTemplate should render template without errros 1`] = `
       />,
       <StringInfoItem
         attr="humanizedClassName"
+        elipsed={false}
         mapAttr={[Function]}
         template={
           Object {
@@ -303,6 +312,7 @@ exports[`SyncedTemplate should render template without errros 1`] = `
       <StringInfoItem
         attr="templateFile"
         elipsed={true}
+        mapAttr={[Function]}
         template={
           Object {
             "additionalErrors": null,
@@ -315,6 +325,7 @@ exports[`SyncedTemplate should render template without errros 1`] = `
             "templateFile": "coreos_default.erb",
           }
         }
+        translate={false}
       />,
     ]
   }

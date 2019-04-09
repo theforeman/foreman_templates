@@ -47,13 +47,14 @@ NewTemplateSync.propTypes = {
   getSyncSettings: PropTypes.func.isRequired,
   apiUrls: PropTypes.object.isRequired,
   userPermissions: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.object,
   validationData: PropTypes.object,
   loadingSettings: PropTypes.bool.isRequired,
 };
 
 NewTemplateSync.defaultProps = {
   validationData: {},
+  history: {},
 };
 
 export default NewTemplateSync;
