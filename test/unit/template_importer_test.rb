@@ -170,7 +170,7 @@ module ForemanTemplates
       some_dir = File.expand_path(File.join('..', '..', '..', 'some_dir'), __FILE__)
       setup_settings :repo => some_dir
       imp = ForemanTemplates::TemplateImporter.new
-      assert_raises RuntimeError do |exception|
+      assert_raises ForemanTemplates::PathAccessException do |exception|
         imp.import!
         assert_equal exception.message, "Using file-based import, but couldn't find #{File.expand_path(some_dir)}"
       end
