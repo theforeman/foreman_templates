@@ -13,11 +13,11 @@ module ForemanTemplates
       # tests to work
 
       ForemanTemplates::TemplateImporter.new({
-        :repo      => @engine_root,
-        :branch    => Git.open(@engine_root).current_branch,
-        :prefix    => 'FooBar ',
-        :dirname   => '/test/templates/core',
-        :verbose   => 'false',
+        :repo => @engine_root,
+        :branch => Git.open(@engine_root).current_branch,
+        :prefix => 'FooBar ',
+        :dirname => '/test/templates/core',
+        :verbose => 'false',
         :associate => 'new'
       }.merge(opts))
     end
@@ -135,6 +135,7 @@ module ForemanTemplates
       imp = ForemanTemplates::TemplateImporter.new
       imp.class.setting_overrides.each do |attribute|
         next if assert_both_equal_nil imp.public_send(attribute), Setting["template_sync_#{attribute}".to_sym]
+
         assert_equal imp.public_send(attribute), Setting["template_sync_#{attribute}".to_sym]
       end
     end

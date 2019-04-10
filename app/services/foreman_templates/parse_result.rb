@@ -72,6 +72,7 @@ module ForemanTemplates
 
     def determine_result_diff
       return if @template.nil? || !@template.template_changed?
+
       template_was = @template.template_was
       template_is = @template.template
       @diff = calculate_diff(template_was, template_is)

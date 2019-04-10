@@ -37,7 +37,7 @@ module ForemanTemplates
     end
 
     def git_repo?
-      @repo.start_with? *self.class.git_repo_start_with
+      @repo.start_with?(*self.class.git_repo_start_with)
     end
 
     def get_absolute_repo_path
@@ -47,7 +47,7 @@ module ForemanTemplates
     def verify_path!(path)
       msg = _("Using file-based synchronization, but couldn't access %s. ") % path
       msg += _("Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically 'foreman'.")
-      raise PathAccessException.new(msg) unless Dir.exist?(path)
+      raise PathAccessException, msg unless Dir.exist?(path)
     end
 
     private

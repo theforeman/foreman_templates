@@ -43,6 +43,6 @@ class UiTemplateSyncsController < ApplicationController
   end
 
   def render_errors(messages, severity = 'danger')
-    render :json => { :error => { :errors => { :base => messages }, :severity => severity } }, :status => 422
+    render :json => { :error => { :errors => { :base => messages }, :severity => severity } }, :status => :unprocessable_entity
   end
 end

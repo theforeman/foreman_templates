@@ -27,6 +27,7 @@ module ForemanTemplates
     def export_to_git
       @dir = Dir.mktmpdir
       return @export_result if branch_missing?
+
       git_repo = Git.clone(@repo, @dir)
       logger.debug "cloned '#{@repo}' to '#{@dir}'"
 
@@ -79,7 +80,7 @@ module ForemanTemplates
           end
         end
       rescue StandardError => e
-        raise PathAccessException.new(e.message)
+        raise PathAccessException, e.message
       end
       @export_result.add_exported_templates templates
     end

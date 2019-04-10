@@ -14,7 +14,7 @@ module ForemanTemplates
       require_dependency File.expand_path('../../app/models/setting/template_sync.rb', __dir__) if (Setting.table_exists? rescue(false))
     end
 
-    initializer "foreman_templates.add_rabl_view_path" do |app|
+    initializer "foreman_templates.add_rabl_view_path" do
       Rabl.configure do |config|
         config.view_paths << ForemanTemplates::Engine.root.join('app', 'views')
       end
@@ -22,7 +22,7 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 1.18'
+        requires_foreman '>= 1.22'
 
         apipie_documented_controllers ["#{ForemanTemplates::Engine.root}/app/controllers/api/v2/*.rb"]
 

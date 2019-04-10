@@ -53,6 +53,7 @@ class Setting
     def selection
       selection_method = name.split('template_sync_').last.concat('_types')
       return transformed_selection(selection_method) if self.class.respond_to?(selection_method)
+
       []
     end
 
