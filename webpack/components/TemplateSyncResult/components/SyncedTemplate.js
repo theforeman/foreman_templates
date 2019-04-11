@@ -6,16 +6,16 @@ import PropTypes from 'prop-types';
 import InfoItem from './InfoItem';
 import StringInfoItem, { itemIteratorId } from './StringInfoItem';
 
-const IconInfoItem = ({ template, attr, cssClassNames, tooltipText }) => (
+const IconInfoItem = ({ template, attr, iconName, tooltipText }) => (
   <InfoItem itemId={itemIteratorId(template, attr)} tooltipText={tooltipText}>
-    <span className={cssClassNames} />
+    <Icon type="fa" name={iconName}/>
   </InfoItem>
 );
 
 IconInfoItem.propTypes = {
   template: PropTypes.object.isRequired,
   attr: PropTypes.string.isRequired,
-  cssClassNames: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
   tooltipText: PropTypes.string.isRequired,
 };
 
@@ -52,7 +52,7 @@ const additionalInfo = template => {
           <IconInfoItem
             template={template}
             attr={attr}
-            cssClassNames="glyphicon glyphicon-lock"
+            iconName="lock"
             tooltipText="Locked"
             key={key}
           />
@@ -62,7 +62,7 @@ const additionalInfo = template => {
           <IconInfoItem
             template={template}
             attr={attr}
-            cssClassNames="glyphicon glyphicon-scissors"
+            iconName="check"
             tooltipText="Snippet"
             key={key}
           />

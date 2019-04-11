@@ -98,7 +98,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
     Array [
       <IconInfoItem
         attr="locked"
-        cssClassNames="glyphicon glyphicon-lock"
+        iconName="lock"
         template={
           Object {
             "additionalErrors": null,
@@ -120,7 +120,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
       />,
       <IconInfoItem
         attr="snippet"
-        cssClassNames="glyphicon glyphicon-scissors"
+        iconName="check"
         template={
           Object {
             "additionalErrors": null,

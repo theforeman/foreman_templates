@@ -13,6 +13,7 @@ exports[`TemplateSyncResult should render export result 1`] = `
   fileRepoStartWith={Array []}
   gitUser="Admin"
   pageChange={[Function]}
+  pagination={Object {}}
   repo="https://github.com/theforeman/community-templates.git"
   templates={
     Array [
@@ -49,6 +50,7 @@ exports[`TemplateSyncResult should render import result 1`] = `
   fileRepoStartWith={Array []}
   gitUser=""
   pageChange={[Function]}
+  pagination={Object {}}
   repo="/home/vagrant/templates"
   templates={
     Array [
