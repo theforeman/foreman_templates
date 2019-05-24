@@ -3,6 +3,7 @@ import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
 import PropTypes from 'prop-types';
 
 import InfoItem from './InfoItem';
+import { itemIteratorId } from './helpers';
 
 const StringInfoItem = ({
   template,
@@ -40,15 +41,10 @@ StringInfoItem.propTypes = {
 };
 
 StringInfoItem.defaultProps = {
-  tooltipText: undefined,
-};
-
-StringInfoItem.defaultProps = {
   translate: false,
   mapAttr: (template, attr) => template[attr],
   elipsed: false,
+  tooltipText: undefined,
 };
-
-export const itemIteratorId = (template, attr) => `${template.name}-${attr}`;
 
 export default StringInfoItem;

@@ -15,18 +15,3 @@ export const deepPropsToCamelCase = obj => {
     return memo;
   }, {});
 };
-
-// TODO: extract to core
-export const withProtectedView = (
-  ProtectedComponent,
-  ProtectionComponent,
-  protectionFn,
-  extraProtectionProps = {}
-) => props =>
-  protectionFn(props) ? (
-    <ProtectedComponent {...props} />
-  ) : (
-    <ProtectionComponent {...props} {...extraProtectionProps} />
-  );
-
-export default withProtectedView;

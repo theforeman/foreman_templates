@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as TemplateSyncActions from './NewTemplateSyncActions';
 import NewTemplateSync from './NewTemplateSync';
 import { selectLoadingSettings, selectError } from './NewTemplateSyncSelectors';
-import { withProtectedView } from '../../helpers';
+import withProtectedView from '../../withProtectedView';
 import PermissionDenied from '../PermissionDenied';
 
 const mapStateToProps = state => ({

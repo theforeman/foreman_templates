@@ -7,14 +7,13 @@ import FinishedSyncResult from './components/FinishedSyncResult';
 
 import './TemplateSyncResult.scss';
 
-const TemplateSyncResult = props => {
-  const {
-    syncResult: { templates, resultAction, repo, branch, gitUser, pagination },
-    history,
-    syncedTemplatesPageChange,
-    editPaths,
-    fileRepoStartWith,
-  } = props;
+const TemplateSyncResult = ({
+  syncResult: { templates, resultAction, repo, branch, gitUser, pagination },
+  history,
+  syncedTemplatesPageChange,
+  editPaths,
+  fileRepoStartWith,
+}) => {
 
   const redirectBack = () => history.push({ pathname: '/template_syncs' });
 

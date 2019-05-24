@@ -4,16 +4,7 @@ import PropTypes from 'prop-types';
 import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout';
 import { Link } from 'react-router-dom';
 import SyncResultList from './SyncResultList';
-
-const composeSubtitle = (repo, branch, gitUser, fileRepoStartWith) => {
-  const isFileRepo = fileRepoStartWith.reduce(
-    (memo, item) => repo.startsWith(item) || memo,
-    false
-  );
-  const branchString = branch && !isFileRepo ? ` and branch ${branch}` : '';
-  const userString = (gitUser && ` as user ${gitUser}`) || '';
-  return `using repo ${repo}${branchString}${userString}`;
-};
+import SyncResultSubtitle from './SyncResultSubtitle';
 
 const FinishedSyncResult = ({
   templates,
@@ -30,9 +21,12 @@ const FinishedSyncResult = ({
     searchable={false}
     header={`You tried to ${type} the following templates`}
   >
-    <div className="form-group">
-      <h4>{composeSubtitle(repo, branch, gitUser, fileRepoStartWith)}</h4>
-    </div>
+    <SyncResultSubtitle
+      repo={repo}
+      branch={branch}
+      gitUser={gitUser}
+      fileRepoStartWith={fileRepoStartWith}
+    />
 
     <div className="form-group">
       <Link to="/template_syncs">{__('Back')}</Link>

@@ -1,34 +1,14 @@
 import React from 'react';
-import { ListView, Icon } from 'patternfly-react';
 import { isEmpty } from 'lodash';
-import PropTypes from 'prop-types';
+import { Icon } from 'patternfly-react';
 
-import InfoItem from './InfoItem';
-import StringInfoItem, { itemIteratorId } from './StringInfoItem';
+import IconInfoItem from './IconInfoItem';
+import EmptyInfoItem from './EmptyInfoItem';
+import StringInfoItem from './StringInfoItem';
 
-const IconInfoItem = ({ template, attr, iconName, tooltipText }) => (
-  <InfoItem itemId={itemIteratorId(template, attr)} tooltipText={tooltipText}>
-    <Icon type="fa" name={iconName}/>
-  </InfoItem>
-);
+export const itemIteratorId = (template, attr) => `${template.name}-${attr}`;
 
-IconInfoItem.propTypes = {
-  template: PropTypes.object.isRequired,
-  attr: PropTypes.string.isRequired,
-  iconName: PropTypes.string.isRequired,
-  tooltipText: PropTypes.string.isRequired,
-};
-
-const EmptyInfoItem = ({ template, attr }) => (
-  <InfoItem itemId={itemIteratorId(template, attr)} />
-);
-
-EmptyInfoItem.propTypes = {
-  template: PropTypes.object.isRequired,
-  attr: PropTypes.string.isRequired,
-};
-
-const additionalInfo = template => {
+export const additionalInfo = template => {
   const infoAttrs = [
     'locked',
     'snippet',
@@ -93,35 +73,14 @@ const additionalInfo = template => {
   });
 };
 
-const aggregatedErrors = template => {
-  const err = { ...template.errors } || {};
-  if (template.additional_errors) {
-    err.additional = template.additional_errors;
-  }
-
-  return err;
-};
-
-const itemLeftContentIcon = template => {
+export const itemLeftContentIcon = template => {
   const iconName = isEmpty(aggregatedErrors(template))
     ? 'ok'
     : 'error-circle-o';
   return <Icon name={iconName} size="sm" type="pf" />;
 };
 
-const templateErrors = template => {
-  if (Object.keys(aggregatedErrors(template)).length !== 0) {
-    const res = Object.keys(aggregatedErrors(template)).map(key => (
-      <li key={itemIteratorId(template, key)}>
-        {formatError(key, aggregatedErrors(template)[key])}
-      </li>
-    ));
-    return <ul>{res}</ul>;
-  }
-  return <span>There were no errors.</span>;
-};
-
-const templateHeading = (template, editPath) => {
+export const templateHeading = (template, editPath) => {
   if (template.id && template.canEdit) {
     return (
       <a
@@ -136,6 +95,27 @@ const templateHeading = (template, editPath) => {
   return template.name || ' ';
 };
 
+export const templateErrors = template => {
+  if (Object.keys(aggregatedErrors(template)).length !== 0) {
+    const res = Object.keys(aggregatedErrors(template)).map(key => (
+      <li key={itemIteratorId(template, key)}>
+        {formatError(key, aggregatedErrors(template)[key])}
+      </li>
+    ));
+    return <ul>{res}</ul>;
+  }
+  return <span>There were no errors.</span>;
+};
+
+const aggregatedErrors = template => {
+  const err = { ...template.errors } || {};
+  if (template.additional_errors) {
+    err.additional = template.additional_errors;
+  }
+
+  return err;
+};
+
 const formatError = (key, value) => {
   const omitKeys = ['base', 'additional'];
   if (omitKeys.reduce((memo, item) => memo || key === item, false)) {
@@ -144,28 +124,3 @@ const formatError = (key, value) => {
 
   return `${key}: ${value}`;
 };
-
-const SyncedTemplate = ({ template, editPath }) => (
-  <ListView.Item
-    key={template.id}
-    heading={templateHeading(template, editPath)}
-    additionalInfo={additionalInfo(template)}
-    className="listViewItem--listItemVariants"
-    leftContent={itemLeftContentIcon(template)}
-    hideCloseIcon
-    stacked
-  >
-    {templateErrors(template)}
-  </ListView.Item>
-);
-
-SyncedTemplate.propTypes = {
-  template: PropTypes.object.isRequired,
-  editPath: PropTypes.string,
-};
-
-SyncedTemplate.defaultProps = {
-  editPath: '',
-};
-
-export default SyncedTemplate;

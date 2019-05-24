@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Pagination from 'foremanReact/components/Pagination/PaginationWrapper';
 
 import SyncedTemplate from './SyncedTemplate';
-import { templatesPage } from '../TemplateSyncResultSelectors';
+import { templatesPage } from '../TemplateSyncResultHelpers';
 import ListViewHeader from './ListViewHeader';
 
 const SyncResultList = ({ pagination, pageChange, templates, editPaths }) => (

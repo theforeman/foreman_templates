@@ -2,7 +2,7 @@ import React from 'react';
 import { ListView, Icon } from 'patternfly-react';
 import classNames from 'classnames';
 
-import InfoItem from './InfoItem';
+import InfoItem from './SyncedTemplate/InfoItem';
 
 const ListViewHeader = props => {
   const additionalInfo = [

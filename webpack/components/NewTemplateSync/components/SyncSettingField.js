@@ -8,24 +8,7 @@ import {
 import PropTypes from 'prop-types';
 
 import TextButtonField from './TextButtonField';
-
-const ButtonTooltip = props => {
-  const tooltip = (
-    <Tooltip id={`${props.tooltipId}-tooltip-id`}>
-      <span>Use default value from settings</span>
-    </Tooltip>
-  );
-
-  return (
-    <OverlayTrigger overlay={tooltip} trigger={['hover', 'focus']}>
-      <Icon type="fa" name="refresh" />
-    </OverlayTrigger>
-  );
-};
-
-ButtonTooltip.propTypes = {
-  tooltipId: PropTypes.string.isRequired,
-};
+import ButtonTooltip from './ButtonTooltip';
 
 const SyncSettingField = ({ setting, resetField, disabled }) => {
   const label = settingObj => `${settingObj.fullName} `;

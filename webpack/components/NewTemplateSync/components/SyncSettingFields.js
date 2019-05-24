@@ -5,13 +5,16 @@ import PropTypes from 'prop-types';
 import SyncSettingField from './SyncSettingField';
 
 const repoFormat = memoize(formatAry => value => {
-  const valid = formatAry
-    .map(item => value.startsWith(item))
-    .reduce((memo, item) => item || memo, false);
+  if (value) {
+    const valid = formatAry
+      .map(item => value.startsWith(item))
+      .reduce((memo, item) => item || memo, false);
 
-  if (value && valid) {
-    return undefined;
+    if (valid) {
+      return undefined;
+    }
   }
+
   return `Invalid repo format, must start with one of: ${formatAry.join(', ')}`;
 });
 
@@ -23,9 +26,20 @@ const SyncSettingsFields = ({
   disabled,
   validationData,
 }) => {
-  const mapSettings = settingsAry => (
+  const addValidationToSetting = (setting, validationData) => (
+    setting.name === 'repo' ?
+      setting.merge({
+        required: true,
+        validate: [repoFormat(validationData.repo)],
+      }) :
+      setting
+  );
+
+  const settingsAry = 'import' ? importSettings : exportSettings;
+
+  return (
     <React.Fragment>
-      {addValidations(settingsAry).map((setting, index) => (
+      { settingsAry.map(setting => addValidationToSetting(setting, validationData)).map((setting) => (
         <SyncSettingField
           setting={setting}
           key={setting.name}
@@ -34,24 +48,7 @@ const SyncSettingsFields = ({
         />
       ))}
     </React.Fragment>
-  );
-
-  const addValidations = (validationDataObj => settingsAry =>
-    settingsAry.map(setting => {
-      switch (setting.name) {
-        case 'repo':
-          return setting.merge({
-            required: true,
-            validate: [repoFormat(validationDataObj.repo)],
-          });
-        default:
-          return setting;
-      }
-    }))(validationData);
-
-  return syncType === 'import'
-    ? mapSettings(importSettings)
-    : mapSettings(exportSettings);
+  )
 };
 
 SyncSettingsFields.propTypes = {
