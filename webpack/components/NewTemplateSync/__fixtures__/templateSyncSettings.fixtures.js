@@ -1,5 +1,7 @@
 import Immutable from 'seamless-immutable';
 
+import { transformInitialValues } from '../components/NewTemplateSyncForm/NewTemplateSyncFormSelectors';
+
 export const associateSetting = Immutable({
   id: 45,
   value: 'new',
@@ -65,10 +67,8 @@ export const registeredExportSettings = {
 };
 
 export const initialValues = {
-  initial: importSettings.concat(exportSettings).reduce((memo, item) => {
-    memo[item.name] = item.value;
-    return memo;
-  }, {}),
+  import: transformInitialValues(importSettings),
+  export: transformInitialValues(exportSettings),
 };
 
 export const stateFactory = obj => ({

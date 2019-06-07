@@ -3,13 +3,11 @@
 exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
 <TextButtonField
   blank={Object {}}
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": <ButtonTooltip
-        tooltipId="force"
-      />,
-    }
+  buttonAction={[Function]}
+  buttonText={
+    <ButtonTooltip
+      tooltipId="force"
+    />
   }
   className=""
   disabled={false}
@@ -26,7 +24,7 @@ exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
     }
   }
   label="undefined "
-  name="force"
+  name="import.force"
   tooltipHelp={
     <FieldLevelHelp
       buttonClass=""
@@ -43,20 +41,17 @@ exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
       rootClose={true}
     />
   }
-  validate={Array []}
 />
 `;
 
 exports[`SyncSettingField should render setting with input field 1`] = `
 <TextButtonField
   blank={Object {}}
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": <ButtonTooltip
-        tooltipId="filter"
-      />,
-    }
+  buttonAction={[Function]}
+  buttonText={
+    <ButtonTooltip
+      tooltipId="filter"
+    />
   }
   className=""
   disabled={false}
@@ -73,7 +68,7 @@ exports[`SyncSettingField should render setting with input field 1`] = `
     }
   }
   label="undefined "
-  name="filter"
+  name="import.filter"
   tooltipHelp={
     <FieldLevelHelp
       buttonClass=""
@@ -90,20 +85,17 @@ exports[`SyncSettingField should render setting with input field 1`] = `
       rootClose={true}
     />
   }
-  validate={Array []}
 />
 `;
 
 exports[`SyncSettingField should render setting with select choices 1`] = `
 <TextButtonField
   blank={Object {}}
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": <ButtonTooltip
-        tooltipId="associate"
-      />,
-    }
+  buttonAction={[Function]}
+  buttonText={
+    <ButtonTooltip
+      tooltipId="associate"
+    />
   }
   className=""
   disabled={false}
@@ -134,7 +126,7 @@ exports[`SyncSettingField should render setting with select choices 1`] = `
     }
   }
   label="undefined "
-  name="associate"
+  name="import.associate"
   tooltipHelp={
     <FieldLevelHelp
       buttonClass=""
@@ -151,7 +143,6 @@ exports[`SyncSettingField should render setting with select choices 1`] = `
       rootClose={true}
     />
   }
-  validate={Array []}
 >
   new
 </TextButtonField>

@@ -1,36 +1,20 @@
 import React from 'react';
-import { memoize, upperFirst } from 'lodash';
+import { upperFirst } from 'lodash';
 import PropTypes from 'prop-types';
 
 import SyncSettingField from './SyncSettingField';
-
-const repoFormat = memoize(formatAry => value => {
-  if (value) {
-    const valid = formatAry
-      .map(item => value.startsWith(item))
-      .reduce((memo, item) => item || memo, false);
-
-    if (valid) {
-      return undefined;
-    }
-  }
-
-  return `Invalid repo format, must start with one of: ${formatAry.join(', ')}`;
-});
 
 const SyncSettingsFields = ({
   importSettings,
   exportSettings,
   syncType,
   resetField,
-  disabled,
-  validationData,
+  formProps: { isSubmitting },
 }) => {
-  const addValidationToSetting = (setting, validations) =>
+  const addRequiredToSetting = setting =>
     setting.name === 'repo'
       ? setting.merge({
           required: true,
-          validate: [repoFormat(validations.repo)],
         })
       : setting;
 
@@ -58,14 +42,15 @@ const SyncSettingsFields = ({
   return (
     <React.Fragment>
       {settingsAry
-        .map(setting => addValidationToSetting(setting, validationData))
+        .map(addRequiredToSetting)
         .map(setting => modifyDescription(setting, syncType))
         .map(setting => specializeDescription(setting, syncType))
         .map(setting => (
           <SyncSettingField
             setting={setting}
+            syncType={syncType}
             key={setting.name}
-            disabled={disabled}
+            disabled={isSubmitting}
             resetField={resetField}
           />
         ))}
@@ -78,13 +63,11 @@ SyncSettingsFields.propTypes = {
   exportSettings: PropTypes.array.isRequired,
   syncType: PropTypes.string.isRequired,
   resetField: PropTypes.func.isRequired,
-  disabled: PropTypes.bool,
-  validationData: PropTypes.object,
+  formProps: PropTypes.object,
 };
 
 SyncSettingsFields.defaultProps = {
-  disabled: false,
-  validationData: {},
+  formProps: {},
 };
 
 export default SyncSettingsFields;

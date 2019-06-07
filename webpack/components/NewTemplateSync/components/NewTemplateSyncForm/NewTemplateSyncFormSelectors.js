@@ -5,20 +5,17 @@ import {
   selectExportSettings,
 } from '../../NewTemplateSyncSelectors';
 
+export const transformInitialValues = settings =>
+  settings.reduce(
+    (memo, item) => Object.assign(memo, { [item.name]: item.value }),
+    {}
+  );
+
 export const selectInitialFormValues = createSelector(
   selectImportSettings,
   selectExportSettings,
-  (importSettings, exportSettings) =>
-    importSettings
-      .concat(exportSettings)
-      .reduce(
-        (memo, item) => Object.assign(memo, { [item.name]: item.value }),
-        {}
-      )
+  (importSettings, exportSettings) => ({
+    import: transformInitialValues(importSettings),
+    export: transformInitialValues(exportSettings),
+  })
 );
-
-const selectFormState = (formName, state) =>
-  state.form && state.form[formName] ? state.form[formName] : {};
-
-export const selectRegisteredFields = (formName, state) =>
-  selectFormState(formName, state).registeredFields || {};
