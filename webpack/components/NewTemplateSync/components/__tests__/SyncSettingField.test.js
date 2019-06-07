@@ -8,11 +8,12 @@ import {
   filterSetting,
 } from '../../__fixtures__/templateSyncSettings.fixtures';
 
-const noop = () => {};
+const noop = () => () => {};
 
 const commonFixtures = {
   resetField: noop,
   disabled: false,
+  syncType: 'import',
 };
 
 const fixtures = {

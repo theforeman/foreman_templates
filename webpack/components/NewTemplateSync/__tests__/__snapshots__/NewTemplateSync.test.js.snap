@@ -12,7 +12,7 @@ exports[`NewTemplateSync should render when loaded 1`] = `
     header="Import or Export Templates"
     searchable={false}
   >
-    <Connect(ReduxForm)
+    <Connect(NewTemplateSyncForm)
       history={Object {}}
       userPermissions={
         Object {
@@ -38,7 +38,7 @@ exports[`NewTemplateSync should render when loading 1`] = `
     header="Import or Export Templates"
     searchable={false}
   >
-    <Connect(ReduxForm)
+    <Connect(NewTemplateSyncForm)
       history={Object {}}
       userPermissions={
         Object {

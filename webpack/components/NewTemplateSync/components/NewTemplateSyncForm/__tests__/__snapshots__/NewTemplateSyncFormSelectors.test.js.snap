@@ -2,43 +2,14 @@
 
 exports[`NewTemplateSyncFormSelectors should return initial form values 1`] = `
 Object {
-  "associate": "new",
-  "filter": "",
-  "force": false,
-  "negate": false,
-  "repo": "https://github.com/theforeman/community-templates.git",
-}
-`;
-
-exports[`NewTemplateSyncFormSelectors should return registered fields 1`] = `
-Object {
-  "associate": Object {
-    "description": "Associate templates to OS, organization and location",
-    "id": 45,
-    "name": "associate",
-    "selection": Array [
-      Object {
-        "label": "New",
-        "value": "new",
-      },
-      Object {
-        "label": "Never",
-        "value": "never",
-      },
-      Object {
-        "label": "Always",
-        "value": "always",
-      },
-    ],
-    "settingsType": "string",
-    "value": "new",
+  "export": Object {
+    "filter": "",
+    "negate": false,
+    "repo": "https://github.com/theforeman/community-templates.git",
   },
-  "force": Object {
-    "description": "Should importing overwrite locked templates?",
-    "id": 46,
-    "name": "force",
-    "settingsType": "bool",
-    "value": false,
+  "import": Object {
+    "associate": "new",
+    "force": false,
   },
 }
 `;

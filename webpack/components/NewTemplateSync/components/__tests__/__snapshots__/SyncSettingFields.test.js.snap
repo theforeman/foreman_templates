@@ -15,6 +15,7 @@ exports[`SyncSettingFields should show export settings 1`] = `
         "value": "",
       }
     }
+    syncType="export"
   />
   <SyncSettingField
     disabled={false}
@@ -29,6 +30,7 @@ exports[`SyncSettingFields should show export settings 1`] = `
         "value": false,
       }
     }
+    syncType="export"
   />
   <SyncSettingField
     disabled={false}
@@ -41,12 +43,10 @@ exports[`SyncSettingFields should show export settings 1`] = `
         "name": "repo",
         "required": true,
         "settingsType": "string",
-        "validate": Array [
-          [Function],
-        ],
         "value": "https://github.com/theforeman/community-templates.git",
       }
     }
+    syncType="export"
   />
 </Fragment>
 `;
@@ -80,6 +80,7 @@ exports[`SyncSettingFields should show import settings 1`] = `
         "value": "new",
       }
     }
+    syncType="import"
   />
   <SyncSettingField
     disabled={false}
@@ -94,6 +95,7 @@ exports[`SyncSettingFields should show import settings 1`] = `
         "value": false,
       }
     }
+    syncType="import"
   />
 </Fragment>
 `;

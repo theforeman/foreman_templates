@@ -1,112 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextButtonField should render checkbox item 1`] = `
-<Field
-  blank={Object {}}
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": "Button",
-    }
-  }
-  component={[Function]}
-  disabled={false}
-  fieldRequired={false}
-  fieldSelector={[Function]}
-  item={
-    Object {
-      "type": "checkbox",
-    }
-  }
-  label="Checkbox"
+<FormikConnect(FieldInner)
   name="Checkbox field"
-  tooltipHelp={null}
+  render={[Function]}
 />
 `;
 
 exports[`TextButtonField should render select item with custom blank opt 1`] = `
-<Field
-  blank={
-    Object {
-      "label": "Bare Metal",
-      "value": "bareMetal",
-    }
-  }
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": "Button",
-    }
-  }
-  component={[Function]}
-  disabled={false}
-  fieldRequired={false}
-  fieldSelector={[Function]}
-  item={
-    Object {
-      "selection": Array [
-        Object {
-          "label": "A",
-          "value": "a",
-        },
-        Object {
-          "label": "B",
-          "value": "b",
-        },
-        Object {
-          "label": "C",
-          "value": "c",
-        },
-      ],
-      "type": "select",
-    }
-  }
-  label="Select"
+<FormikConnect(FieldInner)
   name="select field"
-  tooltipHelp={null}
+  render={[Function]}
 />
 `;
 
 exports[`TextButtonField should render text field without field selector 1`] = `
-<Field
-  blank={Object {}}
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": "Button",
-    }
-  }
-  component={[Function]}
-  disabled={false}
-  fieldRequired={false}
-  fieldSelector={[Function]}
-  item={Object {}}
-  label="Text field"
+<FormikConnect(FieldInner)
   name="no selector"
-  tooltipHelp={null}
+  render={[Function]}
 />
 `;
 
 exports[`TextButtonField should render text item 1`] = `
-<Field
-  blank={Object {}}
-  buttonAttrs={
-    Object {
-      "buttonAction": [Function],
-      "buttonText": "Button",
-    }
-  }
-  component={[Function]}
-  disabled={false}
-  fieldRequired={false}
-  fieldSelector={[Function]}
-  item={
-    Object {
-      "type": "text",
-    }
-  }
-  label="Text"
+<FormikConnect(FieldInner)
   name="Text field"
-  tooltipHelp={null}
+  render={[Function]}
 />
 `;

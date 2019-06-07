@@ -5,7 +5,7 @@ import { FieldLevelHelp } from 'patternfly-react';
 import TextButtonField from './TextButtonField';
 import ButtonTooltip from './ButtonTooltip';
 
-const SyncSettingField = ({ setting, resetField, disabled }) => {
+const SyncSettingField = ({ setting, resetField, disabled, syncType }) => {
   const label = settingObj => `${settingObj.fullName} `;
 
   const fieldSelector = settingObj => {
@@ -20,10 +20,6 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
     return 'text';
   };
 
-  const handleReset = (settingName, settingValue) => {
-    resetField(settingName, settingValue);
-  };
-
   const tooltipContent = (
     <div
       dangerouslySetInnerHTML={{
@@ -34,18 +30,15 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
 
   return (
     <TextButtonField
-      name={setting.name}
+      name={`${syncType}.${setting.name}`}
       label={label(setting)}
       blank={{}}
       item={setting}
-      buttonAttrs={{
-        buttonText: <ButtonTooltip tooltipId={setting.name} />,
-        buttonAction: () => handleReset(setting.name, setting.value),
-      }}
+      buttonText={<ButtonTooltip tooltipId={setting.name} />}
+      buttonAction={resetField(`${syncType}.${setting.name}`, setting.value)}
       fieldSelector={fieldSelector}
       disabled={disabled}
       fieldRequired={setting.required}
-      validate={setting.validate}
       tooltipHelp={<FieldLevelHelp content={tooltipContent} />}
     >
       {setting.value}
@@ -57,6 +50,7 @@ SyncSettingField.propTypes = {
   setting: PropTypes.object.isRequired,
   resetField: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
+  syncType: PropTypes.string.isRequired,
 };
 
 export default SyncSettingField;

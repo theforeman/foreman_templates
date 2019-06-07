@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { get } from 'lodash';
+import { Field as FormikField } from 'formik';
 import PropTypes from 'prop-types';
 
 import RenderField from './RenderField';
@@ -11,25 +12,35 @@ const TextButtonField = ({
   className,
   inputClassName,
   blank,
-  buttonAttrs,
+  buttonText,
+  buttonAction,
   fieldSelector,
-  validate,
   disabled,
   fieldRequired,
   tooltipHelp,
 }) => (
-  <Field
+  <FormikField
     name={name}
-    label={label}
-    fieldSelector={fieldSelector}
-    tooltipHelp={tooltipHelp}
-    component={RenderField}
-    buttonAttrs={buttonAttrs}
-    blank={blank}
-    item={item}
-    disabled={disabled}
-    validate={item.validate}
-    fieldRequired={fieldRequired}
+    render={({ field, form }) => (
+      <RenderField
+        label={label}
+        fieldSelector={fieldSelector}
+        tooltipHelp={tooltipHelp}
+        buttonAttrs={{
+          buttonText,
+          buttonAction: () => buttonAction(form.setFieldValue),
+        }}
+        blank={blank}
+        item={item}
+        disabled={disabled}
+        fieldRequired={fieldRequired}
+        meta={{
+          touched: get(form.touched, name),
+          error: get(form.errors, name),
+        }}
+        input={field}
+      />
+    )}
   />
 );
 
@@ -43,12 +54,9 @@ TextButtonField.propTypes = {
     label: PropTypes.string,
     value: PropTypes.string,
   }),
-  buttonAttrs: PropTypes.shape({
-    buttonText: PropTypes.node,
-    buttonAction: PropTypes.func,
-  }).isRequired,
+  buttonText: PropTypes.node.isRequired,
+  buttonAction: PropTypes.func.isRequired,
   fieldSelector: PropTypes.func,
-  validate: PropTypes.array,
   disabled: PropTypes.bool,
   fieldRequired: PropTypes.bool,
   tooltipHelp: PropTypes.node,
@@ -58,7 +66,6 @@ TextButtonField.defaultProps = {
   blank: { label: 'Choose one...', value: '' },
   className: '',
   inputClassName: 'col-md-6',
-  validate: [],
   disabled: false,
   fieldRequired: false,
   tooltipHelp: null,

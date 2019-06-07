@@ -13,6 +13,7 @@ const commonFixtures = {
   importSettings,
   exportSettings,
   resetField: noop,
+  formProps: { isSubmitting: false },
   disabled: false,
 };
 
