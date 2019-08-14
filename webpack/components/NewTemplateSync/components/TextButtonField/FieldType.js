@@ -34,13 +34,13 @@ FieldType.propTypes = {
   fieldSelector: PropTypes.func,
   input: PropTypes.object.isRequired,
   disabled: PropTypes.bool,
-  blank: PropTypes.bool,
+  blank: PropTypes.object,
 };
 
 FieldType.defaultProps = {
   fieldSelector: null,
   disabled: false,
-  blank: false,
+  blank: {},
 };
 
 export default FieldType;

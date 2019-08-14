@@ -1,7 +1,7 @@
 import React from 'react';
 
 // TODO: extract to core
-export const withProtectedView = (
+const withProtectedView = (
   ProtectedComponent,
   ProtectionComponent,
   protectionFn,

@@ -2,7 +2,12 @@ import React from 'react';
 import { ListView } from 'patternfly-react';
 import PropTypes from 'prop-types';
 
-import { templateErrors, templateHeading, itemLeftContentIcon, additionalInfo } from './helpers';
+import {
+  templateErrors,
+  templateHeading,
+  itemLeftContentIcon,
+  additionalInfo,
+} from './helpers';
 
 const SyncedTemplate = ({ template, editPath }) => (
   <ListView.Item

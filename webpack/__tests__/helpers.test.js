@@ -1,6 +1,6 @@
 import React from 'react';
 import { testSelectorsSnapshotWithFixtures } from 'react-redux-test-utils';
-import { deepPropsToCamelCase, withProtectedView } from '../helpers';
+import { deepPropsToCamelCase } from '../helpers';
 import withProtectedView from '../withProtectedView';
 
 const ProtectedComponent = () => <div>Protected component</div>;

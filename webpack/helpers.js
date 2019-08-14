@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { propsToCamelCase } from 'foremanReact/common/helpers';
 
 export const deepPropsToCamelCase = obj => {

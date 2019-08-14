@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Tooltip,
-  Icon,
-  OverlayTrigger
-} from 'patternfly-react';
+import { Tooltip, Icon, OverlayTrigger } from 'patternfly-react';
 import PropTypes from 'prop-types';
 
 const ButtonTooltip = props => {

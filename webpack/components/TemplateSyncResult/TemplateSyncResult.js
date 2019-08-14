@@ -14,7 +14,6 @@ const TemplateSyncResult = ({
   editPaths,
   fileRepoStartWith,
 }) => {
-
   const redirectBack = () => history.push({ pathname: '/template_syncs' });
 
   return isEmpty(templates) ? (

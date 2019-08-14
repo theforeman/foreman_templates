@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  FieldLevelHelp,
-  OverlayTrigger,
-  Tooltip,
-  Icon,
-} from 'patternfly-react';
 import PropTypes from 'prop-types';
+import { FieldLevelHelp } from 'patternfly-react';
 
 import TextButtonField from './TextButtonField';
 import ButtonTooltip from './ButtonTooltip';
