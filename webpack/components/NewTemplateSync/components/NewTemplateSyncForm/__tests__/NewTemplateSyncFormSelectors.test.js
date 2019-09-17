@@ -1,6 +1,6 @@
 import { testSelectorsSnapshotWithFixtures } from 'react-redux-test-utils';
 
-import { formName } from '../NewTemplateSyncFormConstants';
+import { NEW_TEMPLATE_SYNC_FORM_NAME } from '../NewTemplateSyncFormConstants';
 import {
   registeredImportSettings,
   initialValues,
@@ -16,14 +16,14 @@ import {
 
 const formStateFactory = obj => ({
   form: {
-    [formName]: obj,
+    [NEW_TEMPLATE_SYNC_FORM_NAME]: obj,
   },
 });
 
 const fixtures = {
   'should return registered fields': () =>
     selectRegisteredFields(
-      formName,
+      NEW_TEMPLATE_SYNC_FORM_NAME,
       formStateFactory(registeredImportSettings)
     ),
   'should return initial form values': () =>

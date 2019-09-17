@@ -6,7 +6,7 @@ import Form from 'foremanReact/components/common/forms/Form';
 
 import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
-import { formName } from './NewTemplateSyncFormConstants';
+import { NEW_TEMPLATE_SYNC_FORM_NAME } from './NewTemplateSyncFormConstants';
 
 const submit = syncType => (formValues, dispatch, props) => {
   const { submitForm, importUrl, exportUrl, history, currentFields } = props;
@@ -87,7 +87,7 @@ class NewTemplateSyncForm extends React.Component {
       value
     ) => {
       dispatchFn(changeFn(nameOfForm, fieldName, value));
-    })(dispatch, change, formName);
+    })(dispatch, change, NEW_TEMPLATE_SYNC_FORM_NAME);
 
     return (
       <Form

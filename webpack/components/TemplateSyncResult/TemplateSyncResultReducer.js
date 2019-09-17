@@ -1,11 +1,10 @@
 import Immutable from 'seamless-immutable';
+import { deepPropsToCamelCase } from 'foremanReact/common/helpers';
 
 import {
   TEMPLATESYNC_FORM_SUBMITTED,
   SYNC_RESULT_PAGINATION_CHANGE,
 } from '../../consts';
-
-import { deepPropsToCamelCase } from '../../helpers';
 
 export const initialState = Immutable({
   resultAction: '',

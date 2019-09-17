@@ -73,7 +73,7 @@ class Setting
           self.set('template_sync_repo', N_('Target path to import and export. Different protocols can be used, e.g. /tmp/dir, git://example.com, https://example.com, ssh://example.com'), 'https://github.com/theforeman/community-templates.git', N_('Repo')),
           self.set('template_sync_negate', N_('Negate the prefix (for purging) / filter (for importing/exporting)'), false, N_('Negate')),
           self.set('template_sync_branch', N_('Default branch in Git repo'), '', N_('Branch')),
-          self.set('template_sync_metadata_export_mode', N_('Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template withou metadata'), 'refresh', N_('Metadata export mode'), nil, { :collection => Proc.new { self.metadata_export_mode_types } }),
+          self.set('template_sync_metadata_export_mode', N_('Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata'), 'refresh', N_('Metadata export mode'), nil, { :collection => Proc.new { self.metadata_export_mode_types } }),
           self.set('template_sync_force', N_('Should importing overwrite locked templates?'), false, N_('Force import')),
           self.set('template_sync_lock', N_('Should importing lock templates?'), false, N_('Lock templates')),
         ].compact.each { |s| self.create! s.update(:category => "Setting::TemplateSync") }

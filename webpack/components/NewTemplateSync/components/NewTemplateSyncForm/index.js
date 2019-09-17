@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 
 import * as FormActions from 'foremanReact/redux/actions/common/forms';
 
-import { formName } from './NewTemplateSyncFormConstants';
+import { NEW_TEMPLATE_SYNC_FORM_NAME } from './NewTemplateSyncFormConstants';
 import NewTemplateSyncForm from './NewTemplateSyncForm';
 
 import {
@@ -22,7 +22,10 @@ const mapStateToProps = (state, ownProps) => {
 
   const initialFormValues = selectInitialFormValues(state);
 
-  const currentFields = selectRegisteredFields(formName, state);
+  const currentFields = selectRegisteredFields(
+    NEW_TEMPLATE_SYNC_FORM_NAME,
+    state
+  );
 
   return {
     initialValues: { ...initialFormValues },
@@ -32,7 +35,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const form = reduxForm({ form: formName })(NewTemplateSyncForm);
+const form = reduxForm({ form: NEW_TEMPLATE_SYNC_FORM_NAME })(
+  NewTemplateSyncForm
+);
 export default connect(
   mapStateToProps,
   FormActions

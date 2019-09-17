@@ -1,4 +1,5 @@
 import api from 'foremanReact/API';
+import { deepPropsToCamelCase } from 'foremanReact/common/helpers';
 
 import {
   SYNC_SETTINGS_REQUEST,
@@ -6,21 +7,20 @@ import {
   SYNC_SETTINGS_FAILURE,
 } from '../../consts';
 
-import { deepPropsToCamelCase } from '../../helpers';
-
-export const getSyncSettings = url => dispatch => {
+export const getSyncSettings = url => async dispatch => {
   dispatch({ type: SYNC_SETTINGS_REQUEST });
-  return api
-    .get(url)
-    .then(({ data }) =>
-      dispatch({
-        type: SYNC_SETTINGS_SUCCESS,
-        payload: {
-          ...deepPropsToCamelCase(data),
-        },
-      })
-    )
-    .catch(error => dispatch(errorHandler(SYNC_SETTINGS_FAILURE, error)));
+
+  try {
+    const { data } = await api.get(url);
+    return dispatch({
+      type: SYNC_SETTINGS_SUCCESS,
+      payload: {
+        ...deepPropsToCamelCase(data),
+      },
+    });
+  } catch (error) {
+    return dispatch(errorHandler(SYNC_SETTINGS_FAILURE, error));
+  }
 };
 
 const errorHandler = (msg, err) => {
