@@ -22,7 +22,7 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 1.23'
+        requires_foreman '>= 1.24'
 
         apipie_documented_controllers ["#{ForemanTemplates::Engine.root}/app/controllers/api/v2/*.rb"]
 
