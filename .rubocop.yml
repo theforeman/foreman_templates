@@ -48,7 +48,7 @@ Style/GuardClause:
 Style/EmptyMethod:
   Enabled: false
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   Enabled: false
 
 Style/TrailingCommaInHashLiteral:
@@ -85,8 +85,6 @@ Rails/Output:
   Enabled: false
 
 # needs major refactorings before we can improve
-Metrics/PerceivedComplexity:
-  Max: 13
 Metrics/ClassLength:
   Max: 200
 Metrics/AbcSize:

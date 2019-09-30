@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTemplateSyncReducer should return initial state 1`] = `
+Object {
+  "error": "",
+  "exportSettings": Array [],
+  "importSettings": Array [],
+  "loadingSettings": false,
+}
+`;
+
+exports[`NewTemplateSyncReducer should start loading on setting values request 1`] = `
+Object {
+  "error": "",
+  "exportSettings": Array [],
+  "importSettings": Array [],
+  "loadingSettings": true,
+}
+`;
+
+exports[`NewTemplateSyncReducer should stop loading on setting values success 1`] = `
+Object {
+  "error": "",
+  "exportSettings": Array [
+    Object {
+      "id": 47,
+      "name": "filter",
+      "settingsType": "string",
+      "value": "",
+    },
+    Object {
+      "id": 48,
+      "name": "negate",
+      "settingsType": "bool",
+      "value": false,
+    },
+    Object {
+      "id": 49,
+      "name": "repo",
+      "settingsType": "string",
+      "value": "https://github.com/theforeman/community-templates.git",
+    },
+  ],
+  "importSettings": Array [
+    Object {
+      "id": 45,
+      "name": "associate",
+      "selection": Array [
+        Object {
+          "label": "New",
+          "value": "new",
+        },
+        Object {
+          "label": "Never",
+          "value": "never",
+        },
+        Object {
+          "label": "Always",
+          "value": "always",
+        },
+      ],
+      "settingsType": "string",
+      "value": "new",
+    },
+    Object {
+      "id": 46,
+      "name": "force",
+      "settingsType": "bool",
+      "value": false,
+    },
+  ],
+  "loadingSettings": false,
+}
+`;

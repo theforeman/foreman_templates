@@ -27,6 +27,7 @@ module ForemanTemplates
     def export_to_git
       @dir = Dir.mktmpdir
       return @export_result if branch_missing?
+
       git_repo = Git.clone(@repo, @dir)
       logger.debug "cloned '#{@repo}' to '#{@dir}'"
 
@@ -67,15 +68,19 @@ module ForemanTemplates
 
     def dump_files!
       templates = templates_to_dump
-      templates.map do |template|
-        current_dir = get_dump_dir(template)
-        FileUtils.mkdir_p current_dir
-        filename = File.join(current_dir, get_template_filename(template))
-        File.open(filename, 'w+') do |file|
-          logger.debug "Writing to file #{filename}"
-          bytes = file.write template.public_send(export_method)
-          logger.debug "finished writing #{bytes}"
+      begin
+        templates.map do |template|
+          current_dir = get_dump_dir(template)
+          FileUtils.mkdir_p current_dir
+          filename = File.join(current_dir, get_template_filename(template))
+          File.open(filename, 'w+') do |file|
+            logger.debug "Writing to file #{filename}"
+            bytes = file.write template.public_send(export_method)
+            logger.debug "finished writing #{bytes}"
+          end
         end
+      rescue StandardError => e
+        raise PathAccessException, e.message
       end
       @export_result.add_exported_templates templates
     end

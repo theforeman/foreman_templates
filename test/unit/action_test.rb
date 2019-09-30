@@ -72,7 +72,7 @@ module ForemanTemplates
 
     context 'verify_path!' do
       test 'raises an exception if the path does not exists' do
-        assert_raises RuntimeError do
+        assert_raises ForemanTemplates::PathAccessException do
           Action.new.verify_path!('/tmpfoobar')
         end
       end

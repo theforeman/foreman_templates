@@ -1,7 +1,7 @@
 module ForemanTemplates
   class ParseResult
     attr_accessor :name, :template
-    attr_reader :imported, :diff, :exception, :additional_errors
+    attr_reader :imported, :diff, :exception, :additional_errors, :template_file
 
     def initialize(template_file)
       @template_file = template_file.split('/').last
@@ -72,6 +72,7 @@ module ForemanTemplates
 
     def determine_result_diff
       return if @template.nil? || !@template.template_changed?
+
       template_was = @template.template_was
       template_is = @template.template
       @diff = calculate_diff(template_was, template_is)

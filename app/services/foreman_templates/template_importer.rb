@@ -7,7 +7,7 @@ module ForemanTemplates
     end
 
     def initialize(args = {})
-      super
+      super args
       @verbose = parse_bool(@verbose)
       @force = parse_bool(@force)
       @lock = parse_bool(@lock)
@@ -62,6 +62,7 @@ module ForemanTemplates
 
         begin
           next unless (template_type = template_model(metadata, parse_result))
+
           template = template_type.import_without_save(name, text, import_options)
           parse_result.template = template
           parse_result.determine_result_diff
@@ -128,6 +129,7 @@ module ForemanTemplates
     def name_matching_filter?(name)
       matching = name.match(/#{@filter}/i)
       return !matching if @negate
+
       matching
     end
 

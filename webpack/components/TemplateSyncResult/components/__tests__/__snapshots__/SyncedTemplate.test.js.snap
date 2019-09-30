@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SyncedTemplate should render template with invalid metadata 1`] = `
+<ListViewItem
+  actions={null}
+  additionalInfo={
+    Array [
+      <EmptyInfoItem
+        attr="locked"
+        template={
+          Object {
+            "additionalErrors": "No \\"name\\" found in metadata",
+            "errors": null,
+            "name": null,
+            "templateFile": "random_template.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
+        attr="snippet"
+        template={
+          Object {
+            "additionalErrors": "No \\"name\\" found in metadata",
+            "errors": null,
+            "name": null,
+            "templateFile": "random_template.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
+        attr="humanizedClassName"
+        template={
+          Object {
+            "additionalErrors": "No \\"name\\" found in metadata",
+            "errors": null,
+            "name": null,
+            "templateFile": "random_template.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
+        attr="kind"
+        template={
+          Object {
+            "additionalErrors": "No \\"name\\" found in metadata",
+            "errors": null,
+            "name": null,
+            "templateFile": "random_template.erb",
+          }
+        }
+      />,
+      <StringInfoItem
+        attr="templateFile"
+        elipsed={true}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": "No \\"name\\" found in metadata",
+            "errors": null,
+            "name": null,
+            "templateFile": "random_template.erb",
+          }
+        }
+        translate={false}
+      />,
+    ]
+  }
+  checkboxInput={null}
+  className="listViewItem--listItemVariants"
+  compoundExpand={false}
+  compoundExpanded={false}
+  description={null}
+  heading=" "
+  hideCloseIcon={true}
+  initExpanded={false}
+  leftContent={
+    <Icon
+      name="ok"
+      size="sm"
+      type="pf"
+    />
+  }
+  onCloseCompoundExpand={[Function]}
+  onExpand={[Function]}
+  onExpandClose={[Function]}
+  stacked={true}
+>
+  <span>
+    There were no errors.
+  </span>
+</ListViewItem>
+`;
+
+exports[`SyncedTemplate should render template with validation errors 1`] = `
+<ListViewItem
+  actions={null}
+  additionalInfo={
+    Array [
+      <IconInfoItem
+        attr="locked"
+        iconName="lock"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "ProvisioningTemplate",
+            "errors": Object {
+              "base": Array [
+                "This template is locked",
+              ],
+            },
+            "humanizedClassName": "Provisioning Template",
+            "kind": "Provision",
+            "locked": true,
+            "name": "EPEL",
+            "snippet": true,
+            "templateFile": "epel.erb",
+          }
+        }
+        tooltipText="Locked"
+      />,
+      <IconInfoItem
+        attr="snippet"
+        iconName="check"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "ProvisioningTemplate",
+            "errors": Object {
+              "base": Array [
+                "This template is locked",
+              ],
+            },
+            "humanizedClassName": "Provisioning Template",
+            "kind": "Provision",
+            "locked": true,
+            "name": "EPEL",
+            "snippet": true,
+            "templateFile": "epel.erb",
+          }
+        }
+        tooltipText="Snippet"
+      />,
+      <StringInfoItem
+        attr="humanizedClassName"
+        elipsed={false}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "ProvisioningTemplate",
+            "errors": Object {
+              "base": Array [
+                "This template is locked",
+              ],
+            },
+            "humanizedClassName": "Provisioning Template",
+            "kind": "Provision",
+            "locked": true,
+            "name": "EPEL",
+            "snippet": true,
+            "templateFile": "epel.erb",
+          }
+        }
+        translate={true}
+      />,
+      <StringInfoItem
+        attr="kind"
+        elipsed={false}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "ProvisioningTemplate",
+            "errors": Object {
+              "base": Array [
+                "This template is locked",
+              ],
+            },
+            "humanizedClassName": "Provisioning Template",
+            "kind": "Provision",
+            "locked": true,
+            "name": "EPEL",
+            "snippet": true,
+            "templateFile": "epel.erb",
+          }
+        }
+        translate={false}
+      />,
+      <StringInfoItem
+        attr="templateFile"
+        elipsed={true}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "ProvisioningTemplate",
+            "errors": Object {
+              "base": Array [
+                "This template is locked",
+              ],
+            },
+            "humanizedClassName": "Provisioning Template",
+            "kind": "Provision",
+            "locked": true,
+            "name": "EPEL",
+            "snippet": true,
+            "templateFile": "epel.erb",
+          }
+        }
+        translate={false}
+      />,
+    ]
+  }
+  checkboxInput={null}
+  className="listViewItem--listItemVariants"
+  compoundExpand={false}
+  compoundExpanded={false}
+  description={null}
+  heading="EPEL"
+  hideCloseIcon={true}
+  initExpanded={false}
+  leftContent={
+    <Icon
+      name="error-circle-o"
+      size="sm"
+      type="pf"
+    />
+  }
+  onCloseCompoundExpand={[Function]}
+  onExpand={[Function]}
+  onExpandClose={[Function]}
+  stacked={true}
+>
+  <ul>
+    <li
+      key="EPEL-base"
+    >
+      This template is locked
+    </li>
+  </ul>
+</ListViewItem>
+`;
+
+exports[`SyncedTemplate should render template without errros 1`] = `
+<ListViewItem
+  actions={null}
+  additionalInfo={
+    Array [
+      <EmptyInfoItem
+        attr="locked"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
+        attr="snippet"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <StringInfoItem
+        attr="humanizedClassName"
+        elipsed={false}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+        translate={true}
+      />,
+      <EmptyInfoItem
+        attr="kind"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <StringInfoItem
+        attr="templateFile"
+        elipsed={true}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+        translate={false}
+      />,
+    ]
+  }
+  checkboxInput={null}
+  className="listViewItem--listItemVariants"
+  compoundExpand={false}
+  compoundExpanded={false}
+  description={null}
+  heading="CoreOS default"
+  hideCloseIcon={true}
+  initExpanded={false}
+  leftContent={
+    <Icon
+      name="ok"
+      size="sm"
+      type="pf"
+    />
+  }
+  onCloseCompoundExpand={[Function]}
+  onExpand={[Function]}
+  onExpandClose={[Function]}
+  stacked={true}
+>
+  <span>
+    There were no errors.
+  </span>
+</ListViewItem>
+`;

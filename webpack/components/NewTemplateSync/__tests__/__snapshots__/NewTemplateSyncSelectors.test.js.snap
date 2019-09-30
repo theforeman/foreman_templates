@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTemplateSyncSelectors should return export settings 1`] = `
+Array [
+  Object {
+    "id": 47,
+    "name": "filter",
+    "settingsType": "string",
+    "value": "",
+  },
+  Object {
+    "id": 48,
+    "name": "negate",
+    "settingsType": "bool",
+    "value": false,
+  },
+  Object {
+    "id": 49,
+    "name": "repo",
+    "settingsType": "string",
+    "value": "https://github.com/theforeman/community-templates.git",
+  },
+]
+`;
+
+exports[`NewTemplateSyncSelectors should return import settings 1`] = `
+Array [
+  Object {
+    "id": 45,
+    "name": "associate",
+    "selection": Array [
+      Object {
+        "label": "New",
+        "value": "new",
+      },
+      Object {
+        "label": "Never",
+        "value": "never",
+      },
+      Object {
+        "label": "Always",
+        "value": "always",
+      },
+    ],
+    "settingsType": "string",
+    "value": "new",
+  },
+  Object {
+    "id": 46,
+    "name": "force",
+    "settingsType": "bool",
+    "value": false,
+  },
+]
+`;
+
+exports[`NewTemplateSyncSelectors should return loading error 1`] = `"Error"`;
+
+exports[`NewTemplateSyncSelectors should return loading settings 1`] = `true`;

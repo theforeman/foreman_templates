@@ -1,0 +1,73 @@
+{
+  "name": "foreman_templates",
+  "version": "0.0.1",
+  "description": "This plugin will sync the contents of the Foreman Community Templates [repository](https://github.com/theforeman/community-templates/) (or a git repo of your choice) to your local Foreman instance",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node node_modules/.bin/jest webpack",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc webpack/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theforeman/foreman_templates.git"
+  },
+  "author": "The Foreman team",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://projects.theforeman.org"
+  },
+  "homepage": "https://github.com/theforeman/foreman_templates",
+  "dependencies": {
+    "@theforeman/vendor": "^0.4.0"
+  },
+  "devDependencies": {
+    "@theforeman/vendor-dev": "^0.4.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-patternfly-react": "^0.2.1",
+    "eslint-plugin-react": "^7.4.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.16.4",
+    "react-ellipsis-with-tooltip": "^1.0.8",
+    "react-redux": "^6.0.0",
+    "react-redux-test-utils": "^0.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleDirectories": [
+      "node_modules/@theforeman/vendor-core/node_modules",
+      "node_modules",
+      "webpack"
+    ],
+    "setupFiles": [
+      "raf/polyfill",
+      "./webpack/testSetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/foreman/"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
+  }
+}

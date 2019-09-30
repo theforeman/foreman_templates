@@ -1,3 +1,5 @@
 *.swp
 .idea
 Gemfile.lock
+node_modules
+package-lock.json
