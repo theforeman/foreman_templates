@@ -1,12 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { capitalize } from 'lodash';
 
 import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import { Button } from 'patternfly-react';
 import SyncResultList from './SyncResultList';
-import SyncResultSubtitle from './SyncResultSubtitle';
+
+const titleString = (type, repo, branch, gitUser, fileRepoStartWith) => {
+  const prep = type === 'import' ? 'from' : 'to';
+  const isFileRepo = fileRepoStartWith.reduce(
+    (memo, item) => repo.startsWith(item) || memo,
+    false
+  );
+
+  const branchString = branch && !isFileRepo ? `and branch ${branch}` : '';
+  const userString = (gitUser && `as user ${gitUser}`) || '';
+
+  return `${capitalize(type)} ${prep} ${repo} ${branchString} ${userString}`;
+};
 
 const FinishedSyncResult = ({
   templates,
@@ -21,15 +34,8 @@ const FinishedSyncResult = ({
 }) => (
   <PageLayout
     searchable={false}
-    header={`You tried to ${type} the following templates`}
+    header={titleString(type, repo, branch, gitUser, fileRepoStartWith)}
   >
-    <SyncResultSubtitle
-      repo={repo}
-      branch={branch}
-      gitUser={gitUser}
-      fileRepoStartWith={fileRepoStartWith}
-    />
-
     <div className="row">
       <div className="title-filter col-md-4">&nbsp;</div>
       <div id="title_action" className="col-md-8">
