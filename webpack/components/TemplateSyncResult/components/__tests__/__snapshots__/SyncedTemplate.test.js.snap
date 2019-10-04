@@ -75,7 +75,7 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
   initExpanded={false}
   leftContent={
     <Icon
-      name="ok"
+      name="error-circle-o"
       size="sm"
       type="pf"
     />
@@ -85,9 +85,13 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
   onExpandClose={[Function]}
   stacked={true}
 >
-  <span>
-    There were no errors.
-  </span>
+  <ul>
+    <li
+      key="random_template.erb-additional"
+    >
+      No "name" found in metadata
+    </li>
+  </ul>
 </ListViewItem>
 `;
 
@@ -233,7 +237,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
 >
   <ul>
     <li
-      key="EPEL-base"
+      key="epel.erb-base"
     >
       This template is locked
     </li>
