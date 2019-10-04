@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+
+import { Button } from 'patternfly-react';
 import SyncResultList from './SyncResultList';
 import SyncResultSubtitle from './SyncResultSubtitle';
 
@@ -28,8 +30,15 @@ const FinishedSyncResult = ({
       fileRepoStartWith={fileRepoStartWith}
     />
 
-    <div className="form-group">
-      <Link to="/template_syncs">{__('Back')}</Link>
+    <div className="row">
+      <div className="title-filter col-md-4">&nbsp;</div>
+      <div id="title_action" className="col-md-8">
+        <div className="btn-toolbar pull-right">
+          <LinkContainer to="/template_syncs" activeClassName="">
+            <Button>{__('Back to sync form')}</Button>
+          </LinkContainer>
+        </div>
+      </div>
     </div>
 
     <SyncResultList
