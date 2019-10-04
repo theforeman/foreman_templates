@@ -2,18 +2,12 @@ import React from 'react';
 import { ListView } from 'patternfly-react';
 import PropTypes from 'prop-types';
 
-import {
-  templateErrors,
-  templateHeading,
-  itemLeftContentIcon,
-  additionalInfo,
-} from './helpers';
+import { templateErrors, itemLeftContentIcon, additionalInfo } from './helpers';
 
 const SyncedTemplate = ({ template, editPath }) => (
   <ListView.Item
     key={template.id}
-    heading={templateHeading(template, editPath)}
-    additionalInfo={additionalInfo(template)}
+    additionalInfo={additionalInfo(template, editPath)}
     className="listViewItem--listItemVariants"
     leftContent={itemLeftContentIcon(template)}
     hideCloseIcon

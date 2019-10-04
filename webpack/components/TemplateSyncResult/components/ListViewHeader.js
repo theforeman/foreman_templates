@@ -6,6 +6,7 @@ import InfoItem from './SyncedTemplate/InfoItem';
 
 const ListViewHeader = props => {
   const additionalInfo = [
+    'Name',
     'Locked',
     'Snippet',
     'Template Class',
@@ -20,7 +21,6 @@ const ListViewHeader = props => {
   // Use ListView.Item as a header to get a vertical alignment
   return (
     <ListView.Item
-      heading="Name"
       additionalInfo={additionalInfo}
       className={classNames(
         'listViewItem--listItemVariants',

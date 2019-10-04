@@ -5,11 +5,13 @@ import { Icon } from 'patternfly-react';
 import IconInfoItem from './IconInfoItem';
 import EmptyInfoItem from './EmptyInfoItem';
 import StringInfoItem from './StringInfoItem';
+import LinkInfoItem from './LinkInfoItem';
 
 export const itemIteratorId = (template, attr) => `${template.name}-${attr}`;
 
-export const additionalInfo = template => {
+export const additionalInfo = (template, editPath) => {
   const infoAttrs = [
+    'name',
     'locked',
     'snippet',
     'humanizedClassName',
@@ -66,6 +68,10 @@ export const additionalInfo = template => {
       case 'templateFile':
         return (
           <StringInfoItem template={template} attr={attr} key={key} elipsed />
+        );
+      case 'name':
+        return (
+          <LinkInfoItem template={template} editPath={editPath} attr={attr} />
         );
       default:
         return '';

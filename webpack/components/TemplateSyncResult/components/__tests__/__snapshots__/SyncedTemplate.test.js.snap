@@ -6,6 +6,17 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
   additionalInfo={
     Array [
       <EmptyInfoItem
+        attr="name"
+        template={
+          Object {
+            "additionalErrors": "No \\"name\\" found in metadata",
+            "errors": null,
+            "name": null,
+            "templateFile": "random_template.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
         attr="locked"
         template={
           Object {
@@ -70,7 +81,7 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
   compoundExpand={false}
   compoundExpanded={false}
   description={null}
-  heading=" "
+  heading={null}
   hideCloseIcon={true}
   initExpanded={false}
   leftContent={
@@ -96,6 +107,27 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
   actions={null}
   additionalInfo={
     Array [
+      <LinkInfoItem
+        attr="name"
+        editPath="/templates/:id/edit"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "ProvisioningTemplate",
+            "errors": Object {
+              "base": Array [
+                "This template is locked",
+              ],
+            },
+            "humanizedClassName": "Provisioning Template",
+            "kind": "Provision",
+            "locked": true,
+            "name": "EPEL",
+            "snippet": true,
+            "templateFile": "epel.erb",
+          }
+        }
+      />,
       <IconInfoItem
         attr="locked"
         iconName="lock"
@@ -216,7 +248,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
   compoundExpand={false}
   compoundExpanded={false}
   description={null}
-  heading="EPEL"
+  heading={null}
   hideCloseIcon={true}
   initExpanded={false}
   leftContent={
@@ -246,6 +278,22 @@ exports[`SyncedTemplate should render template without errros 1`] = `
   actions={null}
   additionalInfo={
     Array [
+      <LinkInfoItem
+        attr="name"
+        editPath="/ptables/:id/edit"
+        template={
+          Object {
+            "additionalErrors": null,
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
       <EmptyInfoItem
         attr="locked"
         template={
@@ -334,7 +382,7 @@ exports[`SyncedTemplate should render template without errros 1`] = `
   compoundExpand={false}
   compoundExpanded={false}
   description={null}
-  heading="CoreOS default"
+  heading={null}
   hideCloseIcon={true}
   initExpanded={false}
   leftContent={
