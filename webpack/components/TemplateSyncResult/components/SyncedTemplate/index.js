@@ -2,7 +2,11 @@ import React from 'react';
 import { ListView } from 'patternfly-react';
 import PropTypes from 'prop-types';
 
-import { templateErrors, itemLeftContentIcon, additionalInfo } from './helpers';
+import {
+  expandableContent,
+  itemLeftContentIcon,
+  additionalInfo,
+} from './helpers';
 
 const SyncedTemplate = ({ template, editPath }) => (
   <ListView.Item
@@ -13,7 +17,7 @@ const SyncedTemplate = ({ template, editPath }) => (
     hideCloseIcon
     stacked
   >
-    {templateErrors(template)}
+    {expandableContent(template)}
   </ListView.Item>
 );
 

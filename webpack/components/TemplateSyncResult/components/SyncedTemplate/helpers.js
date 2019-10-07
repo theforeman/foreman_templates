@@ -81,32 +81,19 @@ export const additionalInfo = (template, editPath) => {
 };
 
 export const itemLeftContentIcon = template => {
-  const iconName = isEmpty(aggregatedErrors(template))
-    ? 'ok'
-    : 'error-circle-o';
+  let iconName = template.additionalInfo ? 'warning-triangle-o' : undefined;
+
+  if (!iconName) {
+    iconName = isEmpty(aggregatedErrors(template)) ? 'ok' : 'error-circle-o';
+  }
   return <Icon name={iconName} size="sm" type="pf" />;
 };
 
-export const templateHeading = (template, editPath) => {
-  if (template.id && template.canEdit) {
-    return (
-      <a
-        href={editPath.replace(':id', template.id)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {template.name}
-      </a>
-    );
-  }
-  return template.name || ' ';
-};
-
-export const templateErrors = template => {
-  if (Object.keys(aggregatedErrors(template)).length !== 0) {
-    const res = Object.keys(aggregatedErrors(template)).map(key => (
+export const expandableContent = template => {
+  if (Object.keys(aggregatedMessages(template)).length !== 0) {
+    const res = Object.keys(aggregatedMessages(template)).map(key => (
       <li key={itemIteratorId(template, key)}>
-        {formatError(key, aggregatedErrors(template)[key])}
+        {formatError(key, aggregatedMessages(template)[key])}
       </li>
     ));
     return <ul>{res}</ul>;
@@ -123,8 +110,16 @@ const aggregatedErrors = template => {
   return err;
 };
 
+const aggregatedMessages = template => {
+  const errors = aggregatedErrors(template);
+  if (template.additionalInfo) {
+    errors.info = template.additionalInfo;
+  }
+  return errors;
+};
+
 const formatError = (key, value) => {
-  const omitKeys = ['base', 'additional'];
+  const omitKeys = ['base', 'additional', 'info'];
   if (omitKeys.reduce((memo, item) => memo || key === item, false)) {
     return value;
   }

@@ -1,7 +1,7 @@
 module ForemanTemplates
   class ParseResult
     attr_accessor :name, :template
-    attr_reader :imported, :diff, :exception, :additional_errors, :template_file
+    attr_reader :imported, :diff, :exception, :additional_errors, :template_file, :additional_info
 
     def initialize(template_file)
       @template_file = template_file.split('/').last
@@ -34,7 +34,7 @@ module ForemanTemplates
     end
 
     def matching_filter
-      generic_error "Skipping, 'name' filtered out based on 'filter' and 'negate' settings"
+      generic_info "Skipping, 'name' filtered out based on 'filter' and 'negate' settings"
     end
 
     def no_metadata_name
@@ -60,6 +60,13 @@ module ForemanTemplates
     def add_exception(exception)
       @imported = false
       @exception = exception
+      self
+    end
+
+    def generic_info(additional_msg)
+      @imported = false
+      @additional_info = additional_msg
+      Logging.logger('app').debug "Not importing #{@template_file}: #{additional_msg}"
       self
     end
 

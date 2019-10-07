@@ -1,5 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SyncedTemplate should render skipped template 1`] = `
+<ListViewItem
+  actions={null}
+  additionalInfo={
+    Array [
+      <LinkInfoItem
+        attr="name"
+        editPath="/ptables/:id/edit"
+        template={
+          Object {
+            "additionalErrors": null,
+            "additionalInfo": "Skipping, this template was filtered out.",
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
+        attr="locked"
+        template={
+          Object {
+            "additionalErrors": null,
+            "additionalInfo": "Skipping, this template was filtered out.",
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <EmptyInfoItem
+        attr="snippet"
+        template={
+          Object {
+            "additionalErrors": null,
+            "additionalInfo": "Skipping, this template was filtered out.",
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <StringInfoItem
+        attr="humanizedClassName"
+        elipsed={false}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "additionalInfo": "Skipping, this template was filtered out.",
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+        translate={true}
+      />,
+      <EmptyInfoItem
+        attr="kind"
+        template={
+          Object {
+            "additionalErrors": null,
+            "additionalInfo": "Skipping, this template was filtered out.",
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+      />,
+      <StringInfoItem
+        attr="templateFile"
+        elipsed={true}
+        mapAttr={[Function]}
+        template={
+          Object {
+            "additionalErrors": null,
+            "additionalInfo": "Skipping, this template was filtered out.",
+            "className": "Ptable",
+            "errors": Object {},
+            "humanizedClassName": "Ptable",
+            "locked": false,
+            "name": "CoreOS default",
+            "snippet": false,
+            "templateFile": "coreos_default.erb",
+          }
+        }
+        translate={false}
+      />,
+    ]
+  }
+  checkboxInput={null}
+  className="listViewItem--listItemVariants"
+  compoundExpand={false}
+  compoundExpanded={false}
+  description={null}
+  heading={null}
+  hideCloseIcon={true}
+  initExpanded={false}
+  leftContent={
+    <Icon
+      name="warning-triangle-o"
+      size="sm"
+      type="pf"
+    />
+  }
+  onCloseCompoundExpand={[Function]}
+  onExpand={[Function]}
+  onExpandClose={[Function]}
+  stacked={true}
+>
+  <ul>
+    <li
+      key="coreos_default.erb-info"
+    >
+      Skipping, this template was filtered out.
+    </li>
+  </ul>
+</ListViewItem>
+`;
+
 exports[`SyncedTemplate should render template with invalid metadata 1`] = `
 <ListViewItem
   actions={null}
