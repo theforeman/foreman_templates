@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PageLayout from 'foremanReact/pages/common/PageLayout/PageLayout';
+import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
 import { Link } from 'react-router-dom';
 import SyncResultList from './SyncResultList';
 import SyncResultSubtitle from './SyncResultSubtitle';
