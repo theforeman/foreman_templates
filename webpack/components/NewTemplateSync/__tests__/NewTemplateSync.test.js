@@ -2,7 +2,7 @@ import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
 
 import NewTemplateSync from '../NewTemplateSync';
 
-jest.mock('foremanReact/pages/common/PageLayout/PageLayout');
+jest.mock('foremanReact/routes/common/PageLayout/PageLayout');
 
 const noop = () => {};
 
