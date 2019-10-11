@@ -7,7 +7,8 @@ import EmptyInfoItem from './EmptyInfoItem';
 import StringInfoItem from './StringInfoItem';
 import LinkInfoItem from './LinkInfoItem';
 
-export const itemIteratorId = (template, attr) => `${template.name}-${attr}`;
+export const itemIteratorId = (template, attr) =>
+  `${template.templateFile}-${attr}`;
 
 export const additionalInfo = (template, editPath) => {
   const infoAttrs = [
@@ -115,8 +116,8 @@ export const templateErrors = template => {
 
 const aggregatedErrors = template => {
   const err = { ...template.errors } || {};
-  if (template.additional_errors) {
-    err.additional = template.additional_errors;
+  if (template.additionalErrors) {
+    err.additional = template.additionalErrors;
   }
 
   return err;
