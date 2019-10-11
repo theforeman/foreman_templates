@@ -51,6 +51,18 @@ export const coreos = {
   humanizedClassName: 'Ptable',
 };
 
+export const filteredOut = {
+  name: 'CoreOS default',
+  templateFile: 'coreos_default.erb',
+  additionalErrors: null,
+  additionalInfo: 'Skipping, this template was filtered out.',
+  errors: {},
+  snippet: false,
+  locked: false,
+  className: 'Ptable',
+  humanizedClassName: 'Ptable',
+};
+
 export const importTemplates = [
   noName,
   epel,

@@ -4,6 +4,7 @@ import {
   noName,
   epel,
   coreos,
+  filteredOut,
 } from '../../__fixtures__/templateSyncResult.fixtures';
 
 const fixtures = {
@@ -17,6 +18,10 @@ const fixtures = {
   },
   'should render template without errros': {
     template: coreos,
+    editPath: '/ptables/:id/edit',
+  },
+  'should render skipped template': {
+    template: filteredOut,
     editPath: '/ptables/:id/edit',
   },
 };
