@@ -3,3 +3,9 @@
 Gemfile.lock
 node_modules
 package-lock.json
+
+locale/*.mo
+locale/*/*.pox
+locale/*/*.edit.po
+locale/*/*.po.time_stamp
+.tx/

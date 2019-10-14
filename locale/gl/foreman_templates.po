@@ -1,0 +1,156 @@
+# Gallegan translations for foreman_templates package.
+# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_templates package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_templates 6.0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-10-14 08:23+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Gallegan\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+"\n"
+
+msgid "Always"
+msgstr ""
+
+msgid "Associate"
+msgstr ""
+
+msgid "Associate templates to OS, organization and location"
+msgstr ""
+
+msgid "Associate to OS's, Locations & Organizations. Options are: always, new or never."
+msgstr ""
+
+msgid "Branch"
+msgstr ""
+
+msgid "Branch in Git repo."
+msgstr ""
+
+msgid "Choose verbosity for Rake task importing templates"
+msgstr ""
+
+msgid "Default branch in Git repo"
+msgstr ""
+
+msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
+msgstr ""
+
+msgid "Dirname"
+msgstr ""
+
+msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "Force import"
+msgstr ""
+
+msgid "Import or export names matching this regex (case-insensitive; snippets are not filtered)"
+msgstr ""
+
+msgid "Initiate Export"
+msgstr ""
+
+msgid "Initiate Import"
+msgstr ""
+
+msgid "Keep"
+msgstr ""
+
+msgid "Lock imported templates"
+msgstr ""
+
+msgid "Lock templates"
+msgstr ""
+
+msgid "Metadata export mode"
+msgstr ""
+
+msgid "Negate"
+msgstr ""
+
+msgid "Negate the prefix (for purging) / filter (for importing/exporting)"
+msgstr ""
+
+msgid "Negate the prefix (for purging)."
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Override the default repo from settings."
+msgstr ""
+
+msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically 'foreman'."
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Repo"
+msgstr ""
+
+msgid "Should importing lock templates?"
+msgstr ""
+
+msgid "Should importing overwrite locked templates?"
+msgstr ""
+
+msgid "Show template diff in response"
+msgstr ""
+
+msgid "Specify how to handle metadata"
+msgstr ""
+
+msgid "Sync Templates"
+msgstr ""
+
+msgid "Target path to import and export. Different protocols can be used, e.g. /tmp/dir, git://example.com, https://example.com, ssh://example.com"
+msgstr ""
+
+msgid "The directory within Git repo containing the templates"
+msgstr ""
+
+msgid "The directory within the Git repo containing the templates"
+msgstr ""
+
+msgid "The string all imported templates should begin with"
+msgstr ""
+
+msgid "The string all imported templates should begin with."
+msgstr ""
+
+msgid "Update templates that are locked"
+msgstr ""
+
+msgid "Using file-based synchronization, but couldn't access %s. "
+msgstr ""
+
+msgid "Verbosity"
+msgstr ""
+
+msgid "template_sync_associate must be one of %s"
+msgstr ""
+
+msgid "template_sync_metadata_export_mode must be one of %s"
+msgstr ""
