@@ -1,0 +1,215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_templates package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_templates 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-14 09:00+0000\n"
+"PO-Revision-Date: 2019-10-14 09:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/controllers/api/v2/template_controller.rb:7
+msgid "Branch in Git repo."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:8
+msgid "Override the default repo from settings."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:9
+msgid ""
+"Export templates with names matching this regex (case-insensitive; snippets ar"
+"e not filtered)."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:10
+msgid "Negate the prefix (for purging)."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:11
+msgid "The directory within Git repo containing the templates"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:14
+msgid "Initiate Import"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:15
+msgid "The string all imported templates should begin with."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:16
+msgid ""
+"Associate to OS's, Locations & Organizations. Options are: always, new or neve"
+"r."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:17
+msgid "Update templates that are locked"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:18
+msgid "Lock imported templates"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:19
+msgid "Show template diff in response"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:30
+msgid "Initiate Export"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:31
+msgid "Specify how to handle metadata"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:35
+msgid "Always"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:36
+msgid "New"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:37
+msgid "Never"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:43
+msgid "Refresh"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:44
+msgid "Keep"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:45
+msgid "Remove"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:68
+msgid "Choose verbosity for Rake task importing templates"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:68
+msgid "Verbosity"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:69
+msgid "Associate templates to OS, organization and location"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:69
+msgid "Associate"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:70
+msgid "The string all imported templates should begin with"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:70
+msgid "Prefix"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:71
+msgid "The directory within the Git repo containing the templates"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:71
+msgid "Dirname"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:72
+msgid ""
+"Import or export names matching this regex (case-insensitive; snippets are not"
+" filtered)"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:72
+msgid "Filter"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:73
+msgid ""
+"Target path to import and export. Different protocols can be used, e.g. /tmp/d"
+"ir, git://example.com, https://example.com, ssh://example.com"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:73
+msgid "Repo"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:74
+msgid "Negate the prefix (for purging) / filter (for importing/exporting)"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:74
+msgid "Negate"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:75
+msgid "Default branch in Git repo"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:75
+msgid "Branch"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:76
+msgid ""
+"Default metadata export mode, refresh re-renders metadata, keep will keep exis"
+"ting metadata, remove exports template without metadata"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:76
+msgid "Metadata export mode"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:77
+msgid "Should importing overwrite locked templates?"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:77
+msgid "Force import"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:78
+msgid "Should importing lock templates?"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:78
+msgid "Lock templates"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:88
+msgid "template_sync_associate must be one of %s"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:95
+msgid "template_sync_metadata_export_mode must be one of %s"
+msgstr ""
+
+#: ../app/services/foreman_templates/action.rb:48
+msgid "Using file-based synchronization, but couldn't access %s. "
+msgstr ""
+
+#: ../app/services/foreman_templates/action.rb:49
+msgid ""
+"Please check the access permissions/SELinux and make sure it is readable/writa"
+"ble for the web application user account, typically 'foreman'."
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:47
+msgid "Sync Templates"
+msgstr ""
