@@ -21,12 +21,11 @@
   },
   "homepage": "https://github.com/theforeman/foreman_templates",
   "dependencies": {
-    "@theforeman/vendor": "^0.4.0"
+    "@theforeman/vendor": "^1.7.0"
   },
   "devDependencies": {
-    "@theforeman/vendor-dev": "^0.4.0",
+    "@theforeman/vendor-dev": "^1.7.0",
     "babel-eslint": "^8.2.1",
-    "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -45,11 +44,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "prettier": "^1.16.4",
-    "react-ellipsis-with-tooltip": "^1.0.8",
-    "react-redux": "^6.0.0",
-    "react-redux-test-utils": "^0.1.1",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "react-redux-test-utils": "^0.1.1"
   },
   "jest": {
     "verbose": true,
