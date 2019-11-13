@@ -20,10 +20,7 @@ const permissionList = (
 );
 
 export default withProtectedView(
-  connect(
-    mapStateToProps,
-    TemplateSyncActions
-  )(NewTemplateSync),
+  connect(mapStateToProps, TemplateSyncActions)(NewTemplateSync),
   PermissionDenied,
   props =>
     props.userPermissions &&
