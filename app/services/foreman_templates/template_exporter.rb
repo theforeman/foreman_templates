@@ -1,5 +1,3 @@
-require 'shellwords'
-
 module ForemanTemplates
   class TemplateExporter < Action
     def self.setting_overrides
@@ -72,7 +70,7 @@ module ForemanTemplates
         templates.map do |template|
           current_dir = get_dump_dir(template)
           FileUtils.mkdir_p current_dir
-          filename = File.join(current_dir, get_template_filename(template))
+          filename = File.join(current_dir, template.template_file)
           File.open(filename, 'w+') do |file|
             logger.debug "Writing to file #{filename}"
             bytes = file.write template.public_send(export_method)
@@ -83,10 +81,6 @@ module ForemanTemplates
         raise PathAccessException, e.message
       end
       @export_result.add_exported_templates templates
-    end
-
-    def get_template_filename(template)
-      Shellwords.escape(template.name.downcase.tr(' /', '_') + '.erb')
     end
 
     def get_dump_dir(template)

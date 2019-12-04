@@ -50,5 +50,9 @@ module ForemanTemplates
              :turbolinks => false
       end
     end
+
+    config.to_prepare do
+      Template.send(:include, ForemanTemplates::TemplateExtensions)
+    end
   end
 end
