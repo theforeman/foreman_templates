@@ -10,7 +10,7 @@ Array [
     "value": "",
   },
   Object {
-    "description": "Negate the prefix/filter (for importing/exporting)",
+    "description": "Negate the filter for import/export",
     "id": 48,
     "name": "negate",
     "settingsType": "bool",

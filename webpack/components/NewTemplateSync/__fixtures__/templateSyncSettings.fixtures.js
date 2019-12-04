@@ -5,12 +5,12 @@ export const associateSetting = Immutable({
   value: 'new',
   settingsType: 'string',
   name: 'associate',
+  description: 'Associate templates to OS, organization and location',
   selection: [
     { value: 'new', label: 'New' },
     { value: 'never', label: 'Never' },
     { value: 'always', label: 'Always' },
   ],
-  description: 'Associate templates to OS, organization and location',
 });
 
 export const forceSetting = Immutable({
@@ -37,7 +37,7 @@ export const negateSetting = Immutable({
   value: false,
   settingsType: 'bool',
   name: 'negate',
-  description: 'Negate the prefix/filter (for importing/exporting)',
+  description: 'Negate the filter for import/export',
 });
 
 export const repoSetting = Immutable({
