@@ -85,21 +85,6 @@ module ForemanTemplates
       end
     end
 
-    describe '#get_template_filename(template)' do
-      before do
-        @template = FactoryBot.create(:provisioning_template, :name => 'template name')
-      end
-
-      test 'converts spaces to underscores and suffixes with .erb' do
-        assert_equal 'template_name.erb', @exporter.get_template_filename(@template)
-      end
-
-      test 'weird characters are properly replaced or escaped' do
-        @template.name = "a/b'c d"
-        assert_equal "a_b\\'c_d.erb", @exporter.get_template_filename(@template)
-      end
-    end
-
     describe '#get_dump_dir' do
       before do
         @template = FactoryBot.create(:provisioning_template)

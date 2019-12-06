@@ -52,7 +52,7 @@ module ForemanTemplates
     end
 
     config.to_prepare do
-      Template.send(:include, ForemanTemplates::TemplateExtensions)
+      Template.include ForemanTemplates::TemplateExtensions
     end
   end
 end
