@@ -34,12 +34,26 @@ const SyncSettingsFields = ({
         })
       : setting;
 
+  const modifyDescription = (setting, type) => {
+    if (setting.description) {
+      let split = setting.description.split('. ');
+      if (setting.name === 'repo' && type !== 'export') {
+        split = split.slice(0, split.length - 1);
+      }
+
+      split = split.join('.<br>');
+      return setting.set('description', split);
+    }
+    return setting;
+  };
+
   const settingsAry = syncType === 'import' ? importSettings : exportSettings;
 
   return (
     <React.Fragment>
       {settingsAry
         .map(setting => addValidationToSetting(setting, validationData))
+        .map(setting => modifyDescription(setting, syncType))
         .map(setting => (
           <SyncSettingField
             setting={setting}

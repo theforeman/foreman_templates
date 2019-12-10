@@ -8,6 +8,7 @@ exports[`SyncSettingFields should show export settings 1`] = `
     resetField={[Function]}
     setting={
       Object {
+        "description": "Import or export names matching this regex (case-insensitive; snippets are not filtered)",
         "id": 47,
         "name": "filter",
         "settingsType": "string",
@@ -21,6 +22,7 @@ exports[`SyncSettingFields should show export settings 1`] = `
     resetField={[Function]}
     setting={
       Object {
+        "description": "Negate the prefix/filter (for importing/exporting)",
         "id": 48,
         "name": "negate",
         "settingsType": "bool",
@@ -34,6 +36,7 @@ exports[`SyncSettingFields should show export settings 1`] = `
     resetField={[Function]}
     setting={
       Object {
+        "description": "Target path to import and export.<br>Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com.<br>When exporting to /tmp, note that production deployments may be configured to use private tmp.",
         "id": 49,
         "name": "repo",
         "required": true,
@@ -56,6 +59,7 @@ exports[`SyncSettingFields should show import settings 1`] = `
     resetField={[Function]}
     setting={
       Object {
+        "description": "Associate templates to OS, organization and location",
         "id": 45,
         "name": "associate",
         "selection": Array [
@@ -83,6 +87,7 @@ exports[`SyncSettingFields should show import settings 1`] = `
     resetField={[Function]}
     setting={
       Object {
+        "description": "Should importing overwrite locked templates?",
         "id": 46,
         "name": "force",
         "settingsType": "bool",
