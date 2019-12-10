@@ -10,6 +10,7 @@ export const associateSetting = Immutable({
     { value: 'never', label: 'Never' },
     { value: 'always', label: 'Always' },
   ],
+  description: 'Associate templates to OS, organization and location',
 });
 
 export const forceSetting = Immutable({
@@ -17,6 +18,7 @@ export const forceSetting = Immutable({
   value: false,
   settingsType: 'bool',
   name: 'force',
+  description: 'Should importing overwrite locked templates?',
 });
 
 export const importSettings = [associateSetting, forceSetting];
@@ -26,6 +28,8 @@ export const filterSetting = Immutable({
   value: '',
   settingsType: 'string',
   name: 'filter',
+  description:
+    'Import or export names matching this regex (case-insensitive; snippets are not filtered)',
 });
 
 export const negateSetting = Immutable({
@@ -33,6 +37,7 @@ export const negateSetting = Immutable({
   value: false,
   settingsType: 'bool',
   name: 'negate',
+  description: 'Negate the prefix/filter (for importing/exporting)',
 });
 
 export const repoSetting = Immutable({
@@ -40,6 +45,8 @@ export const repoSetting = Immutable({
   value: 'https://github.com/theforeman/community-templates.git',
   settingsType: 'string',
   name: 'repo',
+  description:
+    'Target path to import and export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.',
 });
 
 export const exportSettings = [filterSetting, negateSetting, repoSetting];

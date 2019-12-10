@@ -28,18 +28,21 @@ exports[`NewTemplateSyncForm should render for export settings 1`] = `
     exportSettings={
       Array [
         Object {
+          "description": "Import or export names matching this regex (case-insensitive; snippets are not filtered)",
           "id": 47,
           "name": "filter",
           "settingsType": "string",
           "value": "",
         },
         Object {
+          "description": "Negate the prefix/filter (for importing/exporting)",
           "id": 48,
           "name": "negate",
           "settingsType": "bool",
           "value": false,
         },
         Object {
+          "description": "Target path to import and export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.",
           "id": 49,
           "name": "repo",
           "settingsType": "string",
@@ -50,6 +53,7 @@ exports[`NewTemplateSyncForm should render for export settings 1`] = `
     importSettings={
       Array [
         Object {
+          "description": "Associate templates to OS, organization and location",
           "id": 45,
           "name": "associate",
           "selection": Array [
@@ -70,6 +74,7 @@ exports[`NewTemplateSyncForm should render for export settings 1`] = `
           "value": "new",
         },
         Object {
+          "description": "Should importing overwrite locked templates?",
           "id": 46,
           "name": "force",
           "settingsType": "bool",
@@ -119,18 +124,21 @@ exports[`NewTemplateSyncForm should render when for import settings 1`] = `
     exportSettings={
       Array [
         Object {
+          "description": "Import or export names matching this regex (case-insensitive; snippets are not filtered)",
           "id": 47,
           "name": "filter",
           "settingsType": "string",
           "value": "",
         },
         Object {
+          "description": "Negate the prefix/filter (for importing/exporting)",
           "id": 48,
           "name": "negate",
           "settingsType": "bool",
           "value": false,
         },
         Object {
+          "description": "Target path to import and export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.",
           "id": 49,
           "name": "repo",
           "settingsType": "string",
@@ -141,6 +149,7 @@ exports[`NewTemplateSyncForm should render when for import settings 1`] = `
     importSettings={
       Array [
         Object {
+          "description": "Associate templates to OS, organization and location",
           "id": 45,
           "name": "associate",
           "selection": Array [
@@ -161,6 +170,7 @@ exports[`NewTemplateSyncForm should render when for import settings 1`] = `
           "value": "new",
         },
         Object {
+          "description": "Should importing overwrite locked templates?",
           "id": 46,
           "name": "force",
           "settingsType": "bool",

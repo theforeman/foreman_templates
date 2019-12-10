@@ -24,6 +24,14 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
     resetField(settingName, settingValue);
   };
 
+  const tooltipContent = (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: setting.description,
+      }}
+    />
+  );
+
   return (
     <TextButtonField
       name={setting.name}
@@ -38,7 +46,7 @@ const SyncSettingField = ({ setting, resetField, disabled }) => {
       disabled={disabled}
       fieldRequired={setting.required}
       validate={setting.validate}
-      tooltipHelp={<FieldLevelHelp content={setting.description} />}
+      tooltipHelp={<FieldLevelHelp content={tooltipContent} />}
     >
       {setting.value}
     </TextButtonField>

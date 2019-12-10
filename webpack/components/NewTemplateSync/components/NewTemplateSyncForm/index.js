@@ -38,7 +38,4 @@ const mapStateToProps = (state, ownProps) => {
 const form = reduxForm({ form: NEW_TEMPLATE_SYNC_FORM_NAME })(
   NewTemplateSyncForm
 );
-export default connect(
-  mapStateToProps,
-  FormActions
-)(form);
+export default connect(mapStateToProps, FormActions)(form);

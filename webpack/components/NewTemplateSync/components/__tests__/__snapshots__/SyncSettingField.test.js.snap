@@ -18,6 +18,7 @@ exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
   inputClassName="col-md-6"
   item={
     Object {
+      "description": "Should importing overwrite locked templates?",
       "id": 46,
       "name": "force",
       "settingsType": "bool",
@@ -29,7 +30,15 @@ exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
   tooltipHelp={
     <FieldLevelHelp
       buttonClass=""
-      content={null}
+      content={
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Should importing overwrite locked templates?",
+            }
+          }
+        />
+      }
       placement="top"
       rootClose={true}
     />
@@ -56,6 +65,7 @@ exports[`SyncSettingField should render setting with input field 1`] = `
   inputClassName="col-md-6"
   item={
     Object {
+      "description": "Import or export names matching this regex (case-insensitive; snippets are not filtered)",
       "id": 47,
       "name": "filter",
       "settingsType": "string",
@@ -67,7 +77,15 @@ exports[`SyncSettingField should render setting with input field 1`] = `
   tooltipHelp={
     <FieldLevelHelp
       buttonClass=""
-      content={null}
+      content={
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Import or export names matching this regex (case-insensitive; snippets are not filtered)",
+            }
+          }
+        />
+      }
       placement="top"
       rootClose={true}
     />
@@ -94,6 +112,7 @@ exports[`SyncSettingField should render setting with select choices 1`] = `
   inputClassName="col-md-6"
   item={
     Object {
+      "description": "Associate templates to OS, organization and location",
       "id": 45,
       "name": "associate",
       "selection": Array [
@@ -119,7 +138,15 @@ exports[`SyncSettingField should render setting with select choices 1`] = `
   tooltipHelp={
     <FieldLevelHelp
       buttonClass=""
-      content={null}
+      content={
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Associate templates to OS, organization and location",
+            }
+          }
+        />
+      }
       placement="top"
       rootClose={true}
     />

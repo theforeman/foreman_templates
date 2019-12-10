@@ -13,6 +13,7 @@ Object {
 exports[`NewTemplateSyncFormSelectors should return registered fields 1`] = `
 Object {
   "associate": Object {
+    "description": "Associate templates to OS, organization and location",
     "id": 45,
     "name": "associate",
     "selection": Array [
@@ -33,6 +34,7 @@ Object {
     "value": "new",
   },
   "force": Object {
+    "description": "Should importing overwrite locked templates?",
     "id": 46,
     "name": "force",
     "settingsType": "bool",
