@@ -7,7 +7,7 @@ class Setting
     end
 
     def self.import_stripped_names
-      %w(prefix associate force)
+      %w(prefix associate force lock)
     end
 
     def self.export_stripped_names
