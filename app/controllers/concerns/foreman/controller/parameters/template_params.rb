@@ -7,7 +7,7 @@ module Foreman
 
         class_methods do
           def filter_params_list
-            %i(verbose repo branch dirname filter negate metadata_export_mode dirname)
+            %i(verbose repo branch dirname filter negate metadata_export_mode)
           end
 
           def extra_import_params

@@ -3,7 +3,7 @@ class Setting
     self.include_root_in_json = false
 
     def self.common_stripped_names
-      %w(verbose repo branch dir filter negate)
+      %w(verbose repo branch dirname filter negate)
     end
 
     def self.import_stripped_names
