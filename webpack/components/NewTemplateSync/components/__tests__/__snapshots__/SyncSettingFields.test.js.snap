@@ -22,7 +22,7 @@ exports[`SyncSettingFields should show export settings 1`] = `
     resetField={[Function]}
     setting={
       Object {
-        "description": "Negate the prefix/filter (for importing/exporting)",
+        "description": "Negate the filter for export",
         "id": 48,
         "name": "negate",
         "settingsType": "bool",

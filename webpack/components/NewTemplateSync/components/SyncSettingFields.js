@@ -1,5 +1,5 @@
 import React from 'react';
-import { memoize } from 'lodash';
+import { memoize, upperFirst } from 'lodash';
 import PropTypes from 'prop-types';
 
 import SyncSettingField from './SyncSettingField';
@@ -47,6 +47,12 @@ const SyncSettingsFields = ({
     return setting;
   };
 
+  const specializeDescription = (setting, type) =>
+    setting.set(
+      'description',
+      upperFirst(setting.description.replace(/import\/export/i, type))
+    );
+
   const settingsAry = syncType === 'import' ? importSettings : exportSettings;
 
   return (
@@ -54,6 +60,7 @@ const SyncSettingsFields = ({
       {settingsAry
         .map(setting => addValidationToSetting(setting, validationData))
         .map(setting => modifyDescription(setting, syncType))
+        .map(setting => specializeDescription(setting, syncType))
         .map(setting => (
           <SyncSettingField
             setting={setting}
