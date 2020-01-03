@@ -14,6 +14,7 @@ module ForemanTemplates
         :changed => changed?,
         :imported => @imported,
         :additional_errors => @additional_errors,
+        :additional_info => @additional_info,
         :exception => @exception ? @exception.message : nil,
         :validation_errors => errors.to_h,
         :file => @template_file,
