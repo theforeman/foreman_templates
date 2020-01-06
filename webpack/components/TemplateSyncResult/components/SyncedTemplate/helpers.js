@@ -7,8 +7,8 @@ import EmptyInfoItem from './EmptyInfoItem';
 import StringInfoItem from './StringInfoItem';
 import LinkInfoItem from './LinkInfoItem';
 
-export const itemIteratorId = (template, attr) =>
-  `${template.templateFile}-${attr}`;
+export const itemIteratorId = (template, ...rest) =>
+  `${template.templateFile}-${rest.join('-')}`;
 
 export const additionalInfo = (template, editPath) => {
   const infoAttrs = [
@@ -72,7 +72,12 @@ export const additionalInfo = (template, editPath) => {
         );
       case 'name':
         return (
-          <LinkInfoItem template={template} editPath={editPath} attr={attr} />
+          <LinkInfoItem
+            template={template}
+            editPath={editPath}
+            attr={attr}
+            key={key}
+          />
         );
       default:
         return '';
@@ -91,11 +96,16 @@ export const itemLeftContentIcon = template => {
 
 export const expandableContent = template => {
   if (Object.keys(aggregatedMessages(template)).length !== 0) {
-    const res = Object.keys(aggregatedMessages(template)).map(key => (
-      <li key={itemIteratorId(template, key)}>
-        {formatError(key, aggregatedMessages(template)[key])}
-      </li>
-    ));
+    const msgs = aggregatedMessages(template);
+
+    const res = Object.keys(msgs).map(key => {
+      const errorMsgs = aggregatedMessages(template)[key];
+      return errorMsgs.map((errValue, idx) => (
+        <li key={itemIteratorId(template, key, idx)}>
+          {formatError(key, errValue)}
+        </li>
+      ));
+    });
     return <ul>{res}</ul>;
   }
   return <span>There were no errors.</span>;
@@ -120,7 +130,7 @@ const aggregatedMessages = template => {
 
 const formatError = (key, value) => {
   const omitKeys = ['base', 'additional', 'info'];
-  if (omitKeys.reduce((memo, item) => memo || key === item, false)) {
+  if (omitKeys.filter(item => key === item)) {
     return value;
   }
 

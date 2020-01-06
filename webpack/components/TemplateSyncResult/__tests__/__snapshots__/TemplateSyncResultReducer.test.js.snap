@@ -33,7 +33,9 @@ Object {
   "resultAction": "import",
   "templates": Array [
     Object {
-      "additionalErrors": "No \\"name\\" found in metadata",
+      "additionalErrors": Array [
+        "No \\"name\\" found in metadata",
+      ],
       "errors": null,
       "name": null,
       "templateFile": "random_template.erb",

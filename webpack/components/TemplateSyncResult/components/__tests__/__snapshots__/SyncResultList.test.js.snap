@@ -10,7 +10,9 @@ exports[`SyncResultList should render 1`] = `
     key="null"
     template={
       Object {
-        "additionalErrors": "No \\"name\\" found in metadata",
+        "additionalErrors": Array [
+          "No \\"name\\" found in metadata",
+        ],
         "errors": null,
         "name": null,
         "templateFile": "random_template.erb",

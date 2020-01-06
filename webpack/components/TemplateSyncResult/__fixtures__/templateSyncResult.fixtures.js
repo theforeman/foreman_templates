@@ -24,7 +24,7 @@ export const exportTemplates = [
 export const noName = {
   name: null,
   templateFile: 'random_template.erb',
-  additionalErrors: 'No "name" found in metadata',
+  additionalErrors: ['No "name" found in metadata'],
   errors: null,
 };
 
@@ -55,7 +55,7 @@ export const filteredOut = {
   name: 'CoreOS default',
   templateFile: 'coreos_default.erb',
   additionalErrors: null,
-  additionalInfo: 'Skipping, this template was filtered out.',
+  additionalInfo: ['Skipping, this template was filtered out.'],
   errors: {},
   snippet: false,
   locked: false,

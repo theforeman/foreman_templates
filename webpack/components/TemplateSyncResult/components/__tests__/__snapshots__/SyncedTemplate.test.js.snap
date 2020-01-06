@@ -11,7 +11,9 @@ exports[`SyncedTemplate should render skipped template 1`] = `
         template={
           Object {
             "additionalErrors": null,
-            "additionalInfo": "Skipping, this template was filtered out.",
+            "additionalInfo": Array [
+              "Skipping, this template was filtered out.",
+            ],
             "className": "Ptable",
             "errors": Object {},
             "humanizedClassName": "Ptable",
@@ -27,7 +29,9 @@ exports[`SyncedTemplate should render skipped template 1`] = `
         template={
           Object {
             "additionalErrors": null,
-            "additionalInfo": "Skipping, this template was filtered out.",
+            "additionalInfo": Array [
+              "Skipping, this template was filtered out.",
+            ],
             "className": "Ptable",
             "errors": Object {},
             "humanizedClassName": "Ptable",
@@ -43,7 +47,9 @@ exports[`SyncedTemplate should render skipped template 1`] = `
         template={
           Object {
             "additionalErrors": null,
-            "additionalInfo": "Skipping, this template was filtered out.",
+            "additionalInfo": Array [
+              "Skipping, this template was filtered out.",
+            ],
             "className": "Ptable",
             "errors": Object {},
             "humanizedClassName": "Ptable",
@@ -61,7 +67,9 @@ exports[`SyncedTemplate should render skipped template 1`] = `
         template={
           Object {
             "additionalErrors": null,
-            "additionalInfo": "Skipping, this template was filtered out.",
+            "additionalInfo": Array [
+              "Skipping, this template was filtered out.",
+            ],
             "className": "Ptable",
             "errors": Object {},
             "humanizedClassName": "Ptable",
@@ -78,7 +86,9 @@ exports[`SyncedTemplate should render skipped template 1`] = `
         template={
           Object {
             "additionalErrors": null,
-            "additionalInfo": "Skipping, this template was filtered out.",
+            "additionalInfo": Array [
+              "Skipping, this template was filtered out.",
+            ],
             "className": "Ptable",
             "errors": Object {},
             "humanizedClassName": "Ptable",
@@ -96,7 +106,9 @@ exports[`SyncedTemplate should render skipped template 1`] = `
         template={
           Object {
             "additionalErrors": null,
-            "additionalInfo": "Skipping, this template was filtered out.",
+            "additionalInfo": Array [
+              "Skipping, this template was filtered out.",
+            ],
             "className": "Ptable",
             "errors": Object {},
             "humanizedClassName": "Ptable",
@@ -132,7 +144,7 @@ exports[`SyncedTemplate should render skipped template 1`] = `
 >
   <ul>
     <li
-      key="coreos_default.erb-info"
+      key="coreos_default.erb-info-0"
     >
       Skipping, this template was filtered out.
     </li>
@@ -149,7 +161,9 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
         attr="name"
         template={
           Object {
-            "additionalErrors": "No \\"name\\" found in metadata",
+            "additionalErrors": Array [
+              "No \\"name\\" found in metadata",
+            ],
             "errors": null,
             "name": null,
             "templateFile": "random_template.erb",
@@ -160,7 +174,9 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
         attr="locked"
         template={
           Object {
-            "additionalErrors": "No \\"name\\" found in metadata",
+            "additionalErrors": Array [
+              "No \\"name\\" found in metadata",
+            ],
             "errors": null,
             "name": null,
             "templateFile": "random_template.erb",
@@ -171,7 +187,9 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
         attr="snippet"
         template={
           Object {
-            "additionalErrors": "No \\"name\\" found in metadata",
+            "additionalErrors": Array [
+              "No \\"name\\" found in metadata",
+            ],
             "errors": null,
             "name": null,
             "templateFile": "random_template.erb",
@@ -182,7 +200,9 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
         attr="humanizedClassName"
         template={
           Object {
-            "additionalErrors": "No \\"name\\" found in metadata",
+            "additionalErrors": Array [
+              "No \\"name\\" found in metadata",
+            ],
             "errors": null,
             "name": null,
             "templateFile": "random_template.erb",
@@ -193,7 +213,9 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
         attr="kind"
         template={
           Object {
-            "additionalErrors": "No \\"name\\" found in metadata",
+            "additionalErrors": Array [
+              "No \\"name\\" found in metadata",
+            ],
             "errors": null,
             "name": null,
             "templateFile": "random_template.erb",
@@ -206,7 +228,9 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
         mapAttr={[Function]}
         template={
           Object {
-            "additionalErrors": "No \\"name\\" found in metadata",
+            "additionalErrors": Array [
+              "No \\"name\\" found in metadata",
+            ],
             "errors": null,
             "name": null,
             "templateFile": "random_template.erb",
@@ -238,7 +262,7 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
 >
   <ul>
     <li
-      key="random_template.erb-additional"
+      key="random_template.erb-additional-0"
     >
       No "name" found in metadata
     </li>
@@ -409,7 +433,7 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
 >
   <ul>
     <li
-      key="epel.erb-base"
+      key="epel.erb-base-0"
     >
       This template is locked
     </li>
