@@ -84,6 +84,9 @@ Style/WordArray:
 Rails/Output:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 # needs major refactorings before we can improve
 Metrics/ClassLength:
   Max: 200

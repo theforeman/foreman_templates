@@ -17,3 +17,17 @@ require 'test_helper'
 # Add plugin to FactoryBot's paths
 FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
 FactoryBot.reload
+
+module FixturesPath
+  def template_fixtures_path
+    "#{ForemanTemplates::Engine.root}/test/templates"
+  end
+end
+
+class ActionController::TestCase
+  include FixturesPath
+end
+
+class ActionDispatch::IntegrationTest
+  include FixturesPath
+end
