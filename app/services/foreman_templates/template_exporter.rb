@@ -33,8 +33,13 @@ module ForemanTemplates
       dump_files!
       git_repo.add
 
-      status = git_repo.status
-      if status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
+      new_repo = false
+      begin
+        status = git_repo.status
+      rescue Git::GitExecuteError # no HEAD for repo without commits, git diff-index HEAD fails
+        new_repo = true
+      end
+      if new_repo || status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
         git_repo.commit "Templates export made by Foreman user #{foreman_git_user}"
         git_repo.push 'origin', branch
         @export_result.exported = true
@@ -50,13 +55,13 @@ module ForemanTemplates
 
     def setup_git_branch(git_repo)
       logger.debug "checking out branch '#{@branch}'"
-      if git_repo.is_branch?(@branch)
+      if git_repo.is_branch?(@branch) # local branch
         git_repo.checkout(@branch)
-      else
+      elsif git_repo.is_remote_branch?(@branch) # if we work with remote branch, checkout and sync
         git_repo.branch(@branch).checkout
-        if git_repo.is_remote_branch?(@branch) # if we work with remote branch we need to sync it first
-          git_repo.reset_hard("origin/#{@branch}")
-        end
+        git_repo.reset_hard("origin/#{@branch}")
+      else # neither local nor remote
+        git_repo.checkout(@branch, :new_branch => true)
       end
     end
 
