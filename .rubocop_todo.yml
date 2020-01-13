@@ -18,7 +18,7 @@ Layout/AlignHash:
 # Offense count: 8
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/MethodLength:
-  Max: 22
+  Max: 25
 
 # Offense count: 35
 # Cop supports --auto-correct.
