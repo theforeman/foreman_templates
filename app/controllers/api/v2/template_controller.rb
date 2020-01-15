@@ -3,6 +3,10 @@ module Api
     class TemplateController < ::Api::V2::BaseController
       include ::Foreman::Controller::Parameters::TemplateParams
 
+      resource_description do
+        resource_id 'templates'
+      end
+
       def_param_group :foreman_template_sync_params do
         param :branch, String, :required => false, :desc => N_("Branch in Git repo.")
         param :repo, String, :required => false, :desc => N_("Override the default repo from settings.")
