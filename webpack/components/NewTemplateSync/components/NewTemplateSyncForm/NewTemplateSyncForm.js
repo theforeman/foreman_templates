@@ -8,8 +8,26 @@ import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
 import { NEW_TEMPLATE_SYNC_FORM_NAME } from './NewTemplateSyncFormConstants';
 
+const addTaxParams = key => (params, currentTax) => {
+  if (currentTax.id) {
+    params[key] = [currentTax.id];
+  }
+  return params;
+};
+
+const addOrgParams = addTaxParams('organization_ids');
+const addLocParams = addTaxParams('location_ids');
+
 const submit = syncType => (formValues, dispatch, props) => {
-  const { submitForm, importUrl, exportUrl, history, currentFields } = props;
+  const {
+    submitForm,
+    importUrl,
+    exportUrl,
+    history,
+    currentFields,
+    currentLocation,
+    currentOrganization,
+  } = props;
   const url = syncType === 'import' ? importUrl : exportUrl;
   const currentFieldNames = Object.keys(currentFields);
   const postValues = Object.keys(formValues).reduce((memo, key) => {
@@ -21,7 +39,10 @@ const submit = syncType => (formValues, dispatch, props) => {
 
   return submitForm({
     url,
-    values: postValues,
+    values: addOrgParams(
+      addLocParams(postValues, currentLocation),
+      currentOrganization
+    ),
     message: `Templates were ${syncType}ed.`,
     item: 'TemplateSync',
   }).then(args => {
