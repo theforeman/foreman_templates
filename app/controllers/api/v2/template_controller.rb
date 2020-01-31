@@ -33,6 +33,7 @@ module Api
 
       api :POST, "/templates/export", N_("Initiate Export")
       param :metadata_export_mode, Setting::TemplateSync.metadata_export_mode_types.keys, :required => false, :desc => N_("Specify how to handle metadata")
+      param :commit_msg, String, :desc => N_("Custom commit message for templates export")
       param_group :foreman_template_sync_params
       param_group :taxonomies, ::Api::V2::BaseController
       def export

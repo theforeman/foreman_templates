@@ -11,7 +11,7 @@ class Setting
     end
 
     def self.export_stripped_names
-      %w(metadata_export_mode)
+      %w(metadata_export_mode commit_msg)
     end
 
     def self.import_setting_names(except = [])
@@ -76,6 +76,7 @@ class Setting
           self.set('template_sync_metadata_export_mode', N_('Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata'), 'refresh', N_('Metadata export mode'), nil, { :collection => Proc.new { self.metadata_export_mode_types } }),
           self.set('template_sync_force', N_('Should importing overwrite locked templates?'), false, N_('Force import')),
           self.set('template_sync_lock', N_('Should importing lock templates?'), false, N_('Lock templates')),
+          self.set('template_sync_commit_msg', N_('Custom commit message for templates export'), 'Templates export made by a Foreman user', N_('Commit message'))
         ].compact.each { |s| self.create! s.update(:category => "Setting::TemplateSync") }
       end
 
