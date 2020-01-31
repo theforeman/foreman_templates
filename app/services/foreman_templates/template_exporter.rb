@@ -1,7 +1,7 @@
 module ForemanTemplates
   class TemplateExporter < Action
     def self.setting_overrides
-      super + %i(metadata_export_mode)
+      super + %i(metadata_export_mode commit_msg)
     end
 
     def initialize(args = {})
@@ -42,7 +42,7 @@ module ForemanTemplates
         new_repo = true
       end
       if new_repo || status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
-        git_repo.commit "Templates export made by Foreman user #{foreman_git_user}"
+        git_repo.commit commit_msg
         git_repo.push 'origin', branch
       else
         @warning = 'No change detected, skipping the commit and push'

@@ -15,7 +15,7 @@ module Foreman
           end
 
           def extra_export_params
-            [:metadata_export_mode]
+            %i(metadata_export_mode commit_msg)
           end
 
           def template_params_filter(extra_params = [])
