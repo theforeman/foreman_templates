@@ -18,7 +18,7 @@ class UiTemplateSyncsController < ApplicationController
   end
 
   def export
-    @result = ForemanTemplates::TemplateExporter.new(ui_template_export_params).export!
+    @result = OpenStruct.new ForemanTemplates::TemplateExporter.new(ui_template_export_params).export!
 
     if @result.error
       render_errors [@result.error]

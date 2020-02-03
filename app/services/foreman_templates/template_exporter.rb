@@ -4,27 +4,29 @@ module ForemanTemplates
       super + %i(metadata_export_mode)
     end
 
+    def initialize(args = {})
+      super args
+      @result_lines = []
+    end
+
     def export!
-      @export_result = ExportResult.new(@repo, @branch, foreman_git_user)
       if git_repo?
         export_to_git
       else
         export_to_files
       end
-
-      return @export_result
+      export_result
     end
 
     def export_to_files
       @dir = get_absolute_repo_path
       verify_path!(@dir)
       dump_files!
-      @export_result.exported = true
     end
 
     def export_to_git
       @dir = Dir.mktmpdir
-      return @export_result if branch_missing?
+      return if branch_missing?
 
       git_repo = Git.clone(@repo, @dir)
       logger.debug "cloned '#{@repo}' to '#{@dir}'"
@@ -42,15 +44,13 @@ module ForemanTemplates
       if new_repo || status.added.any? || status.changed.any? || status.deleted.any? || status.untracked.any?
         git_repo.commit "Templates export made by Foreman user #{foreman_git_user}"
         git_repo.push 'origin', branch
-        @export_result.exported = true
       else
-        @export_result.warning = 'No change detected, skipping the commit and push'
+        @warning = 'No change detected, skipping the commit and push'
       end
     rescue StandardError => e
-      @export_result.error = e.message
+      @error = e.message
     ensure
       FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
-      @export_result
     end
 
     def setup_git_branch(git_repo)
@@ -70,22 +70,18 @@ module ForemanTemplates
     end
 
     def dump_files!
-      templates = templates_to_dump
-      begin
-        templates.map do |template|
-          current_dir = get_dump_dir(template)
-          FileUtils.mkdir_p current_dir
-          filename = File.join(current_dir, template.template_file)
-          File.open(filename, 'w+') do |file|
-            logger.debug "Writing to file #{filename}"
-            bytes = file.write template.public_send(export_method)
-            logger.debug "finished writing #{bytes}"
-          end
+      templates_to_dump.map do |template|
+        current_dir = get_dump_dir(template)
+        FileUtils.mkdir_p current_dir
+        filename = File.join(current_dir, template.template_file)
+        File.open(filename, 'w+') do |file|
+          logger.debug "Writing to file #{filename}"
+          bytes = file.write template.public_send(export_method)
+          logger.debug "finished writing #{bytes}"
         end
-      rescue StandardError => e
-        raise PathAccessException, e.message
       end
-      @export_result.add_exported_templates templates
+    rescue StandardError => e
+      raise PathAccessException, e.message
     end
 
     def get_dump_dir(template)
@@ -96,18 +92,23 @@ module ForemanTemplates
     end
 
     def templates_to_dump
-      base = find_templates
-      if filter.present?
-        method = negate ? :reject : :select
-        base.public_send(method) { |template| template.name.match(/#{filter}/i) }
-      else
-        base
+      find_templates.each do |template|
+        if filter.present?
+          exportable = template.name =~ /#{filter}/i ? !negate : negate
+          result = ExportResult.new(template, exportable)
+          next @result_lines << result.matching_filter unless exportable
+
+          @result_lines << result
+        else
+          @result_lines << ExportResult.new(template)
+        end
       end
+      @result_lines.select(&:exported).map(&:template)
     end
 
     def branch_missing?
       if @branch.blank?
-        @export_result.error = "Please specify a branch when exporting into a git repo"
+        @error = "Please specify a branch when exporting into a git repo"
         return true
       end
       false
@@ -127,6 +128,13 @@ module ForemanTemplates
         else
           raise "Unknown metadata export mode #{@metadata_export_mode}"
       end
+    end
+
+    def export_result
+      {
+        :templates => @result_lines, :repo => @repo, :branch => @branch,
+        :git_user => foreman_git_user, :error => @error, :warning => @warning
+      }
     end
 
     private

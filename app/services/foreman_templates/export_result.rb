@@ -1,42 +1,33 @@
 module ForemanTemplates
   class ExportResult
-    attr_accessor :exported, :error, :warning
-    attr_reader :templates, :git_user, :branch, :repo
+    attr_reader :template, :name, :template_file, :exported, :additional_info
 
-    def initialize(repo, branch, git_user)
-      @repo = repo
-      @branch = branch
-      @git_user = git_user
-      @error = nil
-      @warning = nil
-      @templates = []
-      @exported = false
-    end
-
-    def add_exported_templates(templates)
-      @templates.concat templates
+    def initialize(template, exported = true)
+      @template = template
+      @exported = exported
+      @name = template.name
+      @template_file = template.template_file
     end
 
     def to_h
-      { :error => @error,
-        :warning => @warning,
-        :repo => @repo,
-        :branch => @branch,
-        :git_user => @git_user,
-        :templates => dumped_files_result }
-    end
-
-    private
-
-    def dumped_files_result
-      @templates.map { |template| to_template_h template }
-    end
-
-    def to_template_h(template)
-      { :id => template.id,
-        :name => template.name,
+      {
+        :id => template.id,
+        :name => @name,
         :exported => @exported,
-        :type => template.class.name.underscore }
+        :type => template.class.name.underscore,
+        :additional_info => @additional_info
+      }
+    end
+
+    def matching_filter
+      generic_info "Skipping, 'name' filtered out based on 'filter' and 'negate' settings"
+    end
+
+    def generic_info(additional_msg)
+      @exported = false
+      @additional_info = additional_msg
+      Logging.logger('app').debug "Not exporting #{@template.name}: #{additional_msg}"
+      self
     end
   end
 end
