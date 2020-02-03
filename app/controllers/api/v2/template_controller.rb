@@ -33,7 +33,8 @@ module Api
       param_group :taxonomies, ::Api::V2::BaseController
       def export
         @result = ForemanTemplates::TemplateExporter.new(template_export_params).export!
-        render :json => { :message => @result.to_h }, :status => @result.exported ? 200 : 500
+        @result[:templates] = @result[:templates].map(&:to_h)
+        render :json => { :message => @result }, :status => @result[:error] ? 500 : 200
       end
     end
   end
