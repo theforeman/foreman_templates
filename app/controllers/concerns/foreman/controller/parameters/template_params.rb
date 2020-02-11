@@ -39,16 +39,22 @@ module Foreman
 
         def transform_lock_param(params)
           lock = params[:lock]
-          return params unless lock
+          return params if lock.nil?
 
-          if lock == "true" || lock.is_a?(TrueClass)
+          if lock == "true" || lock.is_a?(TrueClass) || lock.to_s == "1"
+            log_deprecated_param(lock)
             params[:lock] = "lock"
           end
 
-          if lock == "false" || lock.is_a?(FalseClass)
+          if lock == "false" || lock.is_a?(FalseClass) || lock.to_s == "0"
+            log_deprecated_param(lock)
             params[:lock] = "unlock"
           end
           params
+        end
+
+        def log_deprecated_param(value)
+          Logging.logger('app').warn "Using '#{value}' as a value for lock when syncing templates is deprecated and will be removed in the future."
         end
 
         def template_export_params
