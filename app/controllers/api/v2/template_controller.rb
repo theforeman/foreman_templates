@@ -19,7 +19,7 @@ module Api
       param :prefix, String, :required => false, :desc => N_("The string all imported templates should begin with.")
       param :associate, Setting::TemplateSync.associate_types.keys, :required => false, :desc => N_("Associate to OS's, Locations & Organizations. Options are: always, new or never.")
       param :force, :bool, :required => false, :desc => N_("Update templates that are locked")
-      param :lock, Setting::TemplateSync.lock_types.keys, :required => false, :desc => N_("Lock imported templates")
+      param :lock, Setting::TemplateSync.lock_types.keys + ["true", "false"], :required => false, :desc => N_("Lock imported templates")
       param :verbose, :bool, :required => false, :desc => N_("Show template diff in response")
       param_group :foreman_template_sync_params
       param_group :taxonomies, ::Api::V2::BaseController

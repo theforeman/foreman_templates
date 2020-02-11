@@ -78,6 +78,26 @@ module Api
         end
       end
 
+      test "should not update locked template on import with legacy lock" do
+        import_params = {
+          :repo => "#{template_fixtures_path}/locking/core_initial",
+          :prefix => '',
+          :associate => "new",
+          :lock => "lock",
+        }
+
+        ForemanTemplates::TemplateImporter.new(import_params).import!
+        post :import, params: import_params.merge(:repo => "#{template_fixtures_path}/locking/core_updated", :lock => "true")
+        assert_response :success
+        templates = JSON.parse(@response.body)['message']['templates']
+        templates.each do |template|
+          assert template
+          assert_not template['imported']
+          assert template['changed']
+          assert_equal "This template is locked. Please clone it to a new template to customize.", template['validation_errors']['base']
+        end
+      end
+
       test "should force update locked template on import" do
         import_params = {
           :repo => "#{template_fixtures_path}/locking/core_initial",
@@ -91,6 +111,27 @@ module Api
         updated = JSON.parse(@response.body)['message']['templates']
         updated.each do |template|
           assert template['imported']
+        end
+      end
+
+      test "should import template with legacy unlock setting" do
+        import_params = {
+          :repo => "#{template_fixtures_path}/locking/core_initial",
+          :prefix => '',
+          :associate => "new",
+          :lock => "lock",
+        }
+
+        ForemanTemplates::TemplateImporter.new(import_params).import!
+        post :import, params: import_params.merge(:repo => "#{template_fixtures_path}/locking/core_updated", :lock => "false")
+        assert_response :success
+        templates = JSON.parse(@response.body)['message']['templates']
+        templates.each do |template|
+          assert template
+          assert template['imported']
+          assert template['changed']
+          assert_empty template['validation_errors']
+          assert_empty template['additional_errors']
         end
       end
 

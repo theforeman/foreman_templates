@@ -85,13 +85,9 @@ module ForemanTemplates
         when 'unlock'
           return false
         when 'keep'
-          return template.locked unless template.new_record?
-
-          return false
+          return template.new_record? ? false : template.locked
         when 'keep_lock_new'
-          return template.locked unless template.new_record?
-
-          return true
+          return template.new_record? ? true : template.locked
         else
           raise ::Foreman::Exception.new("Unknown lock option type, expected one of #{::Setting::TemplateSync.lock_types.keys}, got #{@lock}")
         end
