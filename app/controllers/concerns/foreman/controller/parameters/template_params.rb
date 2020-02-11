@@ -34,7 +34,21 @@ module Foreman
         end
 
         def template_import_params
-          add_taxonomy_params(base_import_params(:none))
+          transform_lock_param add_taxonomy_params(base_import_params(:none))
+        end
+
+        def transform_lock_param(params)
+          lock = params[:lock]
+          return params unless lock
+
+          if lock == "true" || lock.is_a?(TrueClass)
+            params[:lock] = "lock"
+          end
+
+          if lock == "false" || lock.is_a?(FalseClass)
+            params[:lock] = "unlock"
+          end
+          params
         end
 
         def template_export_params
