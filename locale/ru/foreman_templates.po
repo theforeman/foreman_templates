@@ -57,7 +57,7 @@ msgstr ""
 msgid "Force import"
 msgstr ""
 
-msgid "Import or export names matching this regex (case-insensitive; snippets are not filtered)"
+msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
 msgstr ""
 
 msgid "Initiate Export"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Negate"
 msgstr ""
 
-msgid "Negate the prefix (for purging) / filter (for importing/exporting)"
+msgid "Negate the filter for import/export"
 msgstr ""
 
 msgid "Negate the prefix (for purging)."
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Override the default repo from settings."
 msgstr ""
 
-msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically 'foreman'."
+msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
 msgstr ""
 
 msgid "Prefix"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Sync Templates"
 msgstr ""
 
-msgid "Target path to import and export. Different protocols can be used, e.g. /tmp/dir, git://example.com, https://example.com, ssh://example.com"
+msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
 msgstr ""
 
 msgid "The directory within Git repo containing the templates"
@@ -135,10 +135,10 @@ msgstr ""
 msgid "The directory within the Git repo containing the templates"
 msgstr ""
 
-msgid "The string all imported templates should begin with"
+msgid "The string all imported templates should begin with."
 msgstr ""
 
-msgid "The string all imported templates should begin with."
+msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
 msgid "Update templates that are locked"

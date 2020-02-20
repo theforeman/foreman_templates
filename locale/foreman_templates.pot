@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-14 09:00+0000\n"
-"PO-Revision-Date: 2019-10-14 09:00+0000\n"
+"POT-Creation-Date: 2020-02-20 11:44+0000\n"
+"PO-Revision-Date: 2020-02-20 11:44+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -115,7 +115,7 @@ msgid "Associate"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:70
-msgid "The string all imported templates should begin with"
+msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:70
@@ -132,8 +132,8 @@ msgstr ""
 
 #: ../app/models/setting/template_sync.rb:72
 msgid ""
-"Import or export names matching this regex (case-insensitive; snippets are not"
-" filtered)"
+"Import/export names matching this regex (case-insensitive; snippets are not fi"
+"ltered)"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:72
@@ -142,8 +142,10 @@ msgstr ""
 
 #: ../app/models/setting/template_sync.rb:73
 msgid ""
-"Target path to import and export. Different protocols can be used, e.g. /tmp/d"
-"ir, git://example.com, https://example.com, ssh://example.com"
+"Target path to import/export. Different protocols can be used, for example /tm"
+"p/dir, git://example.com, https://example.com, ssh://example.com. When exporti"
+"ng to /tmp, note that production deployments may be configured to use private "
+"tmp."
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:73
@@ -151,7 +153,7 @@ msgid "Repo"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:74
-msgid "Negate the prefix (for purging) / filter (for importing/exporting)"
+msgid "Negate the filter for import/export"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:74
@@ -207,7 +209,7 @@ msgstr ""
 #: ../app/services/foreman_templates/action.rb:49
 msgid ""
 "Please check the access permissions/SELinux and make sure it is readable/writa"
-"ble for the web application user account, typically 'foreman'."
+"ble for the web application user account, typically '%s'."
 msgstr ""
 
 #: ../lib/foreman_templates/engine.rb:47
