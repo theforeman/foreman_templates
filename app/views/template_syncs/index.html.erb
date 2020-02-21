@@ -1,5 +1,9 @@
-<%= webpacked_plugins_js_for :foreman_templates %>
-<%= webpacked_plugins_css_for :foreman_templates %>
+<% content_for(:javascripts) do %>
+  <%= webpacked_plugins_js_for :foreman_templates %>
+<% end %>
+<% content_for(:stylesheets) do %>
+  <%= webpacked_plugins_css_for :foreman_templates %>
+<% end %>
 
 <div id="foreman-templates"/>
 
