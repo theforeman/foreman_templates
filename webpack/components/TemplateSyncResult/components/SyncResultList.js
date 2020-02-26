@@ -11,10 +11,10 @@ import ListViewHeader from './ListViewHeader';
 const SyncResultList = ({ pagination, pageChange, templates, editPaths }) => (
   <ListView>
     <ListViewHeader />
-    {templatesPage(templates, pagination).map(template => (
+    {templatesPage(templates, pagination).map((template, idx) => (
       <SyncedTemplate
         template={template}
-        key={template.name}
+        key={idx}
         editPath={editPaths[template.className]}
       />
     ))}

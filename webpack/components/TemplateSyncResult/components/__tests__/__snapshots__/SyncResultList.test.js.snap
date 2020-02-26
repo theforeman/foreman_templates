@@ -7,7 +7,7 @@ exports[`SyncResultList should render 1`] = `
   <ListViewHeader />
   <SyncedTemplate
     editPath=""
-    key="null"
+    key="0"
     template={
       Object {
         "additionalErrors": Array [
@@ -21,7 +21,7 @@ exports[`SyncResultList should render 1`] = `
   />
   <SyncedTemplate
     editPath=""
-    key="EPEL"
+    key="1"
     template={
       Object {
         "additionalErrors": null,
@@ -42,7 +42,7 @@ exports[`SyncResultList should render 1`] = `
   />
   <SyncedTemplate
     editPath=""
-    key="CoreOS default"
+    key="2"
     template={
       Object {
         "additionalErrors": null,
@@ -58,7 +58,7 @@ exports[`SyncResultList should render 1`] = `
   />
   <SyncedTemplate
     editPath=""
-    key="null"
+    key="3"
     template={
       Object {
         "additionalErrors": "No \\"model\\" found in metadata",
@@ -70,7 +70,7 @@ exports[`SyncResultList should render 1`] = `
   />
   <SyncedTemplate
     editPath=""
-    key="Kickstart fake"
+    key="4"
     template={
       Object {
         "additionalErrors": null,

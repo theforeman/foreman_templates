@@ -114,7 +114,7 @@ export const expandableContent = template => {
 const aggregatedErrors = template => {
   const err = { ...template.errors } || {};
   if (template.additionalErrors) {
-    err.additional = template.additionalErrors;
+    err.additional = [template.additionalErrors];
   }
 
   return err;
@@ -123,14 +123,14 @@ const aggregatedErrors = template => {
 const aggregatedMessages = template => {
   const errors = aggregatedErrors(template);
   if (template.additionalInfo) {
-    errors.info = template.additionalInfo;
+    errors.info = [template.additionalInfo];
   }
   return errors;
 };
 
 const formatError = (key, value) => {
   const omitKeys = ['base', 'additional', 'info'];
-  if (omitKeys.filter(item => key === item)) {
+  if (omitKeys.includes(key)) {
     return value;
   }
 
