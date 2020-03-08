@@ -11,7 +11,7 @@ Rails:
 Style/Documentation:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Style/Next:
@@ -48,16 +48,13 @@ Style/GuardClause:
 Style/EmptyMethod:
   Enabled: false
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
-  Enabled: false
-
-Style/BracesAroundHashParameters:
   Enabled: false
 
 Style/StringLiterals:
@@ -91,17 +88,8 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 # needs major refactorings before we can improve
-Metrics/ClassLength:
-  Max: 200
-Metrics/AbcSize:
-  Max: 72
-Metrics/CyclomaticComplexity:
-  Max: 36
-Metrics/PerceivedComplexity:
-  Max: 20
-
-Metrics/ParameterLists:
-  Max: 6
+Metrics:
+  Enabled: false
 
 Lint/UnusedMethodArgument:
   Enabled: false
@@ -110,9 +98,8 @@ Lint/UnusedMethodArgument:
 Security/YAMLLoad:
   Enabled: false
 
-# rake task over 50 LOCs
-Metrics/BlockLength:
+Rails/RefuteMethods:
   Enabled: false
 
-Rails/RefuteMethods:
+Style/FrozenStringLiteralComment:
   Enabled: false
