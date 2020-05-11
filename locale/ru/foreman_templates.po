@@ -18,6 +18,9 @@ msgstr ""
 " && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "\n"
 
+msgid "Action with sub plans"
+msgstr ""
+
 msgid "Always"
 msgstr ""
 
@@ -39,6 +42,12 @@ msgstr ""
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
 
+msgid "Commit message"
+msgstr ""
+
+msgid "Custom commit message for templates export"
+msgstr ""
+
 msgid "Default branch in Git repo"
 msgstr ""
 
@@ -57,6 +66,15 @@ msgstr ""
 msgid "Force import"
 msgstr ""
 
+msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
 msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
 msgstr ""
 
@@ -67,6 +85,15 @@ msgid "Initiate Import"
 msgstr ""
 
 msgid "Keep"
+msgstr ""
+
+msgid "Keep, do not lock new"
+msgstr ""
+
+msgid "Keep, lock new"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Lock imported templates"
@@ -105,13 +132,13 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+msgid "Remote action:"
+msgstr ""
+
 msgid "Remove"
 msgstr ""
 
 msgid "Repo"
-msgstr ""
-
-msgid "Should importing lock templates?"
 msgstr ""
 
 msgid "Should importing overwrite locked templates?"
@@ -139,6 +166,9 @@ msgid "The string all imported templates should begin with."
 msgstr ""
 
 msgid "The string that will be added as prefix to imported templates"
+msgstr ""
+
+msgid "Unlock"
 msgstr ""
 
 msgid "Update templates that are locked"

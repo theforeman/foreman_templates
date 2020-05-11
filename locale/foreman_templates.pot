@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-20 11:44+0000\n"
-"PO-Revision-Date: 2020-02-20 11:44+0000\n"
+"POT-Creation-Date: 2020-05-11 19:22+0530\n"
+"PO-Revision-Date: 2020-05-11 19:22+0530\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,60 +18,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/controllers/api/v2/template_controller.rb:7
+#: ../app/controllers/api/v2/template_controller.rb:11
 msgid "Branch in Git repo."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:8
+#: ../app/controllers/api/v2/template_controller.rb:12
 msgid "Override the default repo from settings."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:9
+#: ../app/controllers/api/v2/template_controller.rb:13
 msgid ""
 "Export templates with names matching this regex (case-insensitive; snippets ar"
 "e not filtered)."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:10
+#: ../app/controllers/api/v2/template_controller.rb:14
 msgid "Negate the prefix (for purging)."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:11
+#: ../app/controllers/api/v2/template_controller.rb:15
 msgid "The directory within Git repo containing the templates"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:14
+#: ../app/controllers/api/v2/template_controller.rb:18
 msgid "Initiate Import"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:15
+#: ../app/controllers/api/v2/template_controller.rb:19
 msgid "The string all imported templates should begin with."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:16
+#: ../app/controllers/api/v2/template_controller.rb:20
 msgid ""
 "Associate to OS's, Locations & Organizations. Options are: always, new or neve"
 "r."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:17
+#: ../app/controllers/api/v2/template_controller.rb:21
 msgid "Update templates that are locked"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:18
+#: ../app/controllers/api/v2/template_controller.rb:22
 msgid "Lock imported templates"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:19
+#: ../app/controllers/api/v2/template_controller.rb:23
 msgid "Show template diff in response"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:30
+#: ../app/controllers/api/v2/template_controller.rb:34
 msgid "Initiate Export"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:31
+#: ../app/controllers/api/v2/template_controller.rb:35
 msgid "Specify how to handle metadata"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:36
+#: ../app/models/setting/template_sync.rb:88
+msgid "Custom commit message for templates export"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:35
@@ -87,60 +92,76 @@ msgid "Never"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:43
-msgid "Refresh"
+msgid "Lock"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:44
-msgid "Keep"
+msgid "Keep, lock new"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:45
+msgid "Keep, do not lock new"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:46
+msgid "Unlock"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:52
+msgid "Refresh"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:53
+msgid "Keep"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:54
 msgid "Remove"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:68
+#: ../app/models/setting/template_sync.rb:77
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:68
+#: ../app/models/setting/template_sync.rb:77
 msgid "Verbosity"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:69
+#: ../app/models/setting/template_sync.rb:78
 msgid "Associate templates to OS, organization and location"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:69
+#: ../app/models/setting/template_sync.rb:78
 msgid "Associate"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:70
+#: ../app/models/setting/template_sync.rb:79
 msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:70
+#: ../app/models/setting/template_sync.rb:79
 msgid "Prefix"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:71
+#: ../app/models/setting/template_sync.rb:80
 msgid "The directory within the Git repo containing the templates"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:71
+#: ../app/models/setting/template_sync.rb:80
 msgid "Dirname"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:72
+#: ../app/models/setting/template_sync.rb:81
 msgid ""
 "Import/export names matching this regex (case-insensitive; snippets are not fi"
 "ltered)"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:72
+#: ../app/models/setting/template_sync.rb:81
 msgid "Filter"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:73
+#: ../app/models/setting/template_sync.rb:82
 msgid ""
 "Target path to import/export. Different protocols can be used, for example /tm"
 "p/dir, git://example.com, https://example.com, ssh://example.com. When exporti"
@@ -148,57 +169,61 @@ msgid ""
 "tmp."
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:73
+#: ../app/models/setting/template_sync.rb:82
 msgid "Repo"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:74
+#: ../app/models/setting/template_sync.rb:83
 msgid "Negate the filter for import/export"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:74
+#: ../app/models/setting/template_sync.rb:83
 msgid "Negate"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:75
+#: ../app/models/setting/template_sync.rb:84
 msgid "Default branch in Git repo"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:75
+#: ../app/models/setting/template_sync.rb:84
 msgid "Branch"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:76
+#: ../app/models/setting/template_sync.rb:85
 msgid ""
 "Default metadata export mode, refresh re-renders metadata, keep will keep exis"
 "ting metadata, remove exports template without metadata"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:76
+#: ../app/models/setting/template_sync.rb:85
 msgid "Metadata export mode"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:77
+#: ../app/models/setting/template_sync.rb:86
 msgid "Should importing overwrite locked templates?"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:77
+#: ../app/models/setting/template_sync.rb:86
 msgid "Force import"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:78
-msgid "Should importing lock templates?"
+#: ../app/models/setting/template_sync.rb:87
+msgid "How to handle lock for imported templates?"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:78
+#: ../app/models/setting/template_sync.rb:87
 msgid "Lock templates"
 msgstr ""
 
 #: ../app/models/setting/template_sync.rb:88
+msgid "Commit message"
+msgstr ""
+
+#: ../app/models/setting/template_sync.rb:98
 msgid "template_sync_associate must be one of %s"
 msgstr ""
 
-#: ../app/models/setting/template_sync.rb:95
+#: ../app/models/setting/template_sync.rb:105
 msgid "template_sync_metadata_export_mode must be one of %s"
 msgstr ""
 
@@ -212,6 +237,22 @@ msgid ""
 "ble for the web application user account, typically '%s'."
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:47
+#: ../lib/foreman_templates/engine.rb:53
 msgid "Sync Templates"
+msgstr ""
+
+#: action_names.rb:2
+msgid "Remote action:"
+msgstr ""
+
+#: action_names.rb:3
+msgid "Import facts"
+msgstr ""
+
+#: action_names.rb:4
+msgid "Action with sub plans"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Import Puppet classes"
 msgstr ""
