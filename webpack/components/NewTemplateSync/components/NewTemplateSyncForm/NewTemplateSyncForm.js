@@ -102,8 +102,8 @@ class NewTemplateSyncForm extends React.Component {
     } = this.props;
 
     const addTaxParams = (key, currentTax) => params => {
-      if (currentTax.id) {
-        params[key] = [currentTax.id];
+      if (currentTax && currentTax.id) {
+        return { ...params, [key]: [currentTax.id] };
       }
       return params;
     };
