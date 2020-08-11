@@ -4,26 +4,30 @@ import PropTypes from 'prop-types';
 
 import Routes from './Routes';
 
-const ForemanTemplates = ({ data }) => (
+const ForemanTemplates = ({
+  apiUrls,
+  validationData,
+  fileRepoStartWith,
+  userPermissions,
+  editPaths,
+}) => (
   <Router>
     <Routes
-      apiUrls={data.apiUrls}
-      validationData={data.validationData}
-      editPaths={data.editPaths}
-      fileRepoStartWith={data.fileRepoStartWith}
-      userPermissions={data.userPermissions}
+      apiUrls={apiUrls}
+      validationData={validationData}
+      editPaths={editPaths}
+      fileRepoStartWith={fileRepoStartWith}
+      userPermissions={userPermissions}
     />
   </Router>
 );
 
 ForemanTemplates.propTypes = {
-  data: PropTypes.shape({
-    apiUrls: PropTypes.object,
-    validationData: PropTypes.object,
-    editPaths: PropTypes.object,
-    userPermissions: PropTypes.object,
-    fileRepoStartWith: PropTypes.array,
-  }).isRequired,
+  apiUrls: PropTypes.object.isRequired,
+  validationData: PropTypes.object.isRequired,
+  editPaths: PropTypes.object.isRequired,
+  userPermissions: PropTypes.object.isRequired,
+  fileRepoStartWith: PropTypes.array.isRequired,
 };
 
 export default ForemanTemplates;
