@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 export const redirectToResult = history => () =>
   history.push({ pathname: '/template_syncs/result' });
 
-export const repoFormat = formatAry => value => {
+const repoFormat = formatAry => value => {
   if (value === undefined) {
     return true;
   }
