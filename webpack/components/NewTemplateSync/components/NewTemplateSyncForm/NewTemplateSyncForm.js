@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import ForemanForm from 'foremanReact/components/common/forms/ForemanForm';
-import { useForemanLocation, useForemanOrganization } from 'foremanReact/Root/Context/ForemanContext';
+import {
+  useForemanLocation,
+  useForemanOrganization,
+} from 'foremanReact/Root/Context/ForemanContext';
 
 import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
-import { redirectToResult, repoFormat, syncFormSchema } from './NewTemplateSyncFormHelpers';
+import { redirectToResult, syncFormSchema } from './NewTemplateSyncFormHelpers';
 
 const NewTemplateSyncForm = ({
   error,
@@ -19,7 +22,7 @@ const NewTemplateSyncForm = ({
   importUrl,
   exportUrl,
   initialValues,
-  userPermissions
+  userPermissions,
 }) => {
   const allowedSyncType = (currentUserPermissions, radioAttrs) =>
     currentUserPermissions[radioAttrs.permission];
@@ -29,7 +32,11 @@ const NewTemplateSyncForm = ({
     { label: 'Export', value: 'export', permission: 'export' },
   ];
 
-  const [syncType, setSyncType] = useState(radioButtons.find(radioAttrs => allowedSyncType(userPermissions, radioAttrs)).value)
+  const [syncType, setSyncType] = useState(
+    radioButtons.find(radioAttrs =>
+      allowedSyncType(userPermissions, radioAttrs)
+    ).value
+  );
 
   const updateSyncType = event => {
     setSyncType(event.target.value);
@@ -40,10 +47,10 @@ const NewTemplateSyncForm = ({
       allowedSyncType(userPermissions, buttonAttrs)
     );
 
-  const initRadioButtons = syncType =>
+  const initRadioButtons = templateSyncType =>
     permitRadioButtons(radioButtons).map(buttonAttrs => ({
       get checked() {
-        return buttonAttrs.value === syncType;
+        return buttonAttrs.value === templateSyncType;
       },
       onChange: updateSyncType,
       ...buttonAttrs,
@@ -56,28 +63,31 @@ const NewTemplateSyncForm = ({
     return params;
   };
 
-  const addOrgParams = addTaxParams('organization_ids', useForemanOrganization());
+  const addOrgParams = addTaxParams(
+    'organization_ids',
+    useForemanOrganization()
+  );
   const addLocParams = addTaxParams('location_ids', useForemanLocation());
 
   const resetToDefault = (fieldName, fieldValue) => resetFn =>
     resetFn(fieldName, fieldValue);
 
+  const handleSubmit = (values, actions) => {
+    const url = syncType === 'import' ? importUrl : exportUrl;
+    return submitForm({
+      url,
+      values: compose(addLocParams, addOrgParams)(values[syncType]),
+      message: `Templates were ${syncType}ed.`,
+      item: 'TemplateSync',
+      actions,
+      successCallback: () =>
+        history.replace({ pathname: '/template_syncs/result' }),
+    });
+  };
+
   return (
     <ForemanForm
-      onSubmit={(values, actions) => {
-        const url = syncType === 'import' ? importUrl : exportUrl;
-        return submitForm({
-          url,
-          values: compose(
-            addLocParams,
-            addOrgParams
-          )(values[syncType]),
-          message: `Templates were ${syncType}ed.`,
-          item: 'TemplateSync',
-        }).then(args => {
-          history.replace({ pathname: '/template_syncs/result' });
-        });
-      }}
+      onSubmit={handleSubmit}
       initialValues={initialValues}
       validationSchema={syncFormSchema(
         syncType,
@@ -100,7 +110,7 @@ const NewTemplateSyncForm = ({
       />
     </ForemanForm>
   );
-}
+};
 
 NewTemplateSyncForm.propTypes = {
   importSettings: PropTypes.array,
