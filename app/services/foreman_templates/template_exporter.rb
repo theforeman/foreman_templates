@@ -94,7 +94,7 @@ module ForemanTemplates
     def templates_to_dump
       find_templates.each do |template|
         if filter.present?
-          exportable = template.name =~ /#{filter}/i ? !negate : negate
+          exportable = /#{filter}/i.match?(template.name) ? !negate : negate
           result = ExportResult.new(template, exportable)
           next @result_lines << result.matching_filter unless exportable
 

@@ -4,7 +4,7 @@ begin
   SimpleCov.start :rails do
     filters.clear
     add_filter do |src|
-      src.filename unless src.filename =~ /foreman_templates/
+      src.filename unless /foreman_templates/.match?(src.filename)
     end
   end
 rescue LoadError

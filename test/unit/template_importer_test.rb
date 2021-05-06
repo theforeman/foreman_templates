@@ -210,10 +210,10 @@ module ForemanTemplates
 
       test "should not update locked templates" do
         template = FactoryBot.create(:provisioning_template,
-                                     :name => "Test Data",
-                                     :template => @template_template,
-                                     :locked => 'lock',
-                                     :template_kind => @provision)
+          :name => "Test Data",
+          :template => @template_template,
+          :locked => 'lock',
+          :template_kind => @provision)
         ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => 'lock', :layout => @ptable_layout)
         snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => 'lock', :template => @snippet_template)
 
@@ -239,10 +239,10 @@ module ForemanTemplates
 
       test "should update locked template when forced" do
         template = FactoryBot.create(:provisioning_template,
-                                     :name => "Test Data",
-                                     :template => @template_template,
-                                     :locked => 'lock',
-                                     :template_kind => @provision)
+          :name => "Test Data",
+          :template => @template_template,
+          :locked => 'lock',
+          :template_kind => @provision)
         ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => 'lock', :layout => @ptable_layout)
         snippet = FactoryBot.create(:provisioning_template, :snippet, :name => "Test Snippet", :locked => 'lock', :template => @snippet_template)
 
@@ -286,10 +286,10 @@ module ForemanTemplates
 
       test "should update and unlock existing template" do
         template = FactoryBot.create(:provisioning_template,
-                                     :name => "Test Data",
-                                     :template => @template_template,
-                                     :locked => 'lock',
-                                     :template_kind => @provision)
+          :name => "Test Data",
+          :template => @template_template,
+          :locked => 'lock',
+          :template_kind => @provision)
         imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => false, :lock => "unlock")
         results = imp.import!
 
@@ -304,10 +304,10 @@ module ForemanTemplates
 
       def keep_options_test_common(lock_setting)
         template = FactoryBot.create(:provisioning_template,
-                                     :name => "Test Data",
-                                     :template => @template_template,
-                                     :locked => 'lock',
-                                     :template_kind => @provision)
+          :name => "Test Data",
+          :template => @template_template,
+          :locked => 'lock',
+          :template_kind => @provision)
         ptable = FactoryBot.create(:ptable, :name => "Test Ptable", :locked => 'lock', :layout => @ptable_layout)
 
         imp = importer(:dirname => '/test/templates/locking/core_updated', :verbose => true, :prefix => '', :force => false, :lock => lock_setting)
