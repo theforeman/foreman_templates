@@ -20,14 +20,14 @@ namespace :templates do
     verbose = ENV['verbose']
 
     results = ForemanTemplates::TemplateImporter.new({
-      verbose:   verbose,
-      repo:      ENV['repo'],
-      branch:    ENV['branch'],
-      prefix:    ENV['prefix'],
-      dirname:   ENV['dirname'],
-      filter:    ENV['filter'],
+      verbose: verbose,
+      repo: ENV['repo'],
+      branch: ENV['branch'],
+      prefix: ENV['prefix'],
+      dirname: ENV['dirname'],
+      filter: ENV['filter'],
       associate: ENV['associate'],
-      lock:      ENV['lock'],
+      lock: ENV['lock'],
     }).import!
     pp(results[:results].map { |result| result.to_h(verbose) })
   end
@@ -58,8 +58,8 @@ namespace :templates do
       # * negate  => negate query [false]
       # * prefix  => The string all templates to purge should ( or not ) begin with [Community ]
       # * verbose => Print extra information during the run [false]
-      negate:  ENV['negate'],
-      prefix:  ENV['prefix'],
+      negate: ENV['negate'],
+      prefix: ENV['prefix'],
       verbose: ENV['verbose'],
     }).purge!
   end
