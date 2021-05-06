@@ -11,7 +11,7 @@ node(:class_name) do |template|
 end
 
 node(:humanized_class_name) do |template|
-  template.class.name.underscore.split('_').map { |part| part.capitalize }.join(' ')
+  template.class.name.underscore.split('_').map(&:capitalize).join(' ')
 end
 
 node(:can_edit) do |template|

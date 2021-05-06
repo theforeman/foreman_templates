@@ -70,7 +70,7 @@ module ForemanTemplates
           @result_lines << parse_result.check_for_errors
         rescue NameError => e
           @result_lines << parse_result.name_error(e, metadata['model'])
-        rescue => e
+        rescue StandardError => e
           @result_lines << parse_result.add_exception(e)
         end
       end
