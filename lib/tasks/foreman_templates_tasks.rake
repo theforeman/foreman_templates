@@ -89,6 +89,7 @@ namespace :foreman_templates do
     begin
       require 'rubocop/rake_task'
       RuboCop::RakeTask.new(:rubocop_foreman_templates) do |task|
+        task.options = ['--config', ForemanTemplates::Engine.root.join('.rubocop.yml').to_s]
         task.patterns = ["#{ForemanTemplates::Engine.root}/app/**/*.rb",
                          "#{ForemanTemplates::Engine.root}/lib/**/*.rb",
                          "#{ForemanTemplates::Engine.root}/test/**/*.rb"]
