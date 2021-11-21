@@ -59,13 +59,6 @@ class Setting
       name.split('template_sync_').last
     end
 
-    def selection
-      selection_method = name.split('template_sync_').last.concat('_types')
-      return transformed_selection(selection_method) if self.class.respond_to?(selection_method)
-
-      []
-    end
-
     def self.load_defaults
       return unless super
 
@@ -104,12 +97,6 @@ class Setting
       if record.value && !values.include?(record.value)
         record.errors[:base] << (_("template_sync_metadata_export_mode must be one of %s") % values.join(', '))
       end
-    end
-
-    private
-
-    def transformed_selection(selection_method)
-      self.class.public_send(selection_method).map { |key, translated| { :value => key, :label => translated } }
     end
   end
 end
