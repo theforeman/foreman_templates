@@ -1,35 +1,5 @@
 class Setting
   class TemplateSync < ::Setting
-    self.include_root_in_json = false
-
-    def self.common_stripped_names
-      %w(verbose repo branch dirname filter negate)
-    end
-
-    def self.import_stripped_names
-      %w(prefix associate force lock)
-    end
-
-    def self.export_stripped_names
-      %w(metadata_export_mode commit_msg)
-    end
-
-    def self.import_setting_names(except = [])
-      map_prefix omit_settings(common_stripped_names + import_stripped_names, except)
-    end
-
-    def self.export_setting_names(except = [])
-      map_prefix omit_settings(common_stripped_names + export_stripped_names, except)
-    end
-
-    def self.map_prefix(stripped_names)
-      stripped_names.map { |item| "template_sync_#{item}" }
-    end
-
-    def self.omit_settings(setting_names, except_array)
-      setting_names.reject { |name| except_array.include? name }
-    end
-
     def self.associate_types
       {
         'always' => _('Always'),
@@ -53,10 +23,6 @@ class Setting
         'keep' => _('Keep'),
         'remove' => _('Remove')
       }
-    end
-
-    def short_name
-      name.split('template_sync_').last
     end
 
     def self.load_defaults

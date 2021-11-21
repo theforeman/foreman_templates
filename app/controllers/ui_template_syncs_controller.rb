@@ -8,8 +8,8 @@ class UiTemplateSyncsController < ApplicationController
   end
 
   def sync_settings
-    import_settings = Setting.where :name => Setting::TemplateSync.import_setting_names(['verbose'])
-    export_settings = Setting.where :name => Setting::TemplateSync.export_setting_names(['verbose'])
+    import_settings = setting_definitions(ForemanTemplates::IMPORT_SETTING_NAMES)
+    export_settings = setting_definitions(ForemanTemplates::EXPORT_SETTING_NAMES)
     @results = OpenStruct.new(:import => import_settings, :export => export_settings)
   end
 
@@ -44,5 +44,11 @@ class UiTemplateSyncsController < ApplicationController
 
   def render_errors(messages, severity = 'danger')
     render :json => { :error => { :errors => { :base => messages }, full_messages: messages, :severity => severity } }, :status => :unprocessable_entity
+  end
+
+  private
+
+  def setting_definitions(short_names)
+    short_names.map { |name| Foreman.settings.find("template_sync_#{name}") }
   end
 end

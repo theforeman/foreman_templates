@@ -352,6 +352,7 @@ module ForemanTemplates
       FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => default_repo)
       FactoryBot.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
       FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => default_branch)
+      Foreman.settings.load
     end
 
     def assert_both_equal_nil(expected, actual)
