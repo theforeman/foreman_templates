@@ -340,19 +340,17 @@ module ForemanTemplates
     private
 
     def setup_settings(opts = {})
-      category = "Setting::TemplateSync"
       default_repo = opts[:repo] || 'https://github.com/theforeman/community-templates.git'
       default_dirname = opts[:dirname] || '/'
       default_branch = opts[:branch] || nil
-      FactoryBot.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_verbose', :default => false)
-      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_associate', :default => "new")
-      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_prefix', :default => "Community ")
-      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_dirname', :default => default_dirname)
-      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_filter', :default => nil)
-      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_repo', :default => default_repo)
-      FactoryBot.create(:setting, :settings_type => "boolean", :category => category, :name => 'template_sync_negate', :default => false)
-      FactoryBot.create(:setting, :settings_type => "string", :category => category, :name => 'template_sync_branch', :default => default_branch)
-      Foreman.settings.load
+      Setting['template_sync_verbose'] = false
+      Setting['template_sync_associate'] = "new"
+      Setting['template_sync_prefix'] = "Community "
+      Setting['template_sync_dirname'] = default_dirname
+      Setting['template_sync_filter'] = nil
+      Setting['template_sync_repo'] = default_repo
+      Setting['template_sync_negate'] = false
+      Setting['template_sync_branch'] = default_branch
     end
 
     def assert_both_equal_nil(expected, actual)

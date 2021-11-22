@@ -10,10 +10,6 @@ module ForemanTemplates
   class Engine < ::Rails::Engine
     engine_name 'foreman_templates'
 
-    initializer 'foreman_templates.load_default_settings', :before => :load_config_initializers do
-      require_dependency File.expand_path('../../app/models/setting/template_sync.rb', __dir__) if (Setting.table_exists? rescue(false))
-    end
-
     initializer "foreman_templates.add_rabl_view_path" do
       Rabl.configure do |config|
         config.view_paths << ForemanTemplates::Engine.root.join('app', 'views')
@@ -28,9 +24,77 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 1.24'
+        requires_foreman '>= 3.0'
 
         apipie_documented_controllers ["#{ForemanTemplates::Engine.root}/app/controllers/api/v2/*.rb"]
+
+        settings do
+          category(:template_sync, N_('Template Sync')) do
+            setting('template_sync_verbose',
+              type: :boolean,
+              description: N_('Choose verbosity for Rake task importing templates'),
+              default: false,
+              full_name: N_('Verbosity'))
+            setting('template_sync_associate',
+              type: :string,
+              description: N_('Associate templates to OS, organization and location'),
+              default: 'new',
+              full_name: N_('Associate'),
+              collection: -> { ForemanTemplates.associate_types })
+            setting('template_sync_prefix',
+              type: :string,
+              description: N_('The string that will be added as prefix to imported templates'),
+              default: "",
+              full_name: N_('Prefix'))
+            setting('template_sync_dirname',
+              type: :string,
+              description: N_('The directory within the Git repo containing the templates'),
+              default: '/',
+              full_name: N_('Dirname'))
+            setting('template_sync_filter',
+              type: :string,
+              description: N_('Import/export names matching this regex (case-insensitive; snippets are not filtered)'),
+              default: '',
+              full_name: N_('Filter'))
+            setting('template_sync_repo',
+              type: :string,
+              description: N_('Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.'),
+              default: 'https://github.com/theforeman/community-templates.git',
+              full_name: N_('Repo'))
+            setting('template_sync_negate',
+              type: :boolean,
+              description: N_('Negate the filter for import/export'),
+              default: false,
+              full_name: N_('Negate'))
+            setting('template_sync_branch',
+              type: :string,
+              description: N_('Default branch in Git repo'),
+              default: '',
+              full_name: N_('Branch'))
+            setting('template_sync_metadata_export_mode',
+              type: :string,
+              description: N_('Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata'),
+              default: 'refresh',
+              full_name: N_('Metadata export mode'),
+              collection: -> { ForemanTemplates.metadata_export_mode_types })
+            setting('template_sync_force',
+              type: :boolean,
+              description: N_('Should importing overwrite locked templates?'),
+              default: false,
+              full_name: N_('Force import'))
+            setting('template_sync_lock',
+              type: :string,
+              description: N_('How to handle lock for imported templates?'),
+              default: 'keep',
+              full_name: N_('Lock templates'),
+              collection: -> { ForemanTemplates.lock_types })
+            setting('template_sync_commit_msg',
+              type: :string,
+              description: N_('Custom commit message for templates export'),
+              default: 'Templates export made by a Foreman user',
+              full_name: N_('Commit message'))
+          end
+        end
 
         security_block :templates do
           permission :import_templates, {
@@ -58,6 +122,8 @@ module ForemanTemplates
     end
 
     config.to_prepare do
+      Setting::NOT_STRIPPED << 'template_sync_prefix'
+
       Template.include ForemanTemplates::TemplateExtensions
     end
   end
