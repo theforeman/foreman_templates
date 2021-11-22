@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -49,110 +49,94 @@ const syncFormSchema = (syncType, settingsObj, validationData) => {
   });
 };
 
-class NewTemplateSyncForm extends React.Component {
-  allowedSyncType = (userPermissions, radioAttrs) =>
-    this.props.userPermissions[radioAttrs.permission];
+const NewTemplateSyncForm = ({
+  error,
+  submitForm,
+  importSettings,
+  exportSettings,
+  history,
+  validationData,
+  importUrl,
+  exportUrl,
+  initialValues,
+  currentLocation,
+  currentOrganization,
+  userPermissions,
+}) => {
+  const isSyncTypeAllowed = (radioAttrs) => userPermissions[radioAttrs.permission];
 
-  constructor(props) {
-    super(props);
+  const radioButtons = [
+    { label: 'Import', value: 'import', permission: 'import' },
+    { label: 'Export', value: 'export', permission: 'export' },
+  ];
 
-    this.radioButtons = [
-      { label: 'Import', value: 'import', permission: 'import' },
-      { label: 'Export', value: 'export', permission: 'export' },
-    ];
+  const [syncType, setSyncType] = useState(
+    radioButtons.find(radioAttrs => isSyncTypeAllowed(radioAttrs))?.value
+  )
 
-    this.state = {
-      syncType: this.radioButtons.find(radioAttrs =>
-        this.allowedSyncType(props.userPermissions, radioAttrs)
-      ).value,
-    };
-  }
+  const permitedRadioButtons =
+    radioButtons.filter(buttonAttrs => isSyncTypeAllowed(buttonAttrs));
 
-  updateSyncType = event => {
-    this.setState({ syncType: event.target.value });
-  };
-
-  permitRadioButtons = buttons =>
-    buttons.filter(buttonAttrs =>
-      this.allowedSyncType(this.props.userPermissions, buttonAttrs)
-    );
-
-  initRadioButtons = syncType =>
-    this.permitRadioButtons(this.radioButtons).map(buttonAttrs => ({
+  const formRadioButtons =
+    permitedRadioButtons.map(buttonAttrs => ({
       get checked() {
         return this.value === syncType;
       },
-      onChange: this.updateSyncType,
+      onChange: event => { setSyncType(event.target.value) },
       ...buttonAttrs,
     }));
 
-  render() {
-    const {
-      error,
-      submitForm,
-      importSettings,
-      exportSettings,
-      history,
-      validationData,
-      importUrl,
-      exportUrl,
-      initialValues,
-      currentLocation,
-      currentOrganization,
-    } = this.props;
 
-    const addTaxParams = (key, currentTax) => params => {
-      if (currentTax.id) {
-        params[key] = [currentTax.id];
-      }
-      return params;
-    };
+  const addTaxParams = (key, currentTax) => params => {
+    if (currentTax.id) {
+      params[key] = [currentTax.id];
+    }
+    return params;
+  };
 
-    const addOrgParams = addTaxParams('organization_ids', currentOrganization);
-    const addLocParams = addTaxParams('location_ids', currentLocation);
+  const addOrgParams = addTaxParams('organization_ids', currentOrganization);
+  const addLocParams = addTaxParams('location_ids', currentLocation);
 
-    const resetToDefault = (fieldName, fieldValue) => resetFn =>
-      resetFn(fieldName, fieldValue);
+  const resetToDefault = (fieldName, fieldValue) => resetFn =>
+    resetFn(fieldName, fieldValue);
 
-    return (
-      <ForemanForm
-        onSubmit={(values, actions) => {
-          const url = this.state.syncType === 'import' ? importUrl : exportUrl;
-          return submitForm({
-            url,
-            values: compose(
-              addLocParams,
-              addOrgParams
-            )(values[this.state.syncType]),
-            message: `Templates were ${this.state.syncType}ed.`,
-            item: 'TemplateSync',
-          }).then(args => {
-            history.replace({ pathname: '/template_syncs/result' });
-          });
-        }}
-        initialValues={initialValues}
-        validationSchema={syncFormSchema(
-          this.state.syncType,
-          { import: importSettings, export: exportSettings },
-          validationData
-        )}
-        onCancel={redirectToResult(history)}
-        error={error}
-      >
-        <SyncTypeRadios
-          name="syncType"
-          controlLabel="Action type"
-          radios={this.initRadioButtons(this.state.syncType)}
-        />
-        <SyncSettingsFields
-          importSettings={importSettings}
-          exportSettings={exportSettings}
-          syncType={this.state.syncType}
-          resetField={resetToDefault}
-        />
-      </ForemanForm>
-    );
-  }
+  return (
+    <ForemanForm
+      onSubmit={(values, actions) => {
+        const url = syncType === 'import' ? importUrl : exportUrl;
+        return submitForm({
+          url,
+          values: compose(
+            addLocParams,
+            addOrgParams
+          )(values[syncType]),
+          message: `Templates were ${syncType}ed.`,
+          item: 'TemplateSync',
+          successCallback: () => { history.replace({ pathname: '/template_syncs/result' }) }
+        });
+      }}
+      initialValues={initialValues}
+      validationSchema={syncFormSchema(
+        syncType,
+        { import: importSettings, export: exportSettings },
+        validationData
+      )}
+      onCancel={redirectToResult(history)}
+      error={error}
+    >
+      <SyncTypeRadios
+        name="syncType"
+        controlLabel="Action type"
+        radios={formRadioButtons}
+      />
+      <SyncSettingsFields
+        importSettings={importSettings}
+        exportSettings={exportSettings}
+        syncType={syncType}
+        resetField={resetToDefault}
+      />
+    </ForemanForm>
+  );
 }
 
 NewTemplateSyncForm.propTypes = {
