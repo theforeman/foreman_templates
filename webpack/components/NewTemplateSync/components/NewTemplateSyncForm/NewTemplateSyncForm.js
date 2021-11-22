@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
-import ForemanForm from 'foremanReact/components/common/forms/ForemanForm';
 import * as Yup from 'yup';
+import ForemanForm from 'foremanReact/components/common/forms/ForemanForm';
+import {
+  useForemanOrganization,
+  useForemanLocation,
+} from 'foremanReact/Root/Context/ForemanContext'
 import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
 
@@ -59,8 +63,6 @@ const NewTemplateSyncForm = ({
   importUrl,
   exportUrl,
   initialValues,
-  currentLocation,
-  currentOrganization,
   userPermissions,
 }) => {
   const isSyncTypeAllowed = (radioAttrs) => userPermissions[radioAttrs.permission];
@@ -86,19 +88,11 @@ const NewTemplateSyncForm = ({
       ...buttonAttrs,
     }));
 
-
-  const addTaxParams = (key, currentTax) => params => {
-    if (currentTax.id) {
-      params[key] = [currentTax.id];
-    }
-    return params;
-  };
-
-  const addOrgParams = addTaxParams('organization_ids', currentOrganization);
-  const addLocParams = addTaxParams('location_ids', currentLocation);
-
   const resetToDefault = (fieldName, fieldValue) => resetFn =>
     resetFn(fieldName, fieldValue);
+
+  const currentOrganization = useForemanOrganization();
+  const currentLocation = useForemanLocation();
 
   return (
     <ForemanForm
@@ -106,10 +100,11 @@ const NewTemplateSyncForm = ({
         const url = syncType === 'import' ? importUrl : exportUrl;
         return submitForm({
           url,
-          values: compose(
-            addLocParams,
-            addOrgParams
-          )(values[syncType]),
+          values: {
+            ...values[syncType],
+            organization_ids: [currentOrganization.id],
+            location_ids: [currentLocation.id],
+          },
           message: `Templates were ${syncType}ed.`,
           item: 'TemplateSync',
           successCallback: () => { history.replace({ pathname: '/template_syncs/result' }) }
@@ -150,8 +145,6 @@ NewTemplateSyncForm.propTypes = {
   exportUrl: PropTypes.string.isRequired,
   importUrl: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired,
-  currentLocation: PropTypes.object.isRequired,
-  currentOrganization: PropTypes.object.isRequired,
 };
 
 NewTemplateSyncForm.defaultProps = {

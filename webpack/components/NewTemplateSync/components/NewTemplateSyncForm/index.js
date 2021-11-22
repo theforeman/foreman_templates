@@ -2,8 +2,6 @@ import { connect } from 'react-redux';
 
 import * as FormActions from 'foremanReact/redux/actions/common/forms';
 
-import { selectLayout } from 'foremanReact/components/Layout/LayoutSelectors';
-
 import NewTemplateSyncForm from './NewTemplateSyncForm';
 
 import {
@@ -24,8 +22,6 @@ const mapStateToProps = (state, ownProps) => {
     initialValues: { ...initialFormValues },
     importSettings,
     exportSettings,
-    currentOrganization: selectLayout(state).currentOrganization,
-    currentLocation: selectLayout(state).currentLocation,
   };
 };
 
