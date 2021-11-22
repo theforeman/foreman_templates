@@ -17,9 +17,9 @@ module Api
 
       api :POST, "/templates/import/", N_("Initiate Import")
       param :prefix, String, :required => false, :desc => N_("The string all imported templates should begin with.")
-      param :associate, Setting::TemplateSync.associate_types.keys, :required => false, :desc => N_("Associate to OS's, Locations & Organizations. Options are: always, new or never.")
+      param :associate, ForemanTemplates.associate_types.keys, :required => false, :desc => N_("Associate to OS's, Locations & Organizations. Options are: always, new or never.")
       param :force, :bool, :required => false, :desc => N_("Update templates that are locked")
-      param :lock, Setting::TemplateSync.lock_types.keys + ["true", "false", "0", "1"], :required => false, :desc => N_("Lock imported templates")
+      param :lock, ForemanTemplates.lock_types.keys + ["true", "false", "0", "1"], :required => false, :desc => N_("Lock imported templates")
       param :verbose, :bool, :required => false, :desc => N_("Show template diff in response")
       param_group :foreman_template_sync_params
       param_group :taxonomies, ::Api::V2::BaseController
@@ -32,7 +32,7 @@ module Api
       end
 
       api :POST, "/templates/export", N_("Initiate Export")
-      param :metadata_export_mode, Setting::TemplateSync.metadata_export_mode_types.keys, :required => false, :desc => N_("Specify how to handle metadata")
+      param :metadata_export_mode, ForemanTemplates.metadata_export_mode_types.keys, :required => false, :desc => N_("Specify how to handle metadata")
       param :commit_msg, String, :desc => N_("Custom commit message for templates export")
       param_group :foreman_template_sync_params
       param_group :taxonomies, ::Api::V2::BaseController
