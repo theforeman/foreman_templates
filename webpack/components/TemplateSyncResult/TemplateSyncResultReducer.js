@@ -12,7 +12,7 @@ export const initialState = Immutable({
 
   pagination: {
     page: 1,
-    perPage: 20,
+    per_page: 20,
   },
 });
 

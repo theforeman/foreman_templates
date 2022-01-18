@@ -18,7 +18,7 @@ const fixtures = {
     editPaths,
     pagination: {
       page: 1,
-      perPage: 20,
+      per_page: 20,
     },
   },
 };
