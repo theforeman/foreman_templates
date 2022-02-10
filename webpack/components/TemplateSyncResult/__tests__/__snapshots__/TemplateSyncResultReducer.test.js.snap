@@ -4,7 +4,7 @@ exports[`TemplateSyncResultReducer should return initial state 1`] = `
 Object {
   "pagination": Object {
     "page": 1,
-    "perPage": 20,
+    "per_page": 20,
   },
   "resultAction": "",
   "templates": Array [],
@@ -27,7 +27,7 @@ Object {
   "branch": "master",
   "pagination": Object {
     "page": 1,
-    "perPage": 20,
+    "per_page": 20,
   },
   "repo": "https://github.com/theforeman/community-templates.git",
   "resultAction": "import",

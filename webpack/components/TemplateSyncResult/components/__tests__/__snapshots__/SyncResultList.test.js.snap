@@ -88,17 +88,11 @@ exports[`SyncResultList should render 1`] = `
       }
     }
   />
-  <PaginationWrapper
-    dropdownButtonId="template-sync-result-dropdown"
+  <Pagination
     itemCount={5}
     onChange={[Function]}
-    pagination={
-      Object {
-        "page": 1,
-        "perPage": 20,
-      }
-    }
-    viewType="list"
+    page={1}
+    perPage={20}
   />
 </ListView>
 `;
