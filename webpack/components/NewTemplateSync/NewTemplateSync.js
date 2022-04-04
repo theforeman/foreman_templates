@@ -1,7 +1,8 @@
 import React from 'react';
 import { LoadingState } from 'patternfly-react';
-import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
 import PropTypes from 'prop-types';
+import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 import NewTemplateSyncForm from './components/NewTemplateSyncForm';
 import './NewTemplateSync.scss';

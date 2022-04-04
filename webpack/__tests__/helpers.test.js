@@ -1,5 +1,5 @@
 import React from 'react';
-import { testSelectorsSnapshotWithFixtures } from 'react-redux-test-utils';
+import { testSelectorsSnapshotWithFixtures } from '@theforeman/test';
 import withProtectedView from '../withProtectedView';
 
 const ProtectedComponent = () => <div>Protected component</div>;

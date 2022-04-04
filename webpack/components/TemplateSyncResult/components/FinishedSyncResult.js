@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { capitalize } from 'lodash';
-
-import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
 import { LinkContainer } from 'react-router-bootstrap';
-
 import { Button } from 'patternfly-react';
+
+import { translate as __ } from 'foremanReact/common/I18n';
+import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
+
 import SyncResultList from './SyncResultList';
 
 const titleString = (type, repo, branch, gitUser, fileRepoStartWith) => {

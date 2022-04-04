@@ -1,4 +1,4 @@
-import { testComponentSnapshotsWithFixtures } from 'react-redux-test-utils';
+import { testComponentSnapshotsWithFixtures } from '@theforeman/test';
 
 import SyncResultList from '../SyncResultList';
 import { importTemplates } from '../../__fixtures__/templateSyncResult.fixtures';

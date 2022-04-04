@@ -9,3 +9,4 @@ locale/*/*.pox
 locale/*/*.edit.po
 locale/*/*.po.time_stamp
 .tx/
+coverage/
