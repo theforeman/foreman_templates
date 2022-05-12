@@ -1,17 +1,13 @@
 import React from 'react';
-import { ListView, OverlayTrigger, Tooltip } from 'patternfly-react';
+import { ListView } from 'patternfly-react';
+import { Tooltip } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 
 const InfoItem = ({ itemId, children, tooltipText }) => {
   const overlay = (
-    <OverlayTrigger
-      overlay={tooltipText ? <Tooltip id={itemId}>{tooltipText}</Tooltip> : ''}
-      placement="top"
-      trigger={['hover', 'focus']}
-      rootClose={false}
-    >
+    <Tooltip content={tooltipText || ''} id={itemId}>
       {children}
-    </OverlayTrigger>
+    </Tooltip>
   );
   return (
     <ListView.InfoItem key={itemId} className="additional-info-wide">
