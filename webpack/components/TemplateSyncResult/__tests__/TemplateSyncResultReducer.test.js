@@ -1,4 +1,4 @@
-import { testReducerSnapshotWithFixtures } from 'react-redux-test-utils';
+import { testReducerSnapshotWithFixtures } from '@theforeman/test';
 
 import reducer, { initialState } from '../TemplateSyncResultReducer';
 import { importTemplates } from '../__fixtures__/templateSyncResult.fixtures';

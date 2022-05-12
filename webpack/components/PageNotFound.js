@@ -1,5 +1,6 @@
 import React from 'react';
 import { EmptyStatePattern as EmptyState } from 'foremanReact/components/common/EmptyState';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 const PageNotFound = props => (
   <EmptyState

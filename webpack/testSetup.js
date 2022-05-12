@@ -1,7 +1,7 @@
 import 'core-js/shim';
 import 'regenerator-runtime/runtime';
 
-import { configure } from 'enzyme';
+import { configure } from '@theforeman/test';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
