@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_templates package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# NorwayFun <temuri.doghonadze@gmail.com>, 2022
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_templates 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-10-14 12:27+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>, 2022\n"
+"Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Action with sub plans"
+msgstr ""
+
+msgid "Always"
+msgstr "ყოველთვის"
+
+msgid "Associate"
+msgstr "ასოცირება"
+
+msgid "Associate templates to OS, organization and location"
+msgstr "შაბლონების ასოცირება ოს-თან, ორგანიზაციასთან და მდებარეობებთან"
+
+msgid "Associate to OS's, Locations & Organizations. Options are: always, new or never."
+msgstr "ასოცირება ოს-ებთან, მდებარეობებთან და ორგანიზაციებთან. ვარიანტებია: ყოველთვის, ახალი ან არასდროს."
+
+msgid "Back to sync form"
+msgstr ""
+
+msgid "Branch"
+msgstr "ბრენჩი"
+
+msgid "Branch in Git repo."
+msgstr "Git რეპოს ბრენჩი."
+
+msgid "Choose verbosity for Rake task importing templates"
+msgstr "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
+
+msgid "Commit message"
+msgstr ""
+
+msgid "Custom commit message for templates export"
+msgstr ""
+
+msgid "Default branch in Git repo"
+msgstr "Git რეპოს ნაგულისხმები ბრენჩი"
+
+msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
+msgstr "მეტამონაცემების გატანის ნაგულისხმები რეჟიმი, განახლება ხელახლა გადასცემს მეტამონაცემებს, შენახვა შეინარჩუნებს არსებულ მეტამონაცემებს, გატანის შაბლონის წაშლა მეტამონაცემების გარეშე"
+
+msgid "Dirname"
+msgstr "საქაღალდის სახელი"
+
+msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
+msgstr "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
+
+msgid "Filter"
+msgstr "ფილტრი"
+
+msgid "Force import"
+msgstr "ძალით შემოტანა"
+
+msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
+msgstr ""
+
+msgid "Import or Export Templates"
+msgstr ""
+
+msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
+msgstr ""
+
+msgid "Initiate Export"
+msgstr "გატანის დაწყება"
+
+msgid "Initiate Import"
+msgstr "შემოტანის დაწყება"
+
+msgid "Keep"
+msgstr "დატოვება"
+
+msgid "Keep, do not lock new"
+msgstr ""
+
+msgid "Keep, lock new"
+msgstr ""
+
+msgid "Lock"
+msgstr ""
+
+msgid "Lock imported templates"
+msgstr "შემოტანილი შაბლონების დაბლოკვა"
+
+msgid "Lock templates"
+msgstr "შაბლონების დაბლოკვა"
+
+msgid "Metadata export mode"
+msgstr "მეტამონაცემების გატანის რეჟიმი"
+
+msgid "Negate"
+msgstr "უარყოფა"
+
+msgid "Negate the filter for import/export"
+msgstr ""
+
+msgid "Negate the prefix (for purging)."
+msgstr "პრეფიქსის უარყოფა(გასასუფთავებლად)"
+
+msgid "Never"
+msgstr "არასდროს"
+
+msgid "New"
+msgstr "ახალი"
+
+msgid "Override the default repo from settings."
+msgstr "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
+
+msgid "Page Not Found"
+msgstr ""
+
+msgid "Permission Denied"
+msgstr ""
+
+msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
+msgstr ""
+
+msgid "Please request one of the required permissions listed below from a Foreman administrator:"
+msgstr ""
+
+msgid "Prefix"
+msgstr "პრეფიქსი"
+
+msgid "Refresh"
+msgstr "განახლება"
+
+msgid "Remote action:"
+msgstr ""
+
+msgid "Remove"
+msgstr "წაშლა"
+
+msgid "Repo"
+msgstr "რეპო"
+
+msgid "Should importing overwrite locked templates?"
+msgstr "შემოტანამ დაბლოკილ შაბლონებს გადააწეროს თუ არა?"
+
+msgid "Show template diff in response"
+msgstr "პასუხად შაბლონის სხვაობის ჩვენება"
+
+msgid "Specify how to handle metadata"
+msgstr "მეტამონაცემების დამუშავების ხერხი"
+
+msgid "Sync Templates"
+msgstr "შაბლონების სინქრონიზაცია"
+
+msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
+msgstr ""
+
+msgid "Template Sync"
+msgstr ""
+
+msgid "The directory within Git repo containing the templates"
+msgstr "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
+
+msgid "The directory within the Git repo containing the templates"
+msgstr "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
+
+msgid "The page you are looking for does not exist"
+msgstr ""
+
+msgid "The string all imported templates should begin with."
+msgstr "სტრიქონი, რომლითაც შემოტანილი შაბლონები უნდა იწყებოდეს."
+
+msgid "The string that will be added as prefix to imported templates"
+msgstr ""
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Update templates that are locked"
+msgstr "დაბლოკილი შაბლონების განახლება"
+
+msgid "Use default value from settings"
+msgstr ""
+
+msgid "Using file-based synchronization, but couldn't access %s. "
+msgstr "გამოიყენება ფაილების სინქრონიზაცია, მაგრამ %s-სთან წვდომის უფლება არ მაქვს. "
+
+msgid "Verbosity"
+msgstr "გამოტანილი შეტყობინებების რაოდენობა"
+
+msgid "You are not authorized to perform this action."
+msgstr ""

@@ -32,6 +32,9 @@ msgstr ""
 msgid "Associate to OS's, Locations & Organizations. Options are: always, new or never."
 msgstr ""
 
+msgid "Back to sync form"
+msgstr ""
+
 msgid "Branch"
 msgstr ""
 
@@ -72,6 +75,9 @@ msgid "Import Puppet classes"
 msgstr ""
 
 msgid "Import facts"
+msgstr ""
+
+msgid "Import or Export Templates"
 msgstr ""
 
 msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
@@ -122,7 +128,16 @@ msgstr ""
 msgid "Override the default repo from settings."
 msgstr ""
 
+msgid "Page Not Found"
+msgstr ""
+
+msgid "Permission Denied"
+msgstr ""
+
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
+msgstr ""
+
+msgid "Please request one of the required permissions listed below from a Foreman administrator:"
 msgstr ""
 
 msgid "Prefix"
@@ -155,10 +170,16 @@ msgstr ""
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
 msgstr ""
 
+msgid "Template Sync"
+msgstr ""
+
 msgid "The directory within Git repo containing the templates"
 msgstr ""
 
 msgid "The directory within the Git repo containing the templates"
+msgstr ""
+
+msgid "The page you are looking for does not exist"
 msgstr ""
 
 msgid "The string all imported templates should begin with."
@@ -173,14 +194,14 @@ msgstr ""
 msgid "Update templates that are locked"
 msgstr ""
 
+msgid "Use default value from settings"
+msgstr ""
+
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr ""
 
 msgid "Verbosity"
 msgstr ""
 
-msgid "template_sync_associate must be one of %s"
-msgstr ""
-
-msgid "template_sync_metadata_export_mode must be one of %s"
+msgid "You are not authorized to perform this action."
 msgstr ""

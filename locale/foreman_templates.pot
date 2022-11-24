@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 19:22+0530\n"
-"PO-Revision-Date: 2020-05-11 19:22+0530\n"
+"POT-Creation-Date: 2022-11-24 19:19+0100\n"
+"PO-Revision-Date: 2022-11-24 19:19+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -75,156 +75,8 @@ msgid "Specify how to handle metadata"
 msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:36
-#: ../app/models/setting/template_sync.rb:88
+#: ../lib/foreman_templates/engine.rb:93
 msgid "Custom commit message for templates export"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:35
-msgid "Always"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:36
-msgid "New"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:37
-msgid "Never"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:43
-msgid "Lock"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:44
-msgid "Keep, lock new"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:45
-msgid "Keep, do not lock new"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:46
-msgid "Unlock"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:52
-msgid "Refresh"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:53
-msgid "Keep"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:54
-msgid "Remove"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:77
-msgid "Choose verbosity for Rake task importing templates"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:77
-msgid "Verbosity"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:78
-msgid "Associate templates to OS, organization and location"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:78
-msgid "Associate"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:79
-msgid "The string that will be added as prefix to imported templates"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:79
-msgid "Prefix"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:80
-msgid "The directory within the Git repo containing the templates"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:80
-msgid "Dirname"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:81
-msgid ""
-"Import/export names matching this regex (case-insensitive; snippets are not fi"
-"ltered)"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:81
-msgid "Filter"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:82
-msgid ""
-"Target path to import/export. Different protocols can be used, for example /tm"
-"p/dir, git://example.com, https://example.com, ssh://example.com. When exporti"
-"ng to /tmp, note that production deployments may be configured to use private "
-"tmp."
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:82
-msgid "Repo"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:83
-msgid "Negate the filter for import/export"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:83
-msgid "Negate"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:84
-msgid "Default branch in Git repo"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:84
-msgid "Branch"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:85
-msgid ""
-"Default metadata export mode, refresh re-renders metadata, keep will keep exis"
-"ting metadata, remove exports template without metadata"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:85
-msgid "Metadata export mode"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:86
-msgid "Should importing overwrite locked templates?"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:86
-msgid "Force import"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:87
-msgid "How to handle lock for imported templates?"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:87
-msgid "Lock templates"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:88
-msgid "Commit message"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:98
-msgid "template_sync_associate must be one of %s"
-msgstr ""
-
-#: ../app/models/setting/template_sync.rb:105
-msgid "template_sync_metadata_export_mode must be one of %s"
 msgstr ""
 
 #: ../app/services/foreman_templates/action.rb:48
@@ -237,8 +89,186 @@ msgid ""
 "ble for the web application user account, typically '%s'."
 msgstr ""
 
+#: ../lib/foreman_templates.rb:9
+msgid "Always"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:9
+msgid "New"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:9
+msgid "Never"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:13
+msgid "Lock"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:13
+msgid "Keep, lock new"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:13
+msgid "Keep, do not lock new"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:13
+msgid "Unlock"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:17
+msgid "Refresh"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:17
+msgid "Keep"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:17
+msgid "Remove"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:32
+msgid "Template Sync"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:35
+msgid "Choose verbosity for Rake task importing templates"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:37
+msgid "Verbosity"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:40
+msgid "Associate templates to OS, organization and location"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:42
+msgid "Associate"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:46
+msgid "The string that will be added as prefix to imported templates"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:48
+msgid "Prefix"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:51
+msgid "The directory within the Git repo containing the templates"
+msgstr ""
+
 #: ../lib/foreman_templates/engine.rb:53
+msgid "Dirname"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:56
+msgid ""
+"Import/export names matching this regex (case-insensitive; snippets are not fi"
+"ltered)"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:58
+msgid "Filter"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:61
+msgid ""
+"Target path to import/export. Different protocols can be used, for example /tm"
+"p/dir, git://example.com, https://example.com, ssh://example.com. When exporti"
+"ng to /tmp, note that production deployments may be configured to use private "
+"tmp."
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:63
+msgid "Repo"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:66
+msgid "Negate the filter for import/export"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:68
+msgid "Negate"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:71
+msgid "Default branch in Git repo"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:73
+msgid "Branch"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:76
+msgid ""
+"Default metadata export mode, refresh re-renders metadata, keep will keep exis"
+"ting metadata, remove exports template without metadata"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:78
+msgid "Metadata export mode"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:82
+msgid "Should importing overwrite locked templates?"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:84
+msgid "Force import"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:87
+msgid "How to handle lock for imported templates?"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:89
+msgid "Lock templates"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:95
+msgid "Commit message"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:117
 msgid "Sync Templates"
+msgstr ""
+
+#: ../webpack/components/NewTemplateSync/NewTemplateSync.js:31
+msgid "Import or Export Templates"
+msgstr ""
+
+#: ../webpack/components/NewTemplateSync/components/ButtonTooltip.js:8
+msgid "Use default value from settings"
+msgstr ""
+
+#: ../webpack/components/PageNotFound.js:9
+msgid "Page Not Found"
+msgstr ""
+
+#: ../webpack/components/PageNotFound.js:10
+msgid "The page you are looking for does not exist"
+msgstr ""
+
+#: ../webpack/components/PermissionDenied.js:10
+msgid "You are not authorized to perform this action."
+msgstr ""
+
+#: ../webpack/components/PermissionDenied.js:12
+msgid ""
+"Please request one of the required permissions listed below from a Foreman adm"
+"inistrator:"
+msgstr ""
+
+#: ../webpack/components/PermissionDenied.js:23
+msgid "Permission Denied"
+msgstr ""
+
+#: ../webpack/components/TemplateSyncResult/components/FinishedSyncResult.js:45
+msgid "Back to sync form"
 msgstr ""
 
 #: action_names.rb:2
