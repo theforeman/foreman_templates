@@ -7,6 +7,9 @@ module ForemanTemplates
     def initialize(args = {})
       super args
       @result_lines = []
+      @uri = URI(@repo)
+      @redacted_uri = @uri.dup
+      @redacted_uri.password = '*****' if @uri.password
     end
 
     def export!
@@ -48,7 +51,11 @@ module ForemanTemplates
         @warning = 'No change detected, skipping the commit and push'
       end
     rescue StandardError => e
-      @error = e.message
+      @error = if @uri.password
+                 e.message.gsub(@uri.to_s, @redacted_uri.to_s)
+               else
+                 e.message
+               end
     ensure
       FileUtils.remove_entry_secure(@dir) if File.exist?(@dir)
     end
@@ -132,7 +139,7 @@ module ForemanTemplates
 
     def export_result
       {
-        :templates => @result_lines, :repo => @repo, :branch => @branch,
+        :templates => @result_lines, :repo => @redacted_uri, :branch => @branch,
         :git_user => foreman_git_user, :error => @error, :warning => @warning
       }
     end
