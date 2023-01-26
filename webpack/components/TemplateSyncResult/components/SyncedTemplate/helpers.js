@@ -55,7 +55,6 @@ export const additionalInfo = (template, editPath) => {
           <StringInfoItem
             template={template}
             attr={attr}
-            translate
             mapAttr={(templateObj, attribute) =>
               classNameMap[templateObj[attribute]]
                 ? classNameMap[templateObj[attribute]]
