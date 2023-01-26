@@ -79,7 +79,6 @@ exports[`SyncedTemplate should render skipped template 1`] = `
             "templateFile": "coreos_default.erb",
           }
         }
-        translate={true}
       />,
       <EmptyInfoItem
         attr="kind"
@@ -118,7 +117,6 @@ exports[`SyncedTemplate should render skipped template 1`] = `
             "templateFile": "coreos_default.erb",
           }
         }
-        translate={false}
       />,
     ]
   }
@@ -236,7 +234,6 @@ exports[`SyncedTemplate should render template with invalid metadata 1`] = `
             "templateFile": "random_template.erb",
           }
         }
-        translate={false}
       />,
     ]
   }
@@ -361,7 +358,6 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
             "templateFile": "epel.erb",
           }
         }
-        translate={true}
       />,
       <StringInfoItem
         attr="kind"
@@ -384,7 +380,6 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
             "templateFile": "epel.erb",
           }
         }
-        translate={false}
       />,
       <StringInfoItem
         attr="templateFile"
@@ -407,7 +402,6 @@ exports[`SyncedTemplate should render template with validation errors 1`] = `
             "templateFile": "epel.erb",
           }
         }
-        translate={false}
       />,
     ]
   }
@@ -508,7 +502,6 @@ exports[`SyncedTemplate should render template without errros 1`] = `
             "templateFile": "coreos_default.erb",
           }
         }
-        translate={true}
       />,
       <EmptyInfoItem
         attr="kind"
@@ -541,7 +534,6 @@ exports[`SyncedTemplate should render template without errros 1`] = `
             "templateFile": "coreos_default.erb",
           }
         }
-        translate={false}
       />,
     ]
   }
