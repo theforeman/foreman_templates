@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2020
+# Pavel Borecki <pavel.borecki@gmail.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 1.0.0\n"
+"Project-Id-Version: foreman_templates 9.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2020\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2022\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/foreman/teams"
 "/114/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 "4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Akce s dílčími plány"
 
 msgid "Always"
 msgstr "Vždy"
@@ -76,10 +76,10 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importovat Puppet třídy"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importovat fakta"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -103,7 +103,7 @@ msgid "Keep, lock new"
 msgstr ""
 
 msgid "Lock"
-msgstr ""
+msgstr "Zamknout"
 
 msgid "Lock imported templates"
 msgstr "Uzamknout naimportované šablony"
@@ -151,7 +151,7 @@ msgid "Refresh"
 msgstr "Načíst znovu"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Akce na protějšku:"
 
 msgid "Remove"
 msgstr "Odebrat"
@@ -193,7 +193,7 @@ msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
 msgid "Unlock"
-msgstr ""
+msgstr "Odemknout"
 
 msgid "Update templates that are locked"
 msgstr "Aktualizovat šablony, které jsou uzamčeny"

@@ -1,207 +1,212 @@
-# Japanese translations for foreman_templates package.
-# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_templates package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# e93ed3aa97dec2eb31063731872555fc_1460a05 <71305a0095156d8e18373a5b7cfeb79e_8587>, 2019
+# 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 6.0.3\n"
+"Project-Id-Version: foreman_templates 9.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-14 08:23+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Japanese\n"
-"Language: ja\n"
+"PO-Revision-Date: 2019-10-14 12:27+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
+"Language-Team: Japanese (https://www.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"\n"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "サブプランによるアクション"
 
 msgid "Always"
-msgstr ""
+msgstr "常に"
 
 msgid "Associate"
-msgstr ""
+msgstr "関連付け"
 
 msgid "Associate templates to OS, organization and location"
-msgstr ""
+msgstr "テンプレートをOS、組織、ロケーションに関連付けます"
 
 msgid "Associate to OS's, Locations & Organizations. Options are: always, new or never."
-msgstr ""
+msgstr "OS、ロケーション、組織に関連付けます。オプションは always、new、または never。"
 
 msgid "Back to sync form"
-msgstr ""
+msgstr "同期フォームに戻る"
 
 msgid "Branch"
-msgstr ""
+msgstr "ブランチ"
 
 msgid "Branch in Git repo."
-msgstr ""
+msgstr "Git リポジトリーのブランチ。"
 
 msgid "Choose verbosity for Rake task importing templates"
-msgstr ""
+msgstr "テンプレートをインポートする Rake タスクの詳細を選択します"
 
 msgid "Commit message"
-msgstr ""
+msgstr "メッセージのコミット"
 
 msgid "Custom commit message for templates export"
-msgstr ""
+msgstr "テンプレートエクスポート用のカスタムコミットメッセージ"
 
 msgid "Default branch in Git repo"
-msgstr ""
+msgstr "Git リポジトリーのデフォルトブランチ"
 
 msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
-msgstr ""
+msgstr "デフォルトのメタデータエクスポートモード、更新はメタデータを再レンダリングし、保持は既存のメタデータを保持し、削除はメタデータなしでテンプレートをエクスポートします"
 
 msgid "Dirname"
-msgstr ""
+msgstr "Dirname"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
-msgstr ""
+msgstr "この正規表現に一致する名前のテンプレートをエクスポートします (大文字と小文字は区別されず、スニペットはフィルタリングされません)。"
 
 msgid "Filter"
-msgstr ""
+msgstr "フィルター"
 
 msgid "Force import"
-msgstr ""
+msgstr "強制インポート"
 
 msgid "How to handle lock for imported templates?"
-msgstr ""
+msgstr "インポートされたテンプレートのロックを処理する方法"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet クラスのインポート"
 
 msgid "Import facts"
-msgstr ""
+msgstr "ファクトのインポート"
 
 msgid "Import or Export Templates"
-msgstr ""
+msgstr "テンプレートのインポートまたはエクスポート"
 
 msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
-msgstr ""
+msgstr "この正規表現に一致する名前をインポートまたはエクスポートします (大文字と小文字は区別されず、スニペットはフィルタリングされません)"
 
 msgid "Initiate Export"
-msgstr ""
+msgstr "エクスポートを開始します"
 
 msgid "Initiate Import"
-msgstr ""
+msgstr "インポートを開始します"
 
 msgid "Keep"
-msgstr ""
+msgstr "保持"
 
 msgid "Keep, do not lock new"
-msgstr ""
+msgstr "保持、新規項目のロックなし"
 
 msgid "Keep, lock new"
-msgstr ""
+msgstr "保持、新規項目のロック"
 
 msgid "Lock"
-msgstr ""
+msgstr "ロック"
 
 msgid "Lock imported templates"
-msgstr ""
+msgstr "インポートしたテンプレートをロックします"
 
 msgid "Lock templates"
-msgstr ""
+msgstr "テンプレートのロック"
 
 msgid "Metadata export mode"
-msgstr ""
+msgstr "メタデータエクスポートモード"
 
 msgid "Negate"
-msgstr ""
+msgstr "無効化"
 
 msgid "Negate the filter for import/export"
-msgstr ""
+msgstr "インポート/エクスポートのフィルターを無効にします。"
 
 msgid "Negate the prefix (for purging)."
-msgstr ""
+msgstr "プレフィックスを無効にします (パージ用)。"
 
 msgid "Never"
-msgstr ""
+msgstr "なし"
 
 msgid "New"
-msgstr ""
+msgstr "新規"
 
 msgid "Override the default repo from settings."
-msgstr ""
+msgstr "設定からデフォルトのリポジトリーを上書きします。"
 
 msgid "Page Not Found"
-msgstr ""
+msgstr "ページが見つかりませんでした"
 
 msgid "Permission Denied"
-msgstr ""
+msgstr "パーミッションが拒否されました"
 
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
-msgstr ""
+msgstr "アクセス許可/SELinux を確認し、Web アプリケーションのユーザーアカウント (通常は '%s') に対して読み取り/書き込み可能であることを確認してください。"
 
 msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr ""
+msgstr "以下に一覧表示された必須パーミッションのいずれかを、Foreman 管理者に要求してください:"
 
 msgid "Prefix"
-msgstr ""
+msgstr "接頭辞"
 
 msgid "Refresh"
-msgstr ""
+msgstr "更新"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "リモートアクション:"
 
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 msgid "Repo"
-msgstr ""
+msgstr "リポジトリー"
 
 msgid "Should importing overwrite locked templates?"
-msgstr ""
+msgstr "インポートするとロックされたテンプレートは上書きされますか?"
 
 msgid "Show template diff in response"
-msgstr ""
+msgstr "応答としてテンプレートの差分を表示します"
 
 msgid "Specify how to handle metadata"
-msgstr ""
+msgstr "メタデータの処理方法を指定します"
 
 msgid "Sync Templates"
-msgstr ""
+msgstr "テンプレートの同期"
 
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
-msgstr ""
+msgstr "インポート/エクスポートのターゲットパス。/tmp/dir、git://example.com、https://example.com、ssh://example.com などの異なるプロトコルを使用できます。/tmp にエクスポートする場合には、実稼働デプロイメントがプライベート tmp を使用するように設定されている可能性があることに注意してください。"
 
 msgid "Template Sync"
-msgstr ""
+msgstr "テンプレート同期"
 
 msgid "The directory within Git repo containing the templates"
-msgstr ""
+msgstr "テンプレートを含む Git リポジトリー内のディレクトリー"
 
 msgid "The directory within the Git repo containing the templates"
-msgstr ""
+msgstr "テンプレートを含む Git リポジトリー内のディレクトリー"
 
 msgid "The page you are looking for does not exist"
-msgstr ""
+msgstr "探しているページは存在しません"
 
 msgid "The string all imported templates should begin with."
-msgstr ""
+msgstr "インポートされたすべてのテンプレートが開始する文字列"
 
 msgid "The string that will be added as prefix to imported templates"
-msgstr ""
+msgstr "インポートされたテンプレートの接頭辞として追加される文字列"
 
 msgid "Unlock"
-msgstr ""
+msgstr "ロック解除"
 
 msgid "Update templates that are locked"
-msgstr ""
+msgstr "ロックされているテンプレートを更新します"
 
 msgid "Use default value from settings"
-msgstr ""
+msgstr "設定のデフォルト値の使用"
 
 msgid "Using file-based synchronization, but couldn't access %s. "
-msgstr ""
+msgstr "ファイルベースの同期を使用していますが、%s にアクセスできませんでした。 "
 
 msgid "Verbosity"
-msgstr ""
+msgstr "詳細"
 
 msgid "You are not authorized to perform this action."
-msgstr ""
+msgstr "このアクションを実行する権限がありません。"

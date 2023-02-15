@@ -1,48 +1,52 @@
-# Spanish translations for foreman_templates package.
-# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_templates package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 6.0.3\n"
+"Project-Id-Version: foreman_templates 9.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-14 08:23+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Spanish\n"
-"Language: es\n"
+"PO-Revision-Date: 2019-10-14 12:27+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
+"Language-Team: Spanish (https://www.transifex.com/foreman/teams/114/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"\n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 :"
+" 2;\n"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Ação com subplanos "
 
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 msgid "Associate"
-msgstr ""
+msgstr "Associado"
 
 msgid "Associate templates to OS, organization and location"
-msgstr ""
+msgstr "Associar modelos ao sistema operacional, organização e localização"
 
 msgid "Associate to OS's, Locations & Organizations. Options are: always, new or never."
-msgstr ""
+msgstr "Associado a OS's, Locais e Organizações. As opções são: sempre, novo ou nunca."
 
 msgid "Back to sync form"
 msgstr ""
 
 msgid "Branch"
-msgstr ""
+msgstr "Ramo"
 
 msgid "Branch in Git repo."
-msgstr ""
+msgstr "Ramo em Git repo."
 
 msgid "Choose verbosity for Rake task importing templates"
-msgstr ""
+msgstr "Escolha a verbosidade para os modelos de importação da tarefa Rake"
 
 msgid "Commit message"
 msgstr ""
@@ -51,31 +55,31 @@ msgid "Custom commit message for templates export"
 msgstr ""
 
 msgid "Default branch in Git repo"
-msgstr ""
+msgstr "Ramo padrão em Git repo"
 
 msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
-msgstr ""
+msgstr "Modo de exportação de metadados padrão, atualiza os metadados de revenda, mantém manterá os metadados existentes, removerá o modelo de exportação sem metadados"
 
 msgid "Dirname"
-msgstr ""
+msgstr "Dirname"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
-msgstr ""
+msgstr "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
 
 msgid "Filter"
-msgstr ""
+msgstr "Flitro"
 
 msgid "Force import"
-msgstr ""
+msgstr "Forçar a importação"
 
 msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importar classes de Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importar fatos"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -84,13 +88,13 @@ msgid "Import/export names matching this regex (case-insensitive; snippets are n
 msgstr ""
 
 msgid "Initiate Export"
-msgstr ""
+msgstr "Iniciar a exportação"
 
 msgid "Initiate Import"
-msgstr ""
+msgstr "Iniciar a importação"
 
 msgid "Keep"
-msgstr ""
+msgstr "Guarde"
 
 msgid "Keep, do not lock new"
 msgstr ""
@@ -99,73 +103,73 @@ msgid "Keep, lock new"
 msgstr ""
 
 msgid "Lock"
-msgstr ""
+msgstr "Bloqueio"
 
 msgid "Lock imported templates"
-msgstr ""
+msgstr "Travar modelos importados"
 
 msgid "Lock templates"
-msgstr ""
+msgstr "Modelos de fechaduras"
 
 msgid "Metadata export mode"
-msgstr ""
+msgstr "Modo de exportação de metadados"
 
 msgid "Negate"
-msgstr ""
+msgstr "Negue"
 
 msgid "Negate the filter for import/export"
 msgstr ""
 
 msgid "Negate the prefix (for purging)."
-msgstr ""
+msgstr "Negar o prefixo (para purga)."
 
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
 msgid "Override the default repo from settings."
-msgstr ""
+msgstr "Anular o reporte padrão das configurações."
 
 msgid "Page Not Found"
 msgstr ""
 
 msgid "Permission Denied"
-msgstr ""
+msgstr "Permissão negada"
 
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
 msgstr ""
 
 msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr ""
+msgstr "Por favor, solicite uma das permissões necessárias listadas abaixo através de um administrador Foreman:"
 
 msgid "Prefix"
-msgstr ""
+msgstr "Prefixo"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Atualizar"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Ação remota:"
 
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 msgid "Repo"
-msgstr ""
+msgstr "Repo"
 
 msgid "Should importing overwrite locked templates?"
-msgstr ""
+msgstr "A importação deve sobregravar modelos bloqueados?"
 
 msgid "Show template diff in response"
-msgstr ""
+msgstr "Mostrar modelo dif em resposta"
 
 msgid "Specify how to handle metadata"
-msgstr ""
+msgstr "Especificar como lidar com metadados"
 
 msgid "Sync Templates"
-msgstr ""
+msgstr "Modelos de Sincronização"
 
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
 msgstr ""
@@ -174,34 +178,34 @@ msgid "Template Sync"
 msgstr ""
 
 msgid "The directory within Git repo containing the templates"
-msgstr ""
+msgstr "O diretório dentro do Git repo contendo os gabaritos"
 
 msgid "The directory within the Git repo containing the templates"
-msgstr ""
+msgstr "O diretório dentro do Git repo contendo os modelos"
 
 msgid "The page you are looking for does not exist"
 msgstr ""
 
 msgid "The string all imported templates should begin with."
-msgstr ""
+msgstr "O fio deve começar com todos os modelos importados."
 
 msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 msgid "Update templates that are locked"
-msgstr ""
+msgstr "Modelos de atualização que são bloqueados"
 
 msgid "Use default value from settings"
 msgstr ""
 
 msgid "Using file-based synchronization, but couldn't access %s. "
-msgstr ""
+msgstr "Usando a sincronização baseada em arquivos, mas não foi possível acessar %s. "
 
 msgid "Verbosity"
-msgstr ""
+msgstr "Verbosidade"
 
 msgid "You are not authorized to perform this action."
-msgstr ""
+msgstr "Você não está autorizado a executar essa ação."

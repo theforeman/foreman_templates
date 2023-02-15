@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# NorwayFun <temuri.doghonadze@gmail.com>, 2022
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 1.0.0\n"
+"Project-Id-Version: foreman_templates 9.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>, 2022\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022\n"
 "Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "ქმედება ქვე-გეგმებით"
 
 msgid "Always"
 msgstr "ყოველთვის"
@@ -35,7 +35,7 @@ msgid "Associate to OS's, Locations & Organizations. Options are: always, new or
 msgstr "ასოცირება ოს-ებთან, მდებარეობებთან და ორგანიზაციებთან. ვარიანტებია: ყოველთვის, ახალი ან არასდროს."
 
 msgid "Back to sync form"
-msgstr ""
+msgstr "სინქრონიზაციის ფორმაზე დაბრუნება"
 
 msgid "Branch"
 msgstr "ბრენჩი"
@@ -47,10 +47,10 @@ msgid "Choose verbosity for Rake task importing templates"
 msgstr "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
 
 msgid "Commit message"
-msgstr ""
+msgstr "კომიტის შეტყობინება"
 
 msgid "Custom commit message for templates export"
-msgstr ""
+msgstr "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
 
 msgid "Default branch in Git repo"
 msgstr "Git რეპოს ნაგულისხმები ბრენჩი"
@@ -71,19 +71,19 @@ msgid "Force import"
 msgstr "ძალით შემოტანა"
 
 msgid "How to handle lock for imported templates?"
-msgstr ""
+msgstr "როგორ დავამუშაო ბლოკირება შემოტანილი შაბლონებისთვის?"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet-ის კლასების შემოტანა"
 
 msgid "Import facts"
-msgstr ""
+msgstr "ფაქტების შემოტანა"
 
 msgid "Import or Export Templates"
-msgstr ""
+msgstr "შაბლონების შემოტანა და გატანა"
 
 msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
-msgstr ""
+msgstr "რეგულარულ გამოსახულებაზე დამთხვეული სახელების შეტანა/გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)"
 
 msgid "Initiate Export"
 msgstr "გატანის დაწყება"
@@ -95,13 +95,13 @@ msgid "Keep"
 msgstr "დატოვება"
 
 msgid "Keep, do not lock new"
-msgstr ""
+msgstr "შენარჩუნება, ახლოს არ დაბლოკვა"
 
 msgid "Keep, lock new"
-msgstr ""
+msgstr "შენარჩუნება, ახლის დაბლოკვა"
 
 msgid "Lock"
-msgstr ""
+msgstr "ჩაკეტვა"
 
 msgid "Lock imported templates"
 msgstr "შემოტანილი შაბლონების დაბლოკვა"
@@ -116,7 +116,7 @@ msgid "Negate"
 msgstr "უარყოფა"
 
 msgid "Negate the filter for import/export"
-msgstr ""
+msgstr "ფილტრის გაუარყოფითება შეტანა/გატანისთვის"
 
 msgid "Negate the prefix (for purging)."
 msgstr "პრეფიქსის უარყოფა(გასასუფთავებლად)"
@@ -131,16 +131,16 @@ msgid "Override the default repo from settings."
 msgstr "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
 
 msgid "Page Not Found"
-msgstr ""
+msgstr "გვერდი ვერ მოიძებნა"
 
 msgid "Permission Denied"
-msgstr ""
+msgstr "წვდომა აკრძალულია"
 
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
-msgstr ""
+msgstr "შეამოწმეთ SELinux/წვდომის უფლებები და დარწმუნდით, რომ ის ჩაწერადი/კითხვადია ვებ აპლიკაციის მომხმარებლის მიერ (ჩვეულებრივ, '%s')."
 
 msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr ""
+msgstr "საჭიროა ერთი ან მეტი ქვემოთ ჩამოთვლილი წვდომის გამოთხოვა Foreman-ის ადმინისტრატორისგან:"
 
 msgid "Prefix"
 msgstr "პრეფიქსი"
@@ -149,7 +149,7 @@ msgid "Refresh"
 msgstr "განახლება"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "დაშორებული ქმედება:"
 
 msgid "Remove"
 msgstr "წაშლა"
@@ -170,10 +170,10 @@ msgid "Sync Templates"
 msgstr "შაბლონების სინქრონიზაცია"
 
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
-msgstr ""
+msgstr "შეტანა/გამოტანის სამიზნე ბილიკი. შეგიძლიათ გამოიყენოთ სხვადასხვა პროტოკოლები. მაგალთად: /tmp/dir, git://example.com, https://example.com, ssh://example.com. /tmp-ზე გატანისას დაიმახსოვრეთ, რომ საწარმოო გაშლები შეიძლება საკუთარ დროებით საქაღალდეს იყენებდნენ."
 
 msgid "Template Sync"
-msgstr ""
+msgstr "შაბლონების სინქრონიზაცია"
 
 msgid "The directory within Git repo containing the templates"
 msgstr "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
@@ -182,22 +182,22 @@ msgid "The directory within the Git repo containing the templates"
 msgstr "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
 
 msgid "The page you are looking for does not exist"
-msgstr ""
+msgstr "გვერდი, რომელსაც ეძებთ, არ არსებობს"
 
 msgid "The string all imported templates should begin with."
 msgstr "სტრიქონი, რომლითაც შემოტანილი შაბლონები უნდა იწყებოდეს."
 
 msgid "The string that will be added as prefix to imported templates"
-msgstr ""
+msgstr "ეს სტრიქონი შემოტანილ შაბლონებზე პრეფიქსად დაემატება"
 
 msgid "Unlock"
-msgstr ""
+msgstr "განბლოკვა"
 
 msgid "Update templates that are locked"
 msgstr "დაბლოკილი შაბლონების განახლება"
 
 msgid "Use default value from settings"
-msgstr ""
+msgstr "პარამეტრებიდან ნაგულისხმები მნიშვნელობის გამოყენება"
 
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr "გამოიყენება ფაილების სინქრონიზაცია, მაგრამ %s-სთან წვდომის უფლება არ მაქვს. "
@@ -206,4 +206,4 @@ msgid "Verbosity"
 msgstr "გამოტანილი შეტყობინებების რაოდენობა"
 
 msgid "You are not authorized to perform this action."
-msgstr ""
+msgstr "ამ ქმედებისთვის საჭირო ავტორიზაცია არ გაგაჩნიათ."

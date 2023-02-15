@@ -1,24 +1,28 @@
-# Chinese translations for foreman_templates package.
-# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_templates package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 6.0.3\n"
+"Project-Id-Version: foreman_templates 9.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-14 08:23+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Chinese\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2019-10-14 12:27+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/foreman/teams/114/z"
+"h_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"\n"
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "有子計畫的動作"
 
 msgid "Always"
 msgstr ""
@@ -63,7 +67,7 @@ msgid "Export templates with names matching this regex (case-insensitive; snippe
 msgstr ""
 
 msgid "Filter"
-msgstr ""
+msgstr "篩選器"
 
 msgid "Force import"
 msgstr ""
@@ -72,10 +76,10 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "匯入 Puppet 類別"
 
 msgid "Import facts"
-msgstr ""
+msgstr "匯入詳情"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -99,7 +103,7 @@ msgid "Keep, lock new"
 msgstr ""
 
 msgid "Lock"
-msgstr ""
+msgstr "鎖定"
 
 msgid "Lock imported templates"
 msgstr ""
@@ -120,10 +124,10 @@ msgid "Negate the prefix (for purging)."
 msgstr ""
 
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 msgid "Override the default repo from settings."
 msgstr ""
@@ -138,22 +142,22 @@ msgid "Please check the access permissions/SELinux and make sure it is readable/
 msgstr ""
 
 msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr ""
+msgstr "請從 Foreman 管理者處，要求下列所需權限之一："
 
 msgid "Prefix"
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
+msgstr "重新整理"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "遠端動作："
 
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 msgid "Repo"
-msgstr ""
+msgstr "軟體庫"
 
 msgid "Should importing overwrite locked templates?"
 msgstr ""
@@ -189,7 +193,7 @@ msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
 msgid "Unlock"
-msgstr ""
+msgstr "解鎖"
 
 msgid "Update templates that are locked"
 msgstr ""
@@ -204,4 +208,4 @@ msgid "Verbosity"
 msgstr ""
 
 msgid "You are not authorized to perform this action."
-msgstr ""
+msgstr "您未經許可執行這項動作。"

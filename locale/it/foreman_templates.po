@@ -1,21 +1,26 @@
-# Italian translations for foreman_templates package.
-# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_templates package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
+# Andrea Perotti, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 6.0.3\n"
+"Project-Id-Version: foreman_templates 9.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-14 08:23+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Italian\n"
-"Language: it\n"
+"PO-Revision-Date: 2019-10-14 12:27+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
+"Language-Team: Italian (https://www.transifex.com/foreman/teams/114/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 :"
+" 2;\n"
 
 msgid "Action with sub plans"
 msgstr ""
@@ -63,7 +68,7 @@ msgid "Export templates with names matching this regex (case-insensitive; snippe
 msgstr ""
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 msgid "Force import"
 msgstr ""
@@ -72,10 +77,10 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importa classi Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importa gli eventi"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -99,7 +104,7 @@ msgid "Keep, lock new"
 msgstr ""
 
 msgid "Lock"
-msgstr ""
+msgstr "Blocca"
 
 msgid "Lock imported templates"
 msgstr ""
@@ -120,10 +125,10 @@ msgid "Negate the prefix (for purging)."
 msgstr ""
 
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 msgid "New"
-msgstr ""
+msgstr "Nuovo"
 
 msgid "Override the default repo from settings."
 msgstr ""
@@ -144,16 +149,16 @@ msgid "Prefix"
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
+msgstr "Aggiorna"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Azione remota:"
 
 msgid "Remove"
-msgstr ""
+msgstr "Rimuovi"
 
 msgid "Repo"
-msgstr ""
+msgstr "Repo"
 
 msgid "Should importing overwrite locked templates?"
 msgstr ""
@@ -189,7 +194,7 @@ msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
 msgid "Unlock"
-msgstr ""
+msgstr "Sblocca"
 
 msgid "Update templates that are locked"
 msgstr ""
@@ -204,4 +209,4 @@ msgid "Verbosity"
 msgstr ""
 
 msgid "You are not authorized to perform this action."
-msgstr ""
+msgstr "Non sei autorizzato a eseguire questa azione."
