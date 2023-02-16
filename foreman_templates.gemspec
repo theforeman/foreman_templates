@@ -14,7 +14,9 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.md"
   ]
-  s.files            = Dir["{app,config,db,lib,webpack}/**/*"] + ["LICENSE", "Rakefile", "README.md", "package.json"]
+  s.files            = Dir["{app,config,db,lib,webpack}/**/*"] + ["LICENSE", "Rakefile", "README.md", "package.json"] + \
+    # .mo files are compiled; .po are sources; .edit.po are temporary files
+    Dir['locale/*/LC_MESSAGES/*.mo'] + Dir["locale/*/#{s.name}.po"]
   s.homepage         = 'https://github.com/theforeman/foreman_templates'
   s.licenses         = ["GPL-3.0"]
   s.summary          = 'Template-syncing engine for Foreman'
