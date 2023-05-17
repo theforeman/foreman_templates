@@ -7,6 +7,7 @@ import {
   useForemanLocation,
   useForemanOrganization,
 } from 'foremanReact/Root/Context/ForemanContext';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
@@ -28,8 +29,8 @@ const NewTemplateSyncForm = ({
     currentUserPermissions[radioAttrs.permission];
 
   const radioButtons = [
-    { label: 'Import', value: 'import', permission: 'import' },
-    { label: 'Export', value: 'export', permission: 'export' },
+    { label: __('Import'), value: 'import', permission: 'import' },
+    { label: __('Export'), value: 'export', permission: 'export' },
   ];
 
   const [syncType, setSyncType] = useState(
@@ -99,7 +100,7 @@ const NewTemplateSyncForm = ({
     >
       <SyncTypeRadios
         name="syncType"
-        controlLabel="Action type"
+        controlLabel={__('Action type')}
         radios={initRadioButtons(syncType)}
       />
       <SyncSettingsFields

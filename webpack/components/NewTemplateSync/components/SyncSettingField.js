@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FieldLevelHelp } from 'patternfly-react';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 import TextButtonField from './TextButtonField';
 import ButtonTooltip from './ButtonTooltip';
 
 const SyncSettingField = ({ setting, resetField, disabled, syncType }) => {
-  const label = settingObj => `${settingObj.fullName} `;
+  const label = settingObj => `${__(settingObj.fullName)} `;
 
   const fieldSelector = settingObj => {
     if (settingObj.settingsType === 'boolean') {
@@ -23,7 +24,7 @@ const SyncSettingField = ({ setting, resetField, disabled, syncType }) => {
   const tooltipContent = (
     <div
       dangerouslySetInnerHTML={{
-        __html: setting.description,
+        __html: __(setting.description),
       }}
     />
   );
