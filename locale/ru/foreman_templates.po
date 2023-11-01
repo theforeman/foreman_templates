@@ -24,6 +24,9 @@ msgstr ""
 "4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=1"
 "1 && n%100<=14)? 2 : 3);\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr "Действия с подпланами"
 
@@ -66,6 +69,9 @@ msgstr ""
 msgid "Dirname"
 msgstr ""
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr ""
 
@@ -76,6 +82,9 @@ msgid "Force import"
 msgstr ""
 
 msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "Import Puppet classes"

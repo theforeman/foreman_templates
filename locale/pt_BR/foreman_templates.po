@@ -23,6 +23,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
 "0 == 0 ? 1 : 2;\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr "Ação com subplanos "
 
@@ -65,6 +68,9 @@ msgstr "Modo de exportação de metadados padrão, atualiza os metadados de reve
 msgid "Dirname"
 msgstr "Dirname"
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
 
@@ -75,6 +81,9 @@ msgid "Force import"
 msgstr "Forçar a importação"
 
 msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "Import Puppet classes"

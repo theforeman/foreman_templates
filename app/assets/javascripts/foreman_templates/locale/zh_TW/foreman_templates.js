@@ -176,6 +176,15 @@
       "Use default value from settings": [
         ""
       ],
+      "Import": [
+        ""
+      ],
+      "Export": [
+        ""
+      ],
+      "Action type": [
+        ""
+      ],
       "Page Not Found": [
         ""
       ],

@@ -176,6 +176,15 @@
       "Use default value from settings": [
         "使用设置中的默认值"
       ],
+      "Import": [
+        ""
+      ],
+      "Export": [
+        ""
+      ],
+      "Action type": [
+        ""
+      ],
       "Page Not Found": [
         "页没有找到"
       ],

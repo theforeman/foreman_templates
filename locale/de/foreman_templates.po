@@ -25,6 +25,9 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr "Aktion mit Unterplänen"
 
@@ -67,6 +70,9 @@ msgstr "Standard-Metadaten-Exportmodus, Aktualisieren, rendert Metadaten neu, be
 msgid "Dirname"
 msgstr "Dirname"
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "Exportieren Sie Vorlagen mit Namen, die dieser Regex entsprechen (Groß-/Kleinschreibung wird nicht beachtet; Snippets werden nicht gefiltert)."
 
@@ -77,6 +83,9 @@ msgid "Force import"
 msgstr "Import erzwingen"
 
 msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "Import Puppet classes"

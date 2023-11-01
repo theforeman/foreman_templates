@@ -176,6 +176,15 @@
       "Use default value from settings": [
         "პარამეტრებიდან ნაგულისხმები მნიშვნელობის გამოყენება"
       ],
+      "Import": [
+        ""
+      ],
+      "Export": [
+        ""
+      ],
+      "Action type": [
+        ""
+      ],
       "Page Not Found": [
         "გვერდი ვერ მოიძებნა"
       ],

@@ -19,6 +19,9 @@ msgstr ""
 "Language: ka\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr "ქმედება ქვე-გეგმებით"
 
@@ -61,6 +64,9 @@ msgstr "მეტამონაცემების გატანის ნ�
 msgid "Dirname"
 msgstr "საქაღალდის სახელი"
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
 
@@ -72,6 +78,9 @@ msgstr "ძალით შემოტანა"
 
 msgid "How to handle lock for imported templates?"
 msgstr "როგორ დავამუშაო ბლოკირება შემოტანილი შაბლონებისთვის?"
+
+msgid "Import"
+msgstr ""
 
 msgid "Import Puppet classes"
 msgstr "Puppet-ის კლასების შემოტანა"

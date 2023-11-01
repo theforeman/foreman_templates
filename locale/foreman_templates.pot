@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 15:26+0100\n"
-"PO-Revision-Date: 2023-01-19 15:26+0100\n"
+"POT-Creation-Date: 2023-11-01 11:02+0100\n"
+"PO-Revision-Date: 2023-11-01 11:02+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -75,7 +75,7 @@ msgid "Specify how to handle metadata"
 msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:36
-#: ../lib/foreman_templates/engine.rb:93
+#: ../lib/foreman_templates/engine.rb:94
 msgid "Custom commit message for templates export"
 msgstr ""
 
@@ -129,53 +129,53 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:32
+#: ../lib/foreman_templates/engine.rb:33
 msgid "Template Sync"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:35
+#: ../lib/foreman_templates/engine.rb:36
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:37
+#: ../lib/foreman_templates/engine.rb:38
 msgid "Verbosity"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:40
+#: ../lib/foreman_templates/engine.rb:41
 msgid "Associate templates to OS, organization and location"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:42
+#: ../lib/foreman_templates/engine.rb:43
 msgid "Associate"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:46
+#: ../lib/foreman_templates/engine.rb:47
 msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:48
+#: ../lib/foreman_templates/engine.rb:49
 msgid "Prefix"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:51
+#: ../lib/foreman_templates/engine.rb:52
 msgid "The directory within the Git repo containing the templates"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:53
+#: ../lib/foreman_templates/engine.rb:54
 msgid "Dirname"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:56
+#: ../lib/foreman_templates/engine.rb:57
 msgid ""
 "Import/export names matching this regex (case-insensitive; snippets are not fi"
 "ltered)"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:58
+#: ../lib/foreman_templates/engine.rb:59
 msgid "Filter"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:61
+#: ../lib/foreman_templates/engine.rb:62
 msgid ""
 "Target path to import/export. Different protocols can be used, for example /tm"
 "p/dir, git://example.com, https://example.com, ssh://example.com. When exporti"
@@ -183,57 +183,57 @@ msgid ""
 "tmp."
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:63
+#: ../lib/foreman_templates/engine.rb:64
 msgid "Repo"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:66
+#: ../lib/foreman_templates/engine.rb:67
 msgid "Negate the filter for import/export"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:68
+#: ../lib/foreman_templates/engine.rb:69
 msgid "Negate"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:71
+#: ../lib/foreman_templates/engine.rb:72
 msgid "Default branch in Git repo"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:73
+#: ../lib/foreman_templates/engine.rb:74
 msgid "Branch"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:76
+#: ../lib/foreman_templates/engine.rb:77
 msgid ""
 "Default metadata export mode, refresh re-renders metadata, keep will keep exis"
 "ting metadata, remove exports template without metadata"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:78
+#: ../lib/foreman_templates/engine.rb:79
 msgid "Metadata export mode"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:82
+#: ../lib/foreman_templates/engine.rb:83
 msgid "Should importing overwrite locked templates?"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:84
+#: ../lib/foreman_templates/engine.rb:85
 msgid "Force import"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:87
+#: ../lib/foreman_templates/engine.rb:88
 msgid "How to handle lock for imported templates?"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:89
+#: ../lib/foreman_templates/engine.rb:90
 msgid "Lock templates"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:95
+#: ../lib/foreman_templates/engine.rb:96
 msgid "Commit message"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:117
+#: ../lib/foreman_templates/engine.rb:118
 msgid "Sync Templates"
 msgstr ""
 
@@ -243,6 +243,21 @@ msgstr ""
 
 #: ../webpack/components/NewTemplateSync/components/ButtonTooltip.js:8
 msgid "Use default value from settings"
+msgstr ""
+
+#:
+#: ../webpack/components/NewTemplateSync/components/NewTemplateSyncForm/NewTemplateSyncForm.js:32
+msgid "Import"
+msgstr ""
+
+#:
+#: ../webpack/components/NewTemplateSync/components/NewTemplateSyncForm/NewTemplateSyncForm.js:33
+msgid "Export"
+msgstr ""
+
+#:
+#: ../webpack/components/NewTemplateSync/components/NewTemplateSyncForm/NewTemplateSyncForm.js:103
+msgid "Action type"
 msgstr ""
 
 #: ../webpack/components/PageNotFound.js:9

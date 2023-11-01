@@ -22,6 +22,9 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr "サブプランによるアクション"
 
@@ -64,6 +67,9 @@ msgstr "デフォルトのメタデータエクスポートモード、更新は
 msgid "Dirname"
 msgstr "Dirname"
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "この正規表現に一致する名前のテンプレートをエクスポートします (大文字と小文字は区別されず、スニペットはフィルタリングされません)。"
 
@@ -75,6 +81,9 @@ msgstr "強制インポート"
 
 msgid "How to handle lock for imported templates?"
 msgstr "インポートされたテンプレートのロックを処理する方法"
+
+msgid "Import"
+msgstr ""
 
 msgid "Import Puppet classes"
 msgstr "Puppet クラスのインポート"
