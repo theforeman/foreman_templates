@@ -22,6 +22,9 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr "有子计划的操作"
 
@@ -64,6 +67,9 @@ msgstr "默认元数据导出模式，刷新后重新渲染元数据，保留将
 msgid "Dirname"
 msgstr "Dirname"
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
 
@@ -75,6 +81,9 @@ msgstr "强制导入"
 
 msgid "How to handle lock for imported templates?"
 msgstr "如何处理导入的模板锁定？"
+
+msgid "Import"
+msgstr ""
 
 msgid "Import Puppet classes"
 msgstr "导入 Puppet 类"

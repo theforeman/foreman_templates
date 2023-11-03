@@ -176,6 +176,15 @@
       "Use default value from settings": [
         "設定のデフォルト値の使用"
       ],
+      "Import": [
+        ""
+      ],
+      "Export": [
+        ""
+      ],
+      "Action type": [
+        ""
+      ],
       "Page Not Found": [
         "ページが見つかりませんでした"
       ],

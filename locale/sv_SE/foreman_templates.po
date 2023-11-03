@@ -20,6 +20,9 @@ msgstr ""
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Action type"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr ""
 
@@ -62,6 +65,9 @@ msgstr ""
 msgid "Dirname"
 msgstr ""
 
+msgid "Export"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr ""
 
@@ -72,6 +78,9 @@ msgid "Force import"
 msgstr ""
 
 msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "Import Puppet classes"
