@@ -1,10 +1,10 @@
 [main]
-host = https://www.transifex.com
+host = https://app.transifex.com
 
 [o:foreman:p:foreman:r:foreman_templates]
 file_filter = locale/<lang>/foreman_templates.edit.po
 source_file = locale/foreman_templates.pot
 source_lang = en
 type = PO
-minimum_perc = 0
+minimum_perc = 50
 resource_name = foreman_templates
