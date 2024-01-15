@@ -79,6 +79,7 @@ namespace :test do
     test_dir = File.join(File.dirname(__FILE__), '../..', 'test')
     t.libs << ['test', test_dir]
     t.pattern = "#{test_dir}/**/*_test.rb"
+    t.test_files = [Rails.root.join('test/unit/foreman/access_permissions_test.rb')]
     t.verbose = true
     t.warning = false
   end
