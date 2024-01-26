@@ -62,11 +62,7 @@ module ForemanTemplates
         templates = exporter.templates_to_dump
         assert_equal 1, templates.count
         assert_includes(templates, template)
-      end
     end
-
-    describe '#templates_to_dump based on taxonomy context' do
-      before do
         taxonomy_setup
         @before_org = Organization.current
         Organization.current = @org
