@@ -26,7 +26,7 @@ module Api
           FactoryBot.create(:provisioning_template, :name => 'export_test_template')
           post :export, params: { "repo" => tmpdir, "filter" => "^export_test_template", "negate" => true, "metadata_export_mode" => "keep" }
           assert_response :success
-          refute_includes Dir.entries("#{tmpdir}/provisioning_templates/provision"), 'export_test_template.erb'
+          refute_includes(Dir.entries("#{tmpdir}/provisioning_templates/provision"), 'export_test_template.erb')
         end
       end
 

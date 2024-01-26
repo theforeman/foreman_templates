@@ -98,6 +98,12 @@ Metrics:
 Lint/UnusedMethodArgument:
   Enabled: false
 
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+Layout/ExtraSpacing:
+  Enabled: true
+
 # JobTemplates use this for inputs, we should probably whitelist classes
 Security/YAMLLoad:
   Enabled: false
