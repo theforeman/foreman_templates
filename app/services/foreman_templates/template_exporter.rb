@@ -168,8 +168,10 @@ module ForemanTemplates
     end
 
     def templates_query(tax_ids)
-      Template.where(:id => TaxableTaxonomy.where(:taxonomy_id => tax_ids,
-                                                  :taxable_type => Template.subclasses.map(&:name)).pluck(:taxable_id))
+      Template.where(:id => TaxableTaxonomy.where(
+        :taxonomy_id => tax_ids,
+        :taxable_type => Template.subclasses.map(&:name)
+      ).pluck(:taxable_id))
     end
 
     def taxes_ids(tax_type)

@@ -43,25 +43,25 @@ module ForemanTemplates
         exporter = TemplateExporter.new(:filter => "", :organization_params => { :organization_ids => [@org.id] })
         templates = exporter.templates_to_dump
         assert_equal 2, templates.count
-        assert templates.include?(@ptable)
-        assert templates.include?(@provisioning_template)
+        assert_includes(templates, @ptable)
+        assert_includes(templates, @provisioning_template)
       end
 
       test 'should export templates only from specified org by name' do
         exporter = TemplateExporter.new(:filter => "", :organization_params => { :organization_names => [@org.name] })
         templates = exporter.templates_to_dump
         assert_equal 2, templates.count
-        assert templates.include?(@ptable)
-        assert templates.include?(@provisioning_template)
+        assert_includes(templates, @ptable)
+        assert_includes(templates, @provisioning_template)
       end
 
       test 'should export template only in both organization and location' do
-        loc =  FactoryBot.create(:location, :name => 'TemplateLoc')
+        loc = FactoryBot.create(:location, :name => 'TemplateLoc')
         template = FactoryBot.create(:provisioning_template, :name => 'exported_template_with_taxonomies', :organizations => [@org], :locations => [loc])
         exporter = TemplateExporter.new(:filter => "", :organization_params => { :organization_ids => [@org.id] }, :location_params => { :location_ids => [loc.id] })
         templates = exporter.templates_to_dump
         assert_equal 1, templates.count
-        assert templates.include?(template)
+        assert_includes(templates, template)
       end
     end
 
@@ -80,8 +80,8 @@ module ForemanTemplates
         exporter = TemplateExporter.new(:filter => "", :organization_id => @org.id)
         templates = exporter.templates_to_dump
         assert_equal 2, templates.count
-        assert templates.include?(@ptable)
-        assert templates.include?(@provisioning_template)
+        assert_includes(templates, @ptable)
+        assert_includes(templates, @provisioning_template)
       end
     end
 

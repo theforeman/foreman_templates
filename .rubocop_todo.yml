@@ -18,3 +18,9 @@ Gemspec/RequiredRubyVersion:
 # Include: **/Rakefile, **/*.rake
 Rails/RakeEnvironment:
   Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false

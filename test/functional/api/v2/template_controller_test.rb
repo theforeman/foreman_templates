@@ -26,7 +26,7 @@ module Api
           FactoryBot.create(:provisioning_template, :name => 'export_test_template')
           post :export, params: { "repo" => tmpdir, "filter" => "^export_test_template", "negate" => true, "metadata_export_mode" => "keep" }
           assert_response :success
-          refute Dir.entries("#{tmpdir}/provisioning_templates/provision").include?('export_test_template.erb')
+          refute_includes(Dir.entries("#{tmpdir}/provisioning_templates/provision"), 'export_test_template.erb')
         end
       end
 
@@ -151,7 +151,7 @@ module Api
           FactoryBot.create(:provisioning_template, :name => 'exporting_template', :template_kind => kind)
           post :export, params: { "repo" => tmpdir, "filter" => "exporting_template", "metadata_export_mode" => "refresh" }
           assert_response :success
-          assert Dir.entries("#{tmpdir}/provisioning_templates/provision").include?('exporting_template.erb')
+          assert_includes(Dir.entries("#{tmpdir}/provisioning_templates/provision"), 'exporting_template.erb')
         end
       end
 
