@@ -1,6 +1,6 @@
 require 'ostruct'
 
-class UiTemplateSyncsController < ApplicationController
+class UITemplateSyncsController < ApplicationController
   include ::Foreman::Controller::Parameters::TemplateParams
 
   rescue_from ::ForemanTemplates::PathAccessException do |error|

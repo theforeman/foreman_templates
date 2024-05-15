@@ -24,7 +24,7 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 3.7'
+        requires_foreman '>= 3.13'
         register_gettext
 
         apipie_documented_controllers ["#{ForemanTemplates::Engine.root}/app/controllers/api/v2/*.rb"]
