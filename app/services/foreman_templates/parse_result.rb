@@ -15,7 +15,7 @@ module ForemanTemplates
         :imported => @imported,
         :additional_errors => @additional_errors,
         :additional_info => @additional_info,
-        :exception => @exception ? @exception.message : nil,
+        :exception => @exception&.message,
         :validation_errors => errors.to_h,
         :file => @template_file,
         :type => @template.present? ? @template.class.name.underscore : nil
@@ -27,7 +27,7 @@ module ForemanTemplates
     end
 
     def errors
-      @template ? @template.errors : nil
+      @template&.errors
     end
 
     def corrupted_metadata
