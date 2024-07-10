@@ -164,7 +164,7 @@ module ForemanTemplates
 
     def purge!
       clause = "name #{@negate ? 'NOT ' : ''}LIKE ?"
-      ProvisioningTemplate.where(clause, "#{@prefix}%").each do |template|
+      ProvisioningTemplate.where(clause, "#{@prefix}%").find_each do |template|
         puts template if @verbose
         template.destroy
       end
