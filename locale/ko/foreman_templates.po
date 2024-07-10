@@ -23,9 +23,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr "하위 계획이 있는 작업"
-
 msgid "Always"
 msgstr ""
 
@@ -82,12 +79,6 @@ msgstr ""
 
 msgid "Import"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Puppet 클래스 가져오기"
-
-msgid "Import facts"
-msgstr "팩트 불러오기"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -157,9 +148,6 @@ msgstr ""
 
 msgid "Refresh"
 msgstr "새로고침 "
-
-msgid "Remote action:"
-msgstr "원격 작업:"
 
 msgid "Remove"
 msgstr "삭제 "

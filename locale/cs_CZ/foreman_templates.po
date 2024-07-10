@@ -24,9 +24,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr "Akce s dílčími plány"
-
 msgid "Always"
 msgstr "Vždy"
 
@@ -83,12 +80,6 @@ msgstr ""
 
 msgid "Import"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Importovat Puppet třídy"
-
-msgid "Import facts"
-msgstr "Importovat fakta"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -158,9 +149,6 @@ msgstr "Předpona"
 
 msgid "Refresh"
 msgstr "Načíst znovu"
-
-msgid "Remote action:"
-msgstr "Akce na protějšku:"
 
 msgid "Remove"
 msgstr "Odebrat"

@@ -17,143 +17,56 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
       },
-      "Branch in Git repo.": [
-        "Ramo em Git repo."
-      ],
-      "Override the default repo from settings.": [
-        "Anular o reporte padrão das configurações."
-      ],
-      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
-        "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
-      ],
-      "Negate the prefix (for purging).": [
-        "Negar o prefixo (para purga)."
-      ],
-      "The directory within Git repo containing the templates": [
-        "O diretório dentro do Git repo contendo os gabaritos"
-      ],
-      "Initiate Import": [
-        "Iniciar a importação"
-      ],
-      "The string all imported templates should begin with.": [
-        "O fio deve começar com todos os modelos importados."
-      ],
-      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
-        "Associado a OS's, Locais e Organizações. As opções são: sempre, novo ou nunca."
-      ],
-      "Update templates that are locked": [
-        "Modelos de atualização que são bloqueados"
-      ],
-      "Lock imported templates": [
-        "Travar modelos importados"
-      ],
-      "Show template diff in response": [
-        "Mostrar modelo dif em resposta"
-      ],
-      "Initiate Export": [
-        "Iniciar a exportação"
-      ],
-      "Specify how to handle metadata": [
-        "Especificar como lidar com metadados"
-      ],
-      "Custom commit message for templates export": [
-        ""
-      ],
-      "Using file-based synchronization, but couldn't access %s. ": [
-        "Usando a sincronização baseada em arquivos, mas não foi possível acessar %s. "
-      ],
-      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+      "Action type": [
         ""
       ],
       "Always": [
         "Sempre"
       ],
-      "New": [
-        "Novo"
-      ],
-      "Never": [
-        "Nunca"
-      ],
-      "Lock": [
-        "Bloqueio"
-      ],
-      "Keep, lock new": [
-        ""
-      ],
-      "Keep, do not lock new": [
-        ""
-      ],
-      "Unlock": [
-        "Desbloquear"
-      ],
-      "Refresh": [
-        "Atualizar"
-      ],
-      "Keep": [
-        "Guarde"
-      ],
-      "Remove": [
-        "Remover"
-      ],
-      "Template Sync": [
-        ""
-      ],
-      "Choose verbosity for Rake task importing templates": [
-        "Escolha a verbosidade para os modelos de importação da tarefa Rake"
-      ],
-      "Verbosity": [
-        "Verbosidade"
+      "Associate": [
+        "Associado"
       ],
       "Associate templates to OS, organization and location": [
         "Associar modelos ao sistema operacional, organização e localização"
       ],
-      "Associate": [
-        "Associado"
+      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
+        "Associado a OS's, Locais e Organizações. As opções são: sempre, novo ou nunca."
       ],
-      "The string that will be added as prefix to imported templates": [
+      "Back to sync form": [
         ""
-      ],
-      "Prefix": [
-        "Prefixo"
-      ],
-      "The directory within the Git repo containing the templates": [
-        "O diretório dentro do Git repo contendo os modelos"
-      ],
-      "Dirname": [
-        "Dirname"
-      ],
-      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
-        ""
-      ],
-      "Filter": [
-        "Flitro"
-      ],
-      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
-        ""
-      ],
-      "Repo": [
-        "Repo"
-      ],
-      "Negate the filter for import/export": [
-        ""
-      ],
-      "Negate": [
-        "Negue"
-      ],
-      "Default branch in Git repo": [
-        "Ramo padrão em Git repo"
       ],
       "Branch": [
         "Ramo"
       ],
+      "Branch in Git repo.": [
+        "Ramo em Git repo."
+      ],
+      "Choose verbosity for Rake task importing templates": [
+        "Escolha a verbosidade para os modelos de importação da tarefa Rake"
+      ],
+      "Commit message": [
+        ""
+      ],
+      "Custom commit message for templates export": [
+        ""
+      ],
+      "Default branch in Git repo": [
+        "Ramo padrão em Git repo"
+      ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "Modo de exportação de metadados padrão, atualiza os metadados de revenda, mantém manterá os metadados existentes, removerá o modelo de exportação sem metadados"
       ],
-      "Metadata export mode": [
-        "Modo de exportação de metadados"
+      "Dirname": [
+        "Dirname"
       ],
-      "Should importing overwrite locked templates?": [
-        "A importação deve sobregravar modelos bloqueados?"
+      "Export": [
+        ""
+      ],
+      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
+        "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
+      ],
+      "Filter": [
+        "Flitro"
       ],
       "Force import": [
         "Forçar a importação"
@@ -161,59 +74,134 @@
       "How to handle lock for imported templates?": [
         ""
       ],
-      "Lock templates": [
-        "Modelos de fechaduras"
-      ],
-      "Commit message": [
+      "Import": [
         ""
-      ],
-      "Sync Templates": [
-        "Modelos de Sincronização"
       ],
       "Import or Export Templates": [
         ""
       ],
-      "Use default value from settings": [
+      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
         ""
       ],
-      "Import": [
+      "Initiate Export": [
+        "Iniciar a exportação"
+      ],
+      "Initiate Import": [
+        "Iniciar a importação"
+      ],
+      "Keep": [
+        "Guarde"
+      ],
+      "Keep, do not lock new": [
         ""
       ],
-      "Export": [
+      "Keep, lock new": [
         ""
       ],
-      "Action type": [
+      "Lock": [
+        "Bloqueio"
+      ],
+      "Lock imported templates": [
+        "Travar modelos importados"
+      ],
+      "Lock templates": [
+        "Modelos de fechaduras"
+      ],
+      "Metadata export mode": [
+        "Modo de exportação de metadados"
+      ],
+      "Negate": [
+        "Negue"
+      ],
+      "Negate the filter for import/export": [
         ""
+      ],
+      "Negate the prefix (for purging).": [
+        "Negar o prefixo (para purga)."
+      ],
+      "Never": [
+        "Nunca"
+      ],
+      "New": [
+        "Novo"
+      ],
+      "Override the default repo from settings.": [
+        "Anular o reporte padrão das configurações."
       ],
       "Page Not Found": [
         ""
       ],
-      "The page you are looking for does not exist": [
-        ""
+      "Permission Denied": [
+        "Permissão negada"
       ],
-      "You are not authorized to perform this action.": [
-        "Você não está autorizado a executar essa ação."
+      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+        ""
       ],
       "Please request one of the required permissions listed below from a Foreman administrator:": [
         "Por favor, solicite uma das permissões necessárias listadas abaixo através de um administrador Foreman:"
       ],
-      "Permission Denied": [
-        "Permissão negada"
+      "Prefix": [
+        "Prefixo"
       ],
-      "Back to sync form": [
+      "Refresh": [
+        "Atualizar"
+      ],
+      "Remove": [
+        "Remover"
+      ],
+      "Repo": [
+        "Repo"
+      ],
+      "Should importing overwrite locked templates?": [
+        "A importação deve sobregravar modelos bloqueados?"
+      ],
+      "Show template diff in response": [
+        "Mostrar modelo dif em resposta"
+      ],
+      "Specify how to handle metadata": [
+        "Especificar como lidar com metadados"
+      ],
+      "Sync Templates": [
+        "Modelos de Sincronização"
+      ],
+      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         ""
       ],
-      "Remote action:": [
-        "Ação remota:"
+      "Template Sync": [
+        ""
       ],
-      "Import facts": [
-        "Importar fatos"
+      "The directory within Git repo containing the templates": [
+        "O diretório dentro do Git repo contendo os gabaritos"
       ],
-      "Action with sub plans": [
-        "Ação com subplanos "
+      "The directory within the Git repo containing the templates": [
+        "O diretório dentro do Git repo contendo os modelos"
       ],
-      "Import Puppet classes": [
-        "Importar classes de Puppet"
+      "The page you are looking for does not exist": [
+        ""
+      ],
+      "The string all imported templates should begin with.": [
+        "O fio deve começar com todos os modelos importados."
+      ],
+      "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "Unlock": [
+        "Desbloquear"
+      ],
+      "Update templates that are locked": [
+        "Modelos de atualização que são bloqueados"
+      ],
+      "Use default value from settings": [
+        ""
+      ],
+      "Using file-based synchronization, but couldn't access %s. ": [
+        "Usando a sincronização baseada em arquivos, mas não foi possível acessar %s. "
+      ],
+      "Verbosity": [
+        "Verbosidade"
+      ],
+      "You are not authorized to perform this action.": [
+        "Você não está autorizado a executar essa ação."
       ]
     }
   }

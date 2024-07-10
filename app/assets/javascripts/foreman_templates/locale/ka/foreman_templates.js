@@ -17,143 +17,56 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=2; plural=(n!=1);"
       },
-      "Branch in Git repo.": [
-        "Git რეპოს ბრენჩი."
-      ],
-      "Override the default repo from settings.": [
-        "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
-      ],
-      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
-        "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
-      ],
-      "Negate the prefix (for purging).": [
-        "პრეფიქსის უარყოფა(გასასუფთავებლად)"
-      ],
-      "The directory within Git repo containing the templates": [
-        "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
-      ],
-      "Initiate Import": [
-        "შემოტანის დაწყება"
-      ],
-      "The string all imported templates should begin with.": [
-        "სტრიქონი, რომლითაც შემოტანილი შაბლონები უნდა იწყებოდეს."
-      ],
-      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
-        "ასოცირება ოს-ებთან, მდებარეობებთან და ორგანიზაციებთან. ვარიანტებია: ყოველთვის, ახალი ან არასდროს."
-      ],
-      "Update templates that are locked": [
-        "დაბლოკილი შაბლონების განახლება"
-      ],
-      "Lock imported templates": [
-        "შემოტანილი შაბლონების დაბლოკვა"
-      ],
-      "Show template diff in response": [
-        "პასუხად შაბლონის სხვაობის ჩვენება"
-      ],
-      "Initiate Export": [
-        "გატანის დაწყება"
-      ],
-      "Specify how to handle metadata": [
-        "მეტამონაცემების დამუშავების ხერხი"
-      ],
-      "Custom commit message for templates export": [
-        "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
-      ],
-      "Using file-based synchronization, but couldn't access %s. ": [
-        "გამოიყენება ფაილების სინქრონიზაცია, მაგრამ %s-სთან წვდომის უფლება არ მაქვს. "
-      ],
-      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
-        "შეამოწმეთ SELinux/წვდომის უფლებები და დარწმუნდით, რომ ის ჩაწერადი/კითხვადია ვებ აპლიკაციის მომხმარებლის მიერ (ჩვეულებრივ, '%s')."
+      "Action type": [
+        ""
       ],
       "Always": [
         "ყოველთვის"
       ],
-      "New": [
-        "ახალი"
-      ],
-      "Never": [
-        "არასდროს"
-      ],
-      "Lock": [
-        "ჩაკეტვა"
-      ],
-      "Keep, lock new": [
-        "შენარჩუნება, ახლის დაბლოკვა"
-      ],
-      "Keep, do not lock new": [
-        "შენარჩუნება, ახლოს არ დაბლოკვა"
-      ],
-      "Unlock": [
-        "განბლოკვა"
-      ],
-      "Refresh": [
-        "განახლება"
-      ],
-      "Keep": [
-        "დატოვება"
-      ],
-      "Remove": [
-        "წაშლა"
-      ],
-      "Template Sync": [
-        "შაბლონების სინქრონიზაცია"
-      ],
-      "Choose verbosity for Rake task importing templates": [
-        "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
-      ],
-      "Verbosity": [
-        "გამოტანილი შეტყობინებების რაოდენობა"
+      "Associate": [
+        "ასოცირება"
       ],
       "Associate templates to OS, organization and location": [
         "შაბლონების ასოცირება ოს-თან, ორგანიზაციასთან და მდებარეობებთან"
       ],
-      "Associate": [
-        "ასოცირება"
+      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
+        "ასოცირება ოს-ებთან, მდებარეობებთან და ორგანიზაციებთან. ვარიანტებია: ყოველთვის, ახალი ან არასდროს."
       ],
-      "The string that will be added as prefix to imported templates": [
-        "ეს სტრიქონი შემოტანილ შაბლონებზე პრეფიქსად დაემატება"
-      ],
-      "Prefix": [
-        "პრეფიქსი"
-      ],
-      "The directory within the Git repo containing the templates": [
-        "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
-      ],
-      "Dirname": [
-        "საქაღალდის სახელი"
-      ],
-      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
-        "რეგულარულ გამოსახულებაზე დამთხვეული სახელების შეტანა/გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)"
-      ],
-      "Filter": [
-        "ფილტრი"
-      ],
-      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
-        "შეტანა/გამოტანის სამიზნე ბილიკი. შეგიძლიათ გამოიყენოთ სხვადასხვა პროტოკოლები. მაგალთად: /tmp/dir, git://example.com, https://example.com, ssh://example.com. /tmp-ზე გატანისას დაიმახსოვრეთ, რომ საწარმოო გაშლები შეიძლება საკუთარ დროებით საქაღალდეს იყენებდნენ."
-      ],
-      "Repo": [
-        "რეპო"
-      ],
-      "Negate the filter for import/export": [
-        "ფილტრის გაუარყოფითება შეტანა/გატანისთვის"
-      ],
-      "Negate": [
-        "უარყოფა"
-      ],
-      "Default branch in Git repo": [
-        "Git რეპოს ნაგულისხმები ბრენჩი"
+      "Back to sync form": [
+        "სინქრონიზაციის ფორმაზე დაბრუნება"
       ],
       "Branch": [
         "ბრენჩი"
       ],
+      "Branch in Git repo.": [
+        "Git რეპოს ბრენჩი."
+      ],
+      "Choose verbosity for Rake task importing templates": [
+        "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
+      ],
+      "Commit message": [
+        "კომიტის შეტყობინება"
+      ],
+      "Custom commit message for templates export": [
+        "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
+      ],
+      "Default branch in Git repo": [
+        "Git რეპოს ნაგულისხმები ბრენჩი"
+      ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "მეტამონაცემების გატანის ნაგულისხმები რეჟიმი, განახლება ხელახლა გადასცემს მეტამონაცემებს, შენახვა შეინარჩუნებს არსებულ მეტამონაცემებს, გატანის შაბლონის წაშლა მეტამონაცემების გარეშე"
       ],
-      "Metadata export mode": [
-        "მეტამონაცემების გატანის რეჟიმი"
+      "Dirname": [
+        "საქაღალდის სახელი"
       ],
-      "Should importing overwrite locked templates?": [
-        "შემოტანამ დაბლოკილ შაბლონებს გადააწეროს თუ არა?"
+      "Export": [
+        ""
+      ],
+      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
+        "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
+      ],
+      "Filter": [
+        "ფილტრი"
       ],
       "Force import": [
         "ძალით შემოტანა"
@@ -161,59 +74,134 @@
       "How to handle lock for imported templates?": [
         "როგორ დავამუშაო ბლოკირება შემოტანილი შაბლონებისთვის?"
       ],
-      "Lock templates": [
-        "შაბლონების დაბლოკვა"
-      ],
-      "Commit message": [
-        "კომიტის შეტყობინება"
-      ],
-      "Sync Templates": [
-        "შაბლონების სინქრონიზაცია"
+      "Import": [
+        ""
       ],
       "Import or Export Templates": [
         "შაბლონების შემოტანა და გატანა"
       ],
-      "Use default value from settings": [
-        "პარამეტრებიდან ნაგულისხმები მნიშვნელობის გამოყენება"
+      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
+        "რეგულარულ გამოსახულებაზე დამთხვეული სახელების შეტანა/გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)"
       ],
-      "Import": [
-        ""
+      "Initiate Export": [
+        "გატანის დაწყება"
       ],
-      "Export": [
-        ""
+      "Initiate Import": [
+        "შემოტანის დაწყება"
       ],
-      "Action type": [
-        ""
+      "Keep": [
+        "დატოვება"
+      ],
+      "Keep, do not lock new": [
+        "შენარჩუნება, ახლოს არ დაბლოკვა"
+      ],
+      "Keep, lock new": [
+        "შენარჩუნება, ახლის დაბლოკვა"
+      ],
+      "Lock": [
+        "ჩაკეტვა"
+      ],
+      "Lock imported templates": [
+        "შემოტანილი შაბლონების დაბლოკვა"
+      ],
+      "Lock templates": [
+        "შაბლონების დაბლოკვა"
+      ],
+      "Metadata export mode": [
+        "მეტამონაცემების გატანის რეჟიმი"
+      ],
+      "Negate": [
+        "უარყოფა"
+      ],
+      "Negate the filter for import/export": [
+        "ფილტრის გაუარყოფითება შეტანა/გატანისთვის"
+      ],
+      "Negate the prefix (for purging).": [
+        "პრეფიქსის უარყოფა(გასასუფთავებლად)"
+      ],
+      "Never": [
+        "არასდროს"
+      ],
+      "New": [
+        "ახალი"
+      ],
+      "Override the default repo from settings.": [
+        "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
       ],
       "Page Not Found": [
         "გვერდი ვერ მოიძებნა"
       ],
-      "The page you are looking for does not exist": [
-        "გვერდი, რომელსაც ეძებთ, არ არსებობს"
+      "Permission Denied": [
+        "წვდომა აკრძალულია"
       ],
-      "You are not authorized to perform this action.": [
-        "ამ ქმედებისთვის საჭირო ავტორიზაცია არ გაგაჩნიათ."
+      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+        "შეამოწმეთ SELinux/წვდომის უფლებები და დარწმუნდით, რომ ის ჩაწერადი/კითხვადია ვებ აპლიკაციის მომხმარებლის მიერ (ჩვეულებრივ, '%s')."
       ],
       "Please request one of the required permissions listed below from a Foreman administrator:": [
         "საჭიროა ერთი ან მეტი ქვემოთ ჩამოთვლილი წვდომის გამოთხოვა Foreman-ის ადმინისტრატორისგან:"
       ],
-      "Permission Denied": [
-        "წვდომა აკრძალულია"
+      "Prefix": [
+        "პრეფიქსი"
       ],
-      "Back to sync form": [
-        "სინქრონიზაციის ფორმაზე დაბრუნება"
+      "Refresh": [
+        "განახლება"
       ],
-      "Remote action:": [
-        "დაშორებული ქმედება:"
+      "Remove": [
+        "წაშლა"
       ],
-      "Import facts": [
-        "ფაქტების შემოტანა"
+      "Repo": [
+        "რეპო"
       ],
-      "Action with sub plans": [
-        "ქმედება ქვე-გეგმებით"
+      "Should importing overwrite locked templates?": [
+        "შემოტანამ დაბლოკილ შაბლონებს გადააწეროს თუ არა?"
       ],
-      "Import Puppet classes": [
-        "Puppet-ის კლასების შემოტანა"
+      "Show template diff in response": [
+        "პასუხად შაბლონის სხვაობის ჩვენება"
+      ],
+      "Specify how to handle metadata": [
+        "მეტამონაცემების დამუშავების ხერხი"
+      ],
+      "Sync Templates": [
+        "შაბლონების სინქრონიზაცია"
+      ],
+      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
+        "შეტანა/გამოტანის სამიზნე ბილიკი. შეგიძლიათ გამოიყენოთ სხვადასხვა პროტოკოლები. მაგალთად: /tmp/dir, git://example.com, https://example.com, ssh://example.com. /tmp-ზე გატანისას დაიმახსოვრეთ, რომ საწარმოო გაშლები შეიძლება საკუთარ დროებით საქაღალდეს იყენებდნენ."
+      ],
+      "Template Sync": [
+        "შაბლონების სინქრონიზაცია"
+      ],
+      "The directory within Git repo containing the templates": [
+        "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
+      ],
+      "The directory within the Git repo containing the templates": [
+        "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
+      ],
+      "The page you are looking for does not exist": [
+        "გვერდი, რომელსაც ეძებთ, არ არსებობს"
+      ],
+      "The string all imported templates should begin with.": [
+        "სტრიქონი, რომლითაც შემოტანილი შაბლონები უნდა იწყებოდეს."
+      ],
+      "The string that will be added as prefix to imported templates": [
+        "ეს სტრიქონი შემოტანილ შაბლონებზე პრეფიქსად დაემატება"
+      ],
+      "Unlock": [
+        "განბლოკვა"
+      ],
+      "Update templates that are locked": [
+        "დაბლოკილი შაბლონების განახლება"
+      ],
+      "Use default value from settings": [
+        "პარამეტრებიდან ნაგულისხმები მნიშვნელობის გამოყენება"
+      ],
+      "Using file-based synchronization, but couldn't access %s. ": [
+        "გამოიყენება ფაილების სინქრონიზაცია, მაგრამ %s-სთან წვდომის უფლება არ მაქვს. "
+      ],
+      "Verbosity": [
+        "გამოტანილი შეტყობინებების რაოდენობა"
+      ],
+      "You are not authorized to perform this action.": [
+        "ამ ქმედებისთვის საჭირო ავტორიზაცია არ გაგაჩნიათ."
       ]
     }
   }

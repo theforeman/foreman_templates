@@ -22,9 +22,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
-
 msgid "Always"
 msgstr "ყოველთვის"
 
@@ -81,12 +78,6 @@ msgstr "როგორ დავამუშაო ბლოკირება 
 
 msgid "Import"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
 
 msgid "Import or Export Templates"
 msgstr "შაბლონების შემოტანა და გატანა"
@@ -156,9 +147,6 @@ msgstr "პრეფიქსი"
 
 msgid "Refresh"
 msgstr "განახლება"
-
-msgid "Remote action:"
-msgstr "დაშორებული ქმედება:"
 
 msgid "Remove"
 msgstr "წაშლა"

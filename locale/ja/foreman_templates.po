@@ -25,9 +25,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr "サブプランによるアクション"
-
 msgid "Always"
 msgstr "常に"
 
@@ -84,12 +81,6 @@ msgstr "インポートされたテンプレートのロックを処理する方
 
 msgid "Import"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Puppet クラスのインポート"
-
-msgid "Import facts"
-msgstr "ファクトのインポート"
 
 msgid "Import or Export Templates"
 msgstr "テンプレートのインポートまたはエクスポート"
@@ -159,9 +150,6 @@ msgstr "接頭辞"
 
 msgid "Refresh"
 msgstr "更新"
-
-msgid "Remote action:"
-msgstr "リモートアクション:"
 
 msgid "Remove"
 msgstr "削除"

@@ -17,143 +17,56 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "Branch in Git repo.": [
-        ""
-      ],
-      "Override the default repo from settings.": [
-        ""
-      ],
-      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
-        ""
-      ],
-      "Negate the prefix (for purging).": [
-        ""
-      ],
-      "The directory within Git repo containing the templates": [
-        ""
-      ],
-      "Initiate Import": [
-        ""
-      ],
-      "The string all imported templates should begin with.": [
-        ""
-      ],
-      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
-        ""
-      ],
-      "Update templates that are locked": [
-        ""
-      ],
-      "Lock imported templates": [
-        ""
-      ],
-      "Show template diff in response": [
-        ""
-      ],
-      "Initiate Export": [
-        ""
-      ],
-      "Specify how to handle metadata": [
-        ""
-      ],
-      "Custom commit message for templates export": [
-        ""
-      ],
-      "Using file-based synchronization, but couldn't access %s. ": [
-        ""
-      ],
-      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+      "Action type": [
         ""
       ],
       "Always": [
         ""
       ],
-      "New": [
-        "신규"
-      ],
-      "Never": [
-        "사용 안 함"
-      ],
-      "Lock": [
-        "잠금"
-      ],
-      "Keep, lock new": [
-        ""
-      ],
-      "Keep, do not lock new": [
-        ""
-      ],
-      "Unlock": [
-        "잠금 풀기"
-      ],
-      "Refresh": [
-        "새로고침 "
-      ],
-      "Keep": [
-        ""
-      ],
-      "Remove": [
-        "삭제 "
-      ],
-      "Template Sync": [
-        ""
-      ],
-      "Choose verbosity for Rake task importing templates": [
-        ""
-      ],
-      "Verbosity": [
+      "Associate": [
         ""
       ],
       "Associate templates to OS, organization and location": [
         ""
       ],
-      "Associate": [
+      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
         ""
       ],
-      "The string that will be added as prefix to imported templates": [
-        ""
-      ],
-      "Prefix": [
-        ""
-      ],
-      "The directory within the Git repo containing the templates": [
-        ""
-      ],
-      "Dirname": [
-        ""
-      ],
-      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
-        ""
-      ],
-      "Filter": [
-        "필터 "
-      ],
-      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
-        ""
-      ],
-      "Repo": [
-        "리포지터리 "
-      ],
-      "Negate the filter for import/export": [
-        ""
-      ],
-      "Negate": [
-        ""
-      ],
-      "Default branch in Git repo": [
+      "Back to sync form": [
         ""
       ],
       "Branch": [
         ""
       ],
+      "Branch in Git repo.": [
+        ""
+      ],
+      "Choose verbosity for Rake task importing templates": [
+        ""
+      ],
+      "Commit message": [
+        ""
+      ],
+      "Custom commit message for templates export": [
+        ""
+      ],
+      "Default branch in Git repo": [
+        ""
+      ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         ""
       ],
-      "Metadata export mode": [
+      "Dirname": [
         ""
       ],
-      "Should importing overwrite locked templates?": [
+      "Export": [
         ""
+      ],
+      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
+        ""
+      ],
+      "Filter": [
+        "필터 "
       ],
       "Force import": [
         ""
@@ -161,59 +74,134 @@
       "How to handle lock for imported templates?": [
         ""
       ],
-      "Lock templates": [
-        ""
-      ],
-      "Commit message": [
-        ""
-      ],
-      "Sync Templates": [
+      "Import": [
         ""
       ],
       "Import or Export Templates": [
         ""
       ],
-      "Use default value from settings": [
+      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
         ""
       ],
-      "Import": [
+      "Initiate Export": [
         ""
       ],
-      "Export": [
+      "Initiate Import": [
         ""
       ],
-      "Action type": [
+      "Keep": [
+        ""
+      ],
+      "Keep, do not lock new": [
+        ""
+      ],
+      "Keep, lock new": [
+        ""
+      ],
+      "Lock": [
+        "잠금"
+      ],
+      "Lock imported templates": [
+        ""
+      ],
+      "Lock templates": [
+        ""
+      ],
+      "Metadata export mode": [
+        ""
+      ],
+      "Negate": [
+        ""
+      ],
+      "Negate the filter for import/export": [
+        ""
+      ],
+      "Negate the prefix (for purging).": [
+        ""
+      ],
+      "Never": [
+        "사용 안 함"
+      ],
+      "New": [
+        "신규"
+      ],
+      "Override the default repo from settings.": [
         ""
       ],
       "Page Not Found": [
         ""
       ],
-      "The page you are looking for does not exist": [
+      "Permission Denied": [
         ""
       ],
-      "You are not authorized to perform this action.": [
-        "이 작업을 수행할 권한이 없습니다."
+      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+        ""
       ],
       "Please request one of the required permissions listed below from a Foreman administrator:": [
         "Foreman 관리자에게 아래에 나열된 필수 권한 중 하나를 요청하십시오."
       ],
-      "Permission Denied": [
+      "Prefix": [
         ""
       ],
-      "Back to sync form": [
+      "Refresh": [
+        "새로고침 "
+      ],
+      "Remove": [
+        "삭제 "
+      ],
+      "Repo": [
+        "리포지터리 "
+      ],
+      "Should importing overwrite locked templates?": [
         ""
       ],
-      "Remote action:": [
-        "원격 작업:"
+      "Show template diff in response": [
+        ""
       ],
-      "Import facts": [
-        "팩트 불러오기"
+      "Specify how to handle metadata": [
+        ""
       ],
-      "Action with sub plans": [
-        "하위 계획이 있는 작업"
+      "Sync Templates": [
+        ""
       ],
-      "Import Puppet classes": [
-        "Puppet 클래스 가져오기"
+      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
+        ""
+      ],
+      "Template Sync": [
+        ""
+      ],
+      "The directory within Git repo containing the templates": [
+        ""
+      ],
+      "The directory within the Git repo containing the templates": [
+        ""
+      ],
+      "The page you are looking for does not exist": [
+        ""
+      ],
+      "The string all imported templates should begin with.": [
+        ""
+      ],
+      "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "Unlock": [
+        "잠금 풀기"
+      ],
+      "Update templates that are locked": [
+        ""
+      ],
+      "Use default value from settings": [
+        ""
+      ],
+      "Using file-based synchronization, but couldn't access %s. ": [
+        ""
+      ],
+      "Verbosity": [
+        ""
+      ],
+      "You are not authorized to perform this action.": [
+        "이 작업을 수행할 권한이 없습니다."
       ]
     }
   }

@@ -23,9 +23,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr ""
-
 msgid "Always"
 msgstr ""
 
@@ -81,12 +78,6 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import"
-msgstr ""
-
-msgid "Import Puppet classes"
-msgstr ""
-
-msgid "Import facts"
 msgstr ""
 
 msgid "Import or Export Templates"
@@ -156,9 +147,6 @@ msgid "Prefix"
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
-
-msgid "Remote action:"
 msgstr ""
 
 msgid "Remove"

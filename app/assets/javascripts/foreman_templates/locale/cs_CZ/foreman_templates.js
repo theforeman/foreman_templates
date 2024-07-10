@@ -17,142 +17,55 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
       },
-      "Branch in Git repo.": [
-        "Větev v Git repozitáři."
-      ],
-      "Override the default repo from settings.": [
-        ""
-      ],
-      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
-        ""
-      ],
-      "Negate the prefix (for purging).": [
-        ""
-      ],
-      "The directory within Git repo containing the templates": [
-        ""
-      ],
-      "Initiate Import": [
-        "Zahájit import"
-      ],
-      "The string all imported templates should begin with.": [
-        "Řetězec všech importovaných šablon by měl začínat na."
-      ],
-      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
-        ""
-      ],
-      "Update templates that are locked": [
-        "Aktualizovat šablony, které jsou uzamčeny"
-      ],
-      "Lock imported templates": [
-        "Uzamknout naimportované šablony"
-      ],
-      "Show template diff in response": [
-        ""
-      ],
-      "Initiate Export": [
-        "Zahájit export"
-      ],
-      "Specify how to handle metadata": [
-        "Zadat jak zacházet s metadaty"
-      ],
-      "Custom commit message for templates export": [
-        ""
-      ],
-      "Using file-based synchronization, but couldn't access %s. ": [
-        ""
-      ],
-      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+      "Action type": [
         ""
       ],
       "Always": [
         "Vždy"
       ],
-      "New": [
-        "Nové"
-      ],
-      "Never": [
-        "Nikdy"
-      ],
-      "Lock": [
-        "Zamknout"
-      ],
-      "Keep, lock new": [
+      "Associate": [
         ""
-      ],
-      "Keep, do not lock new": [
-        ""
-      ],
-      "Unlock": [
-        "Odemknout"
-      ],
-      "Refresh": [
-        "Načíst znovu"
-      ],
-      "Keep": [
-        "Ponechat"
-      ],
-      "Remove": [
-        "Odebrat"
-      ],
-      "Template Sync": [
-        ""
-      ],
-      "Choose verbosity for Rake task importing templates": [
-        ""
-      ],
-      "Verbosity": [
-        "Stupeň podrobnosti"
       ],
       "Associate templates to OS, organization and location": [
         ""
       ],
-      "Associate": [
+      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
         ""
       ],
-      "The string that will be added as prefix to imported templates": [
+      "Back to sync form": [
         ""
       ],
-      "Prefix": [
-        "Předpona"
+      "Branch": [
+        "Větev"
       ],
-      "The directory within the Git repo containing the templates": [
+      "Branch in Git repo.": [
+        "Větev v Git repozitáři."
+      ],
+      "Choose verbosity for Rake task importing templates": [
+        ""
+      ],
+      "Commit message": [
+        ""
+      ],
+      "Custom commit message for templates export": [
+        ""
+      ],
+      "Default branch in Git repo": [
+        "Výchozí větev v Git repozitáři"
+      ],
+      "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         ""
       ],
       "Dirname": [
         ""
       ],
-      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
+      "Export": [
+        ""
+      ],
+      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         ""
       ],
       "Filter": [
-        ""
-      ],
-      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
-        ""
-      ],
-      "Repo": [
-        "Repozitář"
-      ],
-      "Negate the filter for import/export": [
-        ""
-      ],
-      "Negate": [
-        "Negovat"
-      ],
-      "Default branch in Git repo": [
-        "Výchozí větev v Git repozitáři"
-      ],
-      "Branch": [
-        "Větev"
-      ],
-      "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
-        ""
-      ],
-      "Metadata export mode": [
-        ""
-      ],
-      "Should importing overwrite locked templates?": [
         ""
       ],
       "Force import": [
@@ -161,59 +74,134 @@
       "How to handle lock for imported templates?": [
         ""
       ],
-      "Lock templates": [
-        "Uzamknout šablony"
-      ],
-      "Commit message": [
+      "Import": [
         ""
-      ],
-      "Sync Templates": [
-        "Synchronizovat šablony"
       ],
       "Import or Export Templates": [
         ""
       ],
-      "Use default value from settings": [
+      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
         ""
       ],
-      "Import": [
+      "Initiate Export": [
+        "Zahájit export"
+      ],
+      "Initiate Import": [
+        "Zahájit import"
+      ],
+      "Keep": [
+        "Ponechat"
+      ],
+      "Keep, do not lock new": [
         ""
       ],
-      "Export": [
+      "Keep, lock new": [
         ""
       ],
-      "Action type": [
+      "Lock": [
+        "Zamknout"
+      ],
+      "Lock imported templates": [
+        "Uzamknout naimportované šablony"
+      ],
+      "Lock templates": [
+        "Uzamknout šablony"
+      ],
+      "Metadata export mode": [
+        ""
+      ],
+      "Negate": [
+        "Negovat"
+      ],
+      "Negate the filter for import/export": [
+        ""
+      ],
+      "Negate the prefix (for purging).": [
+        ""
+      ],
+      "Never": [
+        "Nikdy"
+      ],
+      "New": [
+        "Nové"
+      ],
+      "Override the default repo from settings.": [
         ""
       ],
       "Page Not Found": [
         ""
       ],
-      "The page you are looking for does not exist": [
+      "Permission Denied": [
         ""
       ],
-      "You are not authorized to perform this action.": [
+      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         ""
       ],
       "Please request one of the required permissions listed below from a Foreman administrator:": [
         ""
       ],
-      "Permission Denied": [
+      "Prefix": [
+        "Předpona"
+      ],
+      "Refresh": [
+        "Načíst znovu"
+      ],
+      "Remove": [
+        "Odebrat"
+      ],
+      "Repo": [
+        "Repozitář"
+      ],
+      "Should importing overwrite locked templates?": [
         ""
       ],
-      "Back to sync form": [
+      "Show template diff in response": [
         ""
       ],
-      "Remote action:": [
-        "Akce na protějšku:"
+      "Specify how to handle metadata": [
+        "Zadat jak zacházet s metadaty"
       ],
-      "Import facts": [
-        "Importovat fakta"
+      "Sync Templates": [
+        "Synchronizovat šablony"
       ],
-      "Action with sub plans": [
-        "Akce s dílčími plány"
+      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
+        ""
       ],
-      "Import Puppet classes": [
-        "Importovat Puppet třídy"
+      "Template Sync": [
+        ""
+      ],
+      "The directory within Git repo containing the templates": [
+        ""
+      ],
+      "The directory within the Git repo containing the templates": [
+        ""
+      ],
+      "The page you are looking for does not exist": [
+        ""
+      ],
+      "The string all imported templates should begin with.": [
+        "Řetězec všech importovaných šablon by měl začínat na."
+      ],
+      "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "Unlock": [
+        "Odemknout"
+      ],
+      "Update templates that are locked": [
+        "Aktualizovat šablony, které jsou uzamčeny"
+      ],
+      "Use default value from settings": [
+        ""
+      ],
+      "Using file-based synchronization, but couldn't access %s. ": [
+        ""
+      ],
+      "Verbosity": [
+        "Stupeň podrobnosti"
+      ],
+      "You are not authorized to perform this action.": [
+        ""
       ]
     }
   }

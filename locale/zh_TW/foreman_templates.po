@@ -24,9 +24,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr "有子計畫的動作"
-
 msgid "Always"
 msgstr ""
 
@@ -83,12 +80,6 @@ msgstr ""
 
 msgid "Import"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "匯入 Puppet 類別"
-
-msgid "Import facts"
-msgstr "匯入詳情"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -158,9 +149,6 @@ msgstr ""
 
 msgid "Refresh"
 msgstr "重新整理"
-
-msgid "Remote action:"
-msgstr "遠端動作："
 
 msgid "Remove"
 msgstr "移除"

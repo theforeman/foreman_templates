@@ -17,143 +17,56 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=2; plural=(n != 1);"
       },
-      "Branch in Git repo.": [
-        "Branch im Git-Repo."
-      ],
-      "Override the default repo from settings.": [
-        "Überschreiben Sie das Standard-Repository aus den Einstellungen."
-      ],
-      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
-        "Exportieren Sie Vorlagen mit Namen, die dieser Regex entsprechen (Groß-/Kleinschreibung wird nicht beachtet; Snippets werden nicht gefiltert)."
-      ],
-      "Negate the prefix (for purging).": [
-        "Negieren Sie das Präfix (zum Bereinigen)."
-      ],
-      "The directory within Git repo containing the templates": [
-        "Das Verzeichnis im Git-Repository, das die Vorlagen enthält"
-      ],
-      "Initiate Import": [
-        "Import einleiten"
-      ],
-      "The string all imported templates should begin with.": [
-        "Die Zeichenfolge, mit der alle importierten Vorlagen beginnen sollten."
-      ],
-      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
-        "Assoziieren mit Betriebssystemen, Standorten und Organisationen. Optionen sind: immer, neu oder nie."
-      ],
-      "Update templates that are locked": [
-        "Gesperrte Vorlagen aktualisieren"
-      ],
-      "Lock imported templates": [
-        "Importierte Vorlagen sperren"
-      ],
-      "Show template diff in response": [
-        "Vorlagenunterschied in Antwort anzeigen"
-      ],
-      "Initiate Export": [
-        "Export initiieren"
-      ],
-      "Specify how to handle metadata": [
-        "Geben Sie an, wie mit Metadaten umgegangen werden soll"
-      ],
-      "Custom commit message for templates export": [
-        ""
-      ],
-      "Using file-based synchronization, but couldn't access %s. ": [
-        "Using file-based synchronization, but couldn't access %s . "
-      ],
-      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+      "Action type": [
         ""
       ],
       "Always": [
         "Immer"
       ],
-      "New": [
-        "Neu"
-      ],
-      "Never": [
-        "Nie"
-      ],
-      "Lock": [
-        "Sperren"
-      ],
-      "Keep, lock new": [
-        ""
-      ],
-      "Keep, do not lock new": [
-        ""
-      ],
-      "Unlock": [
-        "Entsperren"
-      ],
-      "Refresh": [
-        "Aktualisieren"
-      ],
-      "Keep": [
-        "Behalten"
-      ],
-      "Remove": [
-        "Entfernen"
-      ],
-      "Template Sync": [
-        ""
-      ],
-      "Choose verbosity for Rake task importing templates": [
-        "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Tasks"
-      ],
-      "Verbosity": [
-        "Ausführlichkeit"
+      "Associate": [
+        "Assoziieren"
       ],
       "Associate templates to OS, organization and location": [
         "Verknüpfen Sie Vorlagen mit Betriebssystem, Organisation und Standort"
       ],
-      "Associate": [
-        "Assoziieren"
+      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
+        "Assoziieren mit Betriebssystemen, Standorten und Organisationen. Optionen sind: immer, neu oder nie."
       ],
-      "The string that will be added as prefix to imported templates": [
+      "Back to sync form": [
         ""
-      ],
-      "Prefix": [
-        "Präfix"
-      ],
-      "The directory within the Git repo containing the templates": [
-        "Das Verzeichnis im Git-Repository, das die Vorlagen enthält"
-      ],
-      "Dirname": [
-        "Dirname"
-      ],
-      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
-        ""
-      ],
-      "Filter": [
-        "Filter"
-      ],
-      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
-        ""
-      ],
-      "Repo": [
-        "Repository"
-      ],
-      "Negate the filter for import/export": [
-        ""
-      ],
-      "Negate": [
-        "Negieren"
-      ],
-      "Default branch in Git repo": [
-        "Standard-Branch im Git-Repository"
       ],
       "Branch": [
         "Zweig"
       ],
+      "Branch in Git repo.": [
+        "Branch im Git-Repo."
+      ],
+      "Choose verbosity for Rake task importing templates": [
+        "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Tasks"
+      ],
+      "Commit message": [
+        ""
+      ],
+      "Custom commit message for templates export": [
+        ""
+      ],
+      "Default branch in Git repo": [
+        "Standard-Branch im Git-Repository"
+      ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "Standard-Metadaten-Exportmodus, Aktualisieren, rendert Metadaten neu, behält vorhandene Metadaten bei, entfernt Exportvorlagen ohne Metadaten"
       ],
-      "Metadata export mode": [
-        "Metadaten-Exportmodus"
+      "Dirname": [
+        "Dirname"
       ],
-      "Should importing overwrite locked templates?": [
-        "Sollen beim Importieren gesperrte Vorlagen überschrieben werden?"
+      "Export": [
+        ""
+      ],
+      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
+        "Exportieren Sie Vorlagen mit Namen, die dieser Regex entsprechen (Groß-/Kleinschreibung wird nicht beachtet; Snippets werden nicht gefiltert)."
+      ],
+      "Filter": [
+        "Filter"
       ],
       "Force import": [
         "Import erzwingen"
@@ -161,59 +74,134 @@
       "How to handle lock for imported templates?": [
         ""
       ],
-      "Lock templates": [
-        "Vorlagen sperren"
-      ],
-      "Commit message": [
+      "Import": [
         ""
-      ],
-      "Sync Templates": [
-        "Sync Templates"
       ],
       "Import or Export Templates": [
         ""
       ],
-      "Use default value from settings": [
+      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
         ""
       ],
-      "Import": [
+      "Initiate Export": [
+        "Export initiieren"
+      ],
+      "Initiate Import": [
+        "Import einleiten"
+      ],
+      "Keep": [
+        "Behalten"
+      ],
+      "Keep, do not lock new": [
         ""
       ],
-      "Export": [
+      "Keep, lock new": [
         ""
       ],
-      "Action type": [
+      "Lock": [
+        "Sperren"
+      ],
+      "Lock imported templates": [
+        "Importierte Vorlagen sperren"
+      ],
+      "Lock templates": [
+        "Vorlagen sperren"
+      ],
+      "Metadata export mode": [
+        "Metadaten-Exportmodus"
+      ],
+      "Negate": [
+        "Negieren"
+      ],
+      "Negate the filter for import/export": [
         ""
+      ],
+      "Negate the prefix (for purging).": [
+        "Negieren Sie das Präfix (zum Bereinigen)."
+      ],
+      "Never": [
+        "Nie"
+      ],
+      "New": [
+        "Neu"
+      ],
+      "Override the default repo from settings.": [
+        "Überschreiben Sie das Standard-Repository aus den Einstellungen."
       ],
       "Page Not Found": [
         ""
       ],
-      "The page you are looking for does not exist": [
+      "Permission Denied": [
         ""
       ],
-      "You are not authorized to perform this action.": [
-        "Sie sind nicht berechtigt, diese Aktion durchzuführen."
+      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+        ""
       ],
       "Please request one of the required permissions listed below from a Foreman administrator:": [
         "Bitte fordern Sie eine der erforderlichen Berechtigungen unterhalb bei einem Foreman-Administrator an:"
       ],
-      "Permission Denied": [
+      "Prefix": [
+        "Präfix"
+      ],
+      "Refresh": [
+        "Aktualisieren"
+      ],
+      "Remove": [
+        "Entfernen"
+      ],
+      "Repo": [
+        "Repository"
+      ],
+      "Should importing overwrite locked templates?": [
+        "Sollen beim Importieren gesperrte Vorlagen überschrieben werden?"
+      ],
+      "Show template diff in response": [
+        "Vorlagenunterschied in Antwort anzeigen"
+      ],
+      "Specify how to handle metadata": [
+        "Geben Sie an, wie mit Metadaten umgegangen werden soll"
+      ],
+      "Sync Templates": [
+        "Sync Templates"
+      ],
+      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         ""
       ],
-      "Back to sync form": [
+      "Template Sync": [
         ""
       ],
-      "Remote action:": [
-        "Entfernte Aktion:"
+      "The directory within Git repo containing the templates": [
+        "Das Verzeichnis im Git-Repository, das die Vorlagen enthält"
       ],
-      "Import facts": [
-        "Fakten importieren"
+      "The directory within the Git repo containing the templates": [
+        "Das Verzeichnis im Git-Repository, das die Vorlagen enthält"
       ],
-      "Action with sub plans": [
-        "Aktion mit Unterplänen"
+      "The page you are looking for does not exist": [
+        ""
       ],
-      "Import Puppet classes": [
-        "Puppet-Klassen importieren"
+      "The string all imported templates should begin with.": [
+        "Die Zeichenfolge, mit der alle importierten Vorlagen beginnen sollten."
+      ],
+      "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "Unlock": [
+        "Entsperren"
+      ],
+      "Update templates that are locked": [
+        "Gesperrte Vorlagen aktualisieren"
+      ],
+      "Use default value from settings": [
+        ""
+      ],
+      "Using file-based synchronization, but couldn't access %s. ": [
+        "Using file-based synchronization, but couldn't access %s . "
+      ],
+      "Verbosity": [
+        "Ausführlichkeit"
+      ],
+      "You are not authorized to perform this action.": [
+        "Sie sind nicht berechtigt, diese Aktion durchzuführen."
       ]
     }
   }

@@ -17,143 +17,56 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "Branch in Git repo.": [
-        ""
-      ],
-      "Override the default repo from settings.": [
-        ""
-      ],
-      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
-        ""
-      ],
-      "Negate the prefix (for purging).": [
-        ""
-      ],
-      "The directory within Git repo containing the templates": [
-        ""
-      ],
-      "Initiate Import": [
-        ""
-      ],
-      "The string all imported templates should begin with.": [
-        ""
-      ],
-      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
-        ""
-      ],
-      "Update templates that are locked": [
-        ""
-      ],
-      "Lock imported templates": [
-        ""
-      ],
-      "Show template diff in response": [
-        ""
-      ],
-      "Initiate Export": [
-        ""
-      ],
-      "Specify how to handle metadata": [
-        ""
-      ],
-      "Custom commit message for templates export": [
-        ""
-      ],
-      "Using file-based synchronization, but couldn't access %s. ": [
-        ""
-      ],
-      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+      "Action type": [
         ""
       ],
       "Always": [
         ""
       ],
-      "New": [
-        "新增"
-      ],
-      "Never": [
-        "永不"
-      ],
-      "Lock": [
-        "鎖定"
-      ],
-      "Keep, lock new": [
-        ""
-      ],
-      "Keep, do not lock new": [
-        ""
-      ],
-      "Unlock": [
-        "解鎖"
-      ],
-      "Refresh": [
-        "重新整理"
-      ],
-      "Keep": [
-        ""
-      ],
-      "Remove": [
-        "移除"
-      ],
-      "Template Sync": [
-        ""
-      ],
-      "Choose verbosity for Rake task importing templates": [
-        ""
-      ],
-      "Verbosity": [
+      "Associate": [
         ""
       ],
       "Associate templates to OS, organization and location": [
         ""
       ],
-      "Associate": [
+      "Associate to OS's, Locations & Organizations. Options are: always, new or never.": [
         ""
       ],
-      "The string that will be added as prefix to imported templates": [
-        ""
-      ],
-      "Prefix": [
-        ""
-      ],
-      "The directory within the Git repo containing the templates": [
-        ""
-      ],
-      "Dirname": [
-        ""
-      ],
-      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
-        ""
-      ],
-      "Filter": [
-        "篩選器"
-      ],
-      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
-        ""
-      ],
-      "Repo": [
-        "軟體庫"
-      ],
-      "Negate the filter for import/export": [
-        ""
-      ],
-      "Negate": [
-        ""
-      ],
-      "Default branch in Git repo": [
+      "Back to sync form": [
         ""
       ],
       "Branch": [
         ""
       ],
+      "Branch in Git repo.": [
+        ""
+      ],
+      "Choose verbosity for Rake task importing templates": [
+        ""
+      ],
+      "Commit message": [
+        ""
+      ],
+      "Custom commit message for templates export": [
+        ""
+      ],
+      "Default branch in Git repo": [
+        ""
+      ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         ""
       ],
-      "Metadata export mode": [
+      "Dirname": [
         ""
       ],
-      "Should importing overwrite locked templates?": [
+      "Export": [
         ""
+      ],
+      "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
+        ""
+      ],
+      "Filter": [
+        "篩選器"
       ],
       "Force import": [
         ""
@@ -161,59 +74,134 @@
       "How to handle lock for imported templates?": [
         ""
       ],
-      "Lock templates": [
-        ""
-      ],
-      "Commit message": [
-        ""
-      ],
-      "Sync Templates": [
+      "Import": [
         ""
       ],
       "Import or Export Templates": [
         ""
       ],
-      "Use default value from settings": [
+      "Import/export names matching this regex (case-insensitive; snippets are not filtered)": [
         ""
       ],
-      "Import": [
+      "Initiate Export": [
         ""
       ],
-      "Export": [
+      "Initiate Import": [
         ""
       ],
-      "Action type": [
+      "Keep": [
+        ""
+      ],
+      "Keep, do not lock new": [
+        ""
+      ],
+      "Keep, lock new": [
+        ""
+      ],
+      "Lock": [
+        "鎖定"
+      ],
+      "Lock imported templates": [
+        ""
+      ],
+      "Lock templates": [
+        ""
+      ],
+      "Metadata export mode": [
+        ""
+      ],
+      "Negate": [
+        ""
+      ],
+      "Negate the filter for import/export": [
+        ""
+      ],
+      "Negate the prefix (for purging).": [
+        ""
+      ],
+      "Never": [
+        "永不"
+      ],
+      "New": [
+        "新增"
+      ],
+      "Override the default repo from settings.": [
         ""
       ],
       "Page Not Found": [
         ""
       ],
-      "The page you are looking for does not exist": [
+      "Permission Denied": [
         ""
       ],
-      "You are not authorized to perform this action.": [
-        "您未經許可執行這項動作。"
+      "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
+        ""
       ],
       "Please request one of the required permissions listed below from a Foreman administrator:": [
         "請從 Foreman 管理者處，要求下列所需權限之一："
       ],
-      "Permission Denied": [
+      "Prefix": [
         ""
       ],
-      "Back to sync form": [
+      "Refresh": [
+        "重新整理"
+      ],
+      "Remove": [
+        "移除"
+      ],
+      "Repo": [
+        "軟體庫"
+      ],
+      "Should importing overwrite locked templates?": [
         ""
       ],
-      "Remote action:": [
-        "遠端動作："
+      "Show template diff in response": [
+        ""
       ],
-      "Import facts": [
-        "匯入詳情"
+      "Specify how to handle metadata": [
+        ""
       ],
-      "Action with sub plans": [
-        "有子計畫的動作"
+      "Sync Templates": [
+        ""
       ],
-      "Import Puppet classes": [
-        "匯入 Puppet 類別"
+      "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
+        ""
+      ],
+      "Template Sync": [
+        ""
+      ],
+      "The directory within Git repo containing the templates": [
+        ""
+      ],
+      "The directory within the Git repo containing the templates": [
+        ""
+      ],
+      "The page you are looking for does not exist": [
+        ""
+      ],
+      "The string all imported templates should begin with.": [
+        ""
+      ],
+      "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "Unlock": [
+        "解鎖"
+      ],
+      "Update templates that are locked": [
+        ""
+      ],
+      "Use default value from settings": [
+        ""
+      ],
+      "Using file-based synchronization, but couldn't access %s. ": [
+        ""
+      ],
+      "Verbosity": [
+        ""
+      ],
+      "You are not authorized to perform this action.": [
+        "您未經許可執行這項動作。"
       ]
     }
   }

@@ -28,9 +28,6 @@ msgstr ""
 msgid "Action type"
 msgstr ""
 
-msgid "Action with sub plans"
-msgstr "Aktion mit Unterplänen"
-
 msgid "Always"
 msgstr "Immer"
 
@@ -87,12 +84,6 @@ msgstr ""
 
 msgid "Import"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Puppet-Klassen importieren"
-
-msgid "Import facts"
-msgstr "Fakten importieren"
 
 msgid "Import or Export Templates"
 msgstr ""
@@ -162,9 +153,6 @@ msgstr "Präfix"
 
 msgid "Refresh"
 msgstr "Aktualisieren"
-
-msgid "Remote action:"
-msgstr "Entfernte Aktion:"
 
 msgid "Remove"
 msgstr "Entfernen"
