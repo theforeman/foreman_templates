@@ -11,3 +11,4 @@ locale/*/*.po.time_stamp
 .tx/
 coverage/
 pkg/
+locale/action_names.rb
