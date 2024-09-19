@@ -5,18 +5,20 @@
 #
 # Translators:
 # 21966816214bc546c1fc8a185e75ca1c, 2019
+# Bryan Kearney <bryan.kearney@gmail.com>, 2019
 # Claer <transiblu@claer.hammock.fr>, 2022
-# Baptiste Agasse <baptiste.agasse@gmail.com>, 2022
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2023
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 9.3.0\n"
+"Project-Id-Version: foreman_templates 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: French (https://www.transifex.com/foreman/teams/114/fr/)\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2024\n"
+"Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +27,7 @@ msgstr ""
 "0 == 0 ? 1 : 2;\n"
 
 msgid "Action type"
-msgstr ""
+msgstr "Type d'action"
 
 msgid "Always"
 msgstr "Toujours"
@@ -40,7 +42,7 @@ msgid "Associate to OS's, Locations & Organizations. Options are: always, new or
 msgstr "Associer à des systèmes d'exploitation, des emplacements et des organisations. Les options sont : toujours, nouveau ou jamais."
 
 msgid "Back to sync form"
-msgstr ""
+msgstr "Retour au formulaire de sync"
 
 msgid "Branch"
 msgstr "Branche"
@@ -52,10 +54,10 @@ msgid "Choose verbosity for Rake task importing templates"
 msgstr "Choisir la verbosité pour les modèles d'importation de tâches Rake"
 
 msgid "Commit message"
-msgstr ""
+msgstr "Message de validation"
 
 msgid "Custom commit message for templates export"
-msgstr ""
+msgstr "Message de validation personnalisé pour l'exportation de modèles"
 
 msgid "Default branch in Git repo"
 msgstr "Branche par défaut dans le repo Git"
@@ -67,7 +69,7 @@ msgid "Dirname"
 msgstr "Dirname"
 
 msgid "Export"
-msgstr ""
+msgstr "Exporter"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "Exporte les modèles dont les noms correspondent à cette expression rationnelle (insensible à la casse ; les extraits ne sont pas filtrés)."
@@ -79,16 +81,16 @@ msgid "Force import"
 msgstr "Forcer l'importation"
 
 msgid "How to handle lock for imported templates?"
-msgstr ""
+msgstr "Comment gérer le verrouillage des modèles importés ?"
 
 msgid "Import"
-msgstr ""
+msgstr "Importation"
 
 msgid "Import or Export Templates"
-msgstr ""
+msgstr "Importer ou exporter des modèles"
 
 msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
-msgstr ""
+msgstr "Noms d'importation ou d'exportation correspondant à cette expression rationnelle (insensible à la casse ; les extraits ne sont pas filtrés)"
 
 msgid "Initiate Export"
 msgstr "Initier l'exportation"
@@ -100,10 +102,10 @@ msgid "Keep"
 msgstr "Gardez"
 
 msgid "Keep, do not lock new"
-msgstr ""
+msgstr "Gardez, ne verrouillez pas le(s) nouveau(x)"
 
 msgid "Keep, lock new"
-msgstr ""
+msgstr "Garder, verrouiller nouveau"
 
 msgid "Lock"
 msgstr "Verrou"
@@ -121,7 +123,7 @@ msgid "Negate"
 msgstr "Annule"
 
 msgid "Negate the filter for import/export"
-msgstr ""
+msgstr "Supprimer le filtre pour les importations/exportations"
 
 msgid "Negate the prefix (for purging)."
 msgstr "Négation du préfixe (pour purger)."
@@ -136,13 +138,13 @@ msgid "Override the default repo from settings."
 msgstr "Remplace le référentiel par défaut des paramètres."
 
 msgid "Page Not Found"
-msgstr ""
+msgstr "Page non trouvée"
 
 msgid "Permission Denied"
 msgstr "Permission non accordée"
 
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
-msgstr ""
+msgstr "Veuillez vérifier les autorisations d'accès/SELinux et assurez-vous qu'elles sont lisibles/inscriptibles pour le compte utilisateur de l'application web, généralement '%s'."
 
 msgid "Please request one of the required permissions listed below from a Foreman administrator:"
 msgstr "Merci de demander une des permissions requises listées ci-dessous à un administrateur de Foreman :"
@@ -172,10 +174,10 @@ msgid "Sync Templates"
 msgstr "Modèles de synchronisation"
 
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
-msgstr ""
+msgstr "Chemin cible pour l'importation/exportation. Différents protocoles peuvent être utilisés, par exemple /tmp/dir, git://exemple.com, https://example.com, ssh://exemple.com. Lors de l'exportation vers /tmp, notez que les déploiements de production peuvent être configurés pour utiliser le tmp privé."
 
 msgid "Template Sync"
-msgstr ""
+msgstr "Sync Modèle"
 
 msgid "The directory within Git repo containing the templates"
 msgstr "Le répertoire du référentiel Git contenant les modèles"
@@ -184,13 +186,13 @@ msgid "The directory within the Git repo containing the templates"
 msgstr "Le répertoire du référentiel Git contenant les modèles"
 
 msgid "The page you are looking for does not exist"
-msgstr ""
+msgstr "La page que vous recherchez n'existe pas"
 
 msgid "The string all imported templates should begin with."
 msgstr "La chaîne de caractères par laquelle tous les modèles importés doivent commencer."
 
 msgid "The string that will be added as prefix to imported templates"
-msgstr ""
+msgstr "La chaîne qui sera ajoutée comme préfixe aux modèles importés"
 
 msgid "Unlock"
 msgstr "Déverrouillage"
@@ -199,7 +201,7 @@ msgid "Update templates that are locked"
 msgstr "Mettre à jour les modèles qui sont verrouillés"
 
 msgid "Use default value from settings"
-msgstr ""
+msgstr "Utiliser la valeur par défaut des paramètres"
 
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr "J'utilise la synchronisation basée sur les fichiers, mais je n'ai pas pu accéder à %s. "

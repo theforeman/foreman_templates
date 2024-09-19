@@ -4,16 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2023
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2023
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 9.3.0\n"
+"Project-Id-Version: foreman_templates 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: Spanish (https://www.transifex.com/foreman/teams/114/es/)\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
+"Language-Team: Spanish (https://app.transifex.com/foreman/teams/114/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,184 +27,184 @@ msgid "Action type"
 msgstr ""
 
 msgid "Always"
-msgstr "Sempre"
+msgstr "总是"
 
 msgid "Associate"
-msgstr "Associado"
+msgstr "Associate"
 
 msgid "Associate templates to OS, organization and location"
-msgstr "Associar modelos ao sistema operacional, organização e localização"
+msgstr "将模板与操作系统，机构和位置相关联"
 
 msgid "Associate to OS's, Locations & Organizations. Options are: always, new or never."
-msgstr "Associado a OS's, Locais e Organizações. As opções são: sempre, novo ou nunca."
+msgstr "与操作系统，位置和机构相关。选项为：总是，新的或永不。"
 
 msgid "Back to sync form"
-msgstr ""
+msgstr "返回到同步表单"
 
 msgid "Branch"
-msgstr "Ramo"
+msgstr "分支"
 
 msgid "Branch in Git repo."
-msgstr "Ramo em Git repo."
+msgstr "Git 仓库中的分支。"
 
 msgid "Choose verbosity for Rake task importing templates"
-msgstr "Escolha a verbosidade para os modelos de importação da tarefa Rake"
+msgstr "为 Rake 任务导入模板选择详细程度"
 
 msgid "Commit message"
-msgstr ""
+msgstr "提交消息"
 
 msgid "Custom commit message for templates export"
-msgstr ""
+msgstr "模板导出的自定义提交消息"
 
 msgid "Default branch in Git repo"
-msgstr "Ramo padrão em Git repo"
+msgstr "Git 仓库中的默认分支"
 
 msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
-msgstr "Modo de exportação de metadados padrão, atualiza os metadados de revenda, mantém manterá os metadados existentes, removerá o modelo de exportação sem metadados"
+msgstr "默认元数据导出模式，刷新后重新渲染元数据，保留将保留现有元数据，删除不包含元数据的导出模板"
 
 msgid "Dirname"
 msgstr "Dirname"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
-msgstr "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
+msgstr "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
 
 msgid "Filter"
-msgstr "Flitro"
+msgstr "Filtro"
 
 msgid "Force import"
-msgstr "Forçar a importação"
+msgstr "强制导入"
 
 msgid "How to handle lock for imported templates?"
-msgstr ""
+msgstr "如何处理导入的模板锁定？"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Import or Export Templates"
-msgstr ""
+msgstr "导入或导出模板"
 
 msgid "Import/export names matching this regex (case-insensitive; snippets are not filtered)"
-msgstr ""
+msgstr "导入/导出与该正则表达式匹配的名称（不区分大小写；不过滤代码段）"
 
 msgid "Initiate Export"
-msgstr "Iniciar a exportação"
+msgstr "启动导出"
 
 msgid "Initiate Import"
-msgstr "Iniciar a importação"
+msgstr "启动导入"
 
 msgid "Keep"
-msgstr "Guarde"
+msgstr "保持"
 
 msgid "Keep, do not lock new"
-msgstr ""
+msgstr "keep，不锁定新的"
 
 msgid "Keep, lock new"
-msgstr ""
+msgstr "keep, 锁定新的"
 
 msgid "Lock"
-msgstr "Bloqueio"
+msgstr "Bloqueo"
 
 msgid "Lock imported templates"
-msgstr "Travar modelos importados"
+msgstr "锁定导入的模板"
 
 msgid "Lock templates"
-msgstr "Modelos de fechaduras"
+msgstr "锁定模板"
 
 msgid "Metadata export mode"
-msgstr "Modo de exportação de metadados"
+msgstr "元数据导出模式"
 
 msgid "Negate"
-msgstr "Negue"
+msgstr "否定"
 
 msgid "Negate the filter for import/export"
-msgstr ""
+msgstr "导入/导出的负过滤器"
 
 msgid "Negate the prefix (for purging)."
-msgstr "Negar o prefixo (para purga)."
+msgstr "否定前缀（用于清除）。"
 
 msgid "Never"
 msgstr "Nunca"
 
 msgid "New"
-msgstr "Novo"
+msgstr "Nuevo"
 
 msgid "Override the default repo from settings."
-msgstr "Anular o reporte padrão das configurações."
+msgstr "覆盖设置中的默认仓库。"
 
 msgid "Page Not Found"
-msgstr ""
+msgstr "页没有找到"
 
 msgid "Permission Denied"
-msgstr "Permissão negada"
+msgstr "Permiso negado"
 
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
-msgstr ""
+msgstr "请检查访问权限/ SELinux，确保 Web 应用程序用户帐户（通常为 '%s'）可读写。"
 
 msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr "Por favor, solicite uma das permissões necessárias listadas abaixo através de um administrador Foreman:"
+msgstr "Solicite uno de los permisos requeridos que aparecen a continuación a un administrador de Foreman:"
 
 msgid "Prefix"
-msgstr "Prefixo"
+msgstr "前缀"
 
 msgid "Refresh"
-msgstr "Atualizar"
+msgstr "Actualizar"
 
 msgid "Remove"
-msgstr "Remover"
+msgstr "Eliminar"
 
 msgid "Repo"
-msgstr "Repo"
+msgstr "仓库"
 
 msgid "Should importing overwrite locked templates?"
-msgstr "A importação deve sobregravar modelos bloqueados?"
+msgstr "是否应该导入覆盖锁定的模板？"
 
 msgid "Show template diff in response"
-msgstr "Mostrar modelo dif em resposta"
+msgstr "显示模板差异作为响应"
 
 msgid "Specify how to handle metadata"
-msgstr "Especificar como lidar com metadados"
+msgstr "指定如何处理元数据"
 
 msgid "Sync Templates"
-msgstr "Modelos de Sincronização"
+msgstr "同步模板"
 
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
-msgstr ""
+msgstr "要导入/导出的目标路径。可以使用不同的协议，如 /tmp/dir、git://example.com、https://example.com、ssh://example.com. 当导出至 /tmp 时，请注意，生产部署可能被配置为使用私有 tmp。"
 
 msgid "Template Sync"
-msgstr ""
+msgstr "模板同步"
 
 msgid "The directory within Git repo containing the templates"
-msgstr "O diretório dentro do Git repo contendo os gabaritos"
+msgstr "Git 仓库中包含模板的目录"
 
 msgid "The directory within the Git repo containing the templates"
-msgstr "O diretório dentro do Git repo contendo os modelos"
+msgstr "Git 仓库中包含模板的目录"
 
 msgid "The page you are looking for does not exist"
-msgstr ""
+msgstr "您查找的页面不存在"
 
 msgid "The string all imported templates should begin with."
-msgstr "O fio deve começar com todos os modelos importados."
+msgstr "所有导入的模板应以字符串开头。"
 
 msgid "The string that will be added as prefix to imported templates"
-msgstr ""
+msgstr "将作为前缀添加到导入模板的字符串"
 
 msgid "Unlock"
 msgstr "Desbloquear"
 
 msgid "Update templates that are locked"
-msgstr "Modelos de atualização que são bloqueados"
+msgstr "更新锁定的模板"
 
 msgid "Use default value from settings"
-msgstr ""
+msgstr "使用设置中的默认值"
 
 msgid "Using file-based synchronization, but couldn't access %s. "
-msgstr "Usando a sincronização baseada em arquivos, mas não foi possível acessar %s. "
+msgstr "使用基于文件的同步，但无法访问 %s。 "
 
 msgid "Verbosity"
-msgstr "Verbosidade"
+msgstr "详细度"
 
 msgid "You are not authorized to perform this action."
-msgstr "Você não está autorizado a executar essa ação."
+msgstr "No está autorizado para realizar esta acción."

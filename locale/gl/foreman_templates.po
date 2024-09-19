@@ -4,15 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Carmela Rubiños <carmela.rubinos@gmail.com>, 2019
+# Carmela Rubiños <carmela.rubinos@gmail.com>, 2023
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 9.3.0\n"
+"Project-Id-Version: foreman_templates 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>, 2019\n"
-"Language-Team: Galician (https://www.transifex.com/foreman/teams/114/gl/)\n"
+"Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>, 2023\n"
+"Language-Team: Galician (https://app.transifex.com/foreman/teams/114/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,7 +78,7 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Import or Export Templates"
 msgstr ""

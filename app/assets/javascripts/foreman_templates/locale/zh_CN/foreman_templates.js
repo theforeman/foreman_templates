@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2022",
-        "Language-Team": "Chinese (China) (https://www.transifex.com/foreman/teams/114/zh_CN/)",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
+        "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -18,7 +18,7 @@
         "plural_forms": "nplurals=1; plural=0;"
       },
       "Action type": [
-        ""
+        "操作类型"
       ],
       "Always": [
         "总是"
@@ -60,7 +60,7 @@
         "Dirname"
       ],
       "Export": [
-        ""
+        "导出"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
@@ -75,7 +75,7 @@
         "如何处理导入的模板锁定？"
       ],
       "Import": [
-        ""
+        "导入"
       ],
       "Import or Export Templates": [
         "导入或导出模板"

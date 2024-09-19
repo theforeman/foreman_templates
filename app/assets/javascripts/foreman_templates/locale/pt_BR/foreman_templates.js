@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2022",
-        "Language-Team": "Portuguese (Brazil) (https://www.transifex.com/foreman/teams/114/pt_BR/)",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
+        "Language-Team": "Portuguese (Brazil) (https://app.transifex.com/foreman/teams/114/pt_BR/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -60,7 +60,7 @@
         "Dirname"
       ],
       "Export": [
-        ""
+        "Exportar"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
@@ -75,7 +75,7 @@
         ""
       ],
       "Import": [
-        ""
+        "Importar"
       ],
       "Import or Export Templates": [
         ""
@@ -132,7 +132,7 @@
         ""
       ],
       "Permission Denied": [
-        "Permissão negada"
+        "Permissão recusada"
       ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         ""

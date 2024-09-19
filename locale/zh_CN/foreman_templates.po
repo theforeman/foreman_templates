@@ -5,16 +5,19 @@
 #
 # Translators:
 # Martin Liu <liuzh66@gmail.com>, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2023
+# Amit Upadhye <aupadhye@redhat.com>, 2023
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 9.3.0\n"
+"Project-Id-Version: foreman_templates 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/foreman/teams/114/zh"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2024\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Action type"
-msgstr ""
+msgstr "操作类型"
 
 msgid "Always"
 msgstr "总是"
@@ -65,7 +68,7 @@ msgid "Dirname"
 msgstr "Dirname"
 
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
@@ -80,7 +83,7 @@ msgid "How to handle lock for imported templates?"
 msgstr "如何处理导入的模板锁定？"
 
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 msgid "Import or Export Templates"
 msgstr "导入或导出模板"
