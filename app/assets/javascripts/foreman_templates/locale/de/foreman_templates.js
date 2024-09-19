@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2022",
-        "Language-Team": "German (https://www.transifex.com/foreman/teams/114/de/)",
+        "Last-Translator": "pdolinic, 2023",
+        "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -42,7 +42,7 @@
         "Branch im Git-Repo."
       ],
       "Choose verbosity for Rake task importing templates": [
-        "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Tasks"
+        "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Aufgaben"
       ],
       "Commit message": [
         ""
@@ -60,7 +60,7 @@
         "Dirname"
       ],
       "Export": [
-        ""
+        "Export"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "Exportieren Sie Vorlagen mit Namen, die dieser Regex entsprechen (Groß-/Kleinschreibung wird nicht beachtet; Snippets werden nicht gefiltert)."
@@ -75,7 +75,7 @@
         ""
       ],
       "Import": [
-        ""
+        "Importieren"
       ],
       "Import or Export Templates": [
         ""

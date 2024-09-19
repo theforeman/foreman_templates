@@ -5,15 +5,16 @@
 #
 # Translators:
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Bryan Kearney <bryan.kearney@gmail.com>, 2023
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 9.3.0\n"
+"Project-Id-Version: foreman_templates 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
-"Language-Team: Korean (https://www.transifex.com/foreman/teams/114/ko/)\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
+"Language-Team: Korean (https://app.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,7 +64,7 @@ msgid "Dirname"
 msgstr ""
 
 msgid "Export"
-msgstr ""
+msgstr "내보내기 "
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr ""
@@ -78,7 +79,7 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "불러오기"
 
 msgid "Import or Export Templates"
 msgstr ""

@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "johnny.westerlund <johnny.westerlund@gmail.com>, 2019",
-        "Language-Team": "Swedish (Sweden) (https://www.transifex.com/foreman/teams/114/sv_SE/)",
+        "Last-Translator": "johnny.westerlund <johnny.westerlund@gmail.com>, 2023",
+        "Language-Team": "Swedish (Sweden) (https://app.transifex.com/foreman/teams/114/sv_SE/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -75,7 +75,7 @@
         ""
       ],
       "Import": [
-        ""
+        "Importera"
       ],
       "Import or Export Templates": [
         ""

@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2022",
-        "Language-Team": "Japanese (https://www.transifex.com/foreman/teams/114/ja/)",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
+        "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -18,7 +18,7 @@
         "plural_forms": "nplurals=1; plural=0;"
       },
       "Action type": [
-        ""
+        "アクションタイプ"
       ],
       "Always": [
         "常に"
@@ -60,7 +60,7 @@
         "Dirname"
       ],
       "Export": [
-        ""
+        "エクスポート"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "この正規表現に一致する名前のテンプレートをエクスポートします (大文字と小文字は区別されず、スニペットはフィルタリングされません)。"
@@ -75,7 +75,7 @@
         "インポートされたテンプレートのロックを処理する方法"
       ],
       "Import": [
-        ""
+        "インポート"
       ],
       "Import or Export Templates": [
         "テンプレートのインポートまたはエクスポート"

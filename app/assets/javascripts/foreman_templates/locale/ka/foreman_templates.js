@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022",
-        "Language-Team": "Georgian (https://www.transifex.com/foreman/teams/114/ka/)",
+        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023",
+        "Language-Team": "Georgian (https://app.transifex.com/foreman/teams/114/ka/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -18,7 +18,7 @@
         "plural_forms": "nplurals=2; plural=(n!=1);"
       },
       "Action type": [
-        ""
+        "ქმედების ტიპი"
       ],
       "Always": [
         "ყოველთვის"
@@ -60,7 +60,7 @@
         "საქაღალდის სახელი"
       ],
       "Export": [
-        ""
+        "გატანა"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
@@ -75,7 +75,7 @@
         "როგორ დავამუშაო ბლოკირება შემოტანილი შაბლონებისთვის?"
       ],
       "Import": [
-        ""
+        "შემოტანა"
       ],
       "Import or Export Templates": [
         "შაბლონების შემოტანა და გატანა"

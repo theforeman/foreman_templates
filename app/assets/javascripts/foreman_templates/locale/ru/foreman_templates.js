@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 9.3.0",
+        "Project-Id-Version": "foreman_templates 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2022",
-        "Language-Team": "Russian (https://www.transifex.com/foreman/teams/114/ru/)",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2023",
+        "Language-Team": "Russian (https://app.transifex.com/foreman/teams/114/ru/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -60,7 +60,7 @@
         ""
       ],
       "Export": [
-        ""
+        "Экспорт"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         ""
@@ -75,7 +75,7 @@
         ""
       ],
       "Import": [
-        ""
+        "Импорт"
       ],
       "Import or Export Templates": [
         ""

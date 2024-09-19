@@ -7,18 +7,18 @@
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>, 2019
 # stbenjam <stephen@redhat.com>, 2019
 # Martin Zimmermann <martin.zimmermann@gmx.com>, 2019
-# Crited <Alexander.Stoll@netways.de>, 2022
-# Ettore Atalan <atalanttore@googlemail.com>, 2022
-# Patrick Dolinic, 2022
 # Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Ettore Atalan <atalanttore@googlemail.com>, 2023
+# pdolinic, 2023
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 9.3.0\n"
+"Project-Id-Version: foreman_templates 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2022\n"
-"Language-Team: German (https://www.transifex.com/foreman/teams/114/de/)\n"
+"Last-Translator: pdolinic, 2023\n"
+"Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,7 +50,7 @@ msgid "Branch in Git repo."
 msgstr "Branch im Git-Repo."
 
 msgid "Choose verbosity for Rake task importing templates"
-msgstr "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Tasks"
+msgstr "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Aufgaben"
 
 msgid "Commit message"
 msgstr ""
@@ -68,7 +68,7 @@ msgid "Dirname"
 msgstr "Dirname"
 
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "Exportieren Sie Vorlagen mit Namen, die dieser Regex entsprechen (Groß-/Kleinschreibung wird nicht beachtet; Snippets werden nicht gefiltert)."
@@ -83,7 +83,7 @@ msgid "How to handle lock for imported templates?"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importieren"
 
 msgid "Import or Export Templates"
 msgstr ""
