@@ -1,4 +1,6 @@
 import * as Yup from 'yup';
+import React from 'react';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 export const redirectToResult = history => () =>
   history.push({ pathname: '/template_syncs/result' });
@@ -24,9 +26,9 @@ export const syncFormSchema = (syncType, settingsObj, validationData) => {
           repo: Yup.string()
             .test(
               'repo-format',
-              `Invalid repo format, must start with one of: ${validationData.repo.join(
-                ', '
-              )}`,
+              `${__(
+                'Invalid repo format, must start with one of: '
+              )}${validationData.repo.join(', ')}`,
               repoFormat(validationData.repo)
             )
             .required("can't be blank"),
@@ -41,3 +43,13 @@ export const syncFormSchema = (syncType, settingsObj, validationData) => {
     [syncType]: Yup.object().shape(schema),
   });
 };
+
+export const tooltipContent = setting => (
+  <div
+    dangerouslySetInnerHTML={{
+      __html: __(setting.description),
+    }}
+  />
+);
+
+export const label = setting => `${__(setting.fullName)}`;

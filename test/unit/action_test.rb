@@ -85,5 +85,75 @@ module ForemanTemplates
         end
       end
     end
+
+    context 'sync through http_proxy' do
+      before do
+        @template_sync_service = Action.new(:repo => 'https://github.com/theforeman/community-templates.git')
+      end
+
+      test 'should sync through custom http proxy' do
+        proxy = FactoryBot.create(:http_proxy)
+        @template_sync_service.instance_variable_set(:@http_proxy_policy, 'selected')
+        @template_sync_service.instance_variable_set(:@http_proxy_id, proxy.id)
+        assert_equal proxy.full_url, show_repo_proxy_url
+      end
+
+      test 'sync should fail if invalid http proxy id is provided' do
+        @template_sync_service.instance_variable_set(:@http_proxy_policy, 'selected')
+        @template_sync_service.instance_variable_set(:@http_proxy_id, 'invalid ID')
+        assert_raises(ActiveRecord::RecordNotFound) do
+          @template_sync_service.send(:init_git_repo)
+        end
+      end
+
+      test 'should sync through https proxy using custom CA certificate' do
+        custom_cert = 'Custom proxy CA cert'
+        proxy = FactoryBot.create(:http_proxy, :cacert => custom_cert, :url => 'https://localhost:8888')
+        @template_sync_service.instance_variable_set(:@http_proxy_policy, 'selected')
+        @template_sync_service.instance_variable_set(:@http_proxy_id, proxy.id)
+        assert_equal custom_cert, show_repo_proxy_cert
+      end
+
+      test 'should sync through global http proxy' do
+        Setting[:http_proxy] = 'https://localhost:8888'
+        @template_sync_service.instance_variable_set(:@http_proxy_policy, 'global')
+        assert_equal Setting[:http_proxy], show_repo_proxy_url
+      end
+
+      test 'should sync without using http proxy if global proxy is not set' do
+        Setting[:http_proxy] = ""
+        @template_sync_service.instance_variable_set(:@http_proxy_policy, 'global')
+        assert_nil show_repo_proxy_url
+      end
+
+      test 'should sync without using http proxy' do
+        @template_sync_service.instance_variable_set(:@http_proxy_policy, 'none')
+        assert_nil show_repo_proxy_url
+      end
+
+      private
+
+      def show_repo_proxy_url
+        dir = Dir.mktmpdir
+        @template_sync_service.instance_variable_set(:@dir, dir)
+        begin
+          repo = @template_sync_service.send(:init_git_repo)
+          repo.config.to_h['http.proxy']
+        ensure
+          FileUtils.remove_entry_secure(dir) if File.exist?(dir)
+        end
+      end
+
+      def show_repo_proxy_cert
+        dir = Dir.mktmpdir
+        @template_sync_service.instance_variable_set(:@dir, dir)
+        begin
+          repo = @template_sync_service.send(:init_git_repo)
+          File.read(repo.config('http.proxysslcainfo'))
+        ensure
+          FileUtils.remove_entry_secure(dir) if File.exist?(dir)
+        end
+      end
+    end
   end
 end

@@ -23,7 +23,7 @@ exports[`SyncSettingField should render boolean setting as checkbox 1`] = `
       "value": false,
     }
   }
-  label="undefined "
+  label="undefined"
   name="import.force"
   tooltipHelp={
     <FieldLevelHelp
@@ -67,7 +67,7 @@ exports[`SyncSettingField should render setting with input field 1`] = `
       "value": "",
     }
   }
-  label="undefined "
+  label="undefined"
   name="import.filter"
   tooltipHelp={
     <FieldLevelHelp
@@ -125,7 +125,7 @@ exports[`SyncSettingField should render setting with select choices 1`] = `
       "value": "new",
     }
   }
-  label="undefined "
+  label="undefined"
   name="import.associate"
   tooltipHelp={
     <FieldLevelHelp

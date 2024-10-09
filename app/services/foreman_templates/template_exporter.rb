@@ -31,8 +31,8 @@ module ForemanTemplates
       @dir = Dir.mktmpdir
       return if branch_missing?
 
-      git_repo = Git.clone(@repo, @dir)
-      logger.debug "cloned '#{@repo}' to '#{@dir}'"
+      git_repo = init_git_repo
+      git_repo.fetch
 
       setup_git_branch git_repo
       dump_files!

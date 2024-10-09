@@ -16,4 +16,8 @@ module ForemanTemplates
   def self.metadata_export_mode_types
     { 'refresh' => _('Refresh'), 'keep' => _('Keep'), 'remove' => _('Remove') }
   end
+
+  def self.http_proxy_policy_types
+    { 'global' => _('Global default HTTP proxy'), 'none' => _('No HTTP proxy'), 'selected' => _('Custom HTTP proxy') }
+  end
 end
