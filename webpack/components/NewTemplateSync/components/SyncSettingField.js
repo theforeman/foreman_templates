@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FieldLevelHelp } from 'patternfly-react';
-import { translate as __ } from 'foremanReact/common/I18n';
 
+import {
+  tooltipContent,
+  label,
+} from './NewTemplateSyncForm/NewTemplateSyncFormHelpers';
 import TextButtonField from './TextButtonField';
 import ButtonTooltip from './ButtonTooltip';
 
 const SyncSettingField = ({ setting, resetField, disabled, syncType }) => {
-  const label = settingObj => `${__(settingObj.fullName)} `;
-
   const fieldSelector = settingObj => {
     if (settingObj.settingsType === 'boolean') {
       return 'checkbox';
@@ -21,14 +22,6 @@ const SyncSettingField = ({ setting, resetField, disabled, syncType }) => {
     return 'text';
   };
 
-  const tooltipContent = (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: __(setting.description),
-      }}
-    />
-  );
-
   return (
     <TextButtonField
       name={`${syncType}.${setting.name}`}
@@ -40,7 +33,7 @@ const SyncSettingField = ({ setting, resetField, disabled, syncType }) => {
       fieldSelector={fieldSelector}
       disabled={disabled}
       fieldRequired={setting.required}
-      tooltipHelp={<FieldLevelHelp content={tooltipContent} />}
+      tooltipHelp={<FieldLevelHelp content={tooltipContent(setting)} />}
     >
       {setting.value}
     </TextButtonField>

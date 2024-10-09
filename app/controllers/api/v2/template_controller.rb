@@ -12,7 +12,9 @@ module Api
         param :repo, String, :required => false, :desc => N_("Override the default repo from settings.")
         param :filter, String, :required => false, :desc => N_("Export templates with names matching this regex (case-insensitive; snippets are not filtered).")
         param :negate, :bool, :required => false, :desc => N_("Negate the prefix (for purging).")
-        param :dirname, String, :required => false, :desc => N_("The directory within Git repo containing the templates")
+        param :dirname, String, :required => false, :desc => N_("Directory within Git repo containing the templates.")
+        param :http_proxy_policy, ForemanTemplates.http_proxy_policy_types.keys, :required => false, :desc => N_("HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter.")
+        param :http_proxy_id, :number, :required => false, :desc => N_("ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`")
       end
 
       api :POST, "/templates/import/", N_("Initiate Import")

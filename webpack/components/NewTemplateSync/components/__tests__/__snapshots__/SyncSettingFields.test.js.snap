@@ -48,6 +48,13 @@ exports[`SyncSettingFields should show export settings 1`] = `
     }
     syncType="export"
   />
+  <ProxySettingsFields
+    formProps={Object {}}
+    proxyIdSetting={Object {}}
+    proxyPolicySetting={Object {}}
+    resetField={[Function]}
+    syncType="export"
+  />
 </Fragment>
 `;
 
@@ -95,6 +102,13 @@ exports[`SyncSettingFields should show import settings 1`] = `
         "value": false,
       }
     }
+    syncType="import"
+  />
+  <ProxySettingsFields
+    formProps={Object {}}
+    proxyIdSetting={Object {}}
+    proxyPolicySetting={Object {}}
+    resetField={[Function]}
     syncType="import"
   />
 </Fragment>

@@ -3,6 +3,7 @@ import { upperFirst } from 'lodash';
 import PropTypes from 'prop-types';
 
 import SyncSettingField from './SyncSettingField';
+import ProxySettingsFields from './ProxySettingFields';
 
 const SyncSettingsFields = ({
   importSettings,
@@ -38,10 +39,21 @@ const SyncSettingsFields = ({
     );
 
   const settingsAry = syncType === 'import' ? importSettings : exportSettings;
+  const proxyPolicySetting = settingsAry.find(
+    setting => setting.id === 'template_sync_http_proxy_policy'
+  );
+  const proxyIdSetting = settingsAry.find(
+    setting => setting.id === 'template_sync_http_proxy_id'
+  );
 
   return (
     <React.Fragment>
       {settingsAry
+        .filter(
+          setting =>
+            setting.id !== 'template_sync_http_proxy_policy' &&
+            setting.id !== 'template_sync_http_proxy_id'
+        )
         .map(addRequiredToSetting)
         .map(setting => modifyDescription(setting, syncType))
         .map(setting => specializeDescription(setting, syncType))
@@ -54,6 +66,12 @@ const SyncSettingsFields = ({
             resetField={resetField}
           />
         ))}
+      <ProxySettingsFields
+        proxyPolicySetting={proxyPolicySetting}
+        proxyIdSetting={proxyIdSetting}
+        syncType={syncType}
+        resetField={resetField}
+      />
     </React.Fragment>
   );
 };

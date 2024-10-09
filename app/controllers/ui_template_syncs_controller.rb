@@ -49,6 +49,26 @@ class UITemplateSyncsController < ApplicationController
   private
 
   def setting_definitions(short_names)
-    short_names.map { |name| Foreman.settings.find("template_sync_#{name}") }
+    settings = short_names.map { |name| Foreman.settings.find("template_sync_#{name}") }
+    proxy_policy_setting = Foreman.settings.find('template_sync_http_proxy_policy').dup
+    proxy_id_setting = http_proxy_id_setting
+    # if default value is 'Custom HTTP proxy' but there is no proxy to select, value must be changed
+    proxy_policy_setting.value = proxy_policy_setting.default = 'none' if proxy_id_setting.value == '' && proxy_policy_setting.value == 'selected'
+    settings << proxy_policy_setting
+    settings << proxy_id_setting
+    settings
+  end
+
+  def http_proxy_id_setting
+    proxy_list = HttpProxy.authorized(:view_http_proxies).with_taxonomy_scope.each_with_object({}) { |proxy, hash| hash[proxy.id] = proxy.name }
+    default_proxy_id = proxy_list.keys.first || ""
+    OpenStruct.new(id: 'template_sync_http_proxy_id',
+      name: 'template_sync_http_proxy_id',
+      description: N_('Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.'),
+      settings_type: :string,
+      value: default_proxy_id,
+      default: default_proxy_id,
+      full_name: N_('HTTP proxy'),
+      select_values: proxy_list)
   end
 end

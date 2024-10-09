@@ -94,6 +94,12 @@ module ForemanTemplates
               description: N_('Custom commit message for templates export'),
               default: 'Templates export made by a Foreman user',
               full_name: N_('Commit message'))
+            setting('template_sync_http_proxy_policy',
+              type: :string,
+              description: N_('Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.'),
+              default: 'global',
+              full_name: N_('HTTP proxy policy'),
+              collection: -> { ForemanTemplates.http_proxy_policy_types })
           end
         end
 

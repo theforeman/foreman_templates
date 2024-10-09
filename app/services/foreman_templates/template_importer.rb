@@ -32,9 +32,9 @@ module ForemanTemplates
       @dir = Dir.mktmpdir
 
       begin
-        logger.debug "cloned '#{@repo}' to '#{@dir}'"
-        gitrepo = Git.clone(@repo, @dir)
-        if @branch
+        gitrepo = init_git_repo
+        gitrepo.fetch
+        if @branch.present?
           logger.debug "checking out branch '#{@branch}'"
           gitrepo.checkout(@branch)
         end
