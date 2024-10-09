@@ -1,7 +1,7 @@
 require 'foreman_templates/engine'
 
 module ForemanTemplates
-  BASE_SETTING_NAMES = %w(repo branch dirname filter negate).freeze
+  BASE_SETTING_NAMES = %w(repo branch dirname filter negate http_proxy_policy).freeze
   IMPORT_SETTING_NAMES = (BASE_SETTING_NAMES | %w(prefix associate force lock)).freeze
   EXPORT_SETTING_NAMES = (BASE_SETTING_NAMES | %w(metadata_export_mode commit_msg)).freeze
 
@@ -15,5 +15,9 @@ module ForemanTemplates
 
   def self.metadata_export_mode_types
     { 'refresh' => _('Refresh'), 'keep' => _('Keep'), 'remove' => _('Remove') }
+  end
+
+  def self.http_proxy_policy_types
+    { 'global' => _('Global default HTTP proxy'), 'none' => _('No HTTP proxy'), 'selected' => _('Use selected HTTP proxy') }
   end
 end
