@@ -13,11 +13,14 @@ import SyncSettingsFields from '../SyncSettingFields';
 import SyncTypeRadios from '../SyncTypeRadios';
 import { redirectToResult, syncFormSchema } from './NewTemplateSyncFormHelpers';
 
+import ProxySettingsFields from '../ProxySettingFields';
+
 const NewTemplateSyncForm = ({
   error,
   submitForm,
   importSettings,
   exportSettings,
+  proxySettings,
   history,
   validationData,
   importUrl,
@@ -109,6 +112,11 @@ const NewTemplateSyncForm = ({
         syncType={syncType}
         resetField={resetToDefault}
       />
+      <ProxySettingsFields
+        proxySettings={proxySettings}
+        syncType={syncType}
+        resetField={resetToDefault}
+      />
     </ForemanForm>
   );
 };
@@ -116,6 +124,7 @@ const NewTemplateSyncForm = ({
 NewTemplateSyncForm.propTypes = {
   importSettings: PropTypes.array,
   exportSettings: PropTypes.array,
+  proxySettings: PropTypes.array,
   userPermissions: PropTypes.object.isRequired,
   error: PropTypes.object,
   history: PropTypes.object,
@@ -129,6 +138,7 @@ NewTemplateSyncForm.propTypes = {
 NewTemplateSyncForm.defaultProps = {
   importSettings: [],
   exportSettings: [],
+  proxySettings: [],
   validationData: {},
   error: undefined,
   history: {},

@@ -7,6 +7,7 @@ import NewTemplateSyncForm from './NewTemplateSyncForm';
 import {
   selectImportSettings,
   selectExportSettings,
+  selectProxySettings,
 } from '../../NewTemplateSyncSelectors';
 
 import { selectInitialFormValues } from './NewTemplateSyncFormSelectors';
@@ -16,12 +17,15 @@ const mapStateToProps = (state, ownProps) => {
 
   const exportSettings = selectExportSettings(state);
 
+  const proxySettings = selectProxySettings(state);
+
   const initialFormValues = selectInitialFormValues(state);
 
   return {
     initialValues: { ...initialFormValues },
     importSettings,
     exportSettings,
+    proxySettings,
   };
 };
 

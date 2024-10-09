@@ -15,7 +15,7 @@ module ForemanTemplates
     end
 
     def self.setting_overrides
-      %i(verbose prefix dirname filter repo negate branch)
+      %i(verbose prefix dirname filter repo negate branch http_proxy_policy)
     end
 
     def method_missing(method, *args, &block)
@@ -53,9 +53,33 @@ module ForemanTemplates
     private
 
     def assign_attributes(args = {})
+      @http_proxy_id = args[:http_proxy_id]
       self.class.setting_overrides.each do |attribute|
         instance_variable_set("@#{attribute}", args[attribute.to_sym] || Setting["template_sync_#{attribute}".to_sym])
       end
+    end
+
+    protected
+
+    def init_git_repo
+      git_repo = Git.init(@dir)
+      http_proxy = case @http_proxy_policy
+                   when 'global'
+                     Setting[:http_proxy]
+                   when 'selected'
+                     HttpProxy.authorized(:view_http_proxies).with_taxonomy_scope.find(@http_proxy_id).full_url
+                   end
+
+      if http_proxy.present?
+        git_repo.config('http.proxy', http_proxy)
+      end
+
+      # FIXME: Add config for SSL cert
+
+      git_repo.add_remote('origin', @repo)
+      git_repo.fetch
+      logger.debug "cloned '#{@repo}' to '#{@dir}'"
+      git_repo
     end
   end
 end

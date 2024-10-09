@@ -8,4 +8,8 @@ child @results => :results do
   child :export => :export do
     extends "template_sync_settings/show"
   end
+
+  child :proxy => :proxy do
+    extends "template_sync_settings/show"
+  end
 end
