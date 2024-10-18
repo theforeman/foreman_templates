@@ -10,6 +10,7 @@ export const initialState = Immutable({
   loadingSettings: false,
   importSettings: [],
   exportSettings: [],
+  proxySettings: [],
   error: '',
 });
 
@@ -23,6 +24,7 @@ const syncSettings = (state = initialState, action) => {
         loadingSettings: false,
         importSettings: payload.results.import,
         exportSettings: payload.results.export,
+        proxySettings: payload.results.proxy,
       });
     case SYNC_SETTINGS_FAILURE:
       return state.merge({ error: payload.error, loadingSettings: false });
