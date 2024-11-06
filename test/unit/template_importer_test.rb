@@ -222,15 +222,15 @@ module ForemanTemplates
 
         template_res = find_result(results[:results], template.name)
         refute template_res.imported
-        assert_equal template_res.errors[:base], "This template is locked. Please clone it to a new template to customize."
+        assert_equal template_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
         ptable_res = find_result(results[:results], ptable.name)
         refute ptable_res.imported
-        assert_equal ptable_res.errors[:base], "This template is locked. Please clone it to a new template to customize."
+        assert_equal ptable_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
         snippet_res = find_result(results[:results], snippet.name)
         refute snippet_res.imported
-        assert_equal snippet_res.errors[:base], "This template is locked. Please clone it to a new template to customize."
+        assert_equal snippet_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
         assert_equal @template_template, template.template
         assert_equal @ptable_layout, ptable.layout
@@ -317,11 +317,11 @@ module ForemanTemplates
 
         template_res = find_result(results[:results], template.name)
         refute template_res.imported
-        assert_equal template_res.errors[:base], "This template is locked. Please clone it to a new template to customize."
+        assert_equal template_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
 
         ptable_res = find_result(results[:results], ptable.name)
         refute ptable_res.imported
-        assert_equal ptable_res.errors[:base], "This template is locked. Please clone it to a new template to customize."
+        assert_equal ptable_res.errors.full_messages.first, "This template is locked. Please clone it to a new template to customize."
         results
       end
     end
