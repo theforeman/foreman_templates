@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.1",
+        "Project-Id-Version": "foreman_templates 10.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
@@ -47,6 +47,9 @@
       "Commit message": [
         "提交消息"
       ],
+      "Custom HTTP proxy": [
+        ""
+      ],
       "Custom commit message for templates export": [
         "模板导出的自定义提交消息"
       ],
@@ -55,6 +58,9 @@
       ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "默认元数据导出模式，刷新后重新渲染元数据，保留将保留现有元数据，删除不包含元数据的导出模板"
+      ],
+      "Directory within Git repo containing the templates.": [
+        ""
       ],
       "Dirname": [
         "Dirname"
@@ -71,8 +77,23 @@
       "Force import": [
         "强制导入"
       ],
+      "Global default HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy policy": [
+        ""
+      ],
+      "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+        ""
+      ],
       "How to handle lock for imported templates?": [
         "如何处理导入的模板锁定？"
+      ],
+      "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
+        ""
       ],
       "Import": [
         "导入"
@@ -88,6 +109,9 @@
       ],
       "Initiate Import": [
         "启动导入"
+      ],
+      "Invalid repo format, must start with one of: ": [
+        ""
       ],
       "Keep": [
         "保持"
@@ -125,6 +149,9 @@
       "New": [
         "新"
       ],
+      "No HTTP proxy": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "覆盖设置中的默认仓库。"
       ],
@@ -152,6 +179,12 @@
       "Repo": [
         "仓库"
       ],
+      "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
+        ""
+      ],
+      "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
+        ""
+      ],
       "Should importing overwrite locked templates?": [
         "是否应该导入覆盖锁定的模板？"
       ],
@@ -169,9 +202,6 @@
       ],
       "Template Sync": [
         "模板同步"
-      ],
-      "The directory within Git repo containing the templates": [
-        "Git 仓库中包含模板的目录"
       ],
       "The directory within the Git repo containing the templates": [
         "Git 仓库中包含模板的目录"

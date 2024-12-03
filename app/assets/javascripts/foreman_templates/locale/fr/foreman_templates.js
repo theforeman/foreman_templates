@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.1",
+        "Project-Id-Version": "foreman_templates 10.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
@@ -47,6 +47,9 @@
       "Commit message": [
         "Message de validation"
       ],
+      "Custom HTTP proxy": [
+        ""
+      ],
       "Custom commit message for templates export": [
         "Message de validation personnalisé pour l'exportation de modèles"
       ],
@@ -55,6 +58,9 @@
       ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "Mode d'exportation des métadonnées par défaut, rafraîchir restitue les métadonnées, conserver les métadonnées existantes, supprimer exporte le modèle sans métadonnées"
+      ],
+      "Directory within Git repo containing the templates.": [
+        ""
       ],
       "Dirname": [
         "Dirname"
@@ -71,8 +77,23 @@
       "Force import": [
         "Forcer l'importation"
       ],
+      "Global default HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy policy": [
+        ""
+      ],
+      "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+        ""
+      ],
       "How to handle lock for imported templates?": [
         "Comment gérer le verrouillage des modèles importés ?"
+      ],
+      "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
+        ""
       ],
       "Import": [
         "Importation"
@@ -88,6 +109,9 @@
       ],
       "Initiate Import": [
         "Initier l'importation"
+      ],
+      "Invalid repo format, must start with one of: ": [
+        ""
       ],
       "Keep": [
         "Gardez"
@@ -125,6 +149,9 @@
       "New": [
         "Nouveau"
       ],
+      "No HTTP proxy": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "Remplace le référentiel par défaut des paramètres."
       ],
@@ -152,6 +179,12 @@
       "Repo": [
         "Référentiel"
       ],
+      "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
+        ""
+      ],
+      "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
+        ""
+      ],
       "Should importing overwrite locked templates?": [
         "L'importation doit-elle écraser les modèles verrouillés ?"
       ],
@@ -169,9 +202,6 @@
       ],
       "Template Sync": [
         "Sync Modèle"
-      ],
-      "The directory within Git repo containing the templates": [
-        "Le répertoire du référentiel Git contenant les modèles"
       ],
       "The directory within the Git repo containing the templates": [
         "Le répertoire du référentiel Git contenant les modèles"

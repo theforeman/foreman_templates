@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.1",
+        "Project-Id-Version": "foreman_templates 10.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
@@ -47,6 +47,9 @@
       "Commit message": [
         "メッセージのコミット"
       ],
+      "Custom HTTP proxy": [
+        ""
+      ],
       "Custom commit message for templates export": [
         "テンプレートエクスポート用のカスタムコミットメッセージ"
       ],
@@ -55,6 +58,9 @@
       ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "デフォルトのメタデータエクスポートモード、更新はメタデータを再レンダリングし、保持は既存のメタデータを保持し、削除はメタデータなしでテンプレートをエクスポートします"
+      ],
+      "Directory within Git repo containing the templates.": [
+        ""
       ],
       "Dirname": [
         "Dirname"
@@ -71,8 +77,23 @@
       "Force import": [
         "強制インポート"
       ],
+      "Global default HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy policy": [
+        ""
+      ],
+      "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+        ""
+      ],
       "How to handle lock for imported templates?": [
         "インポートされたテンプレートのロックを処理する方法"
+      ],
+      "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
+        ""
       ],
       "Import": [
         "インポート"
@@ -88,6 +109,9 @@
       ],
       "Initiate Import": [
         "インポートを開始します"
+      ],
+      "Invalid repo format, must start with one of: ": [
+        ""
       ],
       "Keep": [
         "保持"
@@ -125,6 +149,9 @@
       "New": [
         "新規"
       ],
+      "No HTTP proxy": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "設定からデフォルトのリポジトリーを上書きします。"
       ],
@@ -152,6 +179,12 @@
       "Repo": [
         "リポジトリー"
       ],
+      "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
+        ""
+      ],
+      "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
+        ""
+      ],
       "Should importing overwrite locked templates?": [
         "インポートするとロックされたテンプレートは上書きされますか?"
       ],
@@ -169,9 +202,6 @@
       ],
       "Template Sync": [
         "テンプレート同期"
-      ],
-      "The directory within Git repo containing the templates": [
-        "テンプレートを含む Git リポジトリー内のディレクトリー"
       ],
       "The directory within the Git repo containing the templates": [
         "テンプレートを含む Git リポジトリー内のディレクトリー"

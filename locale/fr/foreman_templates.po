@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.1\n"
+"Project-Id-Version: foreman_templates 10.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -55,6 +55,9 @@ msgstr "Choisir la verbosité pour les modèles d'importation de tâches Rake"
 msgid "Commit message"
 msgstr "Message de validation"
 
+msgid "Custom HTTP proxy"
+msgstr ""
+
 msgid "Custom commit message for templates export"
 msgstr "Message de validation personnalisé pour l'exportation de modèles"
 
@@ -63,6 +66,9 @@ msgstr "Branche par défaut dans le repo Git"
 
 msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
 msgstr "Mode d'exportation des métadonnées par défaut, rafraîchir restitue les métadonnées, conserver les métadonnées existantes, supprimer exporte le modèle sans métadonnées"
+
+msgid "Directory within Git repo containing the templates."
+msgstr ""
 
 msgid "Dirname"
 msgstr "Dirname"
@@ -79,8 +85,23 @@ msgstr "Filtre"
 msgid "Force import"
 msgstr "Forcer l'importation"
 
+msgid "Global default HTTP proxy"
+msgstr ""
+
+msgid "HTTP proxy"
+msgstr ""
+
+msgid "HTTP proxy policy"
+msgstr ""
+
+msgid "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter."
+msgstr ""
+
 msgid "How to handle lock for imported templates?"
 msgstr "Comment gérer le verrouillage des modèles importés ?"
+
+msgid "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`"
+msgstr ""
 
 msgid "Import"
 msgstr "Importation"
@@ -96,6 +117,9 @@ msgstr "Initier l'exportation"
 
 msgid "Initiate Import"
 msgstr "Initier l'importation"
+
+msgid "Invalid repo format, must start with one of: "
+msgstr ""
 
 msgid "Keep"
 msgstr "Gardez"
@@ -133,6 +157,9 @@ msgstr "Jamais"
 msgid "New"
 msgstr "Nouveau"
 
+msgid "No HTTP proxy"
+msgstr ""
+
 msgid "Override the default repo from settings."
 msgstr "Remplace le référentiel par défaut des paramètres."
 
@@ -160,6 +187,12 @@ msgstr "Supprimer"
 msgid "Repo"
 msgstr "Référentiel"
 
+msgid "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page."
+msgstr ""
+
+msgid "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one."
+msgstr ""
+
 msgid "Should importing overwrite locked templates?"
 msgstr "L'importation doit-elle écraser les modèles verrouillés ?"
 
@@ -177,9 +210,6 @@ msgstr "Chemin cible pour l'importation/exportation. Différents protocoles peuv
 
 msgid "Template Sync"
 msgstr "Sync Modèle"
-
-msgid "The directory within Git repo containing the templates"
-msgstr "Le répertoire du référentiel Git contenant les modèles"
 
 msgid "The directory within the Git repo containing the templates"
 msgstr "Le répertoire du référentiel Git contenant les modèles"

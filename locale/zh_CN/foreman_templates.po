@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.1\n"
+"Project-Id-Version: foreman_templates 10.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -54,6 +54,9 @@ msgstr "为 Rake 任务导入模板选择详细程度"
 msgid "Commit message"
 msgstr "提交消息"
 
+msgid "Custom HTTP proxy"
+msgstr ""
+
 msgid "Custom commit message for templates export"
 msgstr "模板导出的自定义提交消息"
 
@@ -62,6 +65,9 @@ msgstr "Git 仓库中的默认分支"
 
 msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
 msgstr "默认元数据导出模式，刷新后重新渲染元数据，保留将保留现有元数据，删除不包含元数据的导出模板"
+
+msgid "Directory within Git repo containing the templates."
+msgstr ""
 
 msgid "Dirname"
 msgstr "Dirname"
@@ -78,8 +84,23 @@ msgstr "过滤器"
 msgid "Force import"
 msgstr "强制导入"
 
+msgid "Global default HTTP proxy"
+msgstr ""
+
+msgid "HTTP proxy"
+msgstr ""
+
+msgid "HTTP proxy policy"
+msgstr ""
+
+msgid "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter."
+msgstr ""
+
 msgid "How to handle lock for imported templates?"
 msgstr "如何处理导入的模板锁定？"
+
+msgid "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`"
+msgstr ""
 
 msgid "Import"
 msgstr "导入"
@@ -95,6 +116,9 @@ msgstr "启动导出"
 
 msgid "Initiate Import"
 msgstr "启动导入"
+
+msgid "Invalid repo format, must start with one of: "
+msgstr ""
 
 msgid "Keep"
 msgstr "保持"
@@ -132,6 +156,9 @@ msgstr "决不"
 msgid "New"
 msgstr "新"
 
+msgid "No HTTP proxy"
+msgstr ""
+
 msgid "Override the default repo from settings."
 msgstr "覆盖设置中的默认仓库。"
 
@@ -159,6 +186,12 @@ msgstr "移除"
 msgid "Repo"
 msgstr "仓库"
 
+msgid "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page."
+msgstr ""
+
+msgid "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one."
+msgstr ""
+
 msgid "Should importing overwrite locked templates?"
 msgstr "是否应该导入覆盖锁定的模板？"
 
@@ -176,9 +209,6 @@ msgstr "要导入/导出的目标路径。可以使用不同的协议，如 /tmp
 
 msgid "Template Sync"
 msgstr "模板同步"
-
-msgid "The directory within Git repo containing the templates"
-msgstr "Git 仓库中包含模板的目录"
 
 msgid "The directory within the Git repo containing the templates"
 msgstr "Git 仓库中包含模板的目录"

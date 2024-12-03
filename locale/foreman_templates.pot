@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-29 14:18+0000\n"
-"PO-Revision-Date: 2024-10-29 14:18+0000\n"
+"POT-Creation-Date: 2024-12-03 13:46+0000\n"
+"PO-Revision-Date: 2024-12-03 13:46+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -37,53 +37,75 @@ msgid "Negate the prefix (for purging)."
 msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:15
-msgid "The directory within Git repo containing the templates"
+msgid "Directory within Git repo containing the templates."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:18
-msgid "Initiate Import"
+#: ../app/controllers/api/v2/template_controller.rb:16
+msgid ""
+"HTTP proxy policy for template sync. If you choose 'selected', provide the `ht"
+"tp_proxy_id` parameter."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:19
-msgid "The string all imported templates should begin with."
+#: ../app/controllers/api/v2/template_controller.rb:17
+msgid ""
+"ID of an HTTP proxy to use for template sync. Use this parameter together with"
+" `'http_proxy_policy':'selected'`"
 msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:20
+msgid "Initiate Import"
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:21
+msgid "The string all imported templates should begin with."
+msgstr ""
+
+#: ../app/controllers/api/v2/template_controller.rb:22
 msgid ""
 "Associate to OS's, Locations & Organizations. Options are: always, new or neve"
 "r."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:21
+#: ../app/controllers/api/v2/template_controller.rb:23
 msgid "Update templates that are locked"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:22
+#: ../app/controllers/api/v2/template_controller.rb:24
 msgid "Lock imported templates"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:23
+#: ../app/controllers/api/v2/template_controller.rb:25
 msgid "Show template diff in response"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:34
+#: ../app/controllers/api/v2/template_controller.rb:36
 msgid "Initiate Export"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:35
+#: ../app/controllers/api/v2/template_controller.rb:37
 msgid "Specify how to handle metadata"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:36
+#: ../app/controllers/api/v2/template_controller.rb:38
 #: ../lib/foreman_templates/engine.rb:94
 msgid "Custom commit message for templates export"
 msgstr ""
 
-#: ../app/services/foreman_templates/action.rb:48
+#: ../app/controllers/ui_template_syncs_controller.rb:67
+msgid ""
+"Select an HTTP proxy to use for template sync. You can add HTTP proxies on the"
+" Infrastructure > HTTP proxies page."
+msgstr ""
+
+#: ../app/controllers/ui_template_syncs_controller.rb:71
+msgid "HTTP proxy"
+msgstr ""
+
+#: ../app/services/foreman_templates/action.rb:50
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr ""
 
-#: ../app/services/foreman_templates/action.rb:49
+#: ../app/services/foreman_templates/action.rb:51
 msgid ""
 "Please check the access permissions/SELinux and make sure it is readable/writa"
 "ble for the web application user account, typically '%s'."
@@ -127,6 +149,18 @@ msgstr ""
 
 #: ../lib/foreman_templates.rb:17
 msgid "Remove"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:21
+msgid "Global default HTTP proxy"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:21
+msgid "No HTTP proxy"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:21
+msgid "Custom HTTP proxy"
 msgstr ""
 
 #: ../lib/foreman_templates/engine.rb:33
@@ -233,7 +267,17 @@ msgstr ""
 msgid "Commit message"
 msgstr ""
 
-#: ../lib/foreman_templates/engine.rb:118
+#: ../lib/foreman_templates/engine.rb:99
+msgid ""
+"Should an HTTP proxy be used for template sync? If you select Custom HTTP prox"
+"y, you will be prompted to select one."
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:101
+msgid "HTTP proxy policy"
+msgstr ""
+
+#: ../lib/foreman_templates/engine.rb:124
 msgid "Sync Templates"
 msgstr ""
 
@@ -258,6 +302,11 @@ msgstr ""
 #:
 #: ../webpack/components/NewTemplateSync/components/NewTemplateSyncForm/NewTemplateSyncForm.js:103
 msgid "Action type"
+msgstr ""
+
+#:
+#: ../webpack/components/NewTemplateSync/components/NewTemplateSyncForm/NewTemplateSyncFormHelpers.js:29
+msgid "Invalid repo format, must start with one of: "
 msgstr ""
 
 #: ../webpack/components/PageNotFound.js:9

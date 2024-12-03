@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.1\n"
+"Project-Id-Version: foreman_templates 10.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>, 2023\n"
@@ -49,6 +49,9 @@ msgstr ""
 msgid "Commit message"
 msgstr ""
 
+msgid "Custom HTTP proxy"
+msgstr ""
+
 msgid "Custom commit message for templates export"
 msgstr ""
 
@@ -56,6 +59,9 @@ msgid "Default branch in Git repo"
 msgstr ""
 
 msgid "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata"
+msgstr ""
+
+msgid "Directory within Git repo containing the templates."
 msgstr ""
 
 msgid "Dirname"
@@ -73,7 +79,22 @@ msgstr "Filtro"
 msgid "Force import"
 msgstr ""
 
+msgid "Global default HTTP proxy"
+msgstr ""
+
+msgid "HTTP proxy"
+msgstr ""
+
+msgid "HTTP proxy policy"
+msgstr ""
+
+msgid "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter."
+msgstr ""
+
 msgid "How to handle lock for imported templates?"
+msgstr ""
+
+msgid "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`"
 msgstr ""
 
 msgid "Import"
@@ -89,6 +110,9 @@ msgid "Initiate Export"
 msgstr ""
 
 msgid "Initiate Import"
+msgstr ""
+
+msgid "Invalid repo format, must start with one of: "
 msgstr ""
 
 msgid "Keep"
@@ -127,6 +151,9 @@ msgstr ""
 msgid "New"
 msgstr "Novo"
 
+msgid "No HTTP proxy"
+msgstr ""
+
 msgid "Override the default repo from settings."
 msgstr ""
 
@@ -154,6 +181,12 @@ msgstr ""
 msgid "Repo"
 msgstr ""
 
+msgid "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page."
+msgstr ""
+
+msgid "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one."
+msgstr ""
+
 msgid "Should importing overwrite locked templates?"
 msgstr ""
 
@@ -170,9 +203,6 @@ msgid "Target path to import/export. Different protocols can be used, for exampl
 msgstr ""
 
 msgid "Template Sync"
-msgstr ""
-
-msgid "The directory within Git repo containing the templates"
 msgstr ""
 
 msgid "The directory within the Git repo containing the templates"

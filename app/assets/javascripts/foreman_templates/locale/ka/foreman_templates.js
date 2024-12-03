@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.1",
+        "Project-Id-Version": "foreman_templates 10.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023",
@@ -47,6 +47,9 @@
       "Commit message": [
         "კომიტის შეტყობინება"
       ],
+      "Custom HTTP proxy": [
+        ""
+      ],
       "Custom commit message for templates export": [
         "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
       ],
@@ -55,6 +58,9 @@
       ],
       "Default metadata export mode, refresh re-renders metadata, keep will keep existing metadata, remove exports template without metadata": [
         "მეტამონაცემების გატანის ნაგულისხმები რეჟიმი, განახლება ხელახლა გადასცემს მეტამონაცემებს, შენახვა შეინარჩუნებს არსებულ მეტამონაცემებს, გატანის შაბლონის წაშლა მეტამონაცემების გარეშე"
+      ],
+      "Directory within Git repo containing the templates.": [
+        ""
       ],
       "Dirname": [
         "საქაღალდის სახელი"
@@ -71,8 +77,23 @@
       "Force import": [
         "ძალით შემოტანა"
       ],
+      "Global default HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy": [
+        ""
+      ],
+      "HTTP proxy policy": [
+        ""
+      ],
+      "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+        ""
+      ],
       "How to handle lock for imported templates?": [
         "როგორ დავამუშაო ბლოკირება შემოტანილი შაბლონებისთვის?"
+      ],
+      "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
+        ""
       ],
       "Import": [
         "შემოტანა"
@@ -88,6 +109,9 @@
       ],
       "Initiate Import": [
         "შემოტანის დაწყება"
+      ],
+      "Invalid repo format, must start with one of: ": [
+        ""
       ],
       "Keep": [
         "დატოვება"
@@ -125,6 +149,9 @@
       "New": [
         "ახალი"
       ],
+      "No HTTP proxy": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
       ],
@@ -152,6 +179,12 @@
       "Repo": [
         "რეპო"
       ],
+      "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
+        ""
+      ],
+      "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
+        ""
+      ],
       "Should importing overwrite locked templates?": [
         "შემოტანამ დაბლოკილ შაბლონებს გადააწეროს თუ არა?"
       ],
@@ -169,9 +202,6 @@
       ],
       "Template Sync": [
         "შაბლონების სინქრონიზაცია"
-      ],
-      "The directory within Git repo containing the templates": [
-        "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
       ],
       "The directory within the Git repo containing the templates": [
         "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
