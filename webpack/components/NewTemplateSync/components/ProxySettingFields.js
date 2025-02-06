@@ -29,15 +29,19 @@ const ProxySettingsFields = ({
     <React.Fragment>
       <FormikField
         name={proxyPolicyFieldName}
-        render={({ field, form }) => (
-          <ProxySettingField
-            setting={proxyPolicySetting}
-            resetField={resetField}
-            field={field}
-            form={form}
-            fieldName={proxyPolicyFieldName}
-          />
-        )}
+        render={({ field, form }) => {
+          if (form.values[syncType]?.repo?.match(/^https?:\/\//))
+            return (
+              <ProxySettingField
+                setting={proxyPolicySetting}
+                resetField={resetField}
+                field={field}
+                form={form}
+                fieldName={proxyPolicyFieldName}
+              />
+            );
+          return <></>;
+        }}
       />
       <FormikField
         name={proxyIdFieldName}
