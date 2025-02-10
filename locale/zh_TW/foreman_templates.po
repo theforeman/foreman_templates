@@ -5,14 +5,14 @@
 #
 # Translators:
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2024
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 10.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2023\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2024\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/foreman/teams/114/z"
 "h_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -85,12 +85,14 @@ msgid "Global default HTTP proxy"
 msgstr ""
 
 msgid "HTTP proxy"
-msgstr ""
+msgstr "HTTP 代理"
 
 msgid "HTTP proxy policy"
 msgstr ""
 
-msgid "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter."
+msgid ""
+"HTTP proxy policy for template sync. \\\n"
+"          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
 msgstr ""
 
 msgid "How to handle lock for imported templates?"
