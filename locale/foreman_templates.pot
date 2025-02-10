@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-03 13:46+0000\n"
-"PO-Revision-Date: 2024-12-03 13:46+0000\n"
+"POT-Creation-Date: 2025-02-10 20:07+0100\n"
+"PO-Revision-Date: 2025-02-10 20:07+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -42,51 +42,52 @@ msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:16
 msgid ""
-"HTTP proxy policy for template sync. If you choose 'selected', provide the `ht"
-"tp_proxy_id` parameter."
+"HTTP proxy policy for template sync. \\\n"
+"          Use only when synchronizing templates through the HTTP or the HTTPS "
+"protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:17
+#: ../app/controllers/api/v2/template_controller.rb:18
 msgid ""
 "ID of an HTTP proxy to use for template sync. Use this parameter together with"
 " `'http_proxy_policy':'selected'`"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:20
+#: ../app/controllers/api/v2/template_controller.rb:21
 msgid "Initiate Import"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:21
+#: ../app/controllers/api/v2/template_controller.rb:22
 msgid "The string all imported templates should begin with."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:22
+#: ../app/controllers/api/v2/template_controller.rb:23
 msgid ""
 "Associate to OS's, Locations & Organizations. Options are: always, new or neve"
 "r."
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:23
+#: ../app/controllers/api/v2/template_controller.rb:24
 msgid "Update templates that are locked"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:24
+#: ../app/controllers/api/v2/template_controller.rb:25
 msgid "Lock imported templates"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:25
+#: ../app/controllers/api/v2/template_controller.rb:26
 msgid "Show template diff in response"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:36
+#: ../app/controllers/api/v2/template_controller.rb:37
 msgid "Initiate Export"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:37
+#: ../app/controllers/api/v2/template_controller.rb:38
 msgid "Specify how to handle metadata"
 msgstr ""
 
-#: ../app/controllers/api/v2/template_controller.rb:38
+#: ../app/controllers/api/v2/template_controller.rb:39
 #: ../lib/foreman_templates/engine.rb:94
 msgid "Custom commit message for templates export"
 msgstr ""

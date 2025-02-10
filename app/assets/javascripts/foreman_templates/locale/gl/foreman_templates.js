@@ -86,7 +86,7 @@
       "HTTP proxy policy": [
         ""
       ],
-      "HTTP proxy policy for template sync. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+      "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
         ""
       ],
       "How to handle lock for imported templates?": [
