@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.4",
+        "Project-Id-Version": "foreman_templates 10.0.5",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -48,7 +48,7 @@
         "Message de validation"
       ],
       "Custom HTTP proxy": [
-        ""
+        "Proxy HTTP personnalisé"
       ],
       "Custom commit message for templates export": [
         "Message de validation personnalisé pour l'exportation de modèles"
@@ -60,7 +60,7 @@
         "Mode d'exportation des métadonnées par défaut, rafraîchir restitue les métadonnées, conserver les métadonnées existantes, supprimer exporte le modèle sans métadonnées"
       ],
       "Directory within Git repo containing the templates.": [
-        ""
+        "Le répertoire du référentiel Git contenant les modèles"
       ],
       "Dirname": [
         "Dirname"
@@ -78,22 +78,22 @@
         "Forcer l'importation"
       ],
       "Global default HTTP proxy": [
-        ""
+        "Proxy HTTP par défaut global"
       ],
       "HTTP proxy": [
         "Proxy HTTP"
       ],
       "HTTP proxy policy": [
-        ""
+        "Politique de proxy HTTP"
       ],
       "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        ""
+        "Politique de proxy HTTP pour la synchronisation des modèles. À utiliser uniquement lors de la synchronisation des modèles via le protocole HTTP ou HTTPS. Si vous choisissez « selected », indiquez le paramètre « http_proxy_id »."
       ],
       "How to handle lock for imported templates?": [
         "Comment gérer le verrouillage des modèles importés ?"
       ],
       "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
-        ""
+        "ID d'un proxy HTTP à utiliser pour la synchronisation des modèles. Utilisez ce paramètre avec `'http_proxy_policy':'selected'`"
       ],
       "Import": [
         "Importation"
@@ -111,7 +111,7 @@
         "Initier l'importation"
       ],
       "Invalid repo format, must start with one of: ": [
-        ""
+        "Format de référentiel non valide, doit commencer par l'un des éléments suivants : "
       ],
       "Keep": [
         "Gardez"
@@ -150,7 +150,7 @@
         "Nouveau"
       ],
       "No HTTP proxy": [
-        ""
+        "Pas de proxy HTTP"
       ],
       "Override the default repo from settings.": [
         "Remplace le référentiel par défaut des paramètres."
@@ -180,10 +180,10 @@
         "Référentiel"
       ],
       "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
-        ""
+        "Sélectionnez un proxy HTTP à utiliser pour la synchronisation des modèles. Vous pouvez ajouter des proxys HTTP sur la page Infrastructure > Proxies HTTP."
       ],
       "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
-        ""
+        "Faut-il utiliser un proxy HTTP pour la synchronisation des modèles ? Si vous sélectionnez Proxy HTTP personnalisé, vous serez invité à en sélectionner un."
       ],
       "Should importing overwrite locked templates?": [
         "L'importation doit-elle écraser les modèles verrouillés ?"

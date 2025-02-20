@@ -6,15 +6,16 @@
 # Translators:
 # Martin Liu <liuzh66@gmail.com>, 2019
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 # Amit Upadhye <aupadhye@redhat.com>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.4\n"
+"Project-Id-Version: foreman_templates 10.0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2024\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +55,7 @@ msgid "Commit message"
 msgstr "提交消息"
 
 msgid "Custom HTTP proxy"
-msgstr ""
+msgstr "自定义 HTTP 代理"
 
 msgid "Custom commit message for templates export"
 msgstr "模板导出的自定义提交消息"
@@ -66,7 +67,7 @@ msgid "Default metadata export mode, refresh re-renders metadata, keep will keep
 msgstr "默认元数据导出模式，刷新后重新渲染元数据，保留将保留现有元数据，删除不包含元数据的导出模板"
 
 msgid "Directory within Git repo containing the templates."
-msgstr ""
+msgstr "Git 仓库中包含模板的目录"
 
 msgid "Dirname"
 msgstr "Dirname"
@@ -84,24 +85,26 @@ msgid "Force import"
 msgstr "强制导入"
 
 msgid "Global default HTTP proxy"
-msgstr ""
+msgstr "全局默认 HTTP 代理"
 
 msgid "HTTP proxy"
 msgstr "HTTP 代理"
 
 msgid "HTTP proxy policy"
-msgstr ""
+msgstr "HTTP 代理策略"
 
 msgid ""
 "HTTP proxy policy for template sync. \\\n"
 "          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
 msgstr ""
+"模板同步的 HTTP 代理策略。\\\n"
+"          仅在使用 HTTP 或 HTTPS 协议同步模板时使用。如果选择 'selected'，提供 `http_proxy_id` 参数。"
 
 msgid "How to handle lock for imported templates?"
 msgstr "如何处理导入的模板锁定？"
 
 msgid "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`"
-msgstr ""
+msgstr "用于模板同步的 HTTP 代理 ID。将此参数与 ''http_proxy_policy':'selected' 一起使用"
 
 msgid "Import"
 msgstr "导入"
@@ -119,7 +122,7 @@ msgid "Initiate Import"
 msgstr "启动导入"
 
 msgid "Invalid repo format, must start with one of: "
-msgstr ""
+msgstr "无效的 repo 格式，必须以以下之一开始： "
 
 msgid "Keep"
 msgstr "保持"
@@ -158,7 +161,7 @@ msgid "New"
 msgstr "新"
 
 msgid "No HTTP proxy"
-msgstr ""
+msgstr "没有 HTTP 代理"
 
 msgid "Override the default repo from settings."
 msgstr "覆盖设置中的默认仓库。"
@@ -188,10 +191,10 @@ msgid "Repo"
 msgstr "仓库"
 
 msgid "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page."
-msgstr ""
+msgstr "选择用于模板同步的 HTTP 代理。您可以在 Infrastructure > HTTP proxies 页中添加 HTTP 代理。"
 
 msgid "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one."
-msgstr ""
+msgstr "在进行模板同步时是否应使用 HTTP 代理？如果选择自定义 HTTP 代理，您会被提示选择一个。"
 
 msgid "Should importing overwrite locked templates?"
 msgstr "是否应该导入覆盖锁定的模板？"

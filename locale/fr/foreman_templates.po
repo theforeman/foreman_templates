@@ -7,15 +7,16 @@
 # 21966816214bc546c1fc8a185e75ca1c, 2019
 # Claer <transiblu@claer.hammock.fr>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2023
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 # Bryan Kearney <bryan.kearney@gmail.com>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.4\n"
+"Project-Id-Version: foreman_templates 10.0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2024\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2025\n"
 "Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +56,7 @@ msgid "Commit message"
 msgstr "Message de validation"
 
 msgid "Custom HTTP proxy"
-msgstr ""
+msgstr "Proxy HTTP personnalisé"
 
 msgid "Custom commit message for templates export"
 msgstr "Message de validation personnalisé pour l'exportation de modèles"
@@ -67,7 +68,7 @@ msgid "Default metadata export mode, refresh re-renders metadata, keep will keep
 msgstr "Mode d'exportation des métadonnées par défaut, rafraîchir restitue les métadonnées, conserver les métadonnées existantes, supprimer exporte le modèle sans métadonnées"
 
 msgid "Directory within Git repo containing the templates."
-msgstr ""
+msgstr "Le répertoire du référentiel Git contenant les modèles"
 
 msgid "Dirname"
 msgstr "Dirname"
@@ -85,24 +86,24 @@ msgid "Force import"
 msgstr "Forcer l'importation"
 
 msgid "Global default HTTP proxy"
-msgstr ""
+msgstr "Proxy HTTP par défaut global"
 
 msgid "HTTP proxy"
 msgstr "Proxy HTTP"
 
 msgid "HTTP proxy policy"
-msgstr ""
+msgstr "Politique de proxy HTTP"
 
 msgid ""
 "HTTP proxy policy for template sync. \\\n"
 "          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
-msgstr ""
+msgstr "Politique de proxy HTTP pour la synchronisation des modèles. À utiliser uniquement lors de la synchronisation des modèles via le protocole HTTP ou HTTPS. Si vous choisissez « selected », indiquez le paramètre « http_proxy_id »."
 
 msgid "How to handle lock for imported templates?"
 msgstr "Comment gérer le verrouillage des modèles importés ?"
 
 msgid "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`"
-msgstr ""
+msgstr "ID d'un proxy HTTP à utiliser pour la synchronisation des modèles. Utilisez ce paramètre avec `'http_proxy_policy':'selected'`"
 
 msgid "Import"
 msgstr "Importation"
@@ -120,7 +121,7 @@ msgid "Initiate Import"
 msgstr "Initier l'importation"
 
 msgid "Invalid repo format, must start with one of: "
-msgstr ""
+msgstr "Format de référentiel non valide, doit commencer par l'un des éléments suivants : "
 
 msgid "Keep"
 msgstr "Gardez"
@@ -159,7 +160,7 @@ msgid "New"
 msgstr "Nouveau"
 
 msgid "No HTTP proxy"
-msgstr ""
+msgstr "Pas de proxy HTTP"
 
 msgid "Override the default repo from settings."
 msgstr "Remplace le référentiel par défaut des paramètres."
@@ -189,10 +190,10 @@ msgid "Repo"
 msgstr "Référentiel"
 
 msgid "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page."
-msgstr ""
+msgstr "Sélectionnez un proxy HTTP à utiliser pour la synchronisation des modèles. Vous pouvez ajouter des proxys HTTP sur la page Infrastructure > Proxies HTTP."
 
 msgid "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one."
-msgstr ""
+msgstr "Faut-il utiliser un proxy HTTP pour la synchronisation des modèles ? Si vous sélectionnez Proxy HTTP personnalisé, vous serez invité à en sélectionner un."
 
 msgid "Should importing overwrite locked templates?"
 msgstr "L'importation doit-elle écraser les modèles verrouillés ?"

@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.4",
+        "Project-Id-Version": "foreman_templates 10.0.5",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -48,7 +48,7 @@
         "メッセージのコミット"
       ],
       "Custom HTTP proxy": [
-        ""
+        "カスタム HTTP プロキシー"
       ],
       "Custom commit message for templates export": [
         "テンプレートエクスポート用のカスタムコミットメッセージ"
@@ -60,7 +60,7 @@
         "デフォルトのメタデータエクスポートモード、更新はメタデータを再レンダリングし、保持は既存のメタデータを保持し、削除はメタデータなしでテンプレートをエクスポートします"
       ],
       "Directory within Git repo containing the templates.": [
-        ""
+        "テンプレートを含む Git リポジトリー内のディレクトリー。"
       ],
       "Dirname": [
         "Dirname"
@@ -78,22 +78,22 @@
         "強制インポート"
       ],
       "Global default HTTP proxy": [
-        ""
+        "グローバルデフォルト HTTP プロキシー"
       ],
       "HTTP proxy": [
         "HTTP プロキシー"
       ],
       "HTTP proxy policy": [
-        ""
+        "HTTPプロキシーポリシー:"
       ],
       "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        ""
+        "テンプレート同期用の HTTP プロキシーポリシー。\\\\\\n HTTP または HTTPS プロトコルを介してテンプレートを同期する場合にのみ使用します。'選択済み' を選択した場合は、`http_proxy_id` パラメーターを指定します。"
       ],
       "How to handle lock for imported templates?": [
         "インポートされたテンプレートのロックを処理する方法"
       ],
       "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
-        ""
+        "テンプレート同期に使用する HTTP プロキシーの ID。このパラメーターは `'http_proxy_policy':'selected'` と併用します。"
       ],
       "Import": [
         "インポート"
@@ -111,7 +111,7 @@
         "インポートを開始します"
       ],
       "Invalid repo format, must start with one of: ": [
-        ""
+        "リポジトリー形式が無効です。次のいずれかで始まる必要があります: "
       ],
       "Keep": [
         "保持"
@@ -150,7 +150,7 @@
         "新規"
       ],
       "No HTTP proxy": [
-        ""
+        "HTTP プロキシーなし"
       ],
       "Override the default repo from settings.": [
         "設定からデフォルトのリポジトリーを上書きします。"
@@ -180,10 +180,10 @@
         "リポジトリー"
       ],
       "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
-        ""
+        "テンプレートの同期に使用する HTTP プロキシーを選択します。インフラストラクチャー > HTTP プロキシーページで HTTP プロキシーを追加できます。"
       ],
       "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
-        ""
+        "テンプレートの同期に HTTP プロキシーを使用する必要がありますか? カスタム HTTP プロキシーを選択した場合は、選択するように求められます。"
       ],
       "Should importing overwrite locked templates?": [
         "インポートするとロックされたテンプレートは上書きされますか?"
