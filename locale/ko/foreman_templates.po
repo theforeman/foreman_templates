@@ -5,15 +5,16 @@
 #
 # Translators:
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 # Bryan Kearney <bryan.kearney@gmail.com>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.4\n"
+"Project-Id-Version: foreman_templates 10.0.5\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2024\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2025\n"
 "Language-Team: Korean (https://app.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +53,7 @@ msgid "Commit message"
 msgstr "메시지 커밋"
 
 msgid "Custom HTTP proxy"
-msgstr ""
+msgstr "사용자 정의 HTTP 프록시"
 
 msgid "Custom commit message for templates export"
 msgstr "템플릿 내보내기를 위한 사용자 정의 커밋 메시지"
@@ -64,7 +65,7 @@ msgid "Default metadata export mode, refresh re-renders metadata, keep will keep
 msgstr "기본 메타데이터 내보내기 모드, 새로 고침은 메타데이터를 다시 렌더링하고, 유지는 기존 메타데이터를 유지하고, 메타데이터가 없는 내보내기 템플릿을 제거합니다."
 
 msgid "Directory within Git repo containing the templates."
-msgstr ""
+msgstr "템플릿이 포함된 Git 리포지토리 내의 디렉터리입니다."
 
 msgid "Dirname"
 msgstr "Dirname"
@@ -82,24 +83,26 @@ msgid "Force import"
 msgstr "강제 가져오기"
 
 msgid "Global default HTTP proxy"
-msgstr ""
+msgstr "글로벌 기본 HTTP 프록시"
 
 msgid "HTTP proxy"
 msgstr "HTTP 프록시"
 
 msgid "HTTP proxy policy"
-msgstr ""
+msgstr "HTTP 프록시 정책"
 
 msgid ""
 "HTTP proxy policy for template sync. \\\n"
 "          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
 msgstr ""
+"템플릿 동기화에 대한 HTTP 프록시 정책입니다. \\ \n"
+" HTTP 또는 HTTPS 프로토콜을 통해 템플릿을 동기화할 때만 사용합니다. 'selected'를 선택하는 경우 'http_proxy_id' 매개변수를 제공합니다."
 
 msgid "How to handle lock for imported templates?"
 msgstr "가져온 템플릿에 대한 잠금을 어떻게 처리하나요?"
 
 msgid "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`"
-msgstr ""
+msgstr "템플릿 동기화에 사용할 HTTP 프록시 ID입니다. 이 매개변수를 'http_proxy_policy':'selected'와 함께 사용하십시오."
 
 msgid "Import"
 msgstr "불러오기"
@@ -117,7 +120,7 @@ msgid "Initiate Import"
 msgstr "가져오기 시작"
 
 msgid "Invalid repo format, must start with one of: "
-msgstr ""
+msgstr "잘못된 리포지토리 형식에서는 다음 중 하나로 시작해야 합니다. "
 
 msgid "Keep"
 msgstr "유지"
@@ -156,7 +159,7 @@ msgid "New"
 msgstr "신규"
 
 msgid "No HTTP proxy"
-msgstr ""
+msgstr "HTTP 프록시가 없음"
 
 msgid "Override the default repo from settings."
 msgstr "설정에서 기본 저장소를 덮어씁니다."
@@ -186,10 +189,10 @@ msgid "Repo"
 msgstr "리포지터리 "
 
 msgid "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page."
-msgstr ""
+msgstr "템플릿 동기화에 사용할 HTTP 프록시를 선택합니다. 인프라 > HTTP 프록시 페이지에 HTTP 프록시를 추가할 수 있습니다."
 
 msgid "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one."
-msgstr ""
+msgstr "템플릿 동기화에 HTTP 프록시를 사용하시겠습니까? \"사용자 지정 HTTP 프록시\"를 선택하면 프록시를 선택하라는 메시지가 표시됩니다."
 
 msgid "Should importing overwrite locked templates?"
 msgstr "가져오기를 하면 잠긴 템플릿을 덮어쓸 수 있나요?"

@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.4",
+        "Project-Id-Version": "foreman_templates 10.0.5",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -48,7 +48,7 @@
         "메시지 커밋"
       ],
       "Custom HTTP proxy": [
-        ""
+        "사용자 정의 HTTP 프록시"
       ],
       "Custom commit message for templates export": [
         "템플릿 내보내기를 위한 사용자 정의 커밋 메시지"
@@ -60,7 +60,7 @@
         "기본 메타데이터 내보내기 모드, 새로 고침은 메타데이터를 다시 렌더링하고, 유지는 기존 메타데이터를 유지하고, 메타데이터가 없는 내보내기 템플릿을 제거합니다."
       ],
       "Directory within Git repo containing the templates.": [
-        ""
+        "템플릿이 포함된 Git 리포지토리 내의 디렉터리입니다."
       ],
       "Dirname": [
         "Dirname"
@@ -78,22 +78,22 @@
         "강제 가져오기"
       ],
       "Global default HTTP proxy": [
-        ""
+        "글로벌 기본 HTTP 프록시"
       ],
       "HTTP proxy": [
         "HTTP 프록시"
       ],
       "HTTP proxy policy": [
-        ""
+        "HTTP 프록시 정책"
       ],
       "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        ""
+        "템플릿 동기화에 대한 HTTP 프록시 정책입니다. \\\\ \\n HTTP 또는 HTTPS 프로토콜을 통해 템플릿을 동기화할 때만 사용합니다. 'selected'를 선택하는 경우 'http_proxy_id' 매개변수를 제공합니다."
       ],
       "How to handle lock for imported templates?": [
         "가져온 템플릿에 대한 잠금을 어떻게 처리하나요?"
       ],
       "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
-        ""
+        "템플릿 동기화에 사용할 HTTP 프록시 ID입니다. 이 매개변수를 'http_proxy_policy':'selected'와 함께 사용하십시오."
       ],
       "Import": [
         "불러오기"
@@ -111,7 +111,7 @@
         "가져오기 시작"
       ],
       "Invalid repo format, must start with one of: ": [
-        ""
+        "잘못된 리포지토리 형식에서는 다음 중 하나로 시작해야 합니다. "
       ],
       "Keep": [
         "유지"
@@ -150,7 +150,7 @@
         "신규"
       ],
       "No HTTP proxy": [
-        ""
+        "HTTP 프록시가 없음"
       ],
       "Override the default repo from settings.": [
         "설정에서 기본 저장소를 덮어씁니다."
@@ -180,10 +180,10 @@
         "리포지터리 "
       ],
       "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
-        ""
+        "템플릿 동기화에 사용할 HTTP 프록시를 선택합니다. 인프라 > HTTP 프록시 페이지에 HTTP 프록시를 추가할 수 있습니다."
       ],
       "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
-        ""
+        "템플릿 동기화에 HTTP 프록시를 사용하시겠습니까? \\\"사용자 지정 HTTP 프록시\\\"를 선택하면 프록시를 선택하라는 메시지가 표시됩니다."
       ],
       "Should importing overwrite locked templates?": [
         "가져오기를 하면 잠긴 템플릿을 덮어쓸 수 있나요?"

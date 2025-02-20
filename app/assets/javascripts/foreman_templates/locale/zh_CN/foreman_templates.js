@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.4",
+        "Project-Id-Version": "foreman_templates 10.0.5",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Amit Upadhye <aupadhye@redhat.com>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -48,7 +48,7 @@
         "提交消息"
       ],
       "Custom HTTP proxy": [
-        ""
+        "自定义 HTTP 代理"
       ],
       "Custom commit message for templates export": [
         "模板导出的自定义提交消息"
@@ -60,7 +60,7 @@
         "默认元数据导出模式，刷新后重新渲染元数据，保留将保留现有元数据，删除不包含元数据的导出模板"
       ],
       "Directory within Git repo containing the templates.": [
-        ""
+        "Git 仓库中包含模板的目录"
       ],
       "Dirname": [
         "Dirname"
@@ -78,22 +78,22 @@
         "强制导入"
       ],
       "Global default HTTP proxy": [
-        ""
+        "全局默认 HTTP 代理"
       ],
       "HTTP proxy": [
         "HTTP 代理"
       ],
       "HTTP proxy policy": [
-        ""
+        "HTTP 代理策略"
       ],
       "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        ""
+        "模板同步的 HTTP 代理策略。\\\\\\n          仅在使用 HTTP 或 HTTPS 协议同步模板时使用。如果选择 'selected'，提供 `http_proxy_id` 参数。"
       ],
       "How to handle lock for imported templates?": [
         "如何处理导入的模板锁定？"
       ],
       "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
-        ""
+        "用于模板同步的 HTTP 代理 ID。将此参数与 ''http_proxy_policy':'selected' 一起使用"
       ],
       "Import": [
         "导入"
@@ -111,7 +111,7 @@
         "启动导入"
       ],
       "Invalid repo format, must start with one of: ": [
-        ""
+        "无效的 repo 格式，必须以以下之一开始： "
       ],
       "Keep": [
         "保持"
@@ -150,7 +150,7 @@
         "新"
       ],
       "No HTTP proxy": [
-        ""
+        "没有 HTTP 代理"
       ],
       "Override the default repo from settings.": [
         "覆盖设置中的默认仓库。"
@@ -180,10 +180,10 @@
         "仓库"
       ],
       "Select an HTTP proxy to use for template sync. You can add HTTP proxies on the Infrastructure > HTTP proxies page.": [
-        ""
+        "选择用于模板同步的 HTTP 代理。您可以在 Infrastructure > HTTP proxies 页中添加 HTTP 代理。"
       ],
       "Should an HTTP proxy be used for template sync? If you select Custom HTTP proxy, you will be prompted to select one.": [
-        ""
+        "在进行模板同步时是否应使用 HTTP 代理？如果选择自定义 HTTP 代理，您会被提示选择一个。"
       ],
       "Should importing overwrite locked templates?": [
         "是否应该导入覆盖锁定的模板？"
