@@ -30,7 +30,7 @@ const ProxySettingsFields = ({
       <FormikField
         name={proxyPolicyFieldName}
         render={({ field, form }) => {
-          if (form.values[syncType]?.repo?.match(/^https?:\/\//))
+          if (isHttpUrl(form.values[syncType]?.repo))
             return (
               <ProxySettingField
                 setting={proxyPolicySetting}
@@ -47,6 +47,7 @@ const ProxySettingsFields = ({
         name={proxyIdFieldName}
         render={({ field, form }) => {
           if (
+            isHttpUrl(form.values[syncType]?.repo) &&
             proxyIdSetting.value !== '' &&
             // Changing name to camel case here would unnecessarily complicate the code
             // eslint-disable-next-line camelcase
@@ -68,6 +69,8 @@ const ProxySettingsFields = ({
     </React.Fragment>
   );
 };
+
+const isHttpUrl = value => value && /^(https?:\/\/)/.test(value);
 
 ProxySettingsFields.propTypes = {
   proxyPolicySetting: PropTypes.object,
