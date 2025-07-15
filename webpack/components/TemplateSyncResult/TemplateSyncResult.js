@@ -1,24 +1,34 @@
 import React from 'react';
-import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
-
+import { isEmpty } from 'lodash';
+import { Skeleton } from '@patternfly/react-core';
 import EmptySyncResult from './components/EmptySyncResult';
 import FinishedSyncResult from './components/FinishedSyncResult';
 
 import './TemplateSyncResult.scss';
+import { SYNC_BASE_URL } from '../../consts';
 
 const TemplateSyncResult = ({
-  syncResult: { templates, resultAction, repo, branch, gitUser, pagination },
-  history,
-  syncedTemplatesPageChange,
-  editPaths,
-  fileRepoStartWith,
+  setView,
+  apiResponse,
+  receivedTemplates,
+  isTemplatesLoading,
 }) => {
-  const redirectBack = () => history.push({ pathname: '/template_syncs' });
+  const redirectBack = () => setView(SYNC_BASE_URL);
 
-  return isEmpty(templates) ? (
-    <EmptySyncResult primaryAction={redirectBack} />
-  ) : (
+  if (isTemplatesLoading)
+    return <Skeleton height="100%" screenreaderText="Loading ..." />;
+
+  if (!receivedTemplates)
+    return <EmptySyncResult primaryAction={redirectBack} />;
+
+  const { editPaths, fileRepoStartWith } = apiResponse;
+  const { templates, resultAction, repo, branch, gitUser } = receivedTemplates;
+
+  if (!templates || isEmpty(templates))
+    return <EmptySyncResult primaryAction={redirectBack} />;
+
+  return (
     <FinishedSyncResult
       templates={templates}
       type={resultAction}
@@ -27,35 +37,20 @@ const TemplateSyncResult = ({
       gitUser={gitUser}
       fileRepoStartWith={fileRepoStartWith}
       editPaths={editPaths}
-      pagination={pagination}
-      pageChange={syncedTemplatesPageChange}
+      redirectBack={redirectBack}
     />
   );
 };
 
+export default TemplateSyncResult;
+
 TemplateSyncResult.propTypes = {
-  syncResult: PropTypes.shape({
-    templates: PropTypes.array,
-    resultAction: PropTypes.string,
-    repo: PropTypes.string,
-    branch: PropTypes.string,
-    gitUser: PropTypes.string,
-    pagination: PropTypes.shape({
-      page: PropTypes.number,
-      perPage: PropTypes.number,
-    }),
-    syncedTemplatesPageChange: PropTypes.func,
-  }).isRequired,
-  history: PropTypes.object.isRequired,
-  editPaths: PropTypes.object,
-  fileRepoStartWith: PropTypes.array,
-  syncedTemplatesPageChange: PropTypes.func,
+  setView: PropTypes.func.isRequired,
+  apiResponse: PropTypes.object.isRequired,
+  receivedTemplates: PropTypes.object,
+  isTemplatesLoading: PropTypes.bool.isRequired,
 };
 
 TemplateSyncResult.defaultProps = {
-  editPaths: {},
-  syncedTemplatesPageChange: () => {},
-  fileRepoStartWith: [],
+  receivedTemplates: null,
 };
-
-export default TemplateSyncResult;

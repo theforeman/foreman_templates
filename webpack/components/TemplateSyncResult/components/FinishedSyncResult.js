@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { capitalize } from 'lodash';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Button } from 'patternfly-react';
-
+import { Button, Flex, FlexItem } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import PageLayout from 'foremanReact/routes/common/PageLayout/PageLayout';
 
@@ -29,50 +27,49 @@ const FinishedSyncResult = ({
   branch,
   gitUser,
   fileRepoStartWith,
-  pagination,
-  pageChange,
   editPaths,
+  redirectBack,
 }) => (
   <PageLayout
     searchable={false}
     header={titleString(type, repo, branch, gitUser, fileRepoStartWith)}
   >
-    <div className="row">
-      <div className="title-filter col-md-4">&nbsp;</div>
-      <div id="title_action" className="col-md-8">
-        <div className="btn-toolbar pull-right">
-          <LinkContainer to="/template_syncs" activeClassName="">
-            <Button>{__('Back to sync form')}</Button>
-          </LinkContainer>
-        </div>
-      </div>
+    <div id="foreman-templates">
+      <Flex>
+        <FlexItem align={{ default: 'alignRight' }}>
+          <Button
+            className="back_button"
+            ouiaId="back"
+            variant="secondary"
+            onClick={redirectBack}
+          >
+            {__('Back to sync form')}
+          </Button>
+        </FlexItem>
+      </Flex>
+      <SyncResultList
+        className="margin-top-xl"
+        templates={templates}
+        editPaths={editPaths}
+      />
     </div>
-
-    <SyncResultList
-      templates={templates}
-      pagination={pagination}
-      editPaths={editPaths}
-      pageChange={pageChange}
-    />
   </PageLayout>
 );
 
 FinishedSyncResult.propTypes = {
-  templates: PropTypes.array.isRequired,
-  type: PropTypes.string.isRequired,
-  repo: PropTypes.string.isRequired,
   branch: PropTypes.string,
-  gitUser: PropTypes.string,
-  pagination: PropTypes.object,
-  pageChange: PropTypes.func.isRequired,
   editPaths: PropTypes.object.isRequired,
   fileRepoStartWith: PropTypes.array.isRequired,
+  gitUser: PropTypes.string,
+  redirectBack: PropTypes.func.isRequired,
+  repo: PropTypes.string.isRequired,
+  templates: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 FinishedSyncResult.defaultProps = {
   branch: '',
   gitUser: '',
-  pagination: {},
 };
 
 export default FinishedSyncResult;

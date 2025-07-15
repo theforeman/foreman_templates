@@ -1,39 +1,41 @@
+@import 'foremanReact/common/colors';
+
 #foreman-templates {
-  .list-view-pf-body {
-    .list-view-pf-description {
-      width: 20%;
+  .listViewItem:hover {
+    background-color: $list-color;
+    cursor: pointer;
+  }
+
+  tbody {
+    border: 1px solid transparent;
+    &.pf-m-expanded {
+      border: 1px solid var(--pf-v5-global--BorderColor--100);
+      box-shadow: var(--pf-v5-global--BoxShadow--sm);
+      margin-bottom: 5px;
+
+      .listViewItem {
+        background-color: $list-color;
+      }
+    }
+    li {
+      margin-top: 10px;
     }
   }
 
-  .list-view-pf-additional-info-item.additional-info-wide {
-    width: 15%;
+  .c-icon {
+    font-size: var(--pf-v5-global--icon--FontSize--lg);
   }
 
-  .list-group-item-heading {
-    font-weight: normal;
-    font-size: 12px;
+  .sync-result-datalist-cell {
+    display: flex;
+    align-items: center;
+
+    .cell-info-padding {
+      padding: 0 7px;
+    }
   }
 
-  .list-view-header {
-    border-top: 0px;
-    background-color: #fff;
-    border-left-color: #fff;
-    border-right-color: #fff;
-
-    .list-view-pf-main-info {
-      padding-bottom: 0px;
-    }
-
-    .list-group-item-heading {
-      font-weight: 600;
-    }
-
-    .list-view-pf-left {
-      visibility: hidden;
-    }
-    .list-view-pf-expand {
-      visibility: hidden;
-      margin-bottom: 0px;
-    }
+  .back_button {
+    margin-bottom: 12px;
   }
 }

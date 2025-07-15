@@ -1,14 +1,56 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
-import { Icon } from 'patternfly-react';
+import PropTypes from 'prop-types';
 
-import IconInfoItem from './IconInfoItem';
-import EmptyInfoItem from './EmptyInfoItem';
-import StringInfoItem from './StringInfoItem';
-import LinkInfoItem from './LinkInfoItem';
+import { translate as __ } from 'foremanReact/common/I18n';
+import { Icon, Tooltip } from '@patternfly/react-core';
+import { Td, TableText } from '@patternfly/react-table';
+import {
+  LockIcon,
+  CheckCircleIcon,
+  CheckIcon,
+  TimesCircleIcon,
+  ExclamationTriangleIcon,
+} from '@patternfly/react-icons';
 
 export const itemIteratorId = (template, ...rest) =>
   `${template.templateFile}-${rest.join('-')}`;
+
+const TooltipWrapper = ({ children, tooltipText }) => {
+  if (!tooltipText) return children;
+  return <Tooltip content={tooltipText}>{children}</Tooltip>;
+};
+
+const LinkItem = ({ template, editPath }) => {
+  if (template.id && template.canEdit) {
+    const editUrl = editPath[template.className]?.replace(':id', template.id);
+
+    return (
+      <a
+        href={editUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="can-edit"
+      >
+        {template.name}
+      </a>
+    );
+  }
+  return template.name || '';
+};
+
+export const ItemWrapper = ({ children, className }) => (
+  <div className={className}>{children}</div>
+);
+
+const TableCellWrapper = ({ children }) => (
+  <Td>
+    <TableText wrapModifier="truncate">{children}</TableText>
+  </Td>
+);
+
+const extractAttr = (template, attr, classNameMap) =>
+  classNameMap[template[attr]] ?? template[attr];
 
 export const additionalInfo = (template, editPath) => {
   const infoAttrs = [
@@ -20,77 +62,102 @@ export const additionalInfo = (template, editPath) => {
     'templateFile',
   ];
 
-  return infoAttrs.map(attr => {
-    const key = itemIteratorId(template, attr);
-
+  return infoAttrs.map((attr, index) => {
     const classNameMap = { Ptable: 'Partition Table' };
+    const derivedKey = `${attr}-${template.id ?? index}`;
 
     if (!template[attr]) {
-      return <EmptyInfoItem template={template} attr={attr} key={key} />;
+      return (
+        <TableCellWrapper key={derivedKey}>
+          <ItemWrapper key={index}> </ItemWrapper>
+        </TableCellWrapper>
+      );
     }
 
     switch (attr) {
       case 'locked':
         return (
-          <IconInfoItem
-            template={template}
-            attr={attr}
-            iconName="lock"
-            tooltipText="Locked"
-            key={key}
-          />
+          <TableCellWrapper key={derivedKey}>
+            <TooltipWrapper tooltipText="Locked" key={index}>
+              <ItemWrapper className="cell-info-padding">
+                <Icon aria-label="locked">
+                  <LockIcon />
+                </Icon>
+              </ItemWrapper>
+            </TooltipWrapper>
+          </TableCellWrapper>
         );
       case 'snippet':
         return (
-          <IconInfoItem
-            template={template}
-            attr={attr}
-            iconName="check"
-            tooltipText="Snippet"
-            key={key}
-          />
+          <TableCellWrapper key={derivedKey}>
+            <TooltipWrapper tooltipText="Snippet" key={index}>
+              <ItemWrapper className="cell-info-padding">
+                <Icon aria-label="snippet">
+                  <CheckIcon />
+                </Icon>
+              </ItemWrapper>
+            </TooltipWrapper>
+          </TableCellWrapper>
         );
       case 'humanizedClassName':
-        return (
-          <StringInfoItem
-            template={template}
-            attr={attr}
-            mapAttr={(templateObj, attribute) =>
-              classNameMap[templateObj[attribute]]
-                ? classNameMap[templateObj[attribute]]
-                : templateObj[attribute]
-            }
-            key={key}
-          />
-        );
       case 'kind':
-        return <StringInfoItem template={template} attr={attr} key={key} />;
       case 'templateFile':
         return (
-          <StringInfoItem template={template} attr={attr} key={key} elipsed />
+          <TableCellWrapper key={derivedKey}>
+            <ItemWrapper key={index} className="cell-info-padding">
+              {extractAttr(template, attr, classNameMap)}
+            </ItemWrapper>
+          </TableCellWrapper>
         );
       case 'name':
         return (
-          <LinkInfoItem
-            template={template}
-            editPath={editPath}
-            attr={attr}
-            key={key}
-          />
+          <TableCellWrapper key={derivedKey}>
+            <LinkItem
+              className="cell-info-padding"
+              template={template}
+              editPath={editPath}
+              key={index}
+            />
+          </TableCellWrapper>
         );
       default:
-        return '';
+        return (
+          <TableCellWrapper key={derivedKey}>
+            <ItemWrapper key={index}> </ItemWrapper>
+          </TableCellWrapper>
+        );
     }
   });
 };
 
 export const itemLeftContentIcon = template => {
-  let iconName = template.additionalInfo ? 'warning-triangle-o' : undefined;
-
-  if (!iconName) {
-    iconName = isEmpty(aggregatedErrors(template)) ? 'ok' : 'error-circle-o';
+  if (template.additionalInfo) {
+    return (
+      <Icon>
+        <ExclamationTriangleIcon
+          className="c-icon"
+          color="var(--pf-v5-global--warning-color--100)"
+        />
+      </Icon>
+    );
+  } else if (isEmpty(aggregatedErrors(template))) {
+    return (
+      <Icon>
+        <CheckCircleIcon
+          className="c-icon"
+          color="var(--pf-v5-global--success-color--100)"
+        />
+      </Icon>
+    );
   }
-  return <Icon name={iconName} size="sm" type="pf" />;
+  return (
+    <Icon>
+      <TimesCircleIcon
+        className="c-icon"
+        color="var(--pf-v5-global--danger-color--100)"
+      />
+    </Icon>
+  );
 };
 
 export const expandableContent = template => {
@@ -107,7 +174,7 @@ export const expandableContent = template => {
     });
     return <ul>{res}</ul>;
   }
-  return <span>There were no errors.</span>;
+  return <div>{__('There were no errors.')}</div>;
 };
 
 const aggregatedErrors = template => {
@@ -134,4 +201,31 @@ const formatError = (key, value) => {
   }
 
   return `${key}: ${value}`;
+};
+
+ItemWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+ItemWrapper.defaultProps = {
+  className: undefined,
+};
+
+TableCellWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+LinkItem.propTypes = {
+  template: PropTypes.object.isRequired,
+  editPath: PropTypes.object.isRequired,
+};
+
+TooltipWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+  tooltipText: PropTypes.string,
+};
+
+TooltipWrapper.defaultProps = {
+  tooltipText: null,
 };

@@ -1,20 +1,34 @@
 import React from 'react';
-import { EmptyState, Button } from 'patternfly-react';
 import PropTypes from 'prop-types';
+import {
+  Button,
+  EmptyState,
+  EmptyStateBody,
+  EmptyStateHeader,
+  EmptyStateFooter,
+  EmptyStateActions,
+  EmptyStateIcon,
+} from '@patternfly/react-core';
+import { SearchIcon } from '@patternfly/react-icons';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 const EmptySyncResult = ({ primaryAction }) => (
   <EmptyState>
-    <EmptyState.Icon type="fa" name="refresh" />
-    <EmptyState.Title>No Template Sync Result</EmptyState.Title>
-    <EmptyState.Info>
-      To view results of a template sync, you must import/export the templates
-      first.
-    </EmptyState.Info>
-    <EmptyState.Action>
-      <Button bsStyle="primary" bsSize="large" onClick={primaryAction}>
-        Sync Templates
-      </Button>
-    </EmptyState.Action>
+    <EmptyStateHeader icon={<EmptyStateIcon icon={SearchIcon} />}>
+      {__('No Template Sync Result')}
+    </EmptyStateHeader>
+    <EmptyStateBody>
+      {__(
+        'To view results of a template sync, you must import/export the templates first.'
+      )}
+    </EmptyStateBody>
+    <EmptyStateFooter>
+      <EmptyStateActions>
+        <Button ouiaId="back" onClick={primaryAction}>
+          {__('Sync Templates')}
+        </Button>
+      </EmptyStateActions>
+    </EmptyStateFooter>
   </EmptyState>
 );
 
