@@ -1,55 +1,22 @@
-import * as Yup from 'yup';
-import React from 'react';
-import { translate as __ } from 'foremanReact/common/I18n';
+export const isValidUrl = (value, allowedProtocols) => {
+  if (value == null) return false;
 
-export const redirectToResult = history => () =>
-  history.push({ pathname: '/template_syncs/result' });
+  const v = String(value).trim();
+  if (!v) return false;
 
-const repoFormat = formatAry => value => {
-  if (value === undefined) {
-    return true;
+  if (allowedProtocols.includes('/') && v.startsWith('/')) return true;
+
+  try {
+    const url = new URL(v);
+    const protoPrefix = `${url.protocol}//`;
+    return allowedProtocols.includes(protoPrefix);
+  } catch {
+    return false;
   }
-
-  const valid = formatAry
-    .map(item => value.startsWith(item))
-    .reduce((memo, item) => item || memo, false);
-
-  return value && valid;
 };
 
-export const syncFormSchema = (syncType, settingsObj, validationData) => {
-  const schema = (settingsObj[syncType].asMutable() || []).reduce(
-    (memo, setting) => {
-      if (setting.name === 'repo') {
-        return {
-          ...memo,
-          repo: Yup.string()
-            .test(
-              'repo-format',
-              `${__(
-                'Invalid repo format, must start with one of: '
-              )}${validationData.repo.join(', ')}`,
-              repoFormat(validationData.repo)
-            )
-            .required("can't be blank"),
-        };
-      }
-      return memo;
-    },
-    {}
-  );
+export const validateRepository = (value, validationData) => {
+  if (!isValidUrl(value, validationData)) return 'error';
 
-  return Yup.object().shape({
-    [syncType]: Yup.object().shape(schema),
-  });
+  return 'success';
 };
-
-export const tooltipContent = setting => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: __(setting.description),
-    }}
-  />
-);
-
-export const label = setting => `${__(setting.fullName)}`;

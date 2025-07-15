@@ -1,30 +1,37 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
 import { compose } from 'redux';
-
-import ForemanForm from 'foremanReact/components/common/forms/ForemanForm';
 import {
   useForemanLocation,
   useForemanOrganization,
 } from 'foremanReact/Root/Context/ForemanContext';
 import { translate as __ } from 'foremanReact/common/I18n';
+import { APIActions } from 'foremanReact/redux/API';
+import { deepPropsToCamelCase } from 'foremanReact/common/helpers';
 
+import {
+  Form,
+  FormGroup,
+  ActionGroup,
+  Button,
+  Radio,
+} from '@patternfly/react-core';
+import { TemplateSyncContext } from '../../../TemplateSyncContext';
 import SyncSettingsFields from '../SyncSettingFields';
-import SyncTypeRadios from '../SyncTypeRadios';
-import { redirectToResult, syncFormSchema } from './NewTemplateSyncFormHelpers';
+import { SYNC_RESULT_URL, SYNC_SETTINGS_FORM_SUBMIT } from '../../../../consts';
 
-const NewTemplateSyncForm = ({
-  error,
-  submitForm,
-  importSettings,
-  exportSettings,
-  history,
-  validationData,
-  importUrl,
-  exportUrl,
-  initialValues,
-  userPermissions,
-}) => {
+import './NewTemplateSyncForm.scss';
+
+const NewTemplateSyncForm = () => {
+  const {
+    apiResponse,
+    dispatch,
+    setReceivedTemplates,
+    history,
+    setIsTemplatesLoading,
+    isTemplatesLoading,
+  } = useContext(TemplateSyncContext);
+  const { apiUrls, settings, userPermissions } = apiResponse;
+
   const allowedSyncType = (currentUserPermissions, radioAttrs) =>
     currentUserPermissions[radioAttrs.permission];
 
@@ -70,68 +77,111 @@ const NewTemplateSyncForm = ({
   );
   const addLocParams = addTaxParams('location_ids', useForemanLocation());
 
-  const resetToDefault = (fieldName, fieldValue) => resetFn =>
-    resetFn(fieldName, fieldValue);
+  const settingsAry = syncType === 'import' ? settings.import : settings.export;
 
-  const handleSubmit = (values, actions) => {
-    const url = syncType === 'import' ? importUrl : exportUrl;
-    return submitForm({
-      url,
-      values: compose(addLocParams, addOrgParams)(values[syncType]),
-      message: `Templates were ${syncType}ed.`,
-      item: 'TemplateSync',
-      actions,
-      successCallback: () =>
-        history.replace({ pathname: '/template_syncs/result' }),
-    });
+  // Check if user has proxies, if not, delete option from selection
+  const hasProxies =
+    settingsAry.find(s => s.id === 'template_sync_http_proxy_id')?.selection
+      .length !== 0;
+  if (!hasProxies) {
+    const proxyPolicy = settingsAry.find(
+      s => s.id === 'template_sync_http_proxy_policy'
+    );
+
+    proxyPolicy.selection = proxyPolicy.selection.filter(
+      item => item.value !== 'selected'
+    );
+  }
+
+  const [values, setValues] = useState(settingsAry);
+
+  const transformValues = () =>
+    values.reduce((acc, curr) => {
+      acc[curr.name] = curr.value;
+      return acc;
+    }, {});
+
+  const handleSubmit = () => {
+    const url = syncType === 'import' ? apiUrls.importUrl : apiUrls.exportUrl;
+    setIsTemplatesLoading(true);
+    return dispatch(
+      APIActions.post({
+        key: SYNC_SETTINGS_FORM_SUBMIT,
+        url,
+        params: {
+          ...compose(addLocParams, addOrgParams)(transformValues()),
+        },
+        handleSuccess: response => {
+          setReceivedTemplates(deepPropsToCamelCase(response.data));
+          history.replace({ pathname: `/${SYNC_RESULT_URL}` });
+        },
+        handleError: () => setIsTemplatesLoading(false),
+        successToast: () => __('Data was successfully imported.'),
+        errorToast: ({ response }) =>
+          // eslint-disable-next-line camelcase
+          response?.data?.error?.full_messages?.[0] || response,
+      })
+    );
   };
 
+  useEffect(() => {
+    setValues(settingsAry);
+  }, [settingsAry, syncType]);
+
+  const handleChange = (index, value) => {
+    const newValue = {
+      ...values[index],
+      value,
+    };
+    setValues(items => items.map((item, i) => (i === index ? newValue : item)));
+  };
+
+  const [validated, setValidated] = useState('');
+
   return (
-    <ForemanForm
-      onSubmit={handleSubmit}
-      initialValues={initialValues}
-      validationSchema={syncFormSchema(
-        syncType,
-        { import: importSettings, export: exportSettings },
-        validationData
+    <Form id="sync-form">
+      <FormGroup isInline>
+        {initRadioButtons(syncType).map(radio => (
+          <Radio
+            ouiaId={radio.value}
+            id={radio.value}
+            key={radio.value}
+            label={radio.label}
+            isChecked={radio.value === syncType}
+            onChange={() => setSyncType(radio.value)}
+          />
+        ))}
+      </FormGroup>
+      {settings.import.length > 0 && settings.export.length > 0 && (
+        <SyncSettingsFields
+          handleChange={handleChange}
+          values={values}
+          syncType={syncType}
+          original={settingsAry}
+          validated={validated}
+          setValidated={setValidated}
+        />
       )}
-      onCancel={redirectToResult(history)}
-      error={error}
-    >
-      <SyncTypeRadios
-        name="syncType"
-        controlLabel={__('Action type')}
-        radios={initRadioButtons(syncType)}
-      />
-      <SyncSettingsFields
-        importSettings={importSettings}
-        exportSettings={exportSettings}
-        syncType={syncType}
-        resetField={resetToDefault}
-      />
-    </ForemanForm>
+      <ActionGroup>
+        <Button
+          ouiaId="submit"
+          variant="primary"
+          onClick={handleSubmit}
+          isLoading={isTemplatesLoading}
+          isDisabled={isTemplatesLoading || validated === 'error'}
+        >
+          {__('Submit')}
+        </Button>
+        <Button
+          ouiaId="cancel"
+          variant="link"
+          onClick={() => history.push({ pathname: SYNC_RESULT_URL })}
+        >
+          {__('Cancel')}
+        </Button>
+      </ActionGroup>
+    </Form>
   );
-};
-
-NewTemplateSyncForm.propTypes = {
-  importSettings: PropTypes.array,
-  exportSettings: PropTypes.array,
-  userPermissions: PropTypes.object.isRequired,
-  error: PropTypes.object,
-  history: PropTypes.object,
-  validationData: PropTypes.object,
-  initialValues: PropTypes.object.isRequired,
-  exportUrl: PropTypes.string.isRequired,
-  importUrl: PropTypes.string.isRequired,
-  submitForm: PropTypes.func.isRequired,
-};
-
-NewTemplateSyncForm.defaultProps = {
-  importSettings: [],
-  exportSettings: [],
-  validationData: {},
-  error: undefined,
-  history: {},
 };
 
 export default NewTemplateSyncForm;
