@@ -1,6 +1,5 @@
 export const SYNC_SETTINGS_REQUEST = 'SYNC_SETTINGS_REQUEST';
-export const SYNC_SETTINGS_SUCCESS = 'SYNC_SETTINGS_SUCCESS';
-export const SYNC_SETTINGS_FAILURE = 'SYNC_SETTINGS_FAILURE';
-
-export const TEMPLATESYNC_FORM_SUBMITTED = 'TEMPLATESYNC_FORM_SUBMITTED';
-export const SYNC_RESULT_PAGINATION_CHANGE = 'SYNC_RESULT_PAGINATION_CHANGE';
+export const SYNC_SETTINGS_FORM_SUBMIT = 'SYNC_SETTINGS_FORM_SUBMIT';
+export const SYNC_SETTINGS_URL = 'ui_template_syncs/sync_settings';
+export const SYNC_RESULT_URL = 'template_syncs/result';
+export const SYNC_BASE_URL = 'template_syncs';
