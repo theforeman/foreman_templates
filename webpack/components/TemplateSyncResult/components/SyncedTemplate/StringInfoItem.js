@@ -1,5 +1,5 @@
 import React from 'react';
-import EllipsisWithTooltip from 'react-ellipsis-with-tooltip';
+import { Truncate } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 
 import InfoItem from './InfoItem';
@@ -8,7 +8,7 @@ import { itemIteratorId } from './helpers';
 const StringInfoItem = ({ template, attr, tooltipText, mapAttr, elipsed }) => {
   const inner = <span>{mapAttr(template, attr)}</span>;
   const innerContent = elipsed ? (
-    <EllipsisWithTooltip placement="top">{inner}</EllipsisWithTooltip>
+    <Truncate content={inner} tooltipPosition="top" />
   ) : (
     inner
   );
