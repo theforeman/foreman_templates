@@ -26,9 +26,13 @@ const SyncResultList = ({
     ))}
     <Pagination
       itemCount={templates.length}
-      onChange={pageChange}
+      onSetPage={nextPage => pageChange({ page: nextPage, per_page: perPage })}
+      onPerPageSelect={nextPerPage =>
+        pageChange({ page: 1, per_page: nextPerPage })
+      }
       page={page}
       perPage={perPage}
+      updateParamsByUrl={false}
     />
   </ListView>
 );

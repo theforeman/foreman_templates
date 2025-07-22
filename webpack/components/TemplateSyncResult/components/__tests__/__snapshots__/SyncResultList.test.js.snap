@@ -90,9 +90,11 @@ exports[`SyncResultList should render 1`] = `
   />
   <Pagination
     itemCount={5}
-    onChange={[Function]}
+    onPerPageSelect={[Function]}
+    onSetPage={[Function]}
     page={1}
     perPage={20}
+    updateParamsByUrl={false}
   />
 </ListView>
 `;
