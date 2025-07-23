@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.5\n"
+"Project-Id-Version: foreman_templates 10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -93,12 +93,8 @@ msgstr "HTTP 代理"
 msgid "HTTP proxy policy"
 msgstr "HTTP 代理策略"
 
-msgid ""
-"HTTP proxy policy for template sync. \\\n"
-"          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
+msgid "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
 msgstr ""
-"模板同步的 HTTP 代理策略。\\\n"
-"          仅在使用 HTTP 或 HTTPS 协议同步模板时使用。如果选择 'selected'，提供 `http_proxy_id` 参数。"
 
 msgid "How to handle lock for imported templates?"
 msgstr "如何处理导入的模板锁定？"

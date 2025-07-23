@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.5",
+        "Project-Id-Version": "foreman_templates 10.0.9",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
@@ -86,8 +86,8 @@
       "HTTP proxy policy": [
         "HTTP 代理策略"
       ],
-      "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        "模板同步的 HTTP 代理策略。\\\\\\n          仅在使用 HTTP 或 HTTPS 协议同步模板时使用。如果选择 'selected'，提供 `http_proxy_id` 参数。"
+      "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+        ""
       ],
       "How to handle lock for imported templates?": [
         "如何处理导入的模板锁定？"

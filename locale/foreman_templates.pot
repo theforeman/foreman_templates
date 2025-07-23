@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 10:12+0100\n"
-"PO-Revision-Date: 2025-02-20 10:12+0100\n"
+"POT-Creation-Date: 2025-07-23 13:08+0000\n"
+"PO-Revision-Date: 2025-07-23 13:08+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -42,9 +42,9 @@ msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:16
 msgid ""
-"HTTP proxy policy for template sync. \\\n"
-"          Use only when synchronizing templates through the HTTP or the HTTPS "
-"protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
+"HTTP proxy policy for template sync. Use only when synchronizing templates thr"
+"ough the HTTP or the HTTPS protocol. If you choose 'selected', provide the `ht"
+"tp_proxy_id` parameter."
 msgstr ""
 
 #: ../app/controllers/api/v2/template_controller.rb:18

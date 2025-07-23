@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.5",
+        "Project-Id-Version": "foreman_templates 10.0.9",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
@@ -86,8 +86,8 @@
       "HTTP proxy policy": [
         "HTTPプロキシーポリシー:"
       ],
-      "HTTP proxy policy for template sync. \\\\\\n          Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        "テンプレート同期用の HTTP プロキシーポリシー。\\\\\\n HTTP または HTTPS プロトコルを介してテンプレートを同期する場合にのみ使用します。'選択済み' を選択した場合は、`http_proxy_id` パラメーターを指定します。"
+      "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
+        ""
       ],
       "How to handle lock for imported templates?": [
         "インポートされたテンプレートのロックを処理する方法"
