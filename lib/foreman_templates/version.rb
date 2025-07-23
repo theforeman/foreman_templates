@@ -1,3 +1,3 @@
 module ForemanTemplates
-  VERSION = "10.0.8".freeze
+  VERSION = "10.0.9".freeze
 end
