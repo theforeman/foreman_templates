@@ -9,14 +9,14 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # Bryan Kearney <bryan.kearney@gmail.com>, 2024
 # Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
+# Ondřej Gajdušek, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2025\n"
+"Last-Translator: Ondřej Gajdušek, 2025\n"
 "Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +95,7 @@ msgid "HTTP proxy policy"
 msgstr "Politique de proxy HTTP"
 
 msgid "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
-msgstr ""
+msgstr "Politique de proxy HTTP pour la synchronisation des modèles. À utiliser uniquement lors de la synchronisation des modèles via le protocole HTTP ou HTTPS. Si vous choisissez « sélectionné », indiquez le paramètre « http_proxy_id »."
 
 msgid "How to handle lock for imported templates?"
 msgstr "Comment gérer le verrouillage des modèles importés ?"
