@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_templates 10.0.9",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2025",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -87,7 +87,7 @@
         "HTTPプロキシーポリシー:"
       ],
       "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
-        ""
+        "テンプレート同期用の HTTP プロキシーポリシー。HTTP または HTTPS プロトコルを介してテンプレートを同期する場合にのみ使用してください。'selected' を選択した場合は、`http_proxy_id`パラメーターを指定してください。"
       ],
       "How to handle lock for imported templates?": [
         "インポートされたテンプレートのロックを処理する方法"
