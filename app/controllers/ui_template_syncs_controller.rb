@@ -2,9 +2,31 @@ require 'ostruct'
 
 class UITemplateSyncsController < ApplicationController
   include ::Foreman::Controller::Parameters::TemplateParams
+  include ::ApplicationHelper
+  helper :foreman_templates
 
   rescue_from ::ForemanTemplates::PathAccessException do |error|
     render_errors [error.message]
+  end
+
+  def render_403(exception = nil)
+    respond_to do |format|
+      format.json {
+        render json: { error: _("You are not authorized to perform this action.") }, status: :forbidden
+      }
+      format.html {
+        super(exception)
+      }
+    end
+  end
+
+  def sync_config
+    import_settings = setting_definitions(ForemanTemplates::IMPORT_SETTING_NAMES)
+    export_settings = setting_definitions(ForemanTemplates::EXPORT_SETTING_NAMES)
+    @settings = OpenStruct.new(:import => import_settings, :export => export_settings)
+    @edit_paths = helpers.edit_paths
+
+    render :sync_config
   end
 
   def sync_settings

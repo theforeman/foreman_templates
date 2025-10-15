@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {
+  Button,
+  EmptyState,
+  EmptyStateBody,
+  EmptyStateHeader,
+  EmptyStateIcon,
+  EmptyStateActions,
+} from '@patternfly/react-core';
+import { LockIcon } from '@patternfly/react-icons';
 import { translate as __ } from 'foremanReact/common/I18n';
-import { EmptyStatePattern as EmptyState } from 'foremanReact/components/common/EmptyState';
 
 const PermissionDenied = props => {
   const description = (
@@ -17,18 +24,29 @@ const PermissionDenied = props => {
   );
 
   return (
-    <EmptyState
-      iconType="fa"
-      icon="lock"
-      header={__('Permission Denied')}
-      description={description}
-      documentation={props.doc}
-    />
+    <EmptyState>
+      <EmptyStateHeader
+        titleText={__('Permission Denied')}
+        icon={<EmptyStateIcon icon={LockIcon} />}
+      />
+      <EmptyStateBody>{description}</EmptyStateBody>
+      <EmptyStateActions>
+        {props.doc && (
+          <Button ouiaId="back" variant="primary">
+            {props.doc}
+          </Button>
+        )}
+      </EmptyStateActions>
+    </EmptyState>
   );
 };
 
 PermissionDenied.propTypes = {
-  doc: PropTypes.node.isRequired,
+  doc: PropTypes.node,
+};
+
+PermissionDenied.defaultProps = {
+  doc: null,
 };
 
 export default PermissionDenied;
