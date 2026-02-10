@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.9",
+        "Project-Id-Version": "foreman_templates 10.0.10",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "0868a4d1af5275b3f70b0a6dac4c99a4, 2022",

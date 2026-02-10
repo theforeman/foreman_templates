@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_templates 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 14:51+0200\n"
-"PO-Revision-Date: 2025-10-07 14:51+0200\n"
+"POT-Creation-Date: 2026-02-10 13:23+0100\n"
+"PO-Revision-Date: 2026-02-10 13:23+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -113,11 +113,11 @@ msgid ""
 msgstr ""
 
 #: ../lib/foreman_templates.rb:9
-msgid "Always"
+msgid "New"
 msgstr ""
 
 #: ../lib/foreman_templates.rb:9
-msgid "New"
+msgid "Always"
 msgstr ""
 
 #: ../lib/foreman_templates.rb:9
@@ -141,15 +141,19 @@ msgid "Unlock"
 msgstr ""
 
 #: ../lib/foreman_templates.rb:17
-msgid "Refresh"
-msgstr ""
-
-#: ../lib/foreman_templates.rb:17
 msgid "Keep"
 msgstr ""
 
 #: ../lib/foreman_templates.rb:17
 msgid "Remove"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:17
+msgid "Refresh"
+msgstr ""
+
+#: ../lib/foreman_templates.rb:21
+msgid "Custom HTTP proxy"
 msgstr ""
 
 #: ../lib/foreman_templates.rb:21
@@ -158,10 +162,6 @@ msgstr ""
 
 #: ../lib/foreman_templates.rb:21
 msgid "No HTTP proxy"
-msgstr ""
-
-#: ../lib/foreman_templates.rb:21
-msgid "Custom HTTP proxy"
 msgstr ""
 
 #: ../lib/foreman_templates/engine.rb:33
