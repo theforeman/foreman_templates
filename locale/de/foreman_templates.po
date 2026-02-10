@@ -10,13 +10,14 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2023
 # pdolinic, 2023
 # Bryan Kearney <bryan.kearney@gmail.com>, 2024
+# Donien, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.9\n"
+"Project-Id-Version: foreman_templates 10.0.10\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2024\n"
+"Last-Translator: Donien, 2026\n"
 "Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,7 +167,7 @@ msgid "Page Not Found"
 msgstr ""
 
 msgid "Permission Denied"
-msgstr ""
+msgstr "Zugriff verweigert"
 
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
 msgstr ""
