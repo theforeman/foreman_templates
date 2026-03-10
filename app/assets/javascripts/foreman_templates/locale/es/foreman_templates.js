@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
       },
-      "Action type": [
-        ""
-      ],
       "Always": [
         "Sempre"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Ramo em Git repo."
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "Escolha a verbosidade para os modelos de importação da tarefa Rake"
       ],
@@ -52,6 +52,9 @@
       ],
       "Custom commit message for templates export": [
         "模板导出的自定义提交消息"
+      ],
+      "Data was successfully imported.": [
+        ""
       ],
       "Default branch in Git repo": [
         "Ramo padrão em Git repo"
@@ -68,8 +71,14 @@
       "Export": [
         "Exportar"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "Modelos de exportação com nomes correspondentes a este regex (não sensível a maiúsculas e minúsculas; os trechos não são filtrados)."
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "Flitro"
@@ -98,6 +107,9 @@
       "Import": [
         "Importar"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         "导入或导出模板"
       ],
@@ -110,7 +122,7 @@
       "Initiate Import": [
         "Iniciar a importação"
       ],
-      "Invalid repo format, must start with one of: ": [
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
         ""
       ],
       "Keep": [
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         "keep, 锁定新的"
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "Bloqueio"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "Modelos de fechaduras"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "Modo de exportação de metadados"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "Negue"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         ""
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "Anular o reporte padrão das configurações."
       ],
-      "Page Not Found": [
-        "页没有找到"
-      ],
-      "Permission Denied": [
-        "Permissão negada"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "请检查访问权限/ SELinux，确保 Web 应用程序用户帐户（通常为 '%s'）可读写。"
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "Por favor, solicite uma das permissões necessárias listadas abaixo através de um administrador Foreman:"
       ],
       "Prefix": [
         "Prefixo"
@@ -191,8 +206,14 @@
       "Show template diff in response": [
         "Mostrar modelo dif em resposta"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "Especificar como lidar com metadados"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "Modelos de Sincronização"
@@ -200,14 +221,14 @@
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         "要导入/导出的目标路径。可以使用不同的协议，如 /tmp/dir、git://example.com、https://example.com、ssh://example.com. 当导出至 /tmp 时，请注意，生产部署可能被配置为使用私有 tmp。"
       ],
+      "Template Class": [
+        ""
+      ],
       "Template Sync": [
         "模板同步"
       ],
       "The directory within the Git repo containing the templates": [
         "O diretório dentro do Git repo contendo os modelos"
-      ],
-      "The page you are looking for does not exist": [
-        "您查找的页面不存在"
       ],
       "The string all imported templates should begin with.": [
         "O fio deve começar com todos os modelos importados."
@@ -215,23 +236,23 @@
       "The string that will be added as prefix to imported templates": [
         "将作为前缀添加到导入模板的字符串"
       ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
+        ""
+      ],
       "Unlock": [
         "Desbloquear"
       ],
       "Update templates that are locked": [
         "Modelos de atualização que são bloqueados"
       ],
-      "Use default value from settings": [
-        "使用设置中的默认值"
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "Usando a sincronização baseada em arquivos, mas não foi possível acessar %s. "
       ],
       "Verbosity": [
         "Verbosidade"
-      ],
-      "You are not authorized to perform this action.": [
-        "Você não está autorizado a executar essa ação."
       ]
     }
   }

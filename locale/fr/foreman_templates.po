@@ -13,7 +13,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.10\n"
+"Project-Id-Version: foreman_templates 11.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: Ondřej Gajdušek, 2025\n"
@@ -24,9 +24,6 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
 "0 == 0 ? 1 : 2;\n"
-
-msgid "Action type"
-msgstr "Type d'action"
 
 msgid "Always"
 msgstr "Toujours"
@@ -49,6 +46,9 @@ msgstr "Branche"
 msgid "Branch in Git repo."
 msgstr "Branche dans le référentiel Git."
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "Choisir la verbosité pour les modèles d'importation de tâches Rake"
 
@@ -60,6 +60,9 @@ msgstr "Proxy HTTP personnalisé"
 
 msgid "Custom commit message for templates export"
 msgstr "Message de validation personnalisé pour l'exportation de modèles"
+
+msgid "Data was successfully imported."
+msgstr ""
 
 msgid "Default branch in Git repo"
 msgstr "Branche par défaut dans le repo Git"
@@ -76,8 +79,14 @@ msgstr "Dirname"
 msgid "Export"
 msgstr "Exporter"
 
+msgid "Export Templates"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "Exporte les modèles dont les noms correspondent à cette expression rationnelle (insensible à la casse ; les extraits ne sont pas filtrés)."
+
+msgid "File Name"
+msgstr ""
 
 msgid "Filter"
 msgstr "Filtre"
@@ -106,6 +115,9 @@ msgstr "ID d'un proxy HTTP à utiliser pour la synchronisation des modèles. Uti
 msgid "Import"
 msgstr "Importation"
 
+msgid "Import Templates"
+msgstr ""
+
 msgid "Import or Export Templates"
 msgstr "Importer ou exporter des modèles"
 
@@ -118,8 +130,8 @@ msgstr "Initier l'exportation"
 msgid "Initiate Import"
 msgstr "Initier l'importation"
 
-msgid "Invalid repo format, must start with one of: "
-msgstr "Format de référentiel non valide, doit commencer par l'un des éléments suivants : "
+msgid "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
+msgstr ""
 
 msgid "Keep"
 msgstr "Gardez"
@@ -130,6 +142,9 @@ msgstr "Gardez, ne verrouillez pas le(s) nouveau(x)"
 msgid "Keep, lock new"
 msgstr "Garder, verrouiller nouveau"
 
+msgid "Kind"
+msgstr ""
+
 msgid "Lock"
 msgstr "Verrou"
 
@@ -139,8 +154,14 @@ msgstr "Verrouiller les modèles importés"
 msgid "Lock templates"
 msgstr "Verrouillage des modèles"
 
+msgid "Locked"
+msgstr ""
+
 msgid "Metadata export mode"
 msgstr "Mode d'exportation des métadonnées"
+
+msgid "Name"
+msgstr ""
 
 msgid "Negate"
 msgstr "Annule"
@@ -160,20 +181,14 @@ msgstr "Nouveau"
 msgid "No HTTP proxy"
 msgstr "Pas de proxy HTTP"
 
+msgid "No Template Sync Result"
+msgstr ""
+
 msgid "Override the default repo from settings."
 msgstr "Remplace le référentiel par défaut des paramètres."
 
-msgid "Page Not Found"
-msgstr "Page non trouvée"
-
-msgid "Permission Denied"
-msgstr "Permission non accordée"
-
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
 msgstr "Veuillez vérifier les autorisations d'accès/SELinux et assurez-vous qu'elles sont lisibles/inscriptibles pour le compte utilisateur de l'application web, généralement '%s'."
-
-msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr "Merci de demander une des permissions requises listées ci-dessous à un administrateur de Foreman :"
 
 msgid "Prefix"
 msgstr "Préfixe"
@@ -199,8 +214,14 @@ msgstr "L'importation doit-elle écraser les modèles verrouillés ?"
 msgid "Show template diff in response"
 msgstr "Afficher la différence de modèle dans la réponse"
 
+msgid "Snippet"
+msgstr ""
+
 msgid "Specify how to handle metadata"
 msgstr "Spécifier comment traiter les métadonnées"
+
+msgid "Submit"
+msgstr ""
 
 msgid "Sync Templates"
 msgstr "Modèles de synchronisation"
@@ -208,14 +229,14 @@ msgstr "Modèles de synchronisation"
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
 msgstr "Chemin cible pour l'importation/exportation. Différents protocoles peuvent être utilisés, par exemple /tmp/dir, git://exemple.com, https://example.com, ssh://exemple.com. Lors de l'exportation vers /tmp, notez que les déploiements de production peuvent être configurés pour utiliser le tmp privé."
 
+msgid "Template Class"
+msgstr ""
+
 msgid "Template Sync"
 msgstr "Sync Modèle"
 
 msgid "The directory within the Git repo containing the templates"
 msgstr "Le répertoire du référentiel Git contenant les modèles"
-
-msgid "The page you are looking for does not exist"
-msgstr "La page que vous recherchez n'existe pas"
 
 msgid "The string all imported templates should begin with."
 msgstr "La chaîne de caractères par laquelle tous les modèles importés doivent commencer."
@@ -223,20 +244,20 @@ msgstr "La chaîne de caractères par laquelle tous les modèles importés doive
 msgid "The string that will be added as prefix to imported templates"
 msgstr "La chaîne qui sera ajoutée comme préfixe aux modèles importés"
 
+msgid "There were no errors."
+msgstr ""
+
+msgid "To view results of a template sync, you must import/export the templates first."
+msgstr ""
+
 msgid "Unlock"
 msgstr "Déverrouillage"
 
 msgid "Update templates that are locked"
 msgstr "Mettre à jour les modèles qui sont verrouillés"
 
-msgid "Use default value from settings"
-msgstr "Utiliser la valeur par défaut des paramètres"
-
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr "J'utilise la synchronisation basée sur les fichiers, mais je n'ai pas pu accéder à %s. "
 
 msgid "Verbosity"
 msgstr "Verbosité"
-
-msgid "You are not authorized to perform this action."
-msgstr "Vous n'êtes pas autorisé à effectuer cette action."

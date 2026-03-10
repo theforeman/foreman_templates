@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Pavel Borecki <pavel.borecki@gmail.com>, 2024",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
       },
-      "Action type": [
-        ""
-      ],
       "Always": [
         "Vždy"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Větev v Git repozitáři."
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         ""
       ],
@@ -51,6 +51,9 @@
         ""
       ],
       "Custom commit message for templates export": [
+        ""
+      ],
+      "Data was successfully imported.": [
         ""
       ],
       "Default branch in Git repo": [
@@ -68,7 +71,13 @@
       "Export": [
         "Export"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
+        ""
+      ],
+      "File Name": [
         ""
       ],
       "Filter": [
@@ -98,6 +107,9 @@
       "Import": [
         "Import"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         ""
       ],
@@ -110,7 +122,7 @@
       "Initiate Import": [
         "Zahájit import"
       ],
-      "Invalid repo format, must start with one of: ": [
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
         ""
       ],
       "Keep": [
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         ""
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "Zamknout"
       ],
@@ -131,7 +146,13 @@
       "Lock templates": [
         "Uzamknout šablony"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
+        ""
+      ],
+      "Name": [
         ""
       ],
       "Negate": [
@@ -152,19 +173,13 @@
       "No HTTP proxy": [
         ""
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         ""
       ],
-      "Page Not Found": [
-        ""
-      ],
-      "Permission Denied": [
-        ""
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
-        ""
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
         ""
       ],
       "Prefix": [
@@ -191,13 +206,22 @@
       "Show template diff in response": [
         ""
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "Zadat jak zacházet s metadaty"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "Synchronizovat šablony"
       ],
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
+        ""
+      ],
+      "Template Class": [
         ""
       ],
       "Template Sync": [
@@ -206,13 +230,16 @@
       "The directory within the Git repo containing the templates": [
         ""
       ],
-      "The page you are looking for does not exist": [
-        ""
-      ],
       "The string all imported templates should begin with.": [
         "Řetězec všech importovaných šablon by měl začínat na."
       ],
       "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
         ""
       ],
       "Unlock": [
@@ -221,17 +248,11 @@
       "Update templates that are locked": [
         "Aktualizovat šablony, které jsou uzamčeny"
       ],
-      "Use default value from settings": [
-        ""
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         ""
       ],
       "Verbosity": [
         "Stupeň podrobnosti"
-      ],
-      "You are not authorized to perform this action.": [
-        ""
       ]
     }
   }

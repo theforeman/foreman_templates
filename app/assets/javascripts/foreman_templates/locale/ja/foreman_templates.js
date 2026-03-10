@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ondřej Gajdušek, 2025",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "Action type": [
-        "アクションタイプ"
-      ],
       "Always": [
         "常に"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Git リポジトリーのブランチ。"
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "テンプレートをインポートする Rake タスクの詳細を選択します"
       ],
@@ -52,6 +52,9 @@
       ],
       "Custom commit message for templates export": [
         "テンプレートエクスポート用のカスタムコミットメッセージ"
+      ],
+      "Data was successfully imported.": [
+        ""
       ],
       "Default branch in Git repo": [
         "Git リポジトリーのデフォルトブランチ"
@@ -68,8 +71,14 @@
       "Export": [
         "エクスポート"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "この正規表現に一致する名前のテンプレートをエクスポートします (大文字と小文字は区別されず、スニペットはフィルタリングされません)。"
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "フィルター"
@@ -98,6 +107,9 @@
       "Import": [
         "インポート"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         "テンプレートのインポートまたはエクスポート"
       ],
@@ -110,8 +122,8 @@
       "Initiate Import": [
         "インポートを開始します"
       ],
-      "Invalid repo format, must start with one of: ": [
-        "リポジトリー形式が無効です。次のいずれかで始まる必要があります: "
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
+        ""
       ],
       "Keep": [
         "保持"
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         "保持、新規項目のロック"
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "ロック"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "テンプレートのロック"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "メタデータエクスポートモード"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "無効化"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         "HTTP プロキシーなし"
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "設定からデフォルトのリポジトリーを上書きします。"
       ],
-      "Page Not Found": [
-        "ページが見つかりませんでした"
-      ],
-      "Permission Denied": [
-        "パーミッションが拒否されました"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "アクセス許可/SELinux を確認し、Web アプリケーションのユーザーアカウント (通常は '%s') に対して読み取り/書き込み可能であることを確認してください。"
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "以下に一覧表示された必須パーミッションのいずれかを、Foreman 管理者に要求してください:"
       ],
       "Prefix": [
         "接頭辞"
@@ -191,8 +206,14 @@
       "Show template diff in response": [
         "応答としてテンプレートの差分を表示します"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "メタデータの処理方法を指定します"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "テンプレートの同期"
@@ -200,14 +221,14 @@
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         "インポート/エクスポートのターゲットパス。/tmp/dir、git://example.com、https://example.com、ssh://example.com などの異なるプロトコルを使用できます。/tmp にエクスポートする場合には、実稼働デプロイメントがプライベート tmp を使用するように設定されている可能性があることに注意してください。"
       ],
+      "Template Class": [
+        ""
+      ],
       "Template Sync": [
         "テンプレート同期"
       ],
       "The directory within the Git repo containing the templates": [
         "テンプレートを含む Git リポジトリー内のディレクトリー"
-      ],
-      "The page you are looking for does not exist": [
-        "探しているページは存在しません"
       ],
       "The string all imported templates should begin with.": [
         "インポートされたすべてのテンプレートが開始する文字列"
@@ -215,23 +236,23 @@
       "The string that will be added as prefix to imported templates": [
         "インポートされたテンプレートの接頭辞として追加される文字列"
       ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
+        ""
+      ],
       "Unlock": [
         "ロック解除"
       ],
       "Update templates that are locked": [
         "ロックされているテンプレートを更新します"
       ],
-      "Use default value from settings": [
-        "設定のデフォルト値の使用"
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "ファイルベースの同期を使用していますが、%s にアクセスできませんでした。 "
       ],
       "Verbosity": [
         "詳細"
-      ],
-      "You are not authorized to perform this action.": [
-        "このアクションを実行する権限がありません。"
       ]
     }
   }

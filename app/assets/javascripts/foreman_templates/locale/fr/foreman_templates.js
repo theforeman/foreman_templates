@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ondřej Gajdušek, 2025",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
       },
-      "Action type": [
-        "Type d'action"
-      ],
       "Always": [
         "Toujours"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Branche dans le référentiel Git."
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "Choisir la verbosité pour les modèles d'importation de tâches Rake"
       ],
@@ -52,6 +52,9 @@
       ],
       "Custom commit message for templates export": [
         "Message de validation personnalisé pour l'exportation de modèles"
+      ],
+      "Data was successfully imported.": [
+        ""
       ],
       "Default branch in Git repo": [
         "Branche par défaut dans le repo Git"
@@ -68,8 +71,14 @@
       "Export": [
         "Exporter"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "Exporte les modèles dont les noms correspondent à cette expression rationnelle (insensible à la casse ; les extraits ne sont pas filtrés)."
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "Filtre"
@@ -98,6 +107,9 @@
       "Import": [
         "Importation"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         "Importer ou exporter des modèles"
       ],
@@ -110,8 +122,8 @@
       "Initiate Import": [
         "Initier l'importation"
       ],
-      "Invalid repo format, must start with one of: ": [
-        "Format de référentiel non valide, doit commencer par l'un des éléments suivants : "
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
+        ""
       ],
       "Keep": [
         "Gardez"
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         "Garder, verrouiller nouveau"
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "Verrou"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "Verrouillage des modèles"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "Mode d'exportation des métadonnées"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "Annule"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         "Pas de proxy HTTP"
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "Remplace le référentiel par défaut des paramètres."
       ],
-      "Page Not Found": [
-        "Page non trouvée"
-      ],
-      "Permission Denied": [
-        "Permission non accordée"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "Veuillez vérifier les autorisations d'accès/SELinux et assurez-vous qu'elles sont lisibles/inscriptibles pour le compte utilisateur de l'application web, généralement '%s'."
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "Merci de demander une des permissions requises listées ci-dessous à un administrateur de Foreman :"
       ],
       "Prefix": [
         "Préfixe"
@@ -191,8 +206,14 @@
       "Show template diff in response": [
         "Afficher la différence de modèle dans la réponse"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "Spécifier comment traiter les métadonnées"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "Modèles de synchronisation"
@@ -200,14 +221,14 @@
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         "Chemin cible pour l'importation/exportation. Différents protocoles peuvent être utilisés, par exemple /tmp/dir, git://exemple.com, https://example.com, ssh://exemple.com. Lors de l'exportation vers /tmp, notez que les déploiements de production peuvent être configurés pour utiliser le tmp privé."
       ],
+      "Template Class": [
+        ""
+      ],
       "Template Sync": [
         "Sync Modèle"
       ],
       "The directory within the Git repo containing the templates": [
         "Le répertoire du référentiel Git contenant les modèles"
-      ],
-      "The page you are looking for does not exist": [
-        "La page que vous recherchez n'existe pas"
       ],
       "The string all imported templates should begin with.": [
         "La chaîne de caractères par laquelle tous les modèles importés doivent commencer."
@@ -215,23 +236,23 @@
       "The string that will be added as prefix to imported templates": [
         "La chaîne qui sera ajoutée comme préfixe aux modèles importés"
       ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
+        ""
+      ],
       "Unlock": [
         "Déverrouillage"
       ],
       "Update templates that are locked": [
         "Mettre à jour les modèles qui sont verrouillés"
       ],
-      "Use default value from settings": [
-        "Utiliser la valeur par défaut des paramètres"
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "J'utilise la synchronisation basée sur les fichiers, mais je n'ai pas pu accéder à %s. "
       ],
       "Verbosity": [
         "Verbosité"
-      ],
-      "You are not authorized to perform this action.": [
-        "Vous n'êtes pas autorisé à effectuer cette action."
       ]
     }
   }
