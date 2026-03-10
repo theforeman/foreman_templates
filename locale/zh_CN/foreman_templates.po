@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.10\n"
+"Project-Id-Version: foreman_templates 11.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: Ondřej Gajdušek, 2025\n"
@@ -23,9 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Action type"
-msgstr "操作类型"
 
 msgid "Always"
 msgstr "总是"
@@ -48,6 +45,9 @@ msgstr "分支"
 msgid "Branch in Git repo."
 msgstr "Git 仓库中的分支。"
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "为 Rake 任务导入模板选择详细程度"
 
@@ -59,6 +59,9 @@ msgstr "自定义 HTTP 代理"
 
 msgid "Custom commit message for templates export"
 msgstr "模板导出的自定义提交消息"
+
+msgid "Data was successfully imported."
+msgstr ""
 
 msgid "Default branch in Git repo"
 msgstr "Git 仓库中的默认分支"
@@ -75,8 +78,14 @@ msgstr "Dirname"
 msgid "Export"
 msgstr "导出"
 
+msgid "Export Templates"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
+
+msgid "File Name"
+msgstr ""
 
 msgid "Filter"
 msgstr "过滤器"
@@ -105,6 +114,9 @@ msgstr "用于模板同步的 HTTP 代理 ID。将此参数与 ''http_proxy_poli
 msgid "Import"
 msgstr "导入"
 
+msgid "Import Templates"
+msgstr ""
+
 msgid "Import or Export Templates"
 msgstr "导入或导出模板"
 
@@ -117,8 +129,8 @@ msgstr "启动导出"
 msgid "Initiate Import"
 msgstr "启动导入"
 
-msgid "Invalid repo format, must start with one of: "
-msgstr "无效的 repo 格式，必须以以下之一开始： "
+msgid "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
+msgstr ""
 
 msgid "Keep"
 msgstr "保持"
@@ -129,6 +141,9 @@ msgstr "keep，不锁定新的"
 msgid "Keep, lock new"
 msgstr "keep, 锁定新的"
 
+msgid "Kind"
+msgstr ""
+
 msgid "Lock"
 msgstr "锁定"
 
@@ -138,8 +153,14 @@ msgstr "锁定导入的模板"
 msgid "Lock templates"
 msgstr "锁定模板"
 
+msgid "Locked"
+msgstr ""
+
 msgid "Metadata export mode"
 msgstr "元数据导出模式"
+
+msgid "Name"
+msgstr ""
 
 msgid "Negate"
 msgstr "否定"
@@ -159,20 +180,14 @@ msgstr "新"
 msgid "No HTTP proxy"
 msgstr "没有 HTTP 代理"
 
+msgid "No Template Sync Result"
+msgstr ""
+
 msgid "Override the default repo from settings."
 msgstr "覆盖设置中的默认仓库。"
 
-msgid "Page Not Found"
-msgstr "页没有找到"
-
-msgid "Permission Denied"
-msgstr "没有足够权限"
-
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
 msgstr "请检查访问权限/ SELinux，确保 Web 应用程序用户帐户（通常为 '%s'）可读写。"
-
-msgid "Please request one of the required permissions listed below from a Foreman administrator:"
-msgstr "请向 Foreman 管理员请求下列所需权限之一："
 
 msgid "Prefix"
 msgstr "前缀"
@@ -198,8 +213,14 @@ msgstr "是否应该导入覆盖锁定的模板？"
 msgid "Show template diff in response"
 msgstr "显示模板差异作为响应"
 
+msgid "Snippet"
+msgstr ""
+
 msgid "Specify how to handle metadata"
 msgstr "指定如何处理元数据"
+
+msgid "Submit"
+msgstr ""
 
 msgid "Sync Templates"
 msgstr "同步模板"
@@ -207,14 +228,14 @@ msgstr "同步模板"
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
 msgstr "要导入/导出的目标路径。可以使用不同的协议，如 /tmp/dir、git://example.com、https://example.com、ssh://example.com. 当导出至 /tmp 时，请注意，生产部署可能被配置为使用私有 tmp。"
 
+msgid "Template Class"
+msgstr ""
+
 msgid "Template Sync"
 msgstr "模板同步"
 
 msgid "The directory within the Git repo containing the templates"
 msgstr "Git 仓库中包含模板的目录"
-
-msgid "The page you are looking for does not exist"
-msgstr "您查找的页面不存在"
 
 msgid "The string all imported templates should begin with."
 msgstr "所有导入的模板应以字符串开头。"
@@ -222,20 +243,20 @@ msgstr "所有导入的模板应以字符串开头。"
 msgid "The string that will be added as prefix to imported templates"
 msgstr "将作为前缀添加到导入模板的字符串"
 
+msgid "There were no errors."
+msgstr ""
+
+msgid "To view results of a template sync, you must import/export the templates first."
+msgstr ""
+
 msgid "Unlock"
 msgstr "开锁"
 
 msgid "Update templates that are locked"
 msgstr "更新锁定的模板"
 
-msgid "Use default value from settings"
-msgstr "使用设置中的默认值"
-
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr "使用基于文件的同步，但无法访问 %s。 "
 
 msgid "Verbosity"
 msgstr "详细度"
-
-msgid "You are not authorized to perform this action."
-msgstr "您没有执行这个操作的授权。"

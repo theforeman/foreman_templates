@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2024",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=2; plural=(n!=1);"
       },
-      "Action type": [
-        "ქმედების ტიპი"
-      ],
       "Always": [
         "ყოველთვის"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Git რეპოს ბრენჩი."
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
       ],
@@ -52,6 +52,9 @@
       ],
       "Custom commit message for templates export": [
         "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
+      ],
+      "Data was successfully imported.": [
+        ""
       ],
       "Default branch in Git repo": [
         "Git რეპოს ნაგულისხმები ბრენჩი"
@@ -68,8 +71,14 @@
       "Export": [
         "გატანა"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "ფილტრი"
@@ -98,6 +107,9 @@
       "Import": [
         "შემოტანა"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         "შაბლონების შემოტანა და გატანა"
       ],
@@ -110,7 +122,7 @@
       "Initiate Import": [
         "შემოტანის დაწყება"
       ],
-      "Invalid repo format, must start with one of: ": [
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
         ""
       ],
       "Keep": [
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         "შენარჩუნება, ახლის დაბლოკვა"
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "ჩაკეტვა"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "შაბლონების დაბლოკვა"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "მეტამონაცემების გატანის რეჟიმი"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "უარყოფა"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         ""
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
       ],
-      "Page Not Found": [
-        "გვერდი ვერ მოიძებნა"
-      ],
-      "Permission Denied": [
-        "წვდომა აკრძალულია"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "შეამოწმეთ SELinux/წვდომის უფლებები და დარწმუნდით, რომ ის ჩაწერადი/კითხვადია ვებ აპლიკაციის მომხმარებლის მიერ (ჩვეულებრივ, '%s')."
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "საჭიროა ერთი ან მეტი ქვემოთ ჩამოთვლილი წვდომის გამოთხოვა Foreman-ის ადმინისტრატორისგან:"
       ],
       "Prefix": [
         "პრეფიქსი"
@@ -191,8 +206,14 @@
       "Show template diff in response": [
         "პასუხად შაბლონის სხვაობის ჩვენება"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "მეტამონაცემების დამუშავების ხერხი"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "შაბლონების სინქრონიზაცია"
@@ -200,14 +221,14 @@
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         "შეტანა/გამოტანის სამიზნე ბილიკი. შეგიძლიათ გამოიყენოთ სხვადასხვა პროტოკოლები. მაგალთად: /tmp/dir, git://example.com, https://example.com, ssh://example.com. /tmp-ზე გატანისას დაიმახსოვრეთ, რომ საწარმოო გაშლები შეიძლება საკუთარ დროებით საქაღალდეს იყენებდნენ."
       ],
+      "Template Class": [
+        ""
+      ],
       "Template Sync": [
         "შაბლონების სინქრონიზაცია"
       ],
       "The directory within the Git repo containing the templates": [
         "შაბლონების შემცველი საქაღალდე Git-ის რეპოში"
-      ],
-      "The page you are looking for does not exist": [
-        "გვერდი, რომელსაც ეძებთ, არ არსებობს"
       ],
       "The string all imported templates should begin with.": [
         "სტრიქონი, რომლითაც შემოტანილი შაბლონები უნდა იწყებოდეს."
@@ -215,23 +236,23 @@
       "The string that will be added as prefix to imported templates": [
         "ეს სტრიქონი შემოტანილ შაბლონებზე პრეფიქსად დაემატება"
       ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
+        ""
+      ],
       "Unlock": [
         "განბლოკვა"
       ],
       "Update templates that are locked": [
         "დაბლოკილი შაბლონების განახლება"
       ],
-      "Use default value from settings": [
-        "პარამეტრებიდან ნაგულისხმები მნიშვნელობის გამოყენება"
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "გამოიყენება ფაილების სინქრონიზაცია, მაგრამ %s-სთან წვდომის უფლება არ მაქვს. "
       ],
       "Verbosity": [
         "გამოტანილი შეტყობინებების რაოდენობა"
-      ],
-      "You are not authorized to perform this action.": [
-        "ამ ქმედებისთვის საჭირო ავტორიზაცია არ გაგაჩნიათ."
       ]
     }
   }

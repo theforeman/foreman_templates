@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ondřej Gajdušek, 2025",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "Action type": [
-        "操作类型"
-      ],
       "Always": [
         "总是"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Git 仓库中的分支。"
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "为 Rake 任务导入模板选择详细程度"
       ],
@@ -52,6 +52,9 @@
       ],
       "Custom commit message for templates export": [
         "模板导出的自定义提交消息"
+      ],
+      "Data was successfully imported.": [
+        ""
       ],
       "Default branch in Git repo": [
         "Git 仓库中的默认分支"
@@ -68,8 +71,14 @@
       "Export": [
         "导出"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "过滤器"
@@ -98,6 +107,9 @@
       "Import": [
         "导入"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         "导入或导出模板"
       ],
@@ -110,8 +122,8 @@
       "Initiate Import": [
         "启动导入"
       ],
-      "Invalid repo format, must start with one of: ": [
-        "无效的 repo 格式，必须以以下之一开始： "
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
+        ""
       ],
       "Keep": [
         "保持"
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         "keep, 锁定新的"
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "锁定"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "锁定模板"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "元数据导出模式"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "否定"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         "没有 HTTP 代理"
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "覆盖设置中的默认仓库。"
       ],
-      "Page Not Found": [
-        "页没有找到"
-      ],
-      "Permission Denied": [
-        "没有足够权限"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "请检查访问权限/ SELinux，确保 Web 应用程序用户帐户（通常为 '%s'）可读写。"
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "请向 Foreman 管理员请求下列所需权限之一："
       ],
       "Prefix": [
         "前缀"
@@ -191,8 +206,14 @@
       "Show template diff in response": [
         "显示模板差异作为响应"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "指定如何处理元数据"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "同步模板"
@@ -200,14 +221,14 @@
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         "要导入/导出的目标路径。可以使用不同的协议，如 /tmp/dir、git://example.com、https://example.com、ssh://example.com. 当导出至 /tmp 时，请注意，生产部署可能被配置为使用私有 tmp。"
       ],
+      "Template Class": [
+        ""
+      ],
       "Template Sync": [
         "模板同步"
       ],
       "The directory within the Git repo containing the templates": [
         "Git 仓库中包含模板的目录"
-      ],
-      "The page you are looking for does not exist": [
-        "您查找的页面不存在"
       ],
       "The string all imported templates should begin with.": [
         "所有导入的模板应以字符串开头。"
@@ -215,23 +236,23 @@
       "The string that will be added as prefix to imported templates": [
         "将作为前缀添加到导入模板的字符串"
       ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
+        ""
+      ],
       "Unlock": [
         "开锁"
       ],
       "Update templates that are locked": [
         "更新锁定的模板"
       ],
-      "Use default value from settings": [
-        "使用设置中的默认值"
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "使用基于文件的同步，但无法访问 %s。 "
       ],
       "Verbosity": [
         "详细度"
-      ],
-      "You are not authorized to perform this action.": [
-        "您没有执行这个操作的授权。"
       ]
     }
   }

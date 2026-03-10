@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 10.0.10\n"
+"Project-Id-Version: foreman_templates 11.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
 "Last-Translator: johnny.westerlund <johnny.westerlund@gmail.com>, 2023\n"
@@ -19,9 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Action type"
-msgstr ""
 
 msgid "Always"
 msgstr ""
@@ -44,6 +41,9 @@ msgstr ""
 msgid "Branch in Git repo."
 msgstr ""
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
 
@@ -54,6 +54,9 @@ msgid "Custom HTTP proxy"
 msgstr ""
 
 msgid "Custom commit message for templates export"
+msgstr ""
+
+msgid "Data was successfully imported."
 msgstr ""
 
 msgid "Default branch in Git repo"
@@ -71,7 +74,13 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
+msgid "Export Templates"
+msgstr ""
+
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
+msgstr ""
+
+msgid "File Name"
 msgstr ""
 
 msgid "Filter"
@@ -101,6 +110,9 @@ msgstr ""
 msgid "Import"
 msgstr "Importera"
 
+msgid "Import Templates"
+msgstr ""
+
 msgid "Import or Export Templates"
 msgstr ""
 
@@ -113,7 +125,7 @@ msgstr ""
 msgid "Initiate Import"
 msgstr ""
 
-msgid "Invalid repo format, must start with one of: "
+msgid "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
 msgstr ""
 
 msgid "Keep"
@@ -125,6 +137,9 @@ msgstr ""
 msgid "Keep, lock new"
 msgstr ""
 
+msgid "Kind"
+msgstr ""
+
 msgid "Lock"
 msgstr ""
 
@@ -134,7 +149,13 @@ msgstr ""
 msgid "Lock templates"
 msgstr ""
 
+msgid "Locked"
+msgstr ""
+
 msgid "Metadata export mode"
+msgstr ""
+
+msgid "Name"
 msgstr ""
 
 msgid "Negate"
@@ -155,19 +176,13 @@ msgstr "Ny"
 msgid "No HTTP proxy"
 msgstr ""
 
+msgid "No Template Sync Result"
+msgstr ""
+
 msgid "Override the default repo from settings."
 msgstr ""
 
-msgid "Page Not Found"
-msgstr ""
-
-msgid "Permission Denied"
-msgstr ""
-
 msgid "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'."
-msgstr ""
-
-msgid "Please request one of the required permissions listed below from a Foreman administrator:"
 msgstr ""
 
 msgid "Prefix"
@@ -194,7 +209,13 @@ msgstr ""
 msgid "Show template diff in response"
 msgstr ""
 
+msgid "Snippet"
+msgstr ""
+
 msgid "Specify how to handle metadata"
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "Sync Templates"
@@ -203,13 +224,13 @@ msgstr ""
 msgid "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp."
 msgstr ""
 
+msgid "Template Class"
+msgstr ""
+
 msgid "Template Sync"
 msgstr ""
 
 msgid "The directory within the Git repo containing the templates"
-msgstr ""
-
-msgid "The page you are looking for does not exist"
 msgstr ""
 
 msgid "The string all imported templates should begin with."
@@ -218,20 +239,20 @@ msgstr ""
 msgid "The string that will be added as prefix to imported templates"
 msgstr ""
 
+msgid "There were no errors."
+msgstr ""
+
+msgid "To view results of a template sync, you must import/export the templates first."
+msgstr ""
+
 msgid "Unlock"
 msgstr ""
 
 msgid "Update templates that are locked"
 msgstr ""
 
-msgid "Use default value from settings"
-msgstr ""
-
 msgid "Using file-based synchronization, but couldn't access %s. "
 msgstr ""
 
 msgid "Verbosity"
-msgstr ""
-
-msgid "You are not authorized to perform this action."
 msgstr ""

@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Donien, 2026",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=2; plural=(n != 1);"
       },
-      "Action type": [
-        ""
-      ],
       "Always": [
         "Immer"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Branch im Git-Repo."
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Aufgaben"
       ],
@@ -51,6 +51,9 @@
         ""
       ],
       "Custom commit message for templates export": [
+        ""
+      ],
+      "Data was successfully imported.": [
         ""
       ],
       "Default branch in Git repo": [
@@ -68,8 +71,14 @@
       "Export": [
         "Export"
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "Exportieren Sie Vorlagen mit Namen, die dieser Regex entsprechen (Groß-/Kleinschreibung wird nicht beachtet; Snippets werden nicht gefiltert)."
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "Filter"
@@ -98,6 +107,9 @@
       "Import": [
         "Importieren"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         ""
       ],
@@ -110,7 +122,7 @@
       "Initiate Import": [
         "Import einleiten"
       ],
-      "Invalid repo format, must start with one of: ": [
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
         ""
       ],
       "Keep": [
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         ""
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "Sperren"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "Vorlagen sperren"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "Metadaten-Exportmodus"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "Negieren"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         ""
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "Überschreiben Sie das Standard-Repository aus den Einstellungen."
       ],
-      "Page Not Found": [
-        ""
-      ],
-      "Permission Denied": [
-        "Zugriff verweigert"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         ""
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "Bitte fordern Sie eine der erforderlichen Berechtigungen unterhalb bei einem Foreman-Administrator an:"
       ],
       "Prefix": [
         "Präfix"
@@ -191,13 +206,22 @@
       "Show template diff in response": [
         "Vorlagenunterschied in Antwort anzeigen"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "Geben Sie an, wie mit Metadaten umgegangen werden soll"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "Sync Templates"
       ],
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
+        ""
+      ],
+      "Template Class": [
         ""
       ],
       "Template Sync": [
@@ -206,13 +230,16 @@
       "The directory within the Git repo containing the templates": [
         "Das Verzeichnis im Git-Repository, das die Vorlagen enthält"
       ],
-      "The page you are looking for does not exist": [
-        ""
-      ],
       "The string all imported templates should begin with.": [
         "Die Zeichenfolge, mit der alle importierten Vorlagen beginnen sollten."
       ],
       "The string that will be added as prefix to imported templates": [
+        ""
+      ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
         ""
       ],
       "Unlock": [
@@ -221,17 +248,11 @@
       "Update templates that are locked": [
         "Gesperrte Vorlagen aktualisieren"
       ],
-      "Use default value from settings": [
-        ""
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "Using file-based synchronization, but couldn't access %s . "
       ],
       "Verbosity": [
         "Ausführlichkeit"
-      ],
-      "You are not authorized to perform this action.": [
-        "Sie sind nicht berechtigt, diese Aktion durchzuführen."
       ]
     }
   }

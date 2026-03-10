@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 10.0.10",
+        "Project-Id-Version": "foreman_templates 11.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
         "Last-Translator": "Ondřej Gajdušek, 2025",
@@ -17,9 +17,6 @@
         "domain": "foreman_templates",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "Action type": [
-        "동작 유형"
-      ],
       "Always": [
         "항상"
       ],
@@ -41,6 +38,9 @@
       "Branch in Git repo.": [
         "Git 리포지토리의 브랜치입니다."
       ],
+      "Cancel": [
+        ""
+      ],
       "Choose verbosity for Rake task importing templates": [
         "Rake 작업 템플릿 가져오기에 대한 자세한 정보 선택"
       ],
@@ -52,6 +52,9 @@
       ],
       "Custom commit message for templates export": [
         "템플릿 내보내기를 위한 사용자 정의 커밋 메시지"
+      ],
+      "Data was successfully imported.": [
+        ""
       ],
       "Default branch in Git repo": [
         "Git 리포지토리의 기본 브랜치"
@@ -68,8 +71,14 @@
       "Export": [
         "내보내기 "
       ],
+      "Export Templates": [
+        ""
+      ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "이 정규식과 일치하는 이름을 가진 템플릿을 내보냅니다(대소문자를 구분하지 않음, 스니펫은 필터링되지 않음)."
+      ],
+      "File Name": [
+        ""
       ],
       "Filter": [
         "필터 "
@@ -98,6 +107,9 @@
       "Import": [
         "불러오기"
       ],
+      "Import Templates": [
+        ""
+      ],
       "Import or Export Templates": [
         "템플릿 가져오기 또는 내보내기"
       ],
@@ -110,8 +122,8 @@
       "Initiate Import": [
         "가져오기 시작"
       ],
-      "Invalid repo format, must start with one of: ": [
-        "잘못된 리포지토리 형식에서는 다음 중 하나로 시작해야 합니다. "
+      "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
+        ""
       ],
       "Keep": [
         "유지"
@@ -122,6 +134,9 @@
       "Keep, lock new": [
         "보관, 새 항목 잠금"
       ],
+      "Kind": [
+        ""
+      ],
       "Lock": [
         "잠금"
       ],
@@ -131,8 +146,14 @@
       "Lock templates": [
         "템플릿 잠금"
       ],
+      "Locked": [
+        ""
+      ],
       "Metadata export mode": [
         "메타데이터 내보내기 모드"
+      ],
+      "Name": [
+        ""
       ],
       "Negate": [
         "비활성화"
@@ -152,20 +173,14 @@
       "No HTTP proxy": [
         "HTTP 프록시가 없음"
       ],
+      "No Template Sync Result": [
+        ""
+      ],
       "Override the default repo from settings.": [
         "설정에서 기본 저장소를 덮어씁니다."
       ],
-      "Page Not Found": [
-        "페이지를 찾을 수 없습니다"
-      ],
-      "Permission Denied": [
-        "사용 권한이 거부되었습니다"
-      ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "액세스 권한/SELinux를 확인하고 웹 애플리케이션 사용자 계정 (일반적으로 '%s')에 대해 읽기/쓰기가 가능한지 확인하세요."
-      ],
-      "Please request one of the required permissions listed below from a Foreman administrator:": [
-        "Foreman 관리자에게 아래에 나열된 필수 권한 중 하나를 요청하십시오."
       ],
       "Prefix": [
         "접두사"
@@ -191,8 +206,14 @@
       "Show template diff in response": [
         "응답에서 템플릿 diff 표시"
       ],
+      "Snippet": [
+        ""
+      ],
       "Specify how to handle metadata": [
         "메타데이터를 처리하는 방법 지정"
+      ],
+      "Submit": [
+        ""
       ],
       "Sync Templates": [
         "템플릿 동기화"
@@ -200,14 +221,14 @@
       "Target path to import/export. Different protocols can be used, for example /tmp/dir, git://example.com, https://example.com, ssh://example.com. When exporting to /tmp, note that production deployments may be configured to use private tmp.": [
         "가져오기/내보내기 위한 대상 경로입니다. 다양한 프로토콜을 사용할 수 있습니다(예: /tmp/dir, git://example.com, https://example.com, ssh://example.com). /tmp로 내보낼 때 프로덕션 배포는 개인 tmp를 사용하도록 구성될 수 있습니다."
       ],
+      "Template Class": [
+        ""
+      ],
       "Template Sync": [
         "템플릿 동기화"
       ],
       "The directory within the Git repo containing the templates": [
         "템플릿이 포함된 Git 리포지토리 내의 디렉토리"
-      ],
-      "The page you are looking for does not exist": [
-        "찾으시는 페이지가 존재하지 않습니다."
       ],
       "The string all imported templates should begin with.": [
         "모든 가져온 템플릿이 시작해야 하는 문자열입니다."
@@ -215,23 +236,23 @@
       "The string that will be added as prefix to imported templates": [
         "가져온 템플릿에 접두사로 추가될 문자열"
       ],
+      "There were no errors.": [
+        ""
+      ],
+      "To view results of a template sync, you must import/export the templates first.": [
+        ""
+      ],
       "Unlock": [
         "잠금 풀기"
       ],
       "Update templates that are locked": [
         "잠긴 템플릿 업데이트"
       ],
-      "Use default value from settings": [
-        "설정에서 기본값 사용"
-      ],
       "Using file-based synchronization, but couldn't access %s. ": [
         "파일 기반 동기화를 사용했지만 %s에 액세스할 수 없습니다. "
       ],
       "Verbosity": [
         "상세 정보"
-      ],
-      "You are not authorized to perform this action.": [
-        "이 작업을 수행할 권한이 없습니다."
       ]
     }
   }
