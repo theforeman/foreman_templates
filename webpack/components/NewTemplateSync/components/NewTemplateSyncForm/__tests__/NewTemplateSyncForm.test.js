@@ -101,7 +101,9 @@ describe('NewTemplateSyncForm', () => {
       url: '/ui_template_syncs/import',
       params: {
         associate: 'new',
+        location_ids: [2],
         negate: false,
+        organization_ids: [1],
         repo: 'https://github.com/theforeman/community-templates.git',
       },
       handleSuccess: expect.any(Function),
