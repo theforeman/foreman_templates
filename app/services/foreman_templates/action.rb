@@ -64,20 +64,20 @@ module ForemanTemplates
     protected
 
     def init_git_repo
-      git_repo = Git.init(@dir)
-
       case @http_proxy_policy
       when 'global'
         http_proxy_url = Setting[:http_proxy]
       when 'selected'
         http_proxy = HttpProxy.authorized(:view_http_proxies).with_taxonomy_scope.find(@http_proxy_id)
         http_proxy_url = http_proxy.full_url
+      end
 
-        if URI(http_proxy_url).scheme == 'https' && http_proxy.cacert.present?
-          proxy_cert = "#{@dir}/.git/foreman_templates_proxy_cert_#{SecureRandom.hex(8)}.crt"
-          File.write(proxy_cert, http_proxy.cacert)
-          git_repo.config('http.proxySSLCAInfo', proxy_cert)
-        end
+      git_repo = Git.init(@dir)
+
+      if @http_proxy_policy == 'selected' && URI(http_proxy_url).scheme == 'https' && http_proxy.cacert.present?
+        proxy_cert = "#{@dir}/.git/foreman_templates_proxy_cert_#{SecureRandom.hex(8)}.crt"
+        File.write(proxy_cert, http_proxy.cacert)
+        git_repo.config('http.proxySSLCAInfo', proxy_cert)
       end
 
       if http_proxy_url.present?
