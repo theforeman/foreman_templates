@@ -107,7 +107,7 @@ module ForemanTemplates
       end
 
       test 'should sync through https proxy using custom CA certificate' do
-        custom_cert = 'Custom proxy CA cert'
+        custom_cert = File.read(Rails.root.join('test/static_fixtures/certificates/example.com.crt')).strip
         proxy = FactoryBot.create(:http_proxy, :cacert => custom_cert, :url => 'https://localhost:8888')
         @template_sync_service.instance_variable_set(:@http_proxy_policy, 'selected')
         @template_sync_service.instance_variable_set(:@http_proxy_id, proxy.id)
