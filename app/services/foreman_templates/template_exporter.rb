@@ -130,8 +130,9 @@ module ForemanTemplates
           :to_erb
         when 'remove'
           :template_without_metadata
+        # TODO separate commit, requires Foreman 1.19 if core metadata separation gets merged
         when 'keep'
-          :template
+          :template_with_imported_metadata
         else
           raise "Unknown metadata export mode #{@metadata_export_mode}"
       end
