@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2024",
+        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026",
         "Language-Team": "Georgian (https://app.transifex.com/foreman/teams/114/ka/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "Git რეპოს ბრენჩი."
       ],
       "Cancel": [
-        ""
+        "გაუქმება"
       ],
       "Choose verbosity for Rake task importing templates": [
         "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
@@ -48,13 +48,13 @@
         "კომიტის შეტყობინება"
       ],
       "Custom HTTP proxy": [
-        ""
+        "მორგებული HTTP პროქსი"
       ],
       "Custom commit message for templates export": [
         "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
       ],
       "Data was successfully imported.": [
-        ""
+        "მონაცემები შემოტანა წარმატებულია."
       ],
       "Default branch in Git repo": [
         "Git რეპოს ნაგულისხმები ბრენჩი"
@@ -72,13 +72,13 @@
         "გატანა"
       ],
       "Export Templates": [
-        ""
+        "შაბლონების გატანა"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
       ],
       "File Name": [
-        ""
+        "ფაილის სახელი"
       ],
       "Filter": [
         "ფილტრი"
@@ -87,13 +87,13 @@
         "ძალით შემოტანა"
       ],
       "Global default HTTP proxy": [
-        ""
+        "გლობალური ნაგულისხმევი HTTP პროქსი"
       ],
       "HTTP proxy": [
         "HTTP პროქსი"
       ],
       "HTTP proxy policy": [
-        ""
+        "HTTP პროქსის პოლიტიკა"
       ],
       "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
         ""
@@ -108,7 +108,7 @@
         "შემოტანა"
       ],
       "Import Templates": [
-        ""
+        "ნიმუშების შემოტანა"
       ],
       "Import or Export Templates": [
         "შაბლონების შემოტანა და გატანა"
@@ -135,7 +135,7 @@
         "შენარჩუნება, ახლის დაბლოკვა"
       ],
       "Kind": [
-        ""
+        "ტიპი"
       ],
       "Lock": [
         "ჩაკეტვა"
@@ -147,13 +147,13 @@
         "შაბლონების დაბლოკვა"
       ],
       "Locked": [
-        ""
+        "დაბლოკილია"
       ],
       "Metadata export mode": [
         "მეტამონაცემების გატანის რეჟიმი"
       ],
       "Name": [
-        ""
+        "სახელი"
       ],
       "Negate": [
         "უარყოფა"
@@ -171,10 +171,10 @@
         "ახალი"
       ],
       "No HTTP proxy": [
-        ""
+        "HTTP პროქსის გარეშე"
       ],
       "No Template Sync Result": [
-        ""
+        "შაბლონების სინქრონიზაციის შედეგის გარეშე"
       ],
       "Override the default repo from settings.": [
         "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
@@ -207,13 +207,13 @@
         "პასუხად შაბლონის სხვაობის ჩვენება"
       ],
       "Snippet": [
-        ""
+        "ნაწყვეტი"
       ],
       "Specify how to handle metadata": [
         "მეტამონაცემების დამუშავების ხერხი"
       ],
       "Submit": [
-        ""
+        "გაგზავნა"
       ],
       "Sync Templates": [
         "შაბლონების სინქრონიზაცია"
@@ -222,7 +222,7 @@
         "შეტანა/გამოტანის სამიზნე ბილიკი. შეგიძლიათ გამოიყენოთ სხვადასხვა პროტოკოლები. მაგალთად: /tmp/dir, git://example.com, https://example.com, ssh://example.com. /tmp-ზე გატანისას დაიმახსოვრეთ, რომ საწარმოო გაშლები შეიძლება საკუთარ დროებით საქაღალდეს იყენებდნენ."
       ],
       "Template Class": [
-        ""
+        "შაბლონის კლასი"
       ],
       "Template Sync": [
         "შაბლონების სინქრონიზაცია"
@@ -237,7 +237,7 @@
         "ეს სტრიქონი შემოტანილ შაბლონებზე პრეფიქსად დაემატება"
       ],
       "There were no errors.": [
-        ""
+        "შეცდომების გარეშე."
       ],
       "To view results of a template sync, you must import/export the templates first.": [
         ""

@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "Branche dans le référentiel Git."
       ],
       "Cancel": [
-        ""
+        "Annuler"
       ],
       "Choose verbosity for Rake task importing templates": [
         "Choisir la verbosité pour les modèles d'importation de tâches Rake"
@@ -54,7 +54,7 @@
         "Message de validation personnalisé pour l'exportation de modèles"
       ],
       "Data was successfully imported.": [
-        ""
+        "Les données ont été importées."
       ],
       "Default branch in Git repo": [
         "Branche par défaut dans le repo Git"
@@ -72,13 +72,13 @@
         "Exporter"
       ],
       "Export Templates": [
-        ""
+        "Exporter des modèles"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "Exporte les modèles dont les noms correspondent à cette expression rationnelle (insensible à la casse ; les extraits ne sont pas filtrés)."
       ],
       "File Name": [
-        ""
+        "Nom de fichier"
       ],
       "Filter": [
         "Filtre"
@@ -108,7 +108,7 @@
         "Importation"
       ],
       "Import Templates": [
-        ""
+        "Importer des modèles"
       ],
       "Import or Export Templates": [
         "Importer ou exporter des modèles"
@@ -123,7 +123,7 @@
         "Initier l'importation"
       ],
       "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
-        ""
+        "Format de dépôt invalide ; doit commencer par l'un des formats suivants : http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
       ],
       "Keep": [
         "Gardez"
@@ -135,7 +135,7 @@
         "Garder, verrouiller nouveau"
       ],
       "Kind": [
-        ""
+        "Type"
       ],
       "Lock": [
         "Verrou"
@@ -147,13 +147,13 @@
         "Verrouillage des modèles"
       ],
       "Locked": [
-        ""
+        "Verrouillé"
       ],
       "Metadata export mode": [
         "Mode d'exportation des métadonnées"
       ],
       "Name": [
-        ""
+        "Nom"
       ],
       "Negate": [
         "Annule"
@@ -174,7 +174,7 @@
         "Pas de proxy HTTP"
       ],
       "No Template Sync Result": [
-        ""
+        "Aucun résultat de sync de modèle"
       ],
       "Override the default repo from settings.": [
         "Remplace le référentiel par défaut des paramètres."
@@ -207,13 +207,13 @@
         "Afficher la différence de modèle dans la réponse"
       ],
       "Snippet": [
-        ""
+        "Snippet"
       ],
       "Specify how to handle metadata": [
         "Spécifier comment traiter les métadonnées"
       ],
       "Submit": [
-        ""
+        "Envoyer"
       ],
       "Sync Templates": [
         "Modèles de synchronisation"
@@ -222,7 +222,7 @@
         "Chemin cible pour l'importation/exportation. Différents protocoles peuvent être utilisés, par exemple /tmp/dir, git://exemple.com, https://example.com, ssh://exemple.com. Lors de l'exportation vers /tmp, notez que les déploiements de production peuvent être configurés pour utiliser le tmp privé."
       ],
       "Template Class": [
-        ""
+        "Classe modèle"
       ],
       "Template Sync": [
         "Sync Modèle"
@@ -237,10 +237,10 @@
         "La chaîne qui sera ajoutée comme préfixe aux modèles importés"
       ],
       "There were no errors.": [
-        ""
+        "Aucune erreur n'a été constatée."
       ],
       "To view results of a template sync, you must import/export the templates first.": [
-        ""
+        "Pour afficher les résultats d'une synchronisation de modèles, vous devez d'abord importer/exporter les modèles."
       ],
       "Unlock": [
         "Déverrouillage"

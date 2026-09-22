@@ -5,16 +5,16 @@
 #
 # Translators:
 # Luiz Henrique Vasconcelos <luizvasconceloss@yahoo.com.br>, 2019
-# Amit Upadhye <aupadhye@redhat.com>, 2022
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
-# Bryan Kearney <bryan.kearney@gmail.com>, 2024
+# Amit Upadhye <aupadhye@redhat.com>, 2026
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
+# Flamarion Jorge <jorge.flamarion@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2024\n"
+"Last-Translator: Flamarion Jorge <jorge.flamarion@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/foreman/teams/11"
 "4/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgid "Branch in Git repo."
 msgstr "Ramo em Git repo."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "Escolha a verbosidade para os modelos de importação da tarefa Rake"
@@ -160,7 +160,7 @@ msgid "Metadata export mode"
 msgstr "Modo de exportação de metadados"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Negate"
 msgstr "Negue"
@@ -220,7 +220,7 @@ msgid "Specify how to handle metadata"
 msgstr "Especificar como lidar com metadados"
 
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Sync Templates"
 msgstr "Modelos de Sincronização"

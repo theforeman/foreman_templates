@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2024",
+        "Last-Translator": "Alexander Savchenko, 2026",
         "Language-Team": "Russian (https://app.transifex.com/foreman/teams/114/ru/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "Отмена"
       ],
       "Choose verbosity for Rake task importing templates": [
         ""
@@ -153,7 +153,7 @@
         ""
       ],
       "Name": [
-        ""
+        "Имя"
       ],
       "Negate": [
         ""
@@ -213,7 +213,7 @@
         ""
       ],
       "Submit": [
-        ""
+        "Применить"
       ],
       "Sync Templates": [
         ""

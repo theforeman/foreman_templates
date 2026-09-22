@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "Git リポジトリーのブランチ。"
       ],
       "Cancel": [
-        ""
+        "取り消し"
       ],
       "Choose verbosity for Rake task importing templates": [
         "テンプレートをインポートする Rake タスクの詳細を選択します"
@@ -54,7 +54,7 @@
         "テンプレートエクスポート用のカスタムコミットメッセージ"
       ],
       "Data was successfully imported.": [
-        ""
+        "データは正常にインポートされました。"
       ],
       "Default branch in Git repo": [
         "Git リポジトリーのデフォルトブランチ"
@@ -72,19 +72,19 @@
         "エクスポート"
       ],
       "Export Templates": [
-        ""
+        "テンプレートのエクスポート"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "この正規表現に一致する名前のテンプレートをエクスポートします (大文字と小文字は区別されず、スニペットはフィルタリングされません)。"
       ],
       "File Name": [
-        ""
+        "ファイル名"
       ],
       "Filter": [
         "フィルター"
       ],
       "Force import": [
-        "強制インポート"
+        "インポートの強制"
       ],
       "Global default HTTP proxy": [
         "グローバルデフォルト HTTP プロキシー"
@@ -93,7 +93,7 @@
         "HTTP プロキシー"
       ],
       "HTTP proxy policy": [
-        "HTTPプロキシーポリシー:"
+        "HTTPプロキシーポリシー"
       ],
       "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter.": [
         "テンプレート同期用の HTTP プロキシーポリシー。HTTP または HTTPS プロトコルを介してテンプレートを同期する場合にのみ使用してください。'selected' を選択した場合は、`http_proxy_id`パラメーターを指定してください。"
@@ -102,13 +102,13 @@
         "インポートされたテンプレートのロックを処理する方法"
       ],
       "ID of an HTTP proxy to use for template sync. Use this parameter together with `'http_proxy_policy':'selected'`": [
-        "テンプレート同期に使用する HTTP プロキシーの ID。このパラメーターは `'http_proxy_policy':'selected'` と併用します。"
+        "テンプレート同期に使用する HTTP プロキシーの ID。このパラメーターは `'http_proxy_policy':'selected'` と併用します"
       ],
       "Import": [
         "インポート"
       ],
       "Import Templates": [
-        ""
+        "テンプレートのインポート"
       ],
       "Import or Export Templates": [
         "テンプレートのインポートまたはエクスポート"
@@ -123,7 +123,7 @@
         "インポートを開始します"
       ],
       "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
-        ""
+        "無効なリポジトリー形式です。http://、https://、git://、ssh://、git+ssh://、ssh+git://、/ のいずれかで開始する必要があります"
       ],
       "Keep": [
         "保持"
@@ -135,7 +135,7 @@
         "保持、新規項目のロック"
       ],
       "Kind": [
-        ""
+        "種類"
       ],
       "Lock": [
         "ロック"
@@ -147,22 +147,22 @@
         "テンプレートのロック"
       ],
       "Locked": [
-        ""
+        "ロック"
       ],
       "Metadata export mode": [
         "メタデータエクスポートモード"
       ],
       "Name": [
-        ""
+        "名前"
       ],
       "Negate": [
         "無効化"
       ],
       "Negate the filter for import/export": [
-        "インポート/エクスポートのフィルターを無効にします。"
+        "インポート/エクスポートのフィルターを無効化します"
       ],
       "Negate the prefix (for purging).": [
-        "プレフィックスを無効にします (パージ用)。"
+        "プレフィックスを無効化します (パージ用)。"
       ],
       "Never": [
         "なし"
@@ -174,10 +174,10 @@
         "HTTP プロキシーなし"
       ],
       "No Template Sync Result": [
-        ""
+        "テンプレートの同期結果がありません"
       ],
       "Override the default repo from settings.": [
-        "設定からデフォルトのリポジトリーを上書きします。"
+        "設定からデフォルトのリポジトリーをオーバーライドします。"
       ],
       "Please check the access permissions/SELinux and make sure it is readable/writable for the web application user account, typically '%s'.": [
         "アクセス許可/SELinux を確認し、Web アプリケーションのユーザーアカウント (通常は '%s') に対して読み取り/書き込み可能であることを確認してください。"
@@ -207,13 +207,13 @@
         "応答としてテンプレートの差分を表示します"
       ],
       "Snippet": [
-        ""
+        "スニペット"
       ],
       "Specify how to handle metadata": [
         "メタデータの処理方法を指定します"
       ],
       "Submit": [
-        ""
+        "送信"
       ],
       "Sync Templates": [
         "テンプレートの同期"
@@ -222,7 +222,7 @@
         "インポート/エクスポートのターゲットパス。/tmp/dir、git://example.com、https://example.com、ssh://example.com などの異なるプロトコルを使用できます。/tmp にエクスポートする場合には、実稼働デプロイメントがプライベート tmp を使用するように設定されている可能性があることに注意してください。"
       ],
       "Template Class": [
-        ""
+        "テンプレートクラス"
       ],
       "Template Sync": [
         "テンプレート同期"
@@ -231,16 +231,16 @@
         "テンプレートを含む Git リポジトリー内のディレクトリー"
       ],
       "The string all imported templates should begin with.": [
-        "インポートされたすべてのテンプレートが開始する文字列"
+        "インポートされたすべてのテンプレートが開始する文字列。"
       ],
       "The string that will be added as prefix to imported templates": [
         "インポートされたテンプレートの接頭辞として追加される文字列"
       ],
       "There were no errors.": [
-        ""
+        "エラーはありませんでした。"
       ],
       "To view results of a template sync, you must import/export the templates first.": [
-        ""
+        "テンプレートの同期結果を表示するには、まずテンプレートをインポート/エクスポートする必要があります。"
       ],
       "Unlock": [
         "ロック解除"

@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2024
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2024\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026\n"
 "Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgid "Branch in Git repo."
 msgstr "Git რეპოს ბრენჩი."
 
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "აირჩიეთ შაბლონების შემომტანი პროცესის შეტყობინებების სიმრავლე"
@@ -50,13 +50,13 @@ msgid "Commit message"
 msgstr "კომიტის შეტყობინება"
 
 msgid "Custom HTTP proxy"
-msgstr ""
+msgstr "მორგებული HTTP პროქსი"
 
 msgid "Custom commit message for templates export"
 msgstr "შაბლონების გადაცემის შეტყობინების ხელით მითითება"
 
 msgid "Data was successfully imported."
-msgstr ""
+msgstr "მონაცემები შემოტანა წარმატებულია."
 
 msgid "Default branch in Git repo"
 msgstr "Git რეპოს ნაგულისხმები ბრენჩი"
@@ -74,13 +74,13 @@ msgid "Export"
 msgstr "გატანა"
 
 msgid "Export Templates"
-msgstr ""
+msgstr "შაბლონების გატანა"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "ამ რეგულარულ გამოსახულებაზე დამთხვეული სახელების მქონე შაბლონების გატანა (ნაწილობრივი დამთხვევები გამოტოვებული არ იქნება)."
 
 msgid "File Name"
-msgstr ""
+msgstr "ფაილის სახელი"
 
 msgid "Filter"
 msgstr "ფილტრი"
@@ -89,13 +89,13 @@ msgid "Force import"
 msgstr "ძალით შემოტანა"
 
 msgid "Global default HTTP proxy"
-msgstr ""
+msgstr "გლობალური ნაგულისხმევი HTTP პროქსი"
 
 msgid "HTTP proxy"
 msgstr "HTTP პროქსი"
 
 msgid "HTTP proxy policy"
-msgstr ""
+msgstr "HTTP პროქსის პოლიტიკა"
 
 msgid "HTTP proxy policy for template sync. Use only when synchronizing templates through the HTTP or the HTTPS protocol. If you choose 'selected', provide the `http_proxy_id` parameter."
 msgstr ""
@@ -110,7 +110,7 @@ msgid "Import"
 msgstr "შემოტანა"
 
 msgid "Import Templates"
-msgstr ""
+msgstr "ნიმუშების შემოტანა"
 
 msgid "Import or Export Templates"
 msgstr "შაბლონების შემოტანა და გატანა"
@@ -137,7 +137,7 @@ msgid "Keep, lock new"
 msgstr "შენარჩუნება, ახლის დაბლოკვა"
 
 msgid "Kind"
-msgstr ""
+msgstr "ტიპი"
 
 msgid "Lock"
 msgstr "ჩაკეტვა"
@@ -149,13 +149,13 @@ msgid "Lock templates"
 msgstr "შაბლონების დაბლოკვა"
 
 msgid "Locked"
-msgstr ""
+msgstr "დაბლოკილია"
 
 msgid "Metadata export mode"
 msgstr "მეტამონაცემების გატანის რეჟიმი"
 
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 msgid "Negate"
 msgstr "უარყოფა"
@@ -173,10 +173,10 @@ msgid "New"
 msgstr "ახალი"
 
 msgid "No HTTP proxy"
-msgstr ""
+msgstr "HTTP პროქსის გარეშე"
 
 msgid "No Template Sync Result"
-msgstr ""
+msgstr "შაბლონების სინქრონიზაციის შედეგის გარეშე"
 
 msgid "Override the default repo from settings."
 msgstr "პარამეტრებში მითითებული ნაგულისხმები რეპოს გადაფარვა."
@@ -209,13 +209,13 @@ msgid "Show template diff in response"
 msgstr "პასუხად შაბლონის სხვაობის ჩვენება"
 
 msgid "Snippet"
-msgstr ""
+msgstr "ნაწყვეტი"
 
 msgid "Specify how to handle metadata"
 msgstr "მეტამონაცემების დამუშავების ხერხი"
 
 msgid "Submit"
-msgstr ""
+msgstr "გაგზავნა"
 
 msgid "Sync Templates"
 msgstr "შაბლონების სინქრონიზაცია"
@@ -224,7 +224,7 @@ msgid "Target path to import/export. Different protocols can be used, for exampl
 msgstr "შეტანა/გამოტანის სამიზნე ბილიკი. შეგიძლიათ გამოიყენოთ სხვადასხვა პროტოკოლები. მაგალთად: /tmp/dir, git://example.com, https://example.com, ssh://example.com. /tmp-ზე გატანისას დაიმახსოვრეთ, რომ საწარმოო გაშლები შეიძლება საკუთარ დროებით საქაღალდეს იყენებდნენ."
 
 msgid "Template Class"
-msgstr ""
+msgstr "შაბლონის კლასი"
 
 msgid "Template Sync"
 msgstr "შაბლონების სინქრონიზაცია"
@@ -239,7 +239,7 @@ msgid "The string that will be added as prefix to imported templates"
 msgstr "ეს სტრიქონი შემოტანილ შაბლონებზე პრეფიქსად დაემატება"
 
 msgid "There were no errors."
-msgstr ""
+msgstr "შეცდომების გარეშე."
 
 msgid "To view results of a template sync, you must import/export the templates first."
 msgstr ""

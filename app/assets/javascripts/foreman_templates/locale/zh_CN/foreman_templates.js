@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "Git 仓库中的分支。"
       ],
       "Cancel": [
-        ""
+        "取消"
       ],
       "Choose verbosity for Rake task importing templates": [
         "为 Rake 任务导入模板选择详细程度"
@@ -54,7 +54,7 @@
         "模板导出的自定义提交消息"
       ],
       "Data was successfully imported.": [
-        ""
+        "数据已成导入。"
       ],
       "Default branch in Git repo": [
         "Git 仓库中的默认分支"
@@ -72,13 +72,13 @@
         "导出"
       ],
       "Export Templates": [
-        ""
+        "导出模板"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
       ],
       "File Name": [
-        ""
+        "文件名"
       ],
       "Filter": [
         "过滤器"
@@ -108,7 +108,7 @@
         "导入"
       ],
       "Import Templates": [
-        ""
+        "导入模板"
       ],
       "Import or Export Templates": [
         "导入或导出模板"
@@ -123,7 +123,7 @@
         "启动导入"
       ],
       "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
-        ""
+        "无效的存储库格式，必须以以下之一开始：http://、https://、git://、ssh://、git+ssh://、ssh+git://、/"
       ],
       "Keep": [
         "保持"
@@ -135,7 +135,7 @@
         "keep, 锁定新的"
       ],
       "Kind": [
-        ""
+        "种类"
       ],
       "Lock": [
         "锁定"
@@ -147,13 +147,13 @@
         "锁定模板"
       ],
       "Locked": [
-        ""
+        "锁定"
       ],
       "Metadata export mode": [
         "元数据导出模式"
       ],
       "Name": [
-        ""
+        "名称"
       ],
       "Negate": [
         "否定"
@@ -174,7 +174,7 @@
         "没有 HTTP 代理"
       ],
       "No Template Sync Result": [
-        ""
+        "没有模板同步结果"
       ],
       "Override the default repo from settings.": [
         "覆盖设置中的默认仓库。"
@@ -207,13 +207,13 @@
         "显示模板差异作为响应"
       ],
       "Snippet": [
-        ""
+        "程序代码片段"
       ],
       "Specify how to handle metadata": [
         "指定如何处理元数据"
       ],
       "Submit": [
-        ""
+        "提交"
       ],
       "Sync Templates": [
         "同步模板"
@@ -222,7 +222,7 @@
         "要导入/导出的目标路径。可以使用不同的协议，如 /tmp/dir、git://example.com、https://example.com、ssh://example.com. 当导出至 /tmp 时，请注意，生产部署可能被配置为使用私有 tmp。"
       ],
       "Template Class": [
-        ""
+        "模板类"
       ],
       "Template Sync": [
         "模板同步"
@@ -237,10 +237,10 @@
         "将作为前缀添加到导入模板的字符串"
       ],
       "There were no errors.": [
-        ""
+        "未发现任何错误。"
       ],
       "To view results of a template sync, you must import/export the templates first.": [
-        ""
+        "要查看模板同步的结果，您必须首先导入/导出模板。"
       ],
       "Unlock": [
         "开锁"

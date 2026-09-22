@@ -4,14 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# johnny.westerlund <johnny.westerlund@gmail.com>, 2023
+# johnny.westerlund <johnny.westerlund@gmail.com>, 2026
+# Mikael Fridh <frimik@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: johnny.westerlund <johnny.westerlund@gmail.com>, 2023\n"
+"Last-Translator: Mikael Fridh <frimik@gmail.com>, 2026\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/foreman/teams/114/s"
 "v_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +43,7 @@ msgid "Branch in Git repo."
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
@@ -156,7 +157,7 @@ msgid "Metadata export mode"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 msgid "Negate"
 msgstr ""
@@ -216,7 +217,7 @@ msgid "Specify how to handle metadata"
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "Sänd"
 
 msgid "Sync Templates"
 msgstr ""

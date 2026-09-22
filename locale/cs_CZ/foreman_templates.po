@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2024
+# Pavel Borecki <pavel.borecki@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2024\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2026\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/foreman/teams"
 "/114/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgid "Branch in Git repo."
 msgstr "Větev v Git repozitáři."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Storno"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
@@ -157,7 +157,7 @@ msgid "Metadata export mode"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "Negate"
 msgstr "Negovat"
@@ -217,7 +217,7 @@ msgid "Specify how to handle metadata"
 msgstr "Zadat jak zacházet s metadaty"
 
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 msgid "Sync Templates"
 msgstr "Synchronizovat šablony"

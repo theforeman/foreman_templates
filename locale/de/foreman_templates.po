@@ -8,16 +8,16 @@
 # stbenjam <stephen@redhat.com>, 2019
 # Martin Zimmermann <martin.zimmermann@gmx.com>, 2019
 # Ettore Atalan <atalanttore@googlemail.com>, 2023
-# pdolinic, 2023
 # Bryan Kearney <bryan.kearney@gmail.com>, 2024
-# Donien, 2026
+# pdolinic, 2026
+# Wiederoder <stefanwiederoder@googlemail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Donien, 2026\n"
+"Last-Translator: Wiederoder <stefanwiederoder@googlemail.com>, 2026\n"
 "Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgid "Branch in Git repo."
 msgstr "Branch im Git-Repo."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Aufgaben"
@@ -161,7 +161,7 @@ msgid "Metadata export mode"
 msgstr "Metadaten-Exportmodus"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Negate"
 msgstr "Negieren"
@@ -221,7 +221,7 @@ msgid "Specify how to handle metadata"
 msgstr "Geben Sie an, wie mit Metadaten umgegangen werden soll"
 
 msgid "Submit"
-msgstr ""
+msgstr "Absenden"
 
 msgid "Sync Templates"
 msgstr "Sync Templates"

@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Donien, 2026",
+        "Last-Translator": "Wiederoder <stefanwiederoder@googlemail.com>, 2026",
         "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "Branch im Git-Repo."
       ],
       "Cancel": [
-        ""
+        "Abbrechen"
       ],
       "Choose verbosity for Rake task importing templates": [
         "Wählen Sie die Ausführlichkeit für Importvorlagen für Rake-Aufgaben"
@@ -153,7 +153,7 @@
         "Metadaten-Exportmodus"
       ],
       "Name": [
-        ""
+        "Name"
       ],
       "Negate": [
         "Negieren"
@@ -213,7 +213,7 @@
         "Geben Sie an, wie mit Metadaten umgegangen werden soll"
       ],
       "Submit": [
-        ""
+        "Absenden"
       ],
       "Sync Templates": [
         "Sync Templates"
