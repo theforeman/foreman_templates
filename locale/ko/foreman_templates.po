@@ -5,16 +5,16 @@
 #
 # Translators:
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2019
-# Bryan Kearney <bryan.kearney@gmail.com>, 2024
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
-# Ondřej Gajdušek, 2025
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026
+# Ondřej Gajdušek, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Ondřej Gajdušek, 2025\n"
+"Last-Translator: Ondřej Gajdušek, 2026\n"
 "Language-Team: Korean (https://app.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgid "Branch in Git repo."
 msgstr "Git 리포지토리의 브랜치입니다."
 
 msgid "Cancel"
-msgstr ""
+msgstr "취소 "
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "Rake 작업 템플릿 가져오기에 대한 자세한 정보 선택"
@@ -59,7 +59,7 @@ msgid "Custom commit message for templates export"
 msgstr "템플릿 내보내기를 위한 사용자 정의 커밋 메시지"
 
 msgid "Data was successfully imported."
-msgstr ""
+msgstr "데이터 가져오기가 성공적으로 완료되었습니다."
 
 msgid "Default branch in Git repo"
 msgstr "Git 리포지토리의 기본 브랜치"
@@ -77,13 +77,13 @@ msgid "Export"
 msgstr "내보내기 "
 
 msgid "Export Templates"
-msgstr ""
+msgstr "템플릿 내보내기"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "이 정규식과 일치하는 이름을 가진 템플릿을 내보냅니다(대소문자를 구분하지 않음, 스니펫은 필터링되지 않음)."
 
 msgid "File Name"
-msgstr ""
+msgstr "파일 이름"
 
 msgid "Filter"
 msgstr "필터 "
@@ -113,7 +113,7 @@ msgid "Import"
 msgstr "불러오기"
 
 msgid "Import Templates"
-msgstr ""
+msgstr "템플릿 가져오기"
 
 msgid "Import or Export Templates"
 msgstr "템플릿 가져오기 또는 내보내기"
@@ -128,7 +128,7 @@ msgid "Initiate Import"
 msgstr "가져오기 시작"
 
 msgid "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
-msgstr ""
+msgstr "리포지토리 형식이 올바르지 않습니다. 다음 중 하나로 시작해야 합니다: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
 
 msgid "Keep"
 msgstr "유지"
@@ -140,7 +140,7 @@ msgid "Keep, lock new"
 msgstr "보관, 새 항목 잠금"
 
 msgid "Kind"
-msgstr ""
+msgstr "종류"
 
 msgid "Lock"
 msgstr "잠금"
@@ -152,13 +152,13 @@ msgid "Lock templates"
 msgstr "템플릿 잠금"
 
 msgid "Locked"
-msgstr ""
+msgstr "잠김"
 
 msgid "Metadata export mode"
 msgstr "메타데이터 내보내기 모드"
 
 msgid "Name"
-msgstr ""
+msgstr "이름 "
 
 msgid "Negate"
 msgstr "비활성화"
@@ -179,7 +179,7 @@ msgid "No HTTP proxy"
 msgstr "HTTP 프록시가 없음"
 
 msgid "No Template Sync Result"
-msgstr ""
+msgstr "템플릿 동기화 결과 없음"
 
 msgid "Override the default repo from settings."
 msgstr "설정에서 기본 저장소를 덮어씁니다."
@@ -212,13 +212,13 @@ msgid "Show template diff in response"
 msgstr "응답에서 템플릿 diff 표시"
 
 msgid "Snippet"
-msgstr ""
+msgstr "스니펫"
 
 msgid "Specify how to handle metadata"
 msgstr "메타데이터를 처리하는 방법 지정"
 
 msgid "Submit"
-msgstr ""
+msgstr "보내기"
 
 msgid "Sync Templates"
 msgstr "템플릿 동기화"
@@ -227,7 +227,7 @@ msgid "Target path to import/export. Different protocols can be used, for exampl
 msgstr "가져오기/내보내기 위한 대상 경로입니다. 다양한 프로토콜을 사용할 수 있습니다(예: /tmp/dir, git://example.com, https://example.com, ssh://example.com). /tmp로 내보낼 때 프로덕션 배포는 개인 tmp를 사용하도록 구성될 수 있습니다."
 
 msgid "Template Class"
-msgstr ""
+msgstr "템플릿 클래스"
 
 msgid "Template Sync"
 msgstr "템플릿 동기화"
@@ -242,10 +242,10 @@ msgid "The string that will be added as prefix to imported templates"
 msgstr "가져온 템플릿에 접두사로 추가될 문자열"
 
 msgid "There were no errors."
-msgstr ""
+msgstr "오류가 없습니다."
 
 msgid "To view results of a template sync, you must import/export the templates first."
-msgstr ""
+msgstr "템플릿 동기화 결과를 보려면 먼저 템플릿을 가져오거나 내보내야 합니다."
 
 msgid "Unlock"
 msgstr "잠금 풀기"

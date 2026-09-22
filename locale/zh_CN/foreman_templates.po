@@ -7,15 +7,16 @@
 # Martin Liu <liuzh66@gmail.com>, 2019
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
 # Amit Upadhye <aupadhye@redhat.com>, 2024
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
-# Ondřej Gajdušek, 2025
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026
+# tim123, 2026
+# Ondřej Gajdušek, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Ondřej Gajdušek, 2025\n"
+"Last-Translator: Ondřej Gajdušek, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +47,7 @@ msgid "Branch in Git repo."
 msgstr "Git 仓库中的分支。"
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr "为 Rake 任务导入模板选择详细程度"
@@ -61,7 +62,7 @@ msgid "Custom commit message for templates export"
 msgstr "模板导出的自定义提交消息"
 
 msgid "Data was successfully imported."
-msgstr ""
+msgstr "数据已成导入。"
 
 msgid "Default branch in Git repo"
 msgstr "Git 仓库中的默认分支"
@@ -79,13 +80,13 @@ msgid "Export"
 msgstr "导出"
 
 msgid "Export Templates"
-msgstr ""
+msgstr "导出模板"
 
 msgid "Export templates with names matching this regex (case-insensitive; snippets are not filtered)."
 msgstr "导出名称与此正则表达式匹配的模板（不区分大小写；不过滤代码段）。"
 
 msgid "File Name"
-msgstr ""
+msgstr "文件名"
 
 msgid "Filter"
 msgstr "过滤器"
@@ -115,7 +116,7 @@ msgid "Import"
 msgstr "导入"
 
 msgid "Import Templates"
-msgstr ""
+msgstr "导入模板"
 
 msgid "Import or Export Templates"
 msgstr "导入或导出模板"
@@ -130,7 +131,7 @@ msgid "Initiate Import"
 msgstr "启动导入"
 
 msgid "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
-msgstr ""
+msgstr "无效的存储库格式，必须以以下之一开始：http://、https://、git://、ssh://、git+ssh://、ssh+git://、/"
 
 msgid "Keep"
 msgstr "保持"
@@ -142,7 +143,7 @@ msgid "Keep, lock new"
 msgstr "keep, 锁定新的"
 
 msgid "Kind"
-msgstr ""
+msgstr "种类"
 
 msgid "Lock"
 msgstr "锁定"
@@ -154,13 +155,13 @@ msgid "Lock templates"
 msgstr "锁定模板"
 
 msgid "Locked"
-msgstr ""
+msgstr "锁定"
 
 msgid "Metadata export mode"
 msgstr "元数据导出模式"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 msgid "Negate"
 msgstr "否定"
@@ -181,7 +182,7 @@ msgid "No HTTP proxy"
 msgstr "没有 HTTP 代理"
 
 msgid "No Template Sync Result"
-msgstr ""
+msgstr "没有模板同步结果"
 
 msgid "Override the default repo from settings."
 msgstr "覆盖设置中的默认仓库。"
@@ -214,13 +215,13 @@ msgid "Show template diff in response"
 msgstr "显示模板差异作为响应"
 
 msgid "Snippet"
-msgstr ""
+msgstr "程序代码片段"
 
 msgid "Specify how to handle metadata"
 msgstr "指定如何处理元数据"
 
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 msgid "Sync Templates"
 msgstr "同步模板"
@@ -229,7 +230,7 @@ msgid "Target path to import/export. Different protocols can be used, for exampl
 msgstr "要导入/导出的目标路径。可以使用不同的协议，如 /tmp/dir、git://example.com、https://example.com、ssh://example.com. 当导出至 /tmp 时，请注意，生产部署可能被配置为使用私有 tmp。"
 
 msgid "Template Class"
-msgstr ""
+msgstr "模板类"
 
 msgid "Template Sync"
 msgstr "模板同步"
@@ -244,10 +245,10 @@ msgid "The string that will be added as prefix to imported templates"
 msgstr "将作为前缀添加到导入模板的字符串"
 
 msgid "There were no errors."
-msgstr ""
+msgstr "未发现任何错误。"
 
 msgid "To view results of a template sync, you must import/export the templates first."
-msgstr ""
+msgstr "要查看模板同步的结果，您必须首先导入/导出模板。"
 
 msgid "Unlock"
 msgstr "开锁"

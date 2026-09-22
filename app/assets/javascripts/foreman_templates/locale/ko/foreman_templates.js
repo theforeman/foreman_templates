@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_templates": {
       "": {
-        "Project-Id-Version": "foreman_templates 11.0.0",
+        "Project-Id-Version": "foreman_templates 11.0.3",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2019-10-14 12:27+0000",
-        "Last-Translator": "Ondřej Gajdušek, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Korean (https://app.transifex.com/foreman/teams/114/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -39,7 +39,7 @@
         "Git 리포지토리의 브랜치입니다."
       ],
       "Cancel": [
-        ""
+        "취소 "
       ],
       "Choose verbosity for Rake task importing templates": [
         "Rake 작업 템플릿 가져오기에 대한 자세한 정보 선택"
@@ -54,7 +54,7 @@
         "템플릿 내보내기를 위한 사용자 정의 커밋 메시지"
       ],
       "Data was successfully imported.": [
-        ""
+        "데이터 가져오기가 성공적으로 완료되었습니다."
       ],
       "Default branch in Git repo": [
         "Git 리포지토리의 기본 브랜치"
@@ -72,13 +72,13 @@
         "내보내기 "
       ],
       "Export Templates": [
-        ""
+        "템플릿 내보내기"
       ],
       "Export templates with names matching this regex (case-insensitive; snippets are not filtered).": [
         "이 정규식과 일치하는 이름을 가진 템플릿을 내보냅니다(대소문자를 구분하지 않음, 스니펫은 필터링되지 않음)."
       ],
       "File Name": [
-        ""
+        "파일 이름"
       ],
       "Filter": [
         "필터 "
@@ -108,7 +108,7 @@
         "불러오기"
       ],
       "Import Templates": [
-        ""
+        "템플릿 가져오기"
       ],
       "Import or Export Templates": [
         "템플릿 가져오기 또는 내보내기"
@@ -123,7 +123,7 @@
         "가져오기 시작"
       ],
       "Invalid repo format, must start with one of: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /": [
-        ""
+        "리포지토리 형식이 올바르지 않습니다. 다음 중 하나로 시작해야 합니다: http://, https://, git://, ssh://, git+ssh://, ssh+git://, /"
       ],
       "Keep": [
         "유지"
@@ -135,7 +135,7 @@
         "보관, 새 항목 잠금"
       ],
       "Kind": [
-        ""
+        "종류"
       ],
       "Lock": [
         "잠금"
@@ -147,13 +147,13 @@
         "템플릿 잠금"
       ],
       "Locked": [
-        ""
+        "잠김"
       ],
       "Metadata export mode": [
         "메타데이터 내보내기 모드"
       ],
       "Name": [
-        ""
+        "이름 "
       ],
       "Negate": [
         "비활성화"
@@ -174,7 +174,7 @@
         "HTTP 프록시가 없음"
       ],
       "No Template Sync Result": [
-        ""
+        "템플릿 동기화 결과 없음"
       ],
       "Override the default repo from settings.": [
         "설정에서 기본 저장소를 덮어씁니다."
@@ -207,13 +207,13 @@
         "응답에서 템플릿 diff 표시"
       ],
       "Snippet": [
-        ""
+        "스니펫"
       ],
       "Specify how to handle metadata": [
         "메타데이터를 처리하는 방법 지정"
       ],
       "Submit": [
-        ""
+        "보내기"
       ],
       "Sync Templates": [
         "템플릿 동기화"
@@ -222,7 +222,7 @@
         "가져오기/내보내기 위한 대상 경로입니다. 다양한 프로토콜을 사용할 수 있습니다(예: /tmp/dir, git://example.com, https://example.com, ssh://example.com). /tmp로 내보낼 때 프로덕션 배포는 개인 tmp를 사용하도록 구성될 수 있습니다."
       ],
       "Template Class": [
-        ""
+        "템플릿 클래스"
       ],
       "Template Sync": [
         "템플릿 동기화"
@@ -237,10 +237,10 @@
         "가져온 템플릿에 접두사로 추가될 문자열"
       ],
       "There were no errors.": [
-        ""
+        "오류가 없습니다."
       ],
       "To view results of a template sync, you must import/export the templates first.": [
-        ""
+        "템플릿 동기화 결과를 보려면 먼저 템플릿을 가져오거나 내보내야 합니다."
       ],
       "Unlock": [
         "잠금 풀기"

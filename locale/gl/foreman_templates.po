@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Carmela Rubiños <carmela.rubinos@gmail.com>, 2023
+# Carmela Rubiños <carmela.rubinos@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_templates 11.0.0\n"
+"Project-Id-Version: foreman_templates 11.0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-10-14 12:27+0000\n"
-"Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>, 2023\n"
+"Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>, 2026\n"
 "Language-Team: Galician (https://app.transifex.com/foreman/teams/114/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgid "Branch in Git repo."
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Choose verbosity for Rake task importing templates"
 msgstr ""
@@ -155,7 +155,7 @@ msgid "Metadata export mode"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Negate"
 msgstr ""
@@ -215,7 +215,7 @@ msgid "Specify how to handle metadata"
 msgstr ""
 
 msgid "Submit"
-msgstr ""
+msgstr "Introducir"
 
 msgid "Sync Templates"
 msgstr ""
