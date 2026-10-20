@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { deepPropsToCamelCase } from 'foremanReact/common/helpers';
 import SyncedTemplate from '../SyncedTemplate';
 import { mockContextValues } from '../../../NewTemplateSync/__tests__/testData';

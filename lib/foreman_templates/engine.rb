@@ -24,7 +24,7 @@ module ForemanTemplates
 
     initializer 'foreman_templates.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_templates do
-        requires_foreman '>= 3.15'
+        requires_foreman '>= 5.1'
         register_gettext
 
         register_global_js_file 'global'

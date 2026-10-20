@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import NewTemplateSyncForm from '../NewTemplateSyncForm';
 import { APIActions } from '../../../../../__mocks__/foremanReact/redux/API';
 import {
