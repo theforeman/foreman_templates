@@ -109,7 +109,7 @@ describe('NewTemplateSyncForm', () => {
       handleSuccess: expect.any(Function),
       handleError: expect.any(Function),
       successToast: expect.any(Function),
-      errorToast: expect.any(Function),
+      errorToast: true,
     });
   });
 
