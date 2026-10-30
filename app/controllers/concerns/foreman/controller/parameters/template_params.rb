@@ -61,6 +61,11 @@ module Foreman
           add_taxonomy_params(base_export_params(:none))
         end
 
+        def template_preview_params
+          self.class.template_params_filter([:base_branch])
+              .filter_params(params, parameter_filter_context, :none).with_indifferent_access
+        end
+
         def base_import_params(toplevel_key)
           self.class.template_params_filter(self.class.extra_import_params)
               .filter_params(params, parameter_filter_context, toplevel_key).with_indifferent_access
