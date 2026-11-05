@@ -14,13 +14,9 @@ module ForemanTemplates
     end
 
     def remove_permissions
-      permission_ids = Permission.where(name: PERMISSIONS).pluck(:id)
-      return if permission_ids.empty?
-
-      filter_ids = Filtering.where(permission_id: permission_ids).distinct.pluck(:filter_id)
-      Filtering.where(permission_id: permission_ids).delete_all
-      Filter.where(id: filter_ids).find_each { |filter| filter.destroy if filter.filterings.reload.empty? }
-      Permission.where(id: permission_ids).delete_all
+      Permission.where(name: PERMISSIONS).destroy_all
+      # clean up any empty filters left behind
+      Filter.where.not(id: Filtering.distinct.select(:filter_id)).destroy_all
     end
   end
 end
