@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
   s.summary          = 'Template-syncing engine for Foreman'
 
   s.add_dependency "diffy"
-  s.add_dependency "git"
+  s.add_dependency "git", "< 4"
 end
