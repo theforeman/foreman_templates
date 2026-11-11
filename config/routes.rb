@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         collection do
           post 'import'
           post 'export'
+          post 'preview'
         end
       end
     end

@@ -107,7 +107,7 @@ module ForemanTemplates
 
         security_block :templates do
           permission :import_templates, {
-            :"api/v2/template" => [:import],
+            :"api/v2/template" => %i[import preview],
             :ui_template_syncs => [:import]
           }, :resource_type => 'Template'
           permission :export_templates, {
