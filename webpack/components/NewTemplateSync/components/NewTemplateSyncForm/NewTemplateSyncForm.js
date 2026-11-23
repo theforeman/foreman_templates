@@ -119,11 +119,7 @@ const NewTemplateSyncForm = ({
         },
         handleError: () => setIsTemplatesLoading(false),
         successToast: () => __('Data was successfully imported.'),
-        errorToast: response =>
-          response?.response?.data?.error ||
-          // eslint-disable-next-line camelcase
-          response?.response?.data?.error?.full_messages?.[0] ||
-          response,
+        errorToast: true,
       })
     );
   };
