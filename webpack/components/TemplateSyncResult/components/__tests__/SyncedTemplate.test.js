@@ -114,18 +114,18 @@ describe('SyncedTemplate', () => {
     expect(screen.getByText('test.erb')).toBeInTheDocument();
   });
 
-  it('expands and collapses when row is clicked', async () => {
-    const { container } = setup();
+  it('expands and collapses when the details toggle is clicked', async () => {
+    setup();
 
-    const listItem = screen.getByRole('button');
-    const row = listItem.firstElementChild;
-    await userEvent.click(row);
+    const details = screen.getByText('There were no errors.');
+    expect(details).not.toBeVisible();
 
-    const section = container.querySelector('tr.pf-v5-c-table__expandable-row');
-    expect(section).not.toHaveAttribute('hidden');
+    const toggle = screen.getByRole('button', { name: /details/i });
+    await userEvent.click(toggle);
+    expect(details).toBeVisible();
 
-    await userEvent.click(row);
-    expect(section).toHaveAttribute('hidden');
+    await userEvent.click(toggle);
+    expect(details).not.toBeVisible();
   });
 
   it('renders different template types correctly', () => {
@@ -238,9 +238,11 @@ describe('SyncedTemplate', () => {
     };
     setup(allTrueTemplate);
 
-    expect(screen.queryByLabelText('snippet')).toBeInTheDocument();
-    expect(screen.queryByLabelText('locked')).toBeInTheDocument();
-    expect(screen.queryByLabelText('can-edit')).toBeInTheDocument();
+    expect(screen.queryByLabelText('Snippet')).toBeInTheDocument();
+    expect(screen.queryByLabelText('Locked')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Test Job Template' })
+    ).toBeInTheDocument();
     expect(screen.getByText('Test Job Template')).toBeInTheDocument();
   });
 
@@ -253,9 +255,9 @@ describe('SyncedTemplate', () => {
     };
     setup(allFalseTemplate);
 
-    expect(screen.queryByLabelText('snippet')).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('locked')).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('can-edit')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Snippet')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Locked')).not.toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
     expect(screen.getByText('Test Job Template')).toBeInTheDocument();
   });
 });

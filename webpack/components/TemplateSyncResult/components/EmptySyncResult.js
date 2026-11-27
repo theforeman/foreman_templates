@@ -4,19 +4,18 @@ import {
   Button,
   EmptyState,
   EmptyStateBody,
-  EmptyStateHeader,
   EmptyStateFooter,
   EmptyStateActions,
-  EmptyStateIcon,
 } from '@patternfly/react-core';
 import { SearchIcon } from '@patternfly/react-icons';
 import { translate as __ } from 'foremanReact/common/I18n';
 
 const EmptySyncResult = ({ primaryAction }) => (
-  <EmptyState>
-    <EmptyStateHeader icon={<EmptyStateIcon icon={SearchIcon} />}>
-      {__('No Template Sync Result')}
-    </EmptyStateHeader>
+  <EmptyState
+    headingLevel="h1"
+    icon={SearchIcon}
+    titleText={__('No Template Sync Result')}
+  >
     <EmptyStateBody>
       {__(
         'To view results of a template sync, you must import/export the templates first.'

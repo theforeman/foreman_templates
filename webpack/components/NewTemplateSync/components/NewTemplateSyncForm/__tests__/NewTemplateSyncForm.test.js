@@ -88,13 +88,12 @@ describe('NewTemplateSyncForm', () => {
     const submitButton = screen.getByRole('button', { name: /submit/i });
 
     expect(submitButton).toBeDisabled();
-    expect(submitButton).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('submits the form with correct parameters', async () => {
     setup();
 
-    fireEvent.click(screen.getByText('Submit'));
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     expect(APIActions.post).toHaveBeenCalledWith({
       key: SYNC_SETTINGS_FORM_SUBMIT,
@@ -115,7 +114,7 @@ describe('NewTemplateSyncForm', () => {
 
   it('navigates to result page on successful form submission', async () => {
     setup();
-    await fireEvent.click(screen.getByText('Submit'));
+    await fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     expect(setView).toHaveBeenCalledWith(SYNC_RESULT_URL);
   });

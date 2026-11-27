@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 import SyncSettingsFields from '../SyncSettingFields';
 import { mockContextValues } from '../../__tests__/testData';
 
@@ -90,33 +91,31 @@ describe('SyncSettingsFields', () => {
     };
     setup(props);
 
-    expect(document.querySelectorAll('.pf-v5-c-form__group')).toHaveLength(3);
-    expect(screen.queryByText(/Repository/i)).toBeInTheDocument();
-    expect(screen.queryByText(/Branch/i)).toBeInTheDocument();
-    expect(screen.queryByText(/HTTP Proxy Policy/i)).toBeInTheDocument();
-    expect(screen.queryByText(/HTTP Proxy ID/i)).not.toBeInTheDocument();
+    expect(screen.getByText('Repository')).toBeInTheDocument();
+    expect(screen.getByText('Branch')).toBeInTheDocument();
+    expect(screen.getByText('HTTP Proxy Policy')).toBeInTheDocument();
+    expect(screen.queryByText('HTTP Proxy ID')).not.toBeInTheDocument();
   });
 
   test('renders http_proxy_id setting when proxy policy is selected', () => {
     setup();
 
-    expect(document.querySelectorAll('.pf-v5-c-form__group')).toHaveLength(4);
-    expect(screen.queryByText(/Repository/i)).toBeInTheDocument();
-    expect(screen.queryByText(/Branch/i)).toBeInTheDocument();
-    expect(screen.queryByText(/HTTP Proxy Policy/i)).toBeInTheDocument();
-    expect(screen.queryByText(/HTTP Proxy ID/i)).toBeInTheDocument();
+    expect(screen.getByText('Repository')).toBeInTheDocument();
+    expect(screen.getByText('Branch')).toBeInTheDocument();
+    expect(screen.getByText('HTTP Proxy Policy')).toBeInTheDocument();
+    expect(screen.getByText('HTTP Proxy ID')).toBeInTheDocument();
   });
 
   test('renders form groups with correct labels and help icons', () => {
     setup();
 
-    const formGroups = document.querySelectorAll(
-      'label[class="pf-v5-c-form__label"]'
-    );
-
-    formGroups.forEach((formGroup, index) => {
-      const setting = mockSettings[index];
-      expect(formGroup).toHaveTextContent(setting.fullName);
+    mockSettings.forEach(setting => {
+      expect(screen.getByText(setting.fullName)).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', {
+          name: sprintf(__('More info for %s'), __(setting.fullName)),
+        })
+      ).toBeInTheDocument();
     });
   });
 
@@ -130,15 +129,16 @@ describe('SyncSettingsFields', () => {
 
     setup(props);
 
-    expect(
-      document.querySelectorAll('label[class="pf-v5-c-form__label"]')
-    ).toHaveLength(4);
+    mockSettings.forEach(setting => {
+      expect(screen.getByText(setting.fullName)).toBeInTheDocument();
+    });
   });
 
   test('handles empty values array', () => {
     const props = { ...defaultProps, values: [] };
     setup(props);
 
-    expect(screen.queryByTestId('form-group')).not.toBeInTheDocument();
+    expect(screen.queryByText('Repository')).not.toBeInTheDocument();
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   });
 });

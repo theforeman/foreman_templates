@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Tbody, Tr, Td } from '@patternfly/react-table';
+import { Tbody, Tr, Td, ExpandableRowContent } from '@patternfly/react-table';
 
 import {
   expandableContent,
@@ -16,6 +16,7 @@ const SyncedTemplate = ({ template, editPath }) => {
       <Tr
         ouiaId={`table-row-${template.id}`}
         className="listViewItem"
+        isContentExpanded={isExpanded}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <Td
@@ -31,7 +32,11 @@ const SyncedTemplate = ({ template, editPath }) => {
         {additionalInfo(template, editPath)}
       </Tr>
       <Tr ouiaId={`table-row-${template.id}-expanded`} isExpanded={isExpanded}>
-        <Td colSpan={7}>{expandableContent(template)}</Td>
+        <Td colSpan={8}>
+          <ExpandableRowContent>
+            {expandableContent(template)}
+          </ExpandableRowContent>
+        </Td>
       </Tr>
     </Tbody>
   );

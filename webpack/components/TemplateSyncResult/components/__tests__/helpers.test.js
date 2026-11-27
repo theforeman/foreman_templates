@@ -140,10 +140,7 @@ describe('SyncedTemplate helpers', () => {
     it('renders warning icon when template has additionalInfo', () => {
       const result = itemLeftContentIcon(mockTemplate);
 
-      expect(result.props.children.props.className).toBe('c-icon');
-      expect(result.props.children.props.color).toBe(
-        'var(--pf-v5-global--warning-color--100)'
-      );
+      expect(result.props.status).toBe('warning');
     });
 
     it('renders success icon when no errors and no additionalInfo', () => {
@@ -152,10 +149,7 @@ describe('SyncedTemplate helpers', () => {
 
       const result = itemLeftContentIcon(successTemplate);
 
-      expect(result.props.children.props.className).toBe('c-icon');
-      expect(result.props.children.props.color).toBe(
-        'var(--pf-v5-global--success-color--100)'
-      );
+      expect(result.props.status).toBe('success');
     });
 
     it('renders error icon when template has errors', () => {
@@ -164,19 +158,13 @@ describe('SyncedTemplate helpers', () => {
 
       const result = itemLeftContentIcon(errorTemplate);
 
-      expect(result.props.children.props.className).toBe('c-icon');
-      expect(result.props.children.props.color).toBe(
-        'var(--pf-v5-global--danger-color--100)'
-      );
+      expect(result.props.status).toBe('danger');
     });
 
     it('prioritizes additionalInfo over errors', () => {
       const result = itemLeftContentIcon(mockTemplate);
 
-      expect(result.props.children.props.className).toBe('c-icon');
-      expect(result.props.children.props.color).toBe(
-        'var(--pf-v5-global--warning-color--100)'
-      );
+      expect(result.props.status).toBe('warning');
     });
   });
 
