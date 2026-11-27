@@ -13,6 +13,20 @@ module Api
         assert_response :success
       end
 
+      test "should preview changes between git branches" do
+        repo = ForemanTemplates::Engine.root.to_s
+        branch = Git.open(repo).current_branch
+
+        post :preview, params: { 'repo' => repo, 'base_branch' => branch, 'branch' => branch }
+
+        assert_response :success
+        result = JSON.parse(@response.body)['message']
+        assert_equal branch, result['base_branch']
+        assert_equal branch, result['branch']
+        assert_empty result['diff']
+        refute result['truncated']
+      end
+
       test "should export to filesystem" do
         Dir.mktmpdir do |tmpdir|
           post :export, params: { 'repo' => tmpdir, 'metadata_export_mode' => 'keep' }

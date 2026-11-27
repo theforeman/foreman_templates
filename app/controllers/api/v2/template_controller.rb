@@ -44,6 +44,14 @@ module Api
         @result[:templates] = @result[:templates].map(&:to_h)
         render :json => { :message => @result }, :status => @result[:error] ? 500 : 200
       end
+
+      api :POST, "/templates/preview", N_("Preview changes between two Git branches")
+      param :base_branch, String, :required => true, :desc => N_("Branch to compare against.")
+      param_group :foreman_template_sync_params
+      def preview
+        @result = ForemanTemplates::DiffPreview.new(template_preview_params).preview!
+        render :json => { :message => @result }
+      end
     end
   end
 end
