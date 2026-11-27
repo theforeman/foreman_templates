@@ -18,7 +18,11 @@ export const itemIteratorId = (template, ...rest) =>
 
 const TooltipWrapper = ({ children, tooltipText }) => {
   if (!tooltipText) return children;
-  return <Tooltip content={tooltipText}>{children}</Tooltip>;
+  return (
+    <Tooltip content={tooltipText}>
+      <span>{children}</span>
+    </Tooltip>
+  );
 };
 
 const LinkItem = ({ template, editPath }) => {
@@ -26,12 +30,7 @@ const LinkItem = ({ template, editPath }) => {
     const editUrl = editPath[template.className]?.replace(':id', template.id);
 
     return (
-      <a
-        href={editUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="can-edit"
-      >
+      <a href={editUrl} target="_blank" rel="noopener noreferrer">
         {template.name}
       </a>
     );
@@ -39,9 +38,7 @@ const LinkItem = ({ template, editPath }) => {
   return template.name || '';
 };
 
-export const ItemWrapper = ({ children, className }) => (
-  <div className={className}>{children}</div>
-);
+export const ItemWrapper = ({ children }) => <div>{children}</div>;
 
 const TableCellWrapper = ({ children }) => (
   <Td>
@@ -78,9 +75,9 @@ export const additionalInfo = (template, editPath) => {
       case 'locked':
         return (
           <TableCellWrapper key={derivedKey}>
-            <TooltipWrapper tooltipText="Locked" key={index}>
-              <ItemWrapper className="cell-info-padding">
-                <Icon aria-label="locked">
+            <TooltipWrapper tooltipText={__('Locked')} key={index}>
+              <ItemWrapper>
+                <Icon aria-label={__('Locked')}>
                   <LockIcon />
                 </Icon>
               </ItemWrapper>
@@ -90,9 +87,9 @@ export const additionalInfo = (template, editPath) => {
       case 'snippet':
         return (
           <TableCellWrapper key={derivedKey}>
-            <TooltipWrapper tooltipText="Snippet" key={index}>
-              <ItemWrapper className="cell-info-padding">
-                <Icon aria-label="snippet">
+            <TooltipWrapper tooltipText={__('Snippet')} key={index}>
+              <ItemWrapper>
+                <Icon aria-label={__('Snippet')}>
                   <CheckIcon />
                 </Icon>
               </ItemWrapper>
@@ -104,7 +101,7 @@ export const additionalInfo = (template, editPath) => {
       case 'templateFile':
         return (
           <TableCellWrapper key={derivedKey}>
-            <ItemWrapper key={index} className="cell-info-padding">
+            <ItemWrapper key={index}>
               {extractAttr(template, attr, classNameMap)}
             </ItemWrapper>
           </TableCellWrapper>
@@ -112,12 +109,7 @@ export const additionalInfo = (template, editPath) => {
       case 'name':
         return (
           <TableCellWrapper key={derivedKey}>
-            <LinkItem
-              className="cell-info-padding"
-              template={template}
-              editPath={editPath}
-              key={index}
-            />
+            <LinkItem template={template} editPath={editPath} key={index} />
           </TableCellWrapper>
         );
       default:
@@ -130,34 +122,19 @@ export const additionalInfo = (template, editPath) => {
   });
 };
 
+const statusIcon = (status, StatusIcon) => (
+  <Icon status={status}>
+    <StatusIcon className="c-icon" />
+  </Icon>
+);
+
 export const itemLeftContentIcon = template => {
   if (template.additionalInfo) {
-    return (
-      <Icon>
-        <ExclamationTriangleIcon
-          className="c-icon"
-          color="var(--pf-v5-global--warning-color--100)"
-        />
-      </Icon>
-    );
+    return statusIcon('warning', ExclamationTriangleIcon);
   } else if (isEmpty(aggregatedErrors(template))) {
-    return (
-      <Icon>
-        <CheckCircleIcon
-          className="c-icon"
-          color="var(--pf-v5-global--success-color--100)"
-        />
-      </Icon>
-    );
+    return statusIcon('success', CheckCircleIcon);
   }
-  return (
-    <Icon>
-      <TimesCircleIcon
-        className="c-icon"
-        color="var(--pf-v5-global--danger-color--100)"
-      />
-    </Icon>
-  );
+  return statusIcon('danger', TimesCircleIcon);
 };
 
 export const expandableContent = template => {
@@ -205,11 +182,6 @@ const formatError = (key, value) => {
 
 ItemWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};
-
-ItemWrapper.defaultProps = {
-  className: undefined,
 };
 
 TableCellWrapper.propTypes = {
@@ -223,9 +195,5 @@ LinkItem.propTypes = {
 
 TooltipWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  tooltipText: PropTypes.string,
-};
-
-TooltipWrapper.defaultProps = {
-  tooltipText: null,
+  tooltipText: PropTypes.string.isRequired,
 };

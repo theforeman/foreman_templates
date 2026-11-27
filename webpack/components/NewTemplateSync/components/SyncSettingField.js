@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { translate as __ } from 'foremanReact/common/I18n';
+import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 import { RedoIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
   TextInput,
@@ -120,6 +120,10 @@ const SyncSettingField = ({
         >
           <Button
             ouiaId={`reset-${setting.name}`}
+            aria-label={sprintf(
+              __('Reset %s to default'),
+              __(setting.fullName)
+            )}
             onClick={() => localHandler(index, resetValue)}
             variant="control"
             icon={<RedoIcon />}

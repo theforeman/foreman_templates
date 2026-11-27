@@ -47,11 +47,7 @@ const FinishedSyncResult = ({
           </Button>
         </FlexItem>
       </Flex>
-      <SyncResultList
-        className="margin-top-xl"
-        templates={templates}
-        editPaths={editPaths}
-      />
+      <SyncResultList templates={templates} editPaths={editPaths} />
     </div>
   </PageLayout>
 );

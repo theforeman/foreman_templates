@@ -13,7 +13,9 @@ import PropTypes from 'prop-types';
 import {
   Form,
   FormGroup,
-  ActionGroup,
+  ActionList,
+  ActionListGroup,
+  ActionListItem,
   Button,
   Radio,
 } from '@patternfly/react-core';
@@ -154,6 +156,7 @@ const NewTemplateSyncForm = ({
             ouiaId={radio.value}
             id={radio.value}
             key={radio.value}
+            name="sync-type"
             label={radio.label}
             isChecked={radio.value === syncType}
             onChange={() => setSyncType(radio.value)}
@@ -172,24 +175,32 @@ const NewTemplateSyncForm = ({
           isTemplatesLoading={isTemplatesLoading}
         />
       )}
-      <ActionGroup>
-        <Button
-          ouiaId="submit"
-          variant="primary"
-          onClick={handleSubmit}
-          isLoading={isTemplatesLoading}
-          isDisabled={isTemplatesLoading || validated === 'error'}
-        >
-          {__('Submit')}
-        </Button>
-        <Button
-          ouiaId="cancel"
-          variant="link"
-          onClick={() => setView(SYNC_RESULT_URL)}
-        >
-          {__('Cancel')}
-        </Button>
-      </ActionGroup>
+      <FormGroup isActionGroup>
+        <ActionList>
+          <ActionListGroup>
+            <ActionListItem>
+              <Button
+                ouiaId="submit"
+                variant="primary"
+                onClick={handleSubmit}
+                isLoading={isTemplatesLoading}
+                isDisabled={isTemplatesLoading || validated === 'error'}
+              >
+                {__('Submit')}
+              </Button>
+            </ActionListItem>
+            <ActionListItem>
+              <Button
+                ouiaId="cancel"
+                variant="link"
+                onClick={() => setView(SYNC_RESULT_URL)}
+              >
+                {__('Cancel')}
+              </Button>
+            </ActionListItem>
+          </ActionListGroup>
+        </ActionList>
+      </FormGroup>
     </Form>
   );
 };

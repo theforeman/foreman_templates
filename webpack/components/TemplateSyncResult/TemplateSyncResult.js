@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
+import { translate as __ } from 'foremanReact/common/I18n';
 import { Skeleton } from '@patternfly/react-core';
 import EmptySyncResult from './components/EmptySyncResult';
 import FinishedSyncResult from './components/FinishedSyncResult';
@@ -17,7 +18,7 @@ const TemplateSyncResult = ({
   const redirectBack = () => setView(SYNC_BASE_URL);
 
   if (isTemplatesLoading)
-    return <Skeleton height="100%" screenreaderText="Loading ..." />;
+    return <Skeleton height="100%" screenreaderText={__('Loading ...')} />;
 
   if (!receivedTemplates)
     return <EmptySyncResult primaryAction={redirectBack} />;

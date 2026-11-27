@@ -49,13 +49,17 @@ describe('TemplateSyncResult', () => {
 
     setup(noTemplatesContext);
 
-    expect(screen.getByText('No Template Sync Result')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'No Template Sync Result' })
+    ).toBeInTheDocument();
     expect(
       screen.getByText(
         'To view results of a template sync, you must import/export the templates first.'
       )
     ).toBeInTheDocument();
-    expect(screen.getByText('Sync Templates')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Sync Templates' })
+    ).toBeInTheDocument();
   });
 
   it('renders EmptySyncResult when templates array is empty', () => {
@@ -69,8 +73,12 @@ describe('TemplateSyncResult', () => {
 
     setup(emptyTemplatesContext);
 
-    expect(screen.getByText('No Template Sync Result')).toBeInTheDocument();
-    expect(screen.getByText('Sync Templates')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'No Template Sync Result' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Sync Templates' })
+    ).toBeInTheDocument();
   });
 
   it('renders EmptySyncResult when templates array is null', () => {
@@ -84,8 +92,12 @@ describe('TemplateSyncResult', () => {
 
     setup(nullTemplatesContext);
 
-    expect(screen.getByText('No Template Sync Result')).toBeInTheDocument();
-    expect(screen.getByText('Sync Templates')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'No Template Sync Result' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Sync Templates' })
+    ).toBeInTheDocument();
   });
 
   it('renders FinishedSyncResult when templates are available', () => {
@@ -94,7 +106,9 @@ describe('TemplateSyncResult', () => {
     expect(
       screen.getByText('Ansible Roles - Ansible Default')
     ).toBeInTheDocument();
-    expect(screen.getByText('Back to sync form')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Back to sync form' })
+    ).toBeInTheDocument();
   });
 
   it('calls redirectBack when Sync Templates button is clicked', () => {
@@ -105,8 +119,7 @@ describe('TemplateSyncResult', () => {
 
     setup(noTemplatesContext);
 
-    const syncButton = screen.getByText('Sync Templates');
-    fireEvent.click(syncButton);
+    fireEvent.click(screen.getByRole('button', { name: 'Sync Templates' }));
 
     expect(setView).toHaveBeenCalledWith(SYNC_BASE_URL);
   });
@@ -114,8 +127,7 @@ describe('TemplateSyncResult', () => {
   it('calls redirectBack when Back to sync form button is clicked', () => {
     setup();
 
-    const backButton = screen.getByText('Back to sync form');
-    fireEvent.click(backButton);
+    fireEvent.click(screen.getByRole('button', { name: 'Back to sync form' }));
 
     expect(setView).toHaveBeenCalledWith(SYNC_BASE_URL);
   });

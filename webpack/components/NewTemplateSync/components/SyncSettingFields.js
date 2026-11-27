@@ -1,9 +1,8 @@
 import React from 'react';
-import { FormGroup, Popover, Button } from '@patternfly/react-core';
+import { FormGroup, FormGroupLabelHelp, Popover } from '@patternfly/react-core';
 import { upperFirst } from 'lodash';
 import PropTypes from 'prop-types';
-import { HelpIcon } from '@patternfly/react-icons';
-import { translate as __ } from 'foremanReact/common/I18n';
+import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 
 import SyncSettingField from './SyncSettingField';
 
@@ -69,7 +68,7 @@ const SyncSettingsFields = ({
             ].includes(setting.id)}
             label={__(setting.fullName)}
             key={i}
-            labelIcon={
+            labelHelp={
               <Popover
                 bodyContent={
                   <div
@@ -79,10 +78,12 @@ const SyncSettingsFields = ({
                   />
                 }
               >
-                <Button
-                  variant="plain"
+                <FormGroupLabelHelp
+                  aria-label={sprintf(
+                    __('More info for %s'),
+                    __(setting.fullName)
+                  )}
                   ouiaId={`reset-${setting.fullName}`}
-                  icon={<HelpIcon />}
                 />
               </Popover>
             }

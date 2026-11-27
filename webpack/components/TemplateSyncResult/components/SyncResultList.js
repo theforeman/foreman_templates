@@ -12,8 +12,8 @@ const TemplatesTableHead = () => (
   <>
     <Thead>
       <Tr ouiaId="table-header">
-        <Th aria-label="Toggle button" width={3} />
-        <Th aria-label="State Icon" width={3} />
+        <Th aria-label={__('Toggle button')} width={3} />
+        <Th aria-label={__('State Icon')} width={3} />
         <Th width={25}>{__('Name')}</Th>
         <Th width={2} modifier="wrap">
           {__('Locked')}
@@ -47,8 +47,9 @@ const SyncResultList = ({ templates, editPaths }) => {
   return (
     <>
       <Table
-        aria-label="Templates table"
+        aria-label={__('Templates table')}
         id="foreman-templates"
+        isExpandable
         ouiaId="foreman-templates"
       >
         <TemplatesTableHead />

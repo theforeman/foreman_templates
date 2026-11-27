@@ -1,38 +1,29 @@
-@import 'foremanReact/common/colors';
-
 #foreman-templates {
   .listViewItem:hover {
-    background-color: $list-color;
+    background-color: var(--pf-t--global--color--brand--subtle--default);
     cursor: pointer;
   }
 
   tbody {
     border: 1px solid transparent;
+
     &.pf-m-expanded {
-      border: 1px solid var(--pf-v5-global--BorderColor--100);
-      box-shadow: var(--pf-v5-global--BoxShadow--sm);
+      border: 1px solid var(--pf-t--global--border--color--default);
+      box-shadow: var(--pf-t--global--box-shadow--sm);
       margin-bottom: 5px;
 
       .listViewItem {
-        background-color: $list-color;
+        background-color: var(--pf-t--global--color--brand--subtle--default);
       }
     }
+
     li {
       margin-top: 10px;
     }
   }
 
   .c-icon {
-    font-size: var(--pf-v5-global--icon--FontSize--lg);
-  }
-
-  .sync-result-datalist-cell {
-    display: flex;
-    align-items: center;
-
-    .cell-info-padding {
-      padding: 0 7px;
-    }
+    font-size: var(--pf-t--global--icon--size--font--2xl);
   }
 
   .back_button {
